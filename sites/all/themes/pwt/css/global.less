@@ -732,6 +732,33 @@ ul#megamenu-menu-pw-super-menu {
     a { padding: 5px; }
   }
 }
+
+
+/** feedback form JS (not technically a block) **/
+#block-feedback-form {
+  .feedback-link {  
+    background-color: @white;
+    padding: 10px;
+    .border-radius;
+    .drop-shadow;
+  }
+  form {
+    .drop-shadow;
+    .border-radius;
+    background-color: @darksand;
+  }
+}
+
+
+/** User Login **/
+.not-logged-in #user-login {
+  background-color: @plum;
+  color: @white;
+  .description {
+    color: @white;
+  }
+}
+
 /************ Main Editorial PAGE */
 .node-article.view-mode-full, .view-editorial-views  {
   letter-spacing: -0.06em;
@@ -1004,6 +1031,7 @@ ul#megamenu-menu-pw-super-menu {
 
 
 /*****************  SPECIFIC PAGES  *****************/
+
 .page-node {
   /* attachments */
   .node-attachment {
