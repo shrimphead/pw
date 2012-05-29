@@ -3383,7 +3383,10 @@ Un-Published: [unpublish_on]<br>';
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
   $handler->display->display_options['sorts']['changed']['field'] = 'changed';
-  $handler->display->display_options['filter_groups']['operator'] = 'OR';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
@@ -3428,6 +3431,7 @@ Un-Published: [unpublish_on]<br>';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '0';
+  $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator_id'] = '';
   $handler->display->display_options['filters']['status']['expose']['label'] = 'Published';
   $handler->display->display_options['filters']['status']['expose']['use_operator'] = FALSE;
@@ -3442,6 +3446,13 @@ Un-Published: [unpublish_on]<br>';
   $handler->display->display_options['filters']['publish_on']['operator'] = '>=';
   $handler->display->display_options['filters']['publish_on']['value']['value'] = 'today';
   $handler->display->display_options['filters']['publish_on']['value']['type'] = 'offset';
+  $handler->display->display_options['filters']['publish_on']['group'] = 2;
+  /* Filter criterion: Scheduler: Publish on */
+  $handler->display->display_options['filters']['publish_on_1']['id'] = 'publish_on_1';
+  $handler->display->display_options['filters']['publish_on_1']['table'] = 'scheduler';
+  $handler->display->display_options['filters']['publish_on_1']['field'] = 'publish_on';
+  $handler->display->display_options['filters']['publish_on_1']['operator'] = 'empty';
+  $handler->display->display_options['filters']['publish_on_1']['group'] = 2;
   $handler->display->display_options['path'] = 'admin/pennywise/classified/upcomming';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Upcoming';
@@ -3458,7 +3469,10 @@ Un-Published: [unpublish_on]<br>';
   $handler->display->display_options['title'] = 'Expired';
   $handler->display->display_options['display_description'] = 'ads that have run their course';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  $handler->display->display_options['filter_groups']['operator'] = 'OR';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
@@ -3467,11 +3481,13 @@ Un-Published: [unpublish_on]<br>';
   $handler->display->display_options['filters']['type']['value'] = array(
     'classified' => 'classified',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '0';
+  $handler->display->display_options['filters']['status']['group'] = 1;
   /* Filter criterion: Scheduler: Unpublish on */
   $handler->display->display_options['filters']['unpublish_on']['id'] = 'unpublish_on';
   $handler->display->display_options['filters']['unpublish_on']['table'] = 'scheduler';
@@ -3479,12 +3495,18 @@ Un-Published: [unpublish_on]<br>';
   $handler->display->display_options['filters']['unpublish_on']['operator'] = '<=';
   $handler->display->display_options['filters']['unpublish_on']['value']['value'] = 'today';
   $handler->display->display_options['filters']['unpublish_on']['value']['type'] = 'offset';
-  $handler->display->display_options['filters']['unpublish_on']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['unpublish_on']['group'] = 2;
   $handler->display->display_options['filters']['unpublish_on']['expose']['operator_id'] = 'unpublish_on_op';
   $handler->display->display_options['filters']['unpublish_on']['expose']['label'] = 'Unpublished';
   $handler->display->display_options['filters']['unpublish_on']['expose']['operator'] = 'unpublish_on_op';
   $handler->display->display_options['filters']['unpublish_on']['expose']['identifier'] = 'unpublish_on';
   $handler->display->display_options['filters']['unpublish_on']['expose']['multiple'] = FALSE;
+  /* Filter criterion: Scheduler: Unpublish on */
+  $handler->display->display_options['filters']['unpublish_on_1']['id'] = 'unpublish_on_1';
+  $handler->display->display_options['filters']['unpublish_on_1']['table'] = 'scheduler';
+  $handler->display->display_options['filters']['unpublish_on_1']['field'] = 'unpublish_on';
+  $handler->display->display_options['filters']['unpublish_on_1']['operator'] = 'empty';
+  $handler->display->display_options['filters']['unpublish_on_1']['group'] = 2;
   $handler->display->display_options['path'] = 'admin/pennywise/classified/expired';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Expired';
@@ -6676,11 +6698,7 @@ Un-Published: [unpublish_on]<br>';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
-    5 => '5',
-    6 => '6',
-    7 => '7',
     10 => '10',
-    9 => '9',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';

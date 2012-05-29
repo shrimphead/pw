@@ -1413,7 +1413,7 @@ function pw_editorial_related_field_default_fields() {
       'bundle' => 'page',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Scribd ID - pub-18673738874898982461',
       'display' => array(
         'default' => array(
           'label' => 'hidden',
@@ -1903,6 +1903,7 @@ function pw_editorial_related_field_default_fields() {
   t('Optional thumbnail of file. If uploading a PDF (or any kind of image) please include a thumbnail/screen capture so that the viewer can see what they are getting with this.');
   t('Reference Other');
   t('References');
+  t('Scribd ID - pub-18673738874898982461');
   t('Submitted by');
   t('These images can be of lower resolution than the primary header image. These images will only be displayed on the full editorial page, not in any teasers.');
   t('This image will be at the top of the page and used through out the site as the articles primary image.');
