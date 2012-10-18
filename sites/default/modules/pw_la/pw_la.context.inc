@@ -14,9 +14,29 @@ function pw_la_context_default_contexts() {
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'classified_ad_layout';
-  $context->description = 'TRAD layout for PW site';
-  $context->tag = 'traditional';
+  $context->description = 'layout for PW site';
+  $context->tag = 'layout';
   $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        '~admin/*' => '~admin/*',
+        '<front>' => '<front>',
+        'section/*' => 'section/*',
+        'node/*' => 'node/*',
+        'editorial' => 'editorial',
+        'editorial/*' => 'editorial/*',
+        'sales/*' => 'sales/*',
+        'browse/*' => 'browse/*',
+        'online/*' => 'online/*',
+        'edition' => 'edition',
+        'edition/*' => 'edition/*',
+        'user' => 'user',
+        'user/*' => 'user/*',
+        'contact/*' => 'contact/*',
+        'search' => 'search',
+        'search?*' => 'search?*',
+      ),
+    ),
     'sitewide' => array(
       'values' => array(
         1 => 1,
@@ -30,17 +50,11 @@ function pw_la_context_default_contexts() {
           'module' => 'views',
           'delta' => 'taxonomy_listing-tax_sub_list',
           'region' => 'content',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'views-display_ad_blocks-print_block' => array(
           'module' => 'views',
           'delta' => 'display_ad_blocks-print_block',
-          'region' => 'content',
-          'weight' => '-9',
-        ),
-        'pennywise-pw_breadcrumb' => array(
-          'module' => 'pennywise',
-          'delta' => 'pw_breadcrumb',
           'region' => 'content',
           'weight' => '-8',
         ),
@@ -50,47 +64,47 @@ function pw_la_context_default_contexts() {
           'region' => 'content',
           'weight' => '-7',
         ),
-        'pennywise-pw_contact_user' => array(
-          'module' => 'pennywise',
-          'delta' => 'pw_contact_user',
-          'region' => 'content',
-          'weight' => '-10',
-        ),
-        'megamenu-menu-pw-super-menu' => array(
-          'module' => 'megamenu',
-          'delta' => 'menu-pw-super-menu',
-          'region' => 'super_menu',
-          'weight' => '-10',
+        'views-20eeba41cb621b5fc7f09165eda65f99' => array(
+          'module' => 'views',
+          'delta' => '20eeba41cb621b5fc7f09165eda65f99',
+          'region' => 'sidebar_first',
+          'weight' => '-32',
         ),
         'ad_payment-ad_payment_create_ad' => array(
           'module' => 'ad_payment',
           'delta' => 'ad_payment_create_ad',
           'region' => 'sidebar_first',
-          'weight' => '-27',
+          'weight' => '-31',
         ),
-        'views-02990d644d7eb62daab6d080d86a23b7' => array(
+        'views-27d2d6d0e3ed6c5fa504fe7a9076159a' => array(
           'module' => 'views',
-          'delta' => '02990d644d7eb62daab6d080d86a23b7',
+          'delta' => '27d2d6d0e3ed6c5fa504fe7a9076159a',
           'region' => 'sidebar_first',
-          'weight' => '-26',
+          'weight' => '-30',
         ),
         'views--exp-search_ads-search_page' => array(
           'module' => 'views',
           'delta' => '-exp-search_ads-search_page',
           'region' => 'sidebar_first',
-          'weight' => '-25',
-        ),
-        'views-editorial_views-editorial_block' => array(
-          'module' => 'views',
-          'delta' => 'editorial_views-editorial_block',
-          'region' => 'sidebar_first',
-          'weight' => '-24',
+          'weight' => '-29',
         ),
         'menu-menu-advertising-links' => array(
           'module' => 'menu',
           'delta' => 'menu-advertising-links',
           'region' => 'sidebar_first',
-          'weight' => '-23',
+          'weight' => '-28',
+        ),
+        'views-editorial_views-editorial_block' => array(
+          'module' => 'views',
+          'delta' => 'editorial_views-editorial_block',
+          'region' => 'sidebar_first',
+          'weight' => '-27',
+        ),
+        'menu_block-5' => array(
+          'module' => 'menu_block',
+          'delta' => '5',
+          'region' => 'sidebar_first',
+          'weight' => '-26',
         ),
         'views-display_ad_blocks-poster_block' => array(
           'module' => 'views',
@@ -120,9 +134,51 @@ function pw_la_context_default_contexts() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('TRAD layout for PW site');
-  t('traditional');
+  t('layout');
+  t('layout for PW site');
   $export['classified_ad_layout'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'contact_block';
+  $context->description = 'Contact block';
+  $context->tag = 'layout';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'people/*' => 'people/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'pennywise-pw_contact_user' => array(
+          'module' => 'pennywise',
+          'delta' => 'pw_contact_user',
+          'region' => 'content',
+          'weight' => '-10',
+        ),
+        'pennywise-pw_contact' => array(
+          'module' => 'pennywise',
+          'delta' => 'pw_contact',
+          'region' => 'menu',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+    'delta' => array(
+      'delta_template' => 'traditional',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Contact block');
+  t('layout');
+  $export['contact_block'] = $context;
 
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
@@ -319,6 +375,11 @@ function pw_la_context_default_contexts() {
   $context->description = 'All pages - site wide header';
   $context->tag = 'layout';
   $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        '~admin/*' => '~admin/*',
+      ),
+    ),
     'sitewide' => array(
       'values' => array(
         1 => 1,
@@ -328,17 +389,11 @@ function pw_la_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'pennywise-pw_breadcrumb' => array(
-          'module' => 'pennywise',
-          'delta' => 'pw_breadcrumb',
-          'region' => 'content',
-          'weight' => '-10',
-        ),
         'views-display_ad_blocks-block_1' => array(
           'module' => 'views',
           'delta' => 'display_ad_blocks-block_1',
           'region' => 'splash_one',
-          'weight' => '-10',
+          'weight' => '-30',
         ),
         'views-display_ad_blocks-splash_block' => array(
           'module' => 'views',
@@ -352,10 +407,10 @@ function pw_la_context_default_contexts() {
           'region' => 'menu',
           'weight' => '-28',
         ),
-        'megamenu-menu-pw-super-menu' => array(
-          'module' => 'megamenu',
-          'delta' => 'menu-pw-super-menu',
-          'region' => 'super_menu',
+        'views--exp-search_ads-search_page' => array(
+          'module' => 'views',
+          'delta' => '-exp-search_ads-search_page',
+          'region' => 'preface_third',
           'weight' => '-10',
         ),
       ),
@@ -378,10 +433,10 @@ function pw_la_context_default_contexts() {
   $context->conditions = array(
     'path' => array(
       'values' => array(
-        'display/*' => 'display/*',
-        'user/*' => 'user/*',
         'ad/*' => 'ad/*',
         'submit-ad' => 'submit-ad',
+        'user/*' => 'user/*',
+        'search/*' => 'search/*',
       ),
     ),
   );
@@ -398,12 +453,6 @@ function pw_la_context_default_contexts() {
           'module' => 'pennywise',
           'delta' => 'pw_contact',
           'region' => 'menu',
-          'weight' => '-10',
-        ),
-        'megamenu-menu-pw-super-menu' => array(
-          'module' => 'megamenu',
-          'delta' => 'menu-pw-super-menu',
-          'region' => 'super_menu',
           'weight' => '-10',
         ),
       ),

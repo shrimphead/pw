@@ -10,7 +10,7 @@
 function pw_cl_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-ad_s-field_ad_copy'
+  // Exported field: 'node-ad_s-field_ad_copy'.
   $fields['node-ad_s-field_ad_copy'] = array(
     'field_config' => array(
       'active' => '1',
@@ -34,6 +34,7 @@ function pw_cl_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -58,6 +59,7 @@ function pw_cl_field_default_fields() {
       'label' => 'Ad Copy',
       'required' => 1,
       'settings' => array(
+        'custom_add_another' => '',
         'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
@@ -73,7 +75,7 @@ function pw_cl_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-ad_s-field_ad_details'
+  // Exported field: 'node-ad_s-field_ad_details'.
   $fields['node-ad_s-field_ad_details'] = array(
     'field_config' => array(
       'active' => '1',
@@ -94,6 +96,7 @@ function pw_cl_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -117,6 +120,7 @@ function pw_cl_field_default_fields() {
       'label' => 'Ad Details',
       'required' => 0,
       'settings' => array(
+        'custom_add_another' => '',
         'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
@@ -132,7 +136,7 @@ function pw_cl_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-ad_s-field_agree'
+  // Exported field: 'node-ad_s-field_agree'.
   $fields['node-ad_s-field_agree'] = array(
     'field_config' => array(
       'active' => '1',
@@ -149,6 +153,7 @@ function pw_cl_field_default_fields() {
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
@@ -183,6 +188,7 @@ function pw_cl_field_default_fields() {
       'label' => 'Confirmation',
       'required' => 1,
       'settings' => array(
+        'custom_add_another' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -195,11 +201,11 @@ function pw_cl_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-ad_s-field_area'
+  // Exported field: 'node-ad_s-field_area'.
   $fields['node-ad_s-field_area'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '4',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_area',
@@ -212,6 +218,7 @@ function pw_cl_field_default_fields() {
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
@@ -252,6 +259,7 @@ function pw_cl_field_default_fields() {
       'label' => 'Area',
       'required' => 1,
       'settings' => array(
+        'custom_add_another' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -264,7 +272,7 @@ function pw_cl_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-ad_s-field_duration'
+  // Exported field: 'node-ad_s-field_duration'.
   $fields['node-ad_s-field_duration'] = array(
     'field_config' => array(
       'active' => '1',
@@ -278,6 +286,7 @@ function pw_cl_field_default_fields() {
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
@@ -316,6 +325,7 @@ function pw_cl_field_default_fields() {
       'label' => 'Duration',
       'required' => 1,
       'settings' => array(
+        'custom_add_another' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -328,7 +338,7 @@ function pw_cl_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-ad_s-field_image'
+  // Exported field: 'node-ad_s-field_image'.
   $fields['node-ad_s-field_image'] = array(
     'field_config' => array(
       'active' => '1',
@@ -352,6 +362,7 @@ function pw_cl_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -391,6 +402,7 @@ function pw_cl_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'alt_field' => 0,
+        'custom_add_another' => '',
         'default_image' => 0,
         'file_directory' => 'online_ad_submission_images',
         'file_extensions' => 'png gif jpg jpeg',
@@ -416,6 +428,7 @@ function pw_cl_field_default_fields() {
             ),
           ),
           'insert' => 0,
+          'insert_absolute' => FALSE,
           'insert_class' => '',
           'insert_default' => array(
             0 => 'auto',
@@ -433,7 +446,7 @@ function pw_cl_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-ad_s-field_notes'
+  // Exported field: 'node-ad_s-field_notes'.
   $fields['node-ad_s-field_notes'] = array(
     'field_config' => array(
       'active' => '1',
@@ -457,6 +470,7 @@ function pw_cl_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -480,6 +494,7 @@ function pw_cl_field_default_fields() {
       'label' => 'Notes',
       'required' => 0,
       'settings' => array(
+        'custom_add_another' => '',
         'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
@@ -495,7 +510,7 @@ function pw_cl_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-ad_s-field_price'
+  // Exported field: 'node-ad_s-field_price'.
   $fields['node-ad_s-field_price'] = array(
     'field_config' => array(
       'active' => '1',
@@ -505,6 +520,7 @@ function pw_cl_field_default_fields() {
       'field_name' => 'field_price',
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'number',
       'settings' => array(
         'decimal_separator' => '.',
@@ -532,6 +548,7 @@ function pw_cl_field_default_fields() {
       'label' => 'Price',
       'required' => 0,
       'settings' => array(
+        'custom_add_another' => '',
         'max' => '',
         'min' => '',
         'prefix' => '',
@@ -548,7 +565,7 @@ function pw_cl_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-ad_s-field_promote'
+  // Exported field: 'node-ad_s-field_promote'.
   $fields['node-ad_s-field_promote'] = array(
     'field_config' => array(
       'active' => '1',
@@ -562,6 +579,7 @@ function pw_cl_field_default_fields() {
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
@@ -597,6 +615,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'label' => 'Liveload Your Ad',
       'required' => 1,
       'settings' => array(
+        'custom_add_another' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -609,7 +628,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
     ),
   );
 
-  // Exported field: 'node-ad_s-field_rate'
+  // Exported field: 'node-ad_s-field_rate'.
   $fields['node-ad_s-field_rate'] = array(
     'field_config' => array(
       'active' => '1',
@@ -623,6 +642,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
@@ -656,6 +676,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'label' => 'Rate',
       'required' => 1,
       'settings' => array(
+        'custom_add_another' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -668,7 +689,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
     ),
   );
 
-  // Exported field: 'node-ad_s-field_tags'
+  // Exported field: 'node-ad_s-field_tags'.
   $fields['node-ad_s-field_tags'] = array(
     'field_config' => array(
       'active' => '1',
@@ -689,6 +710,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -720,6 +742,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'label' => 'Section',
       'required' => 1,
       'settings' => array(
+        'custom_add_another' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -732,7 +755,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
     ),
   );
 
-  // Exported field: 'node-adworks_file-body'
+  // Exported field: 'node-adworks_file-body'.
   $fields['node-adworks_file-body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -758,6 +781,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -814,6 +838,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'label' => 'Body',
       'required' => 1,
       'settings' => array(
+        'custom_add_another' => '',
         'display_summary' => 0,
         'text_processing' => '0',
         'user_register_form' => FALSE,
@@ -831,7 +856,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
     ),
   );
 
-  // Exported field: 'node-adworks_file-field_ad_creation_override'
+  // Exported field: 'node-adworks_file-field_ad_creation_override'.
   $fields['node-adworks_file-field_ad_creation_override'] = array(
     'field_config' => array(
       'active' => '1',
@@ -839,12 +864,16 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_ad_creation_override',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
@@ -860,7 +889,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'bundle' => 'adworks_file',
       'default_value' => array(
         0 => array(
-          'value' => '1',
+          'value' => '0',
         ),
       ),
       'deleted' => '0',
@@ -890,6 +919,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'label' => 'Ad Creation Override',
       'required' => 1,
       'settings' => array(
+        'custom_add_another' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -902,7 +932,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
     ),
   );
 
-  // Exported field: 'node-adworks_file-field_image_override'
+  // Exported field: 'node-adworks_file-field_image_override'.
   $fields['node-adworks_file-field_image_override'] = array(
     'field_config' => array(
       'active' => '1',
@@ -916,6 +946,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
@@ -961,6 +992,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'label' => 'Image Override',
       'required' => 1,
       'settings' => array(
+        'custom_add_another' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -973,7 +1005,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
     ),
   );
 
-  // Exported field: 'node-adworks_file-field_publish'
+  // Exported field: 'node-adworks_file-field_publish'.
   $fields['node-adworks_file-field_publish'] = array(
     'field_config' => array(
       'active' => '1',
@@ -982,12 +1014,15 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'entity_types' => array(),
       'field_name' => 'field_publish',
       'field_permissions' => array(
-        'type' => '1',
+        'type' => '0',
       ),
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'date',
       'settings' => array(
+        'cache_count' => '4',
+        'cache_enabled' => 0,
         'granularity' => array(
           'day' => 'day',
           'hour' => 'hour',
@@ -1039,6 +1074,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'label' => 'Publish Date',
       'required' => 0,
       'settings' => array(
+        'custom_add_another' => '',
         'default_value' => 'strtotime',
         'default_value2' => 'strtotime',
         'default_value_code' => '+1 Tuesday 05:30',
@@ -1063,7 +1099,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
     ),
   );
 
-  // Exported field: 'node-classified-field_ad_copy'
+  // Exported field: 'node-classified-field_ad_copy'.
   $fields['node-classified-field_ad_copy'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1087,6 +1123,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -1126,7 +1163,8 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'label' => 'Ad Copy',
       'required' => 1,
       'settings' => array(
-        'text_processing' => '0',
+        'custom_add_another' => '',
+        'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -1141,7 +1179,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
     ),
   );
 
-  // Exported field: 'node-classified-field_ad_type'
+  // Exported field: 'node-classified-field_ad_type'.
   $fields['node-classified-field_ad_type'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1155,6 +1193,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
@@ -1197,6 +1236,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'label' => 'Classified Ad Type',
       'required' => 1,
       'settings' => array(
+        'custom_add_another' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -1209,7 +1249,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
     ),
   );
 
-  // Exported field: 'node-classified-field_area_code'
+  // Exported field: 'node-classified-field_area_code'.
   $fields['node-classified-field_area_code'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1230,6 +1270,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '8',
@@ -1267,6 +1308,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'label' => 'Area Code',
       'required' => 0,
       'settings' => array(
+        'custom_add_another' => '',
         'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
@@ -1282,7 +1324,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
     ),
   );
 
-  // Exported field: 'node-classified-field_email'
+  // Exported field: 'node-classified-field_email'.
   $fields['node-classified-field_email'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1295,8 +1337,23 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       ),
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'email',
-      'settings' => array(),
+      'settings' => array(
+        'user_role_field' => array(
+          1 => 0,
+          2 => 0,
+          3 => 0,
+          4 => 0,
+          5 => 0,
+          6 => 0,
+          7 => 0,
+          8 => 0,
+          9 => '9',
+          10 => 0,
+          11 => 0,
+        ),
+      ),
       'translatable' => '0',
       'type' => 'email',
     ),
@@ -1331,6 +1388,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'label' => 'Email',
       'required' => 0,
       'settings' => array(
+        'custom_add_another' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -1345,7 +1403,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
     ),
   );
 
-  // Exported field: 'node-classified-field_image'
+  // Exported field: 'node-classified-field_image'.
   $fields['node-classified-field_image'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1369,6 +1427,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -1424,6 +1483,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'required' => 0,
       'settings' => array(
         'alt_field' => 1,
+        'custom_add_another' => '',
         'default_image' => 0,
         'file_directory' => 'classified_ad_images',
         'file_extensions' => 'png gif jpg jpeg',
@@ -1440,7 +1500,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
           'filefield_sources' => array(
             'filefield_sources' => array(
               'attach' => 0,
-              'reference' => 0,
+              'reference' => 'reference',
               'remote' => 0,
             ),
             'source_attach' => array(
@@ -1453,13 +1513,14 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
             ),
           ),
           'insert' => 0,
+          'insert_absolute' => FALSE,
           'insert_class' => '',
           'insert_default' => 'auto',
           'insert_styles' => array(
             'auto' => 'auto',
             'image' => 0,
             'image_classified-list-style' => 0,
-            'image_classified-page-style' => 0,
+            'image_classified_page_style' => 0,
             'image_display_ad_print_thumbnail' => 0,
             'image_editorial_block_list_header' => 0,
             'image_editorial_header' => 0,
@@ -1477,16 +1538,16 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '12',
+        'weight' => '3',
       ),
     ),
   );
 
-  // Exported field: 'node-classified-field_link'
+  // Exported field: 'node-classified-field_link'.
   $fields['node-classified-field_link'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '-1',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_link',
@@ -1495,6 +1556,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       ),
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'link',
       'settings' => array(
         'attributes' => array(
@@ -1553,6 +1615,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
           'target' => 'default',
           'title' => '',
         ),
+        'custom_add_another' => '',
         'display' => array(
           'url_cutoff' => '80',
         ),
@@ -1574,7 +1637,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
     ),
   );
 
-  // Exported field: 'node-classified-field_phone'
+  // Exported field: 'node-classified-field_phone'.
   $fields['node-classified-field_phone'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1587,6 +1650,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       ),
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'cck_phone',
       'settings' => array(
         'size' => '15',
@@ -1875,6 +1939,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
           ),
           'hide_single_cc' => 1,
         ),
+        'custom_add_another' => '',
         'default_country' => 'ca',
         'enable_country_level_validation' => 0,
         'enable_default_country' => TRUE,
@@ -1893,7 +1958,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
     ),
   );
 
-  // Exported field: 'node-classified-field_tags'
+  // Exported field: 'node-classified-field_tags'.
   $fields['node-classified-field_tags'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1914,6 +1979,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -1958,6 +2024,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'label' => 'Classification',
       'required' => 1,
       'settings' => array(
+        'custom_add_another' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(

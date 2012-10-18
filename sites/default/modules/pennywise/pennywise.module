@@ -16,12 +16,27 @@
 
 // FORM DEBUG
 // Displays Form Data
-define ('DEBUG', TRUE);
+define ('DEBUG', FALSE);
 
 // VALIDATION_TEST_MODE: set to TRUE to allow any card number for testing purposes.
-// Must be set before loading the CreditCardValidate.inc.php library! 
-   define ('VALIDATION_TEST_MODE', TRUE);
+// Must be set before loading the CreditCardValidate.inc.php library!
+define ('VALIDATION_TEST_MODE', FALSE);
 
+
+/**
+* Implementation of HOOK_email_registration_name
+*
+* If Email Registration module enabled - hook and rename.
+* - Email registration uses the email field
+* - PW module uses the real_name module
+*
+*/
+function pennywise_email_registration_name($edit, $account) {
+  if (module_exists('email_registration') && module_exists('realname') ) {
+    $real_name = $account->field_first_name['und'][0]['value'] . '_' . $account->field_last_name['und'][0]['value'];
+    return $real_name;
+  }
+}
 
 
 
@@ -29,7 +44,7 @@ define ('DEBUG', TRUE);
  * Implementation of HOOK_page
  */
 function pennywise_init() {
-  
+
   drupal_add_css(drupal_get_path('module', 'pennywise') . '/css/pennywise.css', array('type' => 'file'));
 
 }
@@ -37,18 +52,65 @@ function pennywise_init() {
 
 /**
  * Implementation of HOOK_menu
- *  
+ *
  *  - Callback page for ad_submission to classified ad conversion (promotion).
+ *  - Default settings pages
  */
 function pennywise_menu() {
+#  $items['admin/pennywise'] = array(
+#    'title' => 'Promote',
+#    'page callback'    => 'pw_dashboard',
+#    'page arguments'   => array(3),
+#    'access arguments' => array('Administer content'),
+#    'file'             => 'dashboard.inc',
+#    'type'             => MENU_CALLBACK,
+#  );
 
-  $items['admin/pennywise/classified/promote/%'] = array(
+  $items['admin/pennywise/promote_ad/%'] = array(
     'title' => 'Promote',
     'page callback'    => 'promote_to_classified_ad',
     'page arguments'   => array(3),
     'access arguments' => array('Adworks File: Create new content'),
     'file'             => 'promote_classifieds.inc',
-    'type'             => MENU_CALLBACK, 
+    'type'             => MENU_CALLBACK,
+  );
+
+  // Settings
+  $items['admin/pennywise/settings'] = array(
+    'title'            => 'Pennywise Settings',
+    'page callback'    => 'pw_general_settings_page',
+    'access arguments' => array('Classified Ads: Edit any content'),
+    'file'             => 'settings_default.inc',
+    'type'             => MENU_NORMAL_ITEM,
+  );
+  $items['admin/pennywise/settings/general'] = array(
+    'title'            => 'General Settings',
+    'page callback'    => 'pw_general_settings_page',
+    'access arguments' => array('Classified Ads: Edit any content'),
+    'file'             => 'settings_default.inc',
+    'type'             => MENU_DEFAULT_LOCAL_TASK,
+    'weight'           => -10,
+  );
+  $items['admin/pennywise/settings/holiday'] = array(
+    'title'            => 'Holiday Settings',
+    'page callback'    => 'pw_holiday_settings_page',
+    'access arguments' => array('Classified Ads: Edit any content'),
+    'file'             => 'settings_holiday.inc',
+    'type'             => MENU_LOCAL_TASK,
+  );
+  $items['admin/pennywise/settings/classified'] = array(
+    'title'            => 'Classified Settings',
+    'page callback'    => 'pw_classified_settings_page',
+    'access arguments' => array('Classified Ads: Edit any content'),
+    'file'             => 'settings.inc',
+    'type'             => MENU_LOCAL_TASK,
+  );
+  $items['admin/pennywise/settings/display'] = array(
+    'title'            => 'Display Settings',
+    'page callback'    => 'pw_display_settings_page',
+    'access arguments' => array('Display ads: Edit any content'),
+    'file'             => 'settings.inc',
+    'type'             => MENU_LOCAL_TASK,
   );
   return $items;
  }
@@ -63,7 +125,7 @@ function pennywise_create_node_page($node_type) {
 
   module_load_include('inc', 'node', 'node.pages');
   $content = node_add($node_type);
-  
+
   return $content;
 }
 
@@ -73,7 +135,7 @@ function pennywise_create_node_page($node_type) {
 * Custom sub-function for filling details into LOCAL ACTIONS
 */
 function pennywise_custom_action_links($node_type, $action_link_name, $destination = NULL) {
-  $item = menu_get_item('node/add/' . $node_type); 
+  $item = menu_get_item('node/add/' . $node_type);
   $item['title'] = $action_link_name ;
   if ($destination) {
     $item['path'] = $item['path'] . '?destination=' . $destination;
@@ -87,7 +149,7 @@ function pennywise_custom_action_links($node_type, $action_link_name, $destinati
 }
 /**
 * Implementation of HOOK_menu_local_tasks_alter
-* 
+*
 * Create Action Links dependant on URL and access.
 */
 function pennywise_menu_local_tasks_alter(&$data, $router_item, $root_path) {
@@ -98,21 +160,21 @@ function pennywise_menu_local_tasks_alter(&$data, $router_item, $root_path) {
     switch ($match[2]) {
       case 'display_ads':
         $data['actions']['output'][] = pennywise_custom_action_links('display-ads', 'Add Display Ad');
+        $data['actions']['output'][] = pennywise_custom_action_links('attachment', 'Add File Attachment');
         break;
       case 'article':
         $data['actions']['output'][] = pennywise_custom_action_links('article', 'Add Editorial');
         break;
-      case 'attachments':
-        $data['actions']['output'][] = pennywise_custom_action_links('attachment', 'Add File Attachment');
-        break;
-      case 'page':
+      case 'pages':
         $data['actions']['output'][] = pennywise_custom_action_links('page', 'Add New Page');
+        $data['actions']['output'][] = pennywise_custom_action_links('attachment', 'Add File Attachment');
+        $data['actions']['output'][] = pennywise_custom_action_links('pw-digital', 'Add Digital Edition');
         break;
       case 'classified':
         $data['actions']['output'][] = pennywise_custom_action_links('classified', 'Create Classified Ad');
         $data['actions']['output'][] = pennywise_custom_action_links('adworks-file', 'Upload Adworks File');
         break;
-      default: 
+      default:
         $data['actions']['output'][] = pennywise_custom_action_links('display-ads', 'Create Display Ad');
         $data['actions']['output'][] = pennywise_custom_action_links('article', 'Add Editorial');
         $data['actions']['output'][] = pennywise_custom_action_links('classified', 'Create Classified Ad');
@@ -169,7 +231,13 @@ function pennywise_block_info() {
     'visibility' => 0,
     'cache' => 8,
   );
-  
+  $blocks['pw_holiday_message'] = array(
+    'info'    => t('PW Holiday Message'),
+    'status'  => FALSE,
+    'visibility' => 0,
+    'cache' => 8,
+  );
+
   return $blocks;
 }
 
@@ -182,68 +250,25 @@ function pennywise_block_configure($delta) {
   $form = array();
   switch($delta) {
     case 'pw_contact':
-      $form['pennywise_contact_information']['pw_phone_toll_free'] = array(
-        '#type' => 'textfield',
-        '#title' => t('Toll free phone number.'),
-        '#size' => 15,
-        '#default_value' => variable_get('pw_phone_toll_free', '1-800-663-4619'),
-      );
-      $form['pennywise_contact_information']['pw_phone_local'] = array(
-        '#type' => 'textfield',
-        '#title' => t('Local phone number.'),
-        '#size' => 15,
-        '#default_value' => variable_get('pw_phone_local', '250-353-2602'),
-      );
-      $form['pennywise_contact_information']['pw_phone_fax'] = array(
-        '#type' => 'textfield',
-        '#title' => t('Fax number.'),
-        '#size' => 15,
-/*         '#description' => t('This is the main contact information for Pennywise.'), */
-        '#default_value' => variable_get('pw_phone_fax', '250-353-7444'),
-      );
-      $form['pennywise_contact_information']['pw_mailing_address'] = array(
-        '#type' => 'textfield',
-        '#title' => t('General email address.'),
-        '#size' => 80,
-        '#default_value' => variable_get('pw_mailing_address', 'Box 430, Kaslo, BC Canada, V0G 1M0'),
-      );
-      $form['pennywise_contact_information']['pw_email'] = array(
-        '#type' => 'textfield',
-        '#title' => t('Mailing address.'),
-        '#size' => 45,
-        '#default_value' => variable_get('pw_email', 'info@pennywiseads.com'),
-      );
-      $form['pennywise_contact_information']['pw_facebook_link'] = array(
-        '#type' => 'textfield',
-        '#title' => t('Facebook link.'),
-        '#size' => 50,
-        '#description' => t('Include full link address. This means <strong>http://</strong>. '),
-        '#default_value' => variable_get('pw_facebook_link', 'http://www.facebook.com/profile.php?id=728375773'),
-      );
+        // Link to default settings page.
+        $form['link_group'] = array(
+          '#type' => 'fieldset',
+          '#title' => 'Pennywise Contact Settings',
+          '#collapsible' => FALSE,
+        );
+        // OUtput
+        $form['link_group']['link'] = array(
+          '#type'         => 'item',
+          '#description'  => l('Admistrative Default Settings', 'admin/pennywise/settings'),
+        );
+
       break;
   }
-  
+
   return $form;
 }
 
 
-/**
-* Implementation of HOOK_block_save
-*/
-function pennywise_block_save($delta = '', $edit = array()) {
-
-  switch($delta) {
-    case 'pw_contact':
-      variable_set('pw_title', $edit['pw_contact_title']);
-      variable_set('pw_phone_toll_free', $edit['pw_phone_toll_free']);
-      variable_set('pw_phone_local', $edit['pw_phone_local']);
-      variable_set('pw_phone_fax', $edit['pw_phone_fax']);
-      variable_set('pw_mailing_address', $edit['pw_mailing_address']);
-      variable_set('pw_email', $edit['pw_email']);
-      variable_set('pw_facebook_link',   $edit['pw_facebook_link']);
-      break;
-  }
-}
 
 /**
  * Implementation of HOOK_block_view
@@ -254,6 +279,8 @@ function pennywise_block_save($delta = '', $edit = array()) {
  * - Breadcrumb block
  */
 function pennywise_block_view($delta = '') {
+  global $base_url;
+
   switch($delta) {
     case 'pw_logo':
       $subject    = '';
@@ -264,7 +291,7 @@ function pennywise_block_view($delta = '') {
 
     case 'pw_contact':
       $subject = variable_get('pw_contact_title', '<none>');
-      
+
       $pw_contact = array(
         'toll_free'   => variable_get('pw_phone_toll_free'),
         'local_phone' => variable_get('pw_phone_local'),
@@ -273,7 +300,7 @@ function pennywise_block_view($delta = '') {
         'email'       => l('email', 'mailto:' . variable_get('pw_email'), array('absolute' => TRUE)),
         'facebook'    => l('facebook', variable_get('pw_facebook_link'), array('absolute' => TRUE)),
       );
-  
+
       $content = '<dl id="pw-contact-info-block">';
       $a = 0;
       foreach($pw_contact as $key => $value) {
@@ -284,11 +311,11 @@ function pennywise_block_view($delta = '') {
         $content .= "<dt class='pw-contact-label pw-contact-$key-label'>$key_view</dt>";
         $content .= "<dd class='pw-contact-value pw-contact-$key-value'>$value</dd>";
         $content .= "</div>";
-      }      
+      }
       $content .= '</dl>';
 
-      break; 
-    
+      break;
+
     case 'pw_contact_user':
       $path_details = explode('/', current_path());
 
@@ -299,35 +326,37 @@ function pennywise_block_view($delta = '') {
         $content = '';
       }
       break;
-         
+
     case 'pw_breadcrumb':
       $site_path = $base_url . base_path();
-    
+
       $subject = '';
       $url = current_path();
 
       $address_string = explode('/', $url);
       $page_id = array_pop($address_string);
       $term = taxonomy_term_load($page_id);
-      
+
       $home = "<a href='$site_path'>  Classifieds >> </a>";
-      
-      if ($term->tid) {
+
+      if ($term && $term->tid) {
         // If taxonomy term load current page into breadcrumbs.
         $child = "<a href='$site_path/taxonomy/term/" . $term->tid . "'> " . $term->name . " </a>";
         $ancestor = db_query('SELECT parent FROM {taxonomy_term_hierarchy} WHERE tid = :tid', array(':tid' => $term->tid))->fetchField();
-        
+
         // Load Parent - if any;
         if ($ancestor) {
             $parent = taxonomy_term_load($ancestor);
             $parent = "<a href='$site_path/taxonomy/term/" . $parent->tid . "'>  " . $parent->name . " >> </a>";
         }
+        else { $parent = ''; }
+
         $content = "<div id='pw-breadcrumb' >$home $parent $child </div>";
       }
       else {
         $content = '';
       }
-      break;  
+      break;
   }
   $block = array(
     'subject' => $subject,
@@ -336,3 +365,5 @@ function pennywise_block_view($delta = '') {
 
   return $block;
 }
+
+

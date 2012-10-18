@@ -10,22 +10,20 @@ function ad_payment_form(&$form, $form_state) {
   // Get User Name
   global $user;
   $user_data = user_load($user->uid);
-  // To get the 'realname'
-  // $user_data->realname 
 
   // Determine User Role
-  if (user_access('edit any ad_s content') && !DEBUG){
-    $access = FALSE;
-    $required = FALSE;
-    dpm(' Access removed your need to enter CC data.');
-  }
-  else {
-    $access = TRUE;
-    $required = TRUE;
-  }
-  
+//  if (user_access('edit any ad_s content') && !DEBUG){
+//    $access = FALSE;
+//    $required = FALSE;
+//    dpm(' Access removed your need to enter CC data.');
+//  }
+//  else {
+  $access = TRUE;
+  $required = TRUE;
+//  }
+
   // Get Form State data - if any
-  if ($form_state['values']) {
+  if ($form_state && $form_state['values']) {
     $cc_number = $form_state['values']['field_cc_number'];
     $cc_month  = $form_state['values']['field_exp_month'];
     $cc_year   = $form_state['values']['field_exp_year'];
@@ -57,7 +55,7 @@ function ad_payment_form(&$form, $form_state) {
     '#type' => 'textfield',
     '#title' => t('First Name'),
     '#description' => t('Please enter your First Name as it appears on your card'),
-    '#default_value' => ($user_data->field_first_name['und'][0]['value']) ? $user_data->field_first_name['und'][0]['value'] : '',
+    '#default_value' => ($user_data && $user_data->field_first_name && $user_data->field_first_name['und'][0]['value']) ? $user_data->field_first_name['und'][0]['value'] : '',
     '#size' => 12,
     '#maxlength' => 35,
     '#required' => $required,
@@ -67,7 +65,7 @@ function ad_payment_form(&$form, $form_state) {
     '#type' => 'textfield',
     '#title' => t('Last Name'),
     '#description' => t('Please enter your Last Name as it appears on your card'),
-    '#default_value' => ($user_data->field_last_name['und'][0]['value']) ? $user_data->field_last_name['und'][0]['value'] : '',
+    '#default_value' => ($user_data && $user_data->field_last_name && $user_data->field_last_name['und'][0]['value']) ? $user_data->field_last_name['und'][0]['value'] : '',
     '#size' => 12,
     '#maxlength' => 35,
     '#required' => $required,
@@ -78,7 +76,7 @@ function ad_payment_form(&$form, $form_state) {
     '#title' => t('Credit Card'),
     '#description' => t('Select your credit card'),
     '#options' => array('Master Card', 'Visa'),
-#    '#required' => TRUE,
+    '#required' => TRUE,
     '#access' => $access,
   );
   $form['field_cc_number'] = array(

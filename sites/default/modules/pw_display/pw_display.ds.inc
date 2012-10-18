@@ -59,10 +59,12 @@ function pw_display_ds_layout_settings_info() {
     'hide_empty_regions' => 1,
     'hide_sidebars' => FALSE,
     'regions' => array(
+      'header' => array(
+        0 => 'field_display_ad',
+      ),
       'left' => array(
         0 => 'field_section_all_select',
         1 => 'field_tags',
-        2 => 'field_display_ad',
       ),
       'middle' => array(
         0 => 'field_display_ad_type',
@@ -77,7 +79,9 @@ function pw_display_ds_layout_settings_info() {
         1 => 'field_link',
         2 => 'group_options',
         3 => 'field_email',
-        4 => 'field_entity_reference',
+      ),
+      'footer' => array(
+        0 => 'field_entity_reference',
       ),
       'hidden' => array(
         0 => 'field_high_res_ad',
@@ -86,9 +90,9 @@ function pw_display_ds_layout_settings_info() {
       ),
     ),
     'fields' => array(
+      'field_display_ad' => 'header',
       'field_section_all_select' => 'left',
       'field_tags' => 'left',
-      'field_display_ad' => 'left',
       'field_display_ad_type' => 'middle',
       'group_basics' => 'middle',
       'path' => 'right',
@@ -98,7 +102,7 @@ function pw_display_ds_layout_settings_info() {
       'group_options' => 'right',
       'field_email' => 'right',
       'title' => 'middle',
-      'field_entity_reference' => 'right',
+      'field_entity_reference' => 'footer',
       'field_high_res_ad' => 'hidden',
       'field_ad_copy' => 'middle',
       'group_description_box' => 'hidden',

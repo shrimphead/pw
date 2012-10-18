@@ -31,7 +31,7 @@ function pw_cl_views_api() {
 function pw_cl_image_default_styles() {
   $styles = array();
 
-  // Exported image style: classified-list-style
+  // Exported image style: classified-list-style.
   $styles['classified-list-style'] = array(
     'name' => 'classified-list-style',
     'effects' => array(
@@ -53,7 +53,32 @@ function pw_cl_image_default_styles() {
     ),
   );
 
-  // Exported image style: classified_page_style
+  // Exported image style: classified_list_nocrop.
+  $styles['classified_list_nocrop'] = array(
+    'name' => 'classified_list_nocrop',
+    'effects' => array(
+      27 => array(
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => '265',
+          'height' => '145',
+          'upscale' => 0,
+        ),
+        'weight' => '-10',
+      ),
+      26 => NULL,
+      28 => NULL,
+    ),
+  );
+
+  // Exported image style: classified_page_style.
   $styles['classified_page_style'] = array(
     'name' => 'classified_page_style',
     'effects' => array(
@@ -98,7 +123,7 @@ function pw_cl_node_info() {
       'description' => t('Upload and schedule new ads from Adworks.'),
       'has_title' => '1',
       'title_label' => t('Title'),
-      'help' => '',
+      'help' => t('Make sure ALL IMAGES are loaded before <strong>Saving</strong> the file. Use the <strong>Preview</strong> button with the <strong>Do NOT create images</strong> option until ALL images are loaded..'),
     ),
     'classified' => array(
       'name' => t('Classified Ads'),

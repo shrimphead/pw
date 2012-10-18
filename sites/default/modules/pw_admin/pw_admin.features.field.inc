@@ -10,7 +10,11 @@
 function pw_admin_field_default_fields() {
   $fields = array();
 
+<<<<<<< HEAD
   // Exported field: 'node-webform-body'
+=======
+  // Exported field: 'node-webform-body'.
+>>>>>>> release1.7
   $fields['node-webform-body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -36,6 +40,10 @@ function pw_admin_field_default_fields() {
           0 => 'format',
         ),
       ),
+<<<<<<< HEAD
+=======
+      'locked' => '0',
+>>>>>>> release1.7
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -69,6 +77,10 @@ function pw_admin_field_default_fields() {
       'label' => 'Body',
       'required' => FALSE,
       'settings' => array(
+<<<<<<< HEAD
+=======
+        'custom_add_another' => '',
+>>>>>>> release1.7
         'display_summary' => TRUE,
         'text_processing' => 1,
         'user_register_form' => FALSE,
@@ -85,7 +97,11 @@ function pw_admin_field_default_fields() {
     ),
   );
 
+<<<<<<< HEAD
   // Exported field: 'taxonomy_term-classification-field_business_rated'
+=======
+  // Exported field: 'taxonomy_term-classification-field_business_rated'.
+>>>>>>> release1.7
   $fields['taxonomy_term-classification-field_business_rated'] = array(
     'field_config' => array(
       'active' => '1',
@@ -99,6 +115,7 @@ function pw_admin_field_default_fields() {
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
@@ -140,6 +157,7 @@ function pw_admin_field_default_fields() {
       'label' => 'Business Rated',
       'required' => 0,
       'settings' => array(
+        'custom_add_another' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -154,7 +172,7 @@ function pw_admin_field_default_fields() {
     ),
   );
 
-  // Exported field: 'taxonomy_term-classification-field_classified_id'
+  // Exported field: 'taxonomy_term-classification-field_classified_id'.
   $fields['taxonomy_term-classification-field_classified_id'] = array(
     'field_config' => array(
       'active' => '1',
@@ -162,6 +180,9 @@ function pw_admin_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_classified_id',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -175,6 +196,7 @@ function pw_admin_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '6',
@@ -206,6 +228,7 @@ function pw_admin_field_default_fields() {
       'label' => 'Classification ID',
       'required' => 1,
       'settings' => array(
+        'custom_add_another' => '',
         'text_processing' => '0',
         'user_register_form' => FALSE,
       ),

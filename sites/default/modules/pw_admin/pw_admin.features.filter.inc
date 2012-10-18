@@ -10,13 +10,39 @@
 function pw_admin_filter_default_formats() {
   $formats = array();
 
-  // Exported format: Filtered HTML
+  // Exported format: Edition Editor.
+  $formats['edition_editor'] = array(
+    'format' => 'edition_editor',
+    'name' => 'Edition Editor',
+    'cache' => '1',
+    'status' => '1',
+    'weight' => '-6',
+    'filters' => array(
+      'filter_url' => array(
+        'weight' => '0',
+        'status' => '1',
+        'settings' => array(
+          'filter_url_length' => '72',
+        ),
+      ),
+      'scribd_filter' => array(
+        'weight' => '0',
+        'status' => '1',
+        'settings' => array(
+          'scribd_filter_display_method' => 'embed_html5',
+          'scribd_filter_display_mode' => 'list',
+        ),
+      ),
+    ),
+  );
+
+  // Exported format: Filtered HTML.
   $formats['filtered_html'] = array(
     'format' => 'filtered_html',
     'name' => 'Filtered HTML',
     'cache' => '1',
     'status' => '1',
-    'weight' => '-8',
+    'weight' => '-9',
     'filters' => array(
       'filter_url' => array(
         'weight' => '0',
@@ -54,13 +80,13 @@ function pw_admin_filter_default_formats() {
     ),
   );
 
-  // Exported format: Full HTML
+  // Exported format: Full HTML.
   $formats['full_html'] = array(
     'format' => 'full_html',
     'name' => 'Full HTML',
     'cache' => '1',
     'status' => '1',
-    'weight' => '-10',
+    'weight' => '-8',
     'filters' => array(
       'lightbox2_filter' => array(
         'weight' => '-49',
@@ -94,17 +120,29 @@ function pw_admin_filter_default_formats() {
         'status' => '1',
         'settings' => array(),
       ),
+<<<<<<< HEAD
       'scribd_filter' => array(
         'weight' => '0',
         'status' => '1',
         'settings' => array(
           'scribd_filter_display_method' => 'embed_html5',
         ),
+=======
+      'filter_markdown' => array(
+        'weight' => '0',
+        'status' => '1',
+        'settings' => array(),
+      ),
+      'media_filter' => array(
+        'weight' => '2',
+        'status' => '1',
+        'settings' => array(),
+>>>>>>> release1.7
       ),
     ),
   );
 
-  // Exported format: Markdown Filter
+  // Exported format: Markdown Filter.
   $formats['markdown_filtering'] = array(
     'format' => 'markdown_filtering',
     'name' => 'Markdown Filter',
@@ -147,13 +185,13 @@ function pw_admin_filter_default_formats() {
     ),
   );
 
-  // Exported format: Plain text
+  // Exported format: Plain text.
   $formats['plain_text'] = array(
     'format' => 'plain_text',
     'name' => 'Plain text',
     'cache' => '1',
     'status' => '1',
-    'weight' => '-9',
+    'weight' => '-10',
     'filters' => array(
       'filter_html_escape' => array(
         'weight' => '0',

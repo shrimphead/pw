@@ -11,7 +11,7 @@
 @plum: #303;
 @peach: #FC9;
 @sand: #e5e0dc;
-@lightsand: lighten(@sand, 10%); 
+@lightsand: lighten(@sand, 10%);
 
 @alert: #fe4e4e;
 @warning: #ff0;
@@ -50,15 +50,43 @@
   .center;
   color: @white;
   background-color: @colour;
-}  
+}
 
 
 /*************************** GENERAL Form Style */
+.less-strong-stuff {
+  font-weight: 800;
+  font-size: 1em;
+}
+.strong-stuff {
+  font-weight: 500;
+  font-size: 1.2em;
+}
+.strong-stuff:first-line {
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+.italic-stuff {
+  font-style: italic;
+}
+.box-stuff {
+  .border-radius;
+  padding: 5px;
+  margin: 5px;
+  background-color: @sand;
+  border-width: thin;
+}
+
+
 .ds-form-3col-stacked {
   .border-radius;
   .tabledrag-toggle-weight {
     visibility: hidden;
     height: 0;
+  }
+  table.tableheader-processed {
+    width: 200px;
   }
   h3 {
 /*     border-bottom: 2pt groove @plum; */
@@ -88,13 +116,13 @@
     .border-radius;
   }
   .group-middle{
-    width: 300px;
+    width: 280px;
     padding: 10px;
     div { width: 100%; }
     height: 100%;
   }
   .group-right {
-    width: 300px;
+    width: 280px;
     padding: 10px;
     border-left: solid 1pt @white;
     background: lighten(@lightblue, 5%);
@@ -105,6 +133,7 @@
   .form-item {
     width: 100%;
   }
+
 }
 /* Editorial (Article) & Classified Node Form Style */
 .node-article-form, .node-classified-form {
@@ -117,6 +146,10 @@
     }
     .group-right {
       width: 365px;
+    }
+
+    #edit-field-image-und {
+      width: 300px;
     }
   }
 }
@@ -178,14 +211,14 @@
     .views-field-status {
       .border-radius-custom(10px, 10px, 0, 0);
       padding: 3pt;
-      width: 80%;
-      height: 38px;
+      width: 180px;
+/*       height: 38px; */
       border: 1pt solid @warning;
     }
-    .Enabled { 
+    .Enabled {
       background-color: lighten(@warning, 40);
     }
-    .Disabled { 
+    .Disabled {
       background-color: lighten(@status, 20);
     }
     .field-promote-status-Promoted {
@@ -215,7 +248,7 @@
       border-bottom: 10pt solid @warning;
     }
     .new-marker .marker {
-      width: 83%;
+      width: 95%;
       .border-radius-custom(0, 0, 8px, 8px);
       padding: 2px;
       font-weight: bolder;
@@ -229,16 +262,89 @@
       display: none;
     }
   }
-  .field-publish-link {
-    .button;
-    width: 60%;
-    font-size: .8em;
-    line-height: 1em;
-    padding: 2pt;
-    text-transform: uppercase;
+  .field-publish-link, .views-editorial-link, .views-admin-display-link {
+    float: left;
+    margin:0;
+    padding: 0;
+    a {
+      text-decoration: none;
+      background-color: @lightblue;
+      color: @darkblue;
+      width: 60px;
+      font-size: .6em;
+      text-transform: uppercase;
+      font-weight: 600;
+      .border-radius-custom (5px, 0, 0, 5px);
+      .center;
+      padding: 2px 4px;
+      margin: 2px 4px;
+      width: 100%;
+    }
+    a:hover {
+      background-color: @alert;
+      color: @white;
+    }
+  }
+  .field-clone-link {
+    a {
+     .border-radius-custom (0, 0, 0, 0);
+     margin-right: 0;
+      width: 35px;
+    }
+  }
+  .field-edit-link {
+    a {
+      margin-left: 0;
+      .border-radius-custom (0, 3px, 3px, 0);
+      color: @white;
+      background-color: @status;
+    }
   }
   .field-unpublish-link {
     background-color: @white;
+  }
+  .views-fields-clear-all {
+    clear: both;
+    float: none;
+    line-height: 0px;
+  }
+}
+/*** editorial admin *****/
+.view-id-editorial_administration {
+  .col-2, .col-4 {
+    background-color: @lightsand;
+  }
+}
+.views-field-editorial-header-image {
+  height: 180px;
+}
+
+/* specific admin display quick link button tweaks */
+.views-dispaly-admin-status-links {
+  .border-radius-custom(0,0,0,0);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  a {
+  }
+  .field-publish-link a {
+    .border-radius-custom(3px,0,0,3px);
+    margin: 0;
+    margin-right: 4px;
+  }
+  .field-edit-link a {
+    margin: 0;
+    margin-left: 4px;
+/*     margin-right: 6px; */
+  }
+  .field-clone-link a {
+    margin: 0;
+    margin-left: 10px;
+    padding-right: 2px;
+  }
+  .field-link-link a {
+    margin: 0;
+   .border-radius-custom(0,3px,3px,0);
   }
 }
 
@@ -257,16 +363,16 @@
     tr.classified-admin-table-row-published-Not {
       background-color: @alert_t;
       border-color: @alert;
-      border-width: 1pt 5pt;      
+      border-width: 1pt 5pt;
     }
     tr.classified-admin-table-row-published-Published {
       border-color: @status;
-      border-width: 1pt 5pt;      
+      border-width: 1pt 5pt;
     }
     tr.odd.classified-admin-table-row-published-Not {
       background-color: lighten(@alert_t, 10);
       border-color: lighten(@alert, 10);
-      border-width: 1pt 5pt;      
+      border-width: 1pt 5pt;
     }
     tr.odd.classified-admin-table-row-published-Published {
       border-color: lighten(@status, 10);

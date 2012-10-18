@@ -1,3 +1,133 @@
+/* COLOURS */
+
+@black: #000;
+@white: #fff;
+@gray: #e5e0dc;
+
+@classified_dark: #036;
+@classified_med: lighten(@classified_dark, 15); // #36C;
+@classified_light: #d1e5ff;
+
+@editorial: #339a00;
+@editorial_light: #a4d2b3; /* lighten(@editorial, 25); */
+@editorial_dark: #060; /* darken(@editorial, 10); */
+
+@other: #fc4021; /*  #F63;  */
+@other_dark: darken(@other, 25);
+@other_light: lighten(@other, 25);
+@other_extra_light: lighten(@other_light, 25);
+
+@plum: #303;
+@peach: #FC9;
+
+@sand: #e5e0dc;
+@lightsand: lighten(@sand, 10%);
+@darksand: darken(@sand, 5%);
+
+@sunlight: rgb(255, 248, 221);
+@darklight: darken(@sunlight, 5);
+
+@alert: #fe4e4e;
+@warning: #ff0;
+@status: lighten(#060, 10);
+
+@highlight: lighten(#900, 20);
+
+/* rounded corners */
+.border-radius (@radius: 10px) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+.border-radius-custom (@top_left: 10px, @top_right: 10px, @bottom_right: 0, @bottom_left: 0) {
+  border-radius: @top_left @top_right @bottom_right @bottom_left;
+  -moz-border-radius: @top_left @top_right @bottom_right @bottom_left;
+	-webkit-border-radius: @top_left @top_right @bottom_right @bottom_left;
+}
+
+/* drop shadow */
+.drop-shadow (@x: 3px, @y: 3px, @depth: 4px, @colour: @darksand) {
+  -moz-box-shadow: @x @y @depth @colour;
+  -webkit-box-shadow: @x @y @depth @colour;
+  box-shadow: @x @y @depth @colour;
+  /* For IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+  /* For IE 5.5 - 7 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
+
+
+/* center block */
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.button (@background: @darksand, @link_text: @white, @hover: @warning, @link_hover: @classified_dark, @padding: 5px) {
+  a {
+    text-decoration: none;
+    .border-radius;
+    background-color: @background;
+    color: @link_text;
+    padding: @padding;
+  }
+  a:hover {
+    background-color: @hover;
+    color: @link_hover;
+  }
+}
+
+/***************** Registration Unified Form ********/
+.ad-submission-unified {
+  #login-message {
+    .center;
+    .border-radius;
+    background-color: @status;
+    color: @white;
+    font-size: large;
+    font-weight: 900;
+    padding: 5px;
+  }
+  .border-radius;
+  background-color: @sunlight;
+  border: 3pt solid @darksand;
+  padding: 10px;
+  margin: 20px;
+  #edit-submit {
+    .center
+  }
+  #login-links {
+    .center;
+    .button;
+    padding: 5px;
+
+  }
+}
+#user_user_form_group_sales {
+  legend {
+    display: none;
+  }
+  .fieldset-wrapper {
+    padding: 0;
+  }
+  padding: 0;
+  margin: 0;
+  background-color: inherit;
+}
+
+/******************** !PAYMENT CSS ********/
+/***** thank-you page ***/
+#adsubmission-thank-you {
+  background-color: @white;
+  .center;
+  padding: 30px;
+  .border-radius;
+}
+
+
+/* CSS */
 .form-feedback-step {
   padding: 2px 20px;
   size: 2em;
@@ -13,3 +143,85 @@
   color: #fff;
   background-color: #fff;
 }
+/************* THEME NEXT/SUBMIT buttons *********/
+#ad-s-node-form {
+  .multipage-controls-list {
+    .multipage-button {
+      width: 100%;
+      text-align: right;
+      input.multipage-link-next {
+        float: right;
+        background-color: @other_light;
+        margin: 5px;
+        font-size: 2em;
+      }
+      a.multipage-link-previous {
+        padding: 10px;
+        margin: 10px;
+        background-color: @classified_light;
+      }
+    }
+    #edit-actions {
+      width: 90%;
+      #edit-submit {
+        width: 100%;
+        background-color: @alert;
+      }
+    }
+  }
+  #active-multipage-control {
+    background-color: @other_light;
+  }
+}
+
+/************************ THANK-YOU PAGE/RECEIPT **************/
+#ad-submission-receipt {
+  .border-radius;
+  background-color: @classified_light;
+  border: solid 2pt @classified_dark;
+  dl {
+    .border-radius;
+    background-color: @white;
+    background-color: @lightsand;
+    padding: 5px;
+    dt {
+      font-size: 1em;
+      width: 80px;
+      float: left;
+      padding: 2px;
+      font-weight: bold;
+
+    }
+    dd {
+      font-size: 1em;
+      width: 200px;
+    }
+
+  }
+  h4.receipt-contact {
+    margin-bottom: 3px;
+  }
+  .receipt-contact em {
+    font-size: .8em;
+    line-height: .7em;
+  }
+  .receipt-price-inner, .receipt-contact-inner {
+    .border-radius;
+    margin: 10px;
+    padding: 5px;
+    background-color: @lightsand;
+    dl {
+      font-size: .9em;
+      margin: 0;
+      display: inline;
+      clear: left;
+      text-align: left;
+      clear: left;
+      margin: 0;
+      padding: 0;
+      width: auto;
+      line-height: 1em;
+    }
+  }
+}
+

@@ -6,9 +6,17 @@ package = Fields
 dependencies[] = field
 configure = admin/structure/dependencies
 
+<<<<<<< HEAD
 ; Information added by drupal.org packaging script on 2012-05-05
 version = "7.x-3.x-dev"
 core = "7.x"
 project = "conditional_fields"
 datestamp = "1336176488"
+=======
+; Information added by drupal.org packaging script on 2012-07-30
+version = "7.x-3.x-dev"
+core = "7.x"
+project = "conditional_fields"
+datestamp = "1343607216"
+>>>>>>> release1.7
 

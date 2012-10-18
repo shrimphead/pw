@@ -10,7 +10,7 @@
 function pw_display_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-display_ads-field_ad_client'
+  // Exported field: 'node-display_ads-field_ad_client'.
   $fields['node-display_ads-field_ad_client'] = array(
     'field_config' => array(
       'active' => '1',
@@ -18,6 +18,9 @@ function pw_display_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_ad_client',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -31,6 +34,7 @@ function pw_display_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -47,7 +51,13 @@ function pw_display_field_default_fields() {
       'bundle' => 'display_ads',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'The following are considered clients
+<ul>
+<li>Pennywise
+<li>Obituaries
+<li>Birth Announcements
+<li>Wedding Announcements
+</ul>',
       'display' => array(
         'default' => array(
           'label' => 'hidden',
@@ -69,6 +79,7 @@ function pw_display_field_default_fields() {
       'label' => 'Client',
       'required' => 1,
       'settings' => array(
+        'custom_add_another' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -84,7 +95,7 @@ function pw_display_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-display_ads-field_ad_copy'
+  // Exported field: 'node-display_ads-field_ad_copy'.
   $fields['node-display_ads-field_ad_copy'] = array(
     'field_config' => array(
       'active' => '1',
@@ -108,6 +119,7 @@ function pw_display_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -138,6 +150,7 @@ function pw_display_field_default_fields() {
       'label' => 'Description',
       'required' => 0,
       'settings' => array(
+        'custom_add_another' => '',
         'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
@@ -153,7 +166,7 @@ function pw_display_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-display_ads-field_display_ad'
+  // Exported field: 'node-display_ads-field_display_ad'.
   $fields['node-display_ads-field_display_ad'] = array(
     'field_config' => array(
       'active' => '1',
@@ -177,9 +190,10 @@ function pw_display_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
-        'default_image' => 0,
+        'default_image' => '993',
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -211,6 +225,7 @@ function pw_display_field_default_fields() {
       'required' => 1,
       'settings' => array(
         'alt_field' => 1,
+        'custom_add_another' => '',
         'default_image' => 0,
         'file_directory' => 'images/display',
         'file_extensions' => 'png gif jpg jpeg',
@@ -240,6 +255,7 @@ function pw_display_field_default_fields() {
             ),
           ),
           'insert' => 0,
+          'insert_absolute' => FALSE,
           'insert_class' => '',
           'insert_default' => 'auto',
           'insert_styles' => array(
@@ -268,12 +284,12 @@ function pw_display_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '2',
+        'weight' => '0',
       ),
     ),
   );
 
-  // Exported field: 'node-display_ads-field_display_ad_type'
+  // Exported field: 'node-display_ads-field_display_ad_type'.
   $fields['node-display_ads-field_display_ad_type'] = array(
     'field_config' => array(
       'active' => '1',
@@ -287,6 +303,7 @@ function pw_display_field_default_fields() {
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
@@ -327,6 +344,7 @@ function pw_display_field_default_fields() {
       'label' => 'Display Ad Type',
       'required' => 1,
       'settings' => array(
+        'custom_add_another' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -339,7 +357,7 @@ function pw_display_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-display_ads-field_email'
+  // Exported field: 'node-display_ads-field_email'.
   $fields['node-display_ads-field_email'] = array(
     'field_config' => array(
       'active' => '1',
@@ -352,8 +370,23 @@ function pw_display_field_default_fields() {
       ),
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'email',
-      'settings' => array(),
+      'settings' => array(
+        'user_role_field' => array(
+          1 => 0,
+          2 => 0,
+          3 => 0,
+          4 => 0,
+          5 => 0,
+          6 => 0,
+          7 => 0,
+          8 => 0,
+          9 => '9',
+          10 => 0,
+          11 => 0,
+        ),
+      ),
       'translatable' => '0',
       'type' => 'email',
     ),
@@ -382,6 +415,7 @@ function pw_display_field_default_fields() {
       'label' => 'Email',
       'required' => 0,
       'settings' => array(
+        'custom_add_another' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -396,7 +430,7 @@ function pw_display_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-display_ads-field_entity_reference'
+  // Exported field: 'node-display_ads-field_entity_reference'.
   $fields['node-display_ads-field_entity_reference'] = array(
     'field_config' => array(
       'active' => '1',
@@ -420,6 +454,7 @@ function pw_display_field_default_fields() {
           0 => 'target_id',
         ),
       ),
+      'locked' => '0',
       'module' => 'entityreference',
       'settings' => array(
         'handler' => 'base',
@@ -431,19 +466,34 @@ function pw_display_field_default_fields() {
           ),
           'sort' => array(
             'direction' => 'ASC',
-            'field' => 'field_ad_copy:value',
-            'property' => 'nid',
-            'type' => 'none',
+            'property' => 'title',
+            'type' => 'property',
           ),
           'target_bundles' => array(
             'article' => 'article',
             'attachment' => 'attachment',
+            'classified' => 'classified',
             'display_ads' => 'display_ads',
             'page' => 'page',
+            'pw_digital' => 'pw_digital',
+            'webform' => 'webform',
           ),
         ),
         'handler_submit' => 'Change handler',
         'target_type' => 'node',
+        'user_role_field' => array(
+          1 => 0,
+          2 => 0,
+          3 => 0,
+          4 => 0,
+          5 => 0,
+          6 => 0,
+          7 => 0,
+          8 => 0,
+          9 => '9',
+          10 => 0,
+          11 => 0,
+        ),
       ),
       'translatable' => '0',
       'type' => 'entityreference',
@@ -452,7 +502,8 @@ function pw_display_field_default_fields() {
       'bundle' => 'display_ads',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Link this display ad to a PDF attachment, another display ad or even a classified ad. Link to a specific PW web page, or even an online web submission form. You can also create the attachment right here.
+<strong>Display ads can only be linked. Do not create another display ad here!</strong>',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -472,23 +523,27 @@ function pw_display_field_default_fields() {
       'label' => 'File Attach',
       'required' => 0,
       'settings' => array(
+        'custom_add_another' => 'Attach another',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'entityreference',
+        'module' => 'inline_entity_form',
         'settings' => array(
-          'match_operator' => 'CONTAINS',
-          'path' => '',
-          'size' => '60',
+          'fields' => array(),
+          'type_settings' => array(
+            'allow_existing' => 1,
+            'delete_references' => 0,
+            'match_operator' => 'CONTAINS',
+          ),
         ),
-        'type' => 'entityreference_autocomplete',
+        'type' => 'inline_entity_form',
         'weight' => '6',
       ),
     ),
   );
 
-  // Exported field: 'node-display_ads-field_high_res_ad'
+  // Exported field: 'node-display_ads-field_high_res_ad'.
   $fields['node-display_ads-field_high_res_ad'] = array(
     'field_config' => array(
       'active' => '1',
@@ -512,6 +567,7 @@ function pw_display_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'file',
       'settings' => array(
         'display_default' => 1,
@@ -546,6 +602,7 @@ function pw_display_field_default_fields() {
       'label' => 'Related File',
       'required' => 0,
       'settings' => array(
+        'custom_add_another' => '',
         'description_field' => 1,
         'file_directory' => 'images/attachment',
         'file_extensions' => 'pdf gif tif jpg',
@@ -572,6 +629,7 @@ function pw_display_field_default_fields() {
             ),
           ),
           'insert' => 0,
+          'insert_absolute' => FALSE,
           'insert_class' => '',
           'insert_default' => 'auto',
           'insert_styles' => array(
@@ -599,16 +657,16 @@ function pw_display_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_generic',
-        'weight' => '6',
+        'weight' => '7',
       ),
     ),
   );
 
-  // Exported field: 'node-display_ads-field_link'
+  // Exported field: 'node-display_ads-field_link'.
   $fields['node-display_ads-field_link'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '-1',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_link',
@@ -617,6 +675,7 @@ function pw_display_field_default_fields() {
       ),
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'link',
       'settings' => array(
         'attributes' => array(
@@ -640,11 +699,11 @@ function pw_display_field_default_fields() {
       'bundle' => 'display_ads',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '<strong>NOTE: YOU must include HTTP://</strong>
-Title tag allows you to shorten very long and complex web links with a concise title.
-Eg. You can replace:
-<em>http://www.example.com/book_1/chapt-3/page_30</em>
-with <strong>Page 30</strong>.
+      'description' => 'Title tag allows you to shorten very long and complex web links with a concise title.<br>
+Eg. You can replace:<br>
+<em>http://www.example.com/book_1/chapt-3/page_30</em><br>
+with <strong>Page 30</strong>.<br>
+<p><strong>NOTE: YOU must include HTTP://</strong><br>if the URL is not located at http://PennywiseAds.com
 ',
       'display' => array(
         'default' => array(
@@ -673,6 +732,7 @@ with <strong>Page 30</strong>.
           'target' => 'user',
           'title' => '',
         ),
+        'custom_add_another' => '',
         'display' => array(
           'url_cutoff' => '80',
         ),
@@ -694,7 +754,7 @@ with <strong>Page 30</strong>.
     ),
   );
 
-  // Exported field: 'node-display_ads-field_publish_date'
+  // Exported field: 'node-display_ads-field_publish_date'.
   $fields['node-display_ads-field_publish_date'] = array(
     'field_config' => array(
       'active' => '1',
@@ -718,6 +778,7 @@ with <strong>Page 30</strong>.
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '255',
@@ -749,6 +810,7 @@ with <strong>Page 30</strong>.
       'label' => 'Publishing Date',
       'required' => 1,
       'settings' => array(
+        'custom_add_another' => '',
         'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
@@ -764,7 +826,7 @@ with <strong>Page 30</strong>.
     ),
   );
 
-  // Exported field: 'node-display_ads-field_section_all_select'
+  // Exported field: 'node-display_ads-field_section_all_select'.
   $fields['node-display_ads-field_section_all_select'] = array(
     'field_config' => array(
       'active' => '1',
@@ -778,6 +840,7 @@ with <strong>Page 30</strong>.
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
@@ -817,6 +880,7 @@ with <strong>Page 30</strong>.
       'label' => 'Section Selector',
       'required' => 1,
       'settings' => array(
+        'custom_add_another' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -824,12 +888,12 @@ with <strong>Page 30</strong>.
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '0',
+        'weight' => '1',
       ),
     ),
   );
 
-  // Exported field: 'node-display_ads-field_tags'
+  // Exported field: 'node-display_ads-field_tags'.
   $fields['node-display_ads-field_tags'] = array(
     'field_config' => array(
       'active' => '1',
@@ -850,6 +914,7 @@ with <strong>Page 30</strong>.
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -886,6 +951,7 @@ with <strong>Page 30</strong>.
       'label' => 'Section',
       'required' => 1,
       'settings' => array(
+        'custom_add_another' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -893,19 +959,13 @@ with <strong>Page 30</strong>.
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '1',
+        'weight' => '2',
       ),
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('<strong>NOTE: YOU must include HTTP://</strong>
-Title tag allows you to shorten very long and complex web links with a concise title.
-Eg. You can replace:
-<em>http://www.example.com/book_1/chapt-3/page_30</em>
-with <strong>Page 30</strong>.
-');
   t('Client');
   t('Description');
   t('Display Ad');
@@ -913,6 +973,8 @@ with <strong>Page 30</strong>.
   t('Email');
   t('File Attach');
   t('Link');
+  t('Link this display ad to a PDF attachment, another display ad or even a classified ad. Link to a specific PW web page, or even an online web submission form. You can also create the attachment right here.
+<strong>Display ads can only be linked. Do not create another display ad here!</strong>');
   t('Optional email contact for business.');
   t('Publishing Date');
   t('Related File');
@@ -920,6 +982,19 @@ with <strong>Page 30</strong>.
   t('Section Selector');
   t('Select the ad type. This will affect the ads placement and thumbnail size. <br>
 <strong>ALL ADS ARE FORCED RESIZED TO THE AD TYPE.</strong>.');
+  t('The following are considered clients
+<ul>
+<li>Pennywise
+<li>Obituaries
+<li>Birth Announcements
+<li>Wedding Announcements
+</ul>');
+  t('Title tag allows you to shorten very long and complex web links with a concise title.<br>
+Eg. You can replace:<br>
+<em>http://www.example.com/book_1/chapt-3/page_30</em><br>
+with <strong>Page 30</strong>.<br>
+<p><strong>NOTE: YOU must include HTTP://</strong><br>if the URL is not located at http://PennywiseAds.com
+');
   t('Upload (or select) display ad.');
   t('Upload related document.');
 
