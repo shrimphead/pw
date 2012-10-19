@@ -907,6 +907,8 @@ function file_entity_file_is_local($file) {
   $scheme = file_uri_scheme($file->uri);
   $wrappers = file_get_stream_wrappers(STREAM_WRAPPERS_LOCAL);
   return !empty($wrappers[$scheme]) && empty($wrappers[$scheme]['remote']);
+<<<<<<< HEAD
+=======
 }
 
 /**
@@ -922,4 +924,5 @@ function file_entity_upload_validators_pre_render($element) {
     }
   }
   return $element;
+>>>>>>> release1.7
 }

@@ -105,6 +105,9 @@ class FileEntityUnitTestCase extends FileEntityTestHelper {
 
     //Test hook_file_delete().
     file_delete($file, TRUE);
+<<<<<<< HEAD
+    $this->assertFalse(db_query('SELECT count(*) FROM {image_dimensions} WHERE fid = :fid', array(':fid' => 'fid'))->fetchField(), 'Row deleted in {file_dimensions} on file_delete().');
+=======
     $this->assertFalse(db_query('SELECT COUNT(*) FROM {image_dimensions} WHERE fid = :fid', array(':fid' => 'fid'))->fetchField(), 'Row deleted in {file_dimensions} on file_delete().');
   }
 }
@@ -182,6 +185,7 @@ class FileEntityReplaceTestCase extends FileEntityTestHelper {
     // Test that Upload widget does not appear for non-local file.
     $this->drupalGet('file/' . $file2->fid . '/edit');
     $this->assertNoFieldByName('files[replace_upload]');
+>>>>>>> release1.7
   }
 }
 

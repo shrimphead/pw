@@ -51,6 +51,13 @@ function pw_admin_filter_default_formats() {
           'filter_url_length' => '72',
         ),
       ),
+      'scribd_filter' => array(
+        'weight' => '0',
+        'status' => '1',
+        'settings' => array(
+          'scribd_filter_display_method' => 'embed_html5',
+        ),
+      ),
       'filter_html' => array(
         'weight' => '1',
         'status' => '1',
@@ -113,6 +120,14 @@ function pw_admin_filter_default_formats() {
         'status' => '1',
         'settings' => array(),
       ),
+<<<<<<< HEAD
+      'scribd_filter' => array(
+        'weight' => '0',
+        'status' => '1',
+        'settings' => array(
+          'scribd_filter_display_method' => 'embed_html5',
+        ),
+=======
       'filter_markdown' => array(
         'weight' => '0',
         'status' => '1',
@@ -122,6 +137,7 @@ function pw_admin_filter_default_formats() {
         'weight' => '2',
         'status' => '1',
         'settings' => array(),
+>>>>>>> release1.7
       ),
     ),
   );
@@ -148,6 +164,13 @@ function pw_admin_filter_default_formats() {
         'weight' => '0',
         'status' => '1',
         'settings' => array(),
+      ),
+      'scribd_filter' => array(
+        'weight' => '0',
+        'status' => '1',
+        'settings' => array(
+          'scribd_filter_display_method' => 'embed_html5',
+        ),
       ),
       'media_filter' => array(
         'weight' => '2',

@@ -35,6 +35,46 @@ function file_entity_view_page($file) {
  * Form callback for adding media via an upload form.
  * @todo: should use the AJAX uploader
  */
+<<<<<<< HEAD
+function file_entity_add_upload($form, &$form_state, $params = array()) {
+  // Set up file upload validators.
+  $validators = array();
+
+  // Validate file extensions. If there are no file extensions in $params and
+  // there are no Media defaults, there is no file extension validation.
+  if (!empty($params['file_extensions'])) {
+    $validators['file_validate_extensions'] = array($params['file_extensions']);
+  }
+  else {
+    $validators['file_validate_extensions'] = array('jpg jpeg gif png txt doc xls pdf ppt pps odt ods odp');
+  }
+
+  // Validate file size but do not allow anything higher than file_upload_max_size().
+  $max_filesize = file_upload_max_size();
+  if (!empty($params['max_filesize']) && $params['max_filesize'] < $max_filesize) {
+    $validators['file_validate_size'] = array(parse_size($params['max_filesize']));
+  }
+  else {
+    $validators['file_validate_size'] = array($max_filesize);
+  }
+
+  // Add image validators.
+  $params += array('min_resolution' => 0, 'max_resolution' => 0);
+  if ($params['min_resolution'] || $params['max_resolution']) {
+    $validators['file_validate_image_resolution'] = array($params['max_resolution'], $params['min_resolution']);
+  }
+
+  $form['#validators'] = $validators;
+
+  $form['upload'] = array(
+    '#type' => 'managed_file',
+    '#title' => t('Upload a new file'),
+    '#description' => theme('file_upload_help', array('description' => '', 'upload_validators' => $validators)),
+    '#upload_location' => file_entity_upload_destination_uri($params),
+    '#upload_validators' => $validators,
+    '#progress_indicator' => 'bar',
+    '#required' => TRUE,
+=======
 function file_entity_add_upload($form, &$form_state, array $options = array()) {
   $form['upload'] = array(
     '#type' => 'managed_file',
@@ -44,6 +84,7 @@ function file_entity_add_upload($form, &$form_state, array $options = array()) {
     '#progress_indicator' => 'bar',
     '#required' => TRUE,
     '#pre_render' => array('file_managed_file_pre_render', 'file_entity_upload_validators_pre_render'),
+>>>>>>> release1.7
   );
 
   $form['actions'] = array('#type' => 'actions');
@@ -365,7 +406,10 @@ function file_delete_form_submit($form, &$form_state) {
     // Use file_delete_multiple() rather than file_delete() since we want to
     // avoid unwanted validation and usage checking.
     file_delete_multiple(array($file->fid));
+<<<<<<< HEAD
+=======
 
+>>>>>>> release1.7
     $args = array(
       '@type' => file_type_get_name($file),
       '%title' => entity_label('file', $file),
@@ -419,6 +463,7 @@ function file_multiple_delete_form($form, &$form_state, array $files) {
   $description = t('This action cannot be undone.');
   if ($files_have_usage) {
     $description .= ' ' . t('Some of the files are currently in use and may cause problems if deleted.');
+<<<<<<< HEAD
   }
 
   return confirm_form(
@@ -441,6 +486,38 @@ function file_multiple_delete_form_submit($form, &$form_state) {
     drupal_set_message(format_plural($count, 'Deleted one file.', 'Deleted @count files.'));
   }
   $form_state['redirect'] = 'admin/content/file';
+=======
+  }
+
+  return confirm_form(
+    $form,
+    format_plural(count($files), 'Are you sure you want to delete this file?', 'Are you sure you want to delete these files?'),
+    'admin/content/file',
+    $description,
+    t('Delete')
+  );
+>>>>>>> release1.7
+}
+
+
+/**
+<<<<<<< HEAD
+ * Page callback for the file edit form.
+ *
+ * @deprecated
+ *   Use drupal_get_form('file_entity_edit')
+ */
+=======
+ * Form submission handler for file_multiple_delete_form().
+ */
+function file_multiple_delete_form_submit($form, &$form_state) {
+  if ($form_state['values']['confirm'] && $fids = array_keys($form_state['values']['files'])) {
+    file_delete_multiple($fids);
+    $count = count($fids);
+    watchdog('file', 'Deleted @count files.', array('@count' => $count));
+    drupal_set_message(format_plural($count, 'Deleted one file.', 'Deleted @count files.'));
+  }
+  $form_state['redirect'] = 'admin/content/file';
 }
 
 
@@ -450,6 +527,7 @@ function file_multiple_delete_form_submit($form, &$form_state) {
  * @deprecated
  *   Use drupal_get_form('file_entity_edit')
  */
+>>>>>>> release1.7
 function file_entity_page_edit($file) {
   return drupal_get_form('file_entity_edit', $file);
 }
@@ -462,6 +540,8 @@ function file_entity_page_edit($file) {
  */
 function file_entity_page_delete($file) {
   return drupal_get_form('file_delete_form');
+<<<<<<< HEAD
+=======
 }
 
 /**
@@ -503,4 +583,5 @@ function file_entity_get_upload_validators(array $options = array()) {
   }
 
   return $validators;
+>>>>>>> release1.7
 }

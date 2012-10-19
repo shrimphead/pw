@@ -1,3 +1,12 @@
+<<<<<<< HEAD:sites/default/modules/pw_editorial_related/pw_editorial_related.info
+name = PW Editorial and Related
+description = Editorial, Page, and Attachment. Content and display handling
+core = 7.x
+package = Pennywise
+php = 5.2.4
+version = 7.x-1.1
+project = pw_editorial_related
+=======
 name = PW Pages
 description = Editorial, Pages, Digital Edition & Attachments. Display, and admin
 core = 7.x
@@ -5,6 +14,7 @@ package = Pennywise
 php = 5.2.4
 version = 7.x-2.3
 project = pw_pages
+>>>>>>> release1.7:sites/default/modules/pw_pages/pw_pages.info
 dependencies[] = ctools
 dependencies[] = date
 dependencies[] = ds

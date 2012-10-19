@@ -140,6 +140,12 @@ function pw_cl_views_default_views() {
   $handler->display->display_options['fields']['field_phone']['group_column'] = 'number';
   $handler->display->display_options['fields']['field_phone']['delta_limit'] = '3';
   $handler->display->display_options['fields']['field_phone']['delta_offset'] = '0';
+<<<<<<< HEAD
+  $handler->display->display_options['fields']['field_phone']['delta_reversed'] = 0;
+  $handler->display->display_options['fields']['field_phone']['delta_first_last'] = 0;
+  $handler->display->display_options['fields']['field_phone']['field_api_classes'] = 0;
+=======
+>>>>>>> release1.7
   /* Field: Field: Email */
   $handler->display->display_options['fields']['field_email']['id'] = 'field_email';
   $handler->display->display_options['fields']['field_email']['table'] = 'field_data_field_email';
