@@ -77,16 +77,7 @@ function pw_pages_field_default_fields() {
         'default' => array(
           'label' => 'hidden',
           'module' => 'text',
-          'settings' => array(
-            'masonry' => 0,
-            'masonry_animated' => 1,
-            'masonry_animated_duration' => '500',
-            'masonry_center' => 0,
-            'masonry_gutter' => '0',
-            'masonry_resizable' => 1,
-            'masonry_rtl' => 0,
-            'masonry_width' => '200',
-          ),
+          'settings' => array(),
           'type' => 'text_default',
           'weight' => '5',
         ),
@@ -984,16 +975,7 @@ function pw_pages_field_default_fields() {
         'default' => array(
           'label' => 'inline',
           'module' => 'text',
-          'settings' => array(
-            'masonry' => 0,
-            'masonry_animated' => 1,
-            'masonry_animated_duration' => '500',
-            'masonry_center' => 0,
-            'masonry_gutter' => '0',
-            'masonry_resizable' => 1,
-            'masonry_rtl' => 0,
-            'masonry_width' => '200',
-          ),
+          'settings' => array(),
           'type' => 'text_default',
           'weight' => '11',
         ),
@@ -1129,7 +1111,7 @@ function pw_pages_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -1232,133 +1214,7 @@ function pw_pages_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'entityreference_autocomplete',
-        'weight' => '6',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-attachment-field_file'.
-  $fields['node-attachment-field_file'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_file',
-      'field_permissions' => array(
-        'type' => '0',
-      ),
-      'foreign keys' => array(
-        'fid' => array(
-          'columns' => array(
-            'fid' => 'fid',
-          ),
-          'table' => 'file_managed',
-        ),
-      ),
-      'indexes' => array(
-        'fid' => array(
-          0 => 'fid',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'file',
-      'settings' => array(
-        'display_default' => 1,
-        'display_field' => 1,
-        'storage_class' => array(
-          'class_id' => '2',
-          'current_class_id' => '2',
-        ),
-        'uri_scheme' => 'storage-field-file',
-      ),
-      'translatable' => '0',
-      'type' => 'file',
-    ),
-    'field_instance' => array(
-      'bundle' => 'attachment',
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'file',
-          'settings' => array(),
-          'type' => 'file_default',
-          'weight' => 11,
-        ),
-        'teaser' => array(
-          'label' => 'inline',
-          'module' => 'file',
-          'settings' => array(),
-          'type' => 'file_table',
-          'weight' => '3',
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_file',
-      'label' => 'File',
-      'required' => 1,
-      'settings' => array(
-        'custom_add_another' => '',
-        'description_field' => 0,
-        'file_directory' => 'storage/attachments',
-        'file_extensions' => 'txt pdf doc tif psd jpg png ind exl',
-        'max_filesize' => '10 MB',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'file',
-        'settings' => array(
-          'filefield_sources' => array(
-            'filefield_sources' => array(
-              'attach' => 'attach',
-              'clipboard' => 0,
-              'reference' => 'reference',
-              'remote' => 0,
-            ),
-            'source_attach' => array(
-              'absolute' => '0',
-              'attach_mode' => 'move',
-              'path' => 'storage/attachments',
-            ),
-            'source_imce' => array(
-              'imce_mode' => 0,
-            ),
-            'source_reference' => array(
-              'autocomplete' => '1',
-            ),
-          ),
-          'insert' => 0,
-          'insert_absolute' => 0,
-          'insert_class' => '',
-          'insert_default' => 'auto',
-          'insert_styles' => array(
-            'auto' => 'auto',
-            'icon_link' => 0,
-            'image' => 0,
-            'image_classified-list-style' => 0,
-            'image_classified_list_nocrop' => 0,
-            'image_classified_page_style' => 0,
-            'image_display_ad_print_thumbnail' => 0,
-            'image_editorial_block_list_header' => 0,
-            'image_editorial_header' => 0,
-            'image_editorial_small' => 0,
-            'image_editorial_teaser' => 0,
-            'image_editorial_thumbnail' => 0,
-            'image_large' => 0,
-            'image_medium' => 0,
-            'image_miniature_square' => 0,
-            'image_square_thumbnail' => 0,
-            'image_thumbnail' => 0,
-            'link' => 0,
-          ),
-          'insert_width' => '',
-          'progress_indicator' => 'throbber',
-        ),
-        'type' => 'file_generic',
-        'weight' => '1',
+        'weight' => '7',
       ),
     ),
   );
@@ -1480,7 +1336,7 @@ function pw_pages_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_generic',
-        'weight' => '1',
+        'weight' => '7',
       ),
     ),
   );
@@ -1636,7 +1492,7 @@ function pw_pages_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '2',
+        'weight' => '8',
       ),
     ),
   );
@@ -1723,7 +1579,7 @@ function pw_pages_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '4',
+        'weight' => '5',
       ),
     ),
   );
@@ -2555,7 +2411,7 @@ function pw_pages_field_default_fields() {
           'class_id' => '1',
           'current_class_id' => '1',
         ),
-        'uri_scheme' => 'storage-field-display-ad',
+        'uri_scheme' => 'public',
       ),
       'translatable' => '0',
       'type' => 'image',
@@ -3525,7 +3381,7 @@ function pw_pages_field_default_fields() {
   $fields['node-pw_digital-field_special_feature_link'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '5',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_special_feature_link',
@@ -3807,7 +3663,6 @@ NOTE: Thumbnail image required.',
   t('Edition Date');
   t('Email');
   t('Extra Images');
-  t('File');
   t('Header Image');
   t('Highlighted Link');
   t('If the attachment is several pages or files you can reference the other items here.');

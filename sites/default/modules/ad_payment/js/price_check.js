@@ -433,6 +433,7 @@ Drupal.adPayment.displayMsg = function() {
   return ad.msg;
 }
 
+
 /**
  * PRIMARY EVENT HANDLING.
  *
@@ -441,7 +442,6 @@ Drupal.adPayment.displayMsg = function() {
  */
 jQuery(document).ready(function() {
 
-       //console.log('Document jQuery Loaded');
 
 
  // var formID = jQuery("form").attr('id');
@@ -479,6 +479,16 @@ jQuery(document).ready(function() {
 
     jQuery('#ad-s-node-form').bind('click keypress keyup change mouseup', function() { //click change keypress keyup
        // console.log('Action Detected.');
+
+              console.log('Validation.');
+      jQuery('#ad-s-node-form').validate({
+        rules: {
+          field_cc_number: {
+            required: true,
+            creditcard: true
+          }
+        }
+      });
 
 
       var sideBox = '#ad-summary';

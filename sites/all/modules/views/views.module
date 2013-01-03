@@ -1686,11 +1686,11 @@ function views_debug($message, $placeholders = array()) {
     }
     else if ($devel_region == 'drupal_debug') {
       $output = empty($output) ? t($message, $placeholders) : $output;
-      dd($output);
+      // dd($output);
     }
     else {
       $output = empty($output) ? t($message, $placeholders) : $output;
-      dpm($output);
+      // dpm($output);
     }
   }
   elseif (isset($GLOBALS['drupal_test_info'])) {

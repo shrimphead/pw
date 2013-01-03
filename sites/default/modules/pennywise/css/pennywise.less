@@ -425,17 +425,43 @@ body.page-admin-pennywise {
 }
 
 /******************* Classifieds Table Layout ADMIN ********/
-/* AD SUBMISION ADMIN */
+/* AD SUBMISION ADMIN TABLE */
 body.page-admin-pennywise-classified-ad-s  {
-  /*   section listing */
-  .submission-placement-section, .submission-placement-areas {
-    padding: 5px 20px;
-    text-align: center;
-    background-color: @sunlight;
-    .border-radius;
-    margin-bottom: 20px;
+  #views-form-classified-ad-administration-incoming-ads {
+    .views-table {
+      caption {
+        font-size: 2em;
+        background-color: @warning;
+        .border-radius-custom(20px, 20px, 0, 0);
+      }
+    }
+    .submission-placement-cell {
+      width: 10%;
+      font-size: .8em;
+      line-height: 1.2em;
+    }
+    .admin-ad-data-cell {
+      width: 40%;
+    }
+    .client-data-cell {
+      width: 15%;
+    }
+    .details-price-cell {
+      width: 20%;
+    }
   }
-  .submission-placement-areas {
+  /*   section listing */
+  .submission-placement-section ul, .submission-placement-areas ul {
+  li {
+     text-align: center;
+     list-style: none;
+     padding: 5px 20px;
+     margin-bottom: 10px;
+     background-color: @sunlight;
+    .border-radius;
+   }
+  }
+  .submission-placement-areas ul li {
     background-color: @status_t;
   }
   /* ad copy info table */

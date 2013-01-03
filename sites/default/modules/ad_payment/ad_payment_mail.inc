@@ -35,8 +35,8 @@ function ad_payment_send_email($email_type, $details = NULL) {
     case 'inhouse': // Inhouse Receipt
     default:
        #$to = variable_get('pennywise_classified_settings_email', 'k2@pennywiseads.com');
-      $to = 'k2@pennywiseads.com';
-      $from = variable_get('pw_email', 'k2@pennywiseads.com');
+      $to = variable_get('pw_email_inhouse_receipt', 'info@pennywiseads.com');
+      $from = variable_get('pw_email', 'info@pennywiseads.com');
       $result = drupal_mail('ad_payment', 'inhouse', $to, $language, $details, $from, $send);
 
       if ($result['result'] == TRUE) {
@@ -182,7 +182,7 @@ Total:    $$total
 Billed to $card.
 
 CONTACT US
-You can contact us 9am to 5pm Monday to Friday (& until 4pm on Friday).
+You can contact us 9am to 5pm Monday to Thursday (& until 4pm on Friday).
 Toll free: 1-800-663-4619
 Local: 250-353-2602
 Email: info@pennywiseads.com

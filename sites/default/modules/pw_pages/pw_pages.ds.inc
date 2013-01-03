@@ -82,11 +82,6 @@ function pw_pages_ds_field_settings_info() {
       'label' => 'hidden',
       'format' => 'default',
     ),
-    'comments' => array(
-      'weight' => '6',
-      'label' => 'hidden',
-      'format' => 'default',
-    ),
     'post_date' => array(
       'weight' => '13',
       'label' => 'inline',
@@ -266,8 +261,6 @@ function pw_pages_ds_layout_settings_info() {
   $ds_layout->view_mode = 'default';
   $ds_layout->layout = 'ds_1col';
   $ds_layout->settings = array(
-    'hide_empty_regions' => 0,
-    'hide_sidebars' => 0,
     'regions' => array(
       'ds_content' => array(
         0 => 'field_image',
@@ -275,14 +268,13 @@ function pw_pages_ds_layout_settings_info() {
         2 => 'group_editorial_more',
         3 => 'field_images_editorial_extra',
         4 => 'body',
-        5 => 'comments',
-        6 => 'field_link',
-        7 => 'field_email',
-        8 => 'field_entity_reference',
-        9 => 'links',
-        10 => 'field_submitter',
-        11 => 'field_area_taxonomy',
-        12 => 'post_date',
+        5 => 'field_link',
+        6 => 'field_email',
+        7 => 'field_entity_reference',
+        8 => 'links',
+        9 => 'field_submitter',
+        10 => 'field_area_taxonomy',
+        11 => 'post_date',
       ),
     ),
     'fields' => array(
@@ -291,7 +283,6 @@ function pw_pages_ds_layout_settings_info() {
       'group_editorial_more' => 'ds_content',
       'field_images_editorial_extra' => 'ds_content',
       'body' => 'ds_content',
-      'comments' => 'ds_content',
       'field_link' => 'ds_content',
       'field_email' => 'ds_content',
       'field_entity_reference' => 'ds_content',
@@ -301,6 +292,12 @@ function pw_pages_ds_layout_settings_info() {
       'post_date' => 'ds_content',
     ),
     'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 0,
   );
   $export['node|article|default'] = $ds_layout;
 

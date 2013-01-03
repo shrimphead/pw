@@ -53,12 +53,19 @@
     });
   };
 
+  // On Load
   $(document).ready(function() {
     doMasonry();
   });
 
+  // On Resize
   $(window).bind('resize', function() {
     doMasonry()
+  });
+
+  // Again once images run.
+  $(window).load(function() {
+    doMasonry();
   });
 
 }(jQuery));

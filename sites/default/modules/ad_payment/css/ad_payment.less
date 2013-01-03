@@ -118,6 +118,25 @@
   background-color: inherit;
 }
 
+.form-item-field-cc-number {
+  #edit-field-cc-number {
+    background-color: @classified_light;
+  }
+	input { border: 1px solid black; margin-bottom: .5em;  }
+	input.error { border: 1px solid red; }
+	label.error {
+		background: url('url(../../../../ad_payment/images/checked-no.png') no-repeat;
+		padding-left: 35px;
+		margin-left: .3em;
+	}
+	label.valid {
+		background: url('url(../../../../ad_payment/images/checked-yes.png') no-repeat;
+		display: block;
+		width: 35px;
+		height: 16px;
+	}
+
+}
 /******************** !PAYMENT CSS ********/
 /***** thank-you page ***/
 #adsubmission-thank-you {

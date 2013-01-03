@@ -829,16 +829,6 @@ ul.pw-classified-nav-list, .menu-name-menu-pennywise-digital-edition ul, .block-
 
 
 
-/** User Login **/
-/*
-.not-logged-in #user-login {
-  background-color: @plum;
-  color: @white;
-  .description {
-    color: @white;
-  }
-}
-*/
 
 
 
@@ -1482,75 +1472,83 @@ ul.pw-classified-nav-list, .menu-name-menu-pennywise-digital-edition ul, .block-
 }
 
 /* LOGIN PAGE */
-.not-logged-in.page-user, .not-logged-in.page-submit-ad, .toboggan-unified {
-  #region-content {
-    background-color: transparent;
+.not-front.not-logged-in.page-user-login {
+  .container-24 .login {
+    width: 520px;
+    margin: 0 auto;
   }
-  background-color: transparent;
   .login {
+    #region-content {
+      background-color: transparent;
+    }
     background-color: transparent;
-  }
-  #login-message {
-    background-color: @alert;
-    color: @white;
-    font-weight: bold;
-    padding: 10px;
-    .border-radius;
-  }
-  #user-login, #user-login-form {
-    background-color: @darksand;
-    .border-radius;
-    border: 1px solid @plum;
-    padding: 10px 30px;
-    margin: 0px;
-    .form-item {
-      width: 100%;
-      label {
-        padding: 2px;
-      }
-      input {
-      }
+    .login {
+      background-color: transparent;
     }
-  }
-  #user-register-form {
-    background-color: @sunlight;
-    .border-radius;
-    border: 1px solid @plum;
-    padding: 10px 30px;
-    margin: 0px;
-    .form-item {
-      width: 100%;
-      label {
-        padding: 2px;
-      }
-      input {
-      }
-    }
-  }
-  #login-links {
-    margin:0;
-    line-height: 1em;
-      margin: 35px 0 10px 0;
-    a {
-      width: 40%;
-      font-size: .9em;
-      .border-radius-custom;
-      line-height: 1.2em;
-      border: 1pt @plum solid;
-    }
-    a.login-link.lt-active {
-      border-bottom: 0;
-    }
-    #login-link{
-      background-color: @darksand;
-    }
-    #register-link {
-      background-color: @darklight;
-    }
-    a.lt-active {
-      border-bottom: 0px;
-    }
+    #login-message {
+      color: @alert;
+      background-color: @white;
+      font-weight: bold;
+      padding: 10px;
+      .border-radius;
+      .drop-shadow;
 
+    }
+    #user-login, #user-login-form {
+      background-color: @darksand;
+      .border-radius;
+      border: 1px solid @plum;
+      padding: 10px 30px;
+      margin: 0px;
+      .form-item {
+        width: 100%;
+        label {
+          padding: 2px;
+        }
+        input {
+        }
+      }
+    }
+    #user-register-form {
+      background-color: @sunlight;
+      .border-radius;
+      border: 1px solid @plum;
+      padding: 10px 30px;
+      margin: 0px;
+      .form-item {
+        width: 100%;
+        label {
+          padding: 2px;
+        }
+        input {
+        }
+      }
+    }
+    #login-links {
+      margin:0;
+      line-height: 1em;
+        margin: 35px 0 10px 0;
+      a {
+        width: 40%;
+        font-size: .9em;
+        .border-radius-custom;
+        line-height: 1.2em;
+        border: 1pt @plum solid;
+      }
+      a.login-link.lt-active {
+        border-bottom: 0;
+      }
+      #login-link{
+        background-color: @darksand;
+      }
+      #register-link {
+        background-color: @darklight;
+      }
+      a.lt-active {
+        border-bottom: 0px;
+      }
+
+    }
   }
 }
 
@@ -1849,3 +1847,31 @@ body.page-ad-submit {
     text-align: center;
   }
 }
+
+/**************** Maintenance Page -- Offline ***********/
+body.maintenance-page {
+  background-color: @classified_light;
+  #container {
+    background-color: @white;
+    border: 5pt solid @classified_med;
+    width: 400px;
+    padding: 20px;
+    text-align: center;
+    clear: both;
+    font-family: sans-serif;
+    font-size: 1em;
+   .border-radius;
+    .drop-shadow;
+    #logo-floater {
+      #branding {
+        #logo {
+          margin: 0 auto;
+          display: block;
+        }
+        span { font-size: 2em; }
+      }
+    }
+  }
+}
+
+

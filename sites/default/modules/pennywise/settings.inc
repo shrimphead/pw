@@ -96,8 +96,8 @@ function pennywise_classified_settingsform_submit($form, &$form_state) {
   $email = $form_state['values']['default_email'];
   $disable_submission = $form_state['values']['online_submissions'];
 
-  variable_set('pennywise_classified_settings_email', $email);
-  variable_set('pennywise_classified_settings_submissions', $disable_submission);
+  variable_set('pw_classified_settings_email', $email);
+  variable_set('pw_classified_settings_submissions', $disable_submission);
 
   drupal_set_message( t('Your settings have been updated.') );
 

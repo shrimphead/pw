@@ -183,6 +183,7 @@ function pw_la_context_default_contexts() {
         '~ad/submit' => '~ad/submit',
         '~thank-you' => '~thank-you',
         '~ad/*/thank-you' => '~ad/*/thank-you',
+        '~user/login' => '~user/login',
         'ad/*' => 'ad/*',
         '<front>' => '<front>',
         'classifieds' => 'classifieds',
@@ -367,6 +368,7 @@ function pw_la_context_default_contexts() {
       'values' => array(
         '~ad/submit' => '~ad/submit',
         '~ad/thank-you' => '~ad/thank-you',
+        '~user/login' => '~user/login',
       ),
     ),
     'sitewide' => array(

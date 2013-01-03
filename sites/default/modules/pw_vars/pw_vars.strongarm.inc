@@ -196,7 +196,7 @@ function pw_vars_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_article';
-  $strongarm->value = 'edit-workflow';
+  $strongarm->value = 'edit-comment';
   $export['additional_settings__active_tab_article'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -628,7 +628,7 @@ echo date(\'now\');
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_article';
-  $strongarm->value = '2';
+  $strongarm->value = '1';
   $export['comment_article'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -663,7 +663,7 @@ echo date(\'now\');
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_mode_article';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_default_mode_article'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -719,7 +719,7 @@ echo date(\'now\');
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_per_page_article';
-  $strongarm->value = '30';
+  $strongarm->value = '10';
   $export['comment_default_per_page_article'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -908,7 +908,7 @@ echo date(\'now\');
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_article';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_subject_field_article'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1237,6 +1237,13 @@ echo date(\'now\');
     'group_edition|node|pw_digital|form' => FALSE,
     'group_optional_features|node|pw_digital|form' => FALSE,
     'group_name|node|ad_s|form' => TRUE,
+    'group_optional|node|attachment|form' => FALSE,
+    'group_basics|node|attachment|form' => FALSE,
+    'group_description|node|attachment|form' => FALSE,
+    'group_attachment|node|attachment|form' => FALSE,
+    'group_display_ad|node|display_ads|form' => FALSE,
+    'group_display_ad_file|node|display_ads|form' => TRUE,
+    'group_advanced|node|display_ads|form' => FALSE,
   );
   $export['default_field_group'] = $strongarm;
 
@@ -1679,6 +1686,9 @@ echo date(\'now\');
       'trail_edition_view' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'display' => array(),
@@ -1746,10 +1756,10 @@ echo date(\'now\');
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '0',
+          'weight' => '6',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '6',
         ),
       ),
       'display' => array(),
@@ -1867,10 +1877,10 @@ echo date(\'now\');
       'display' => array(),
       'form' => array(
         'title' => array(
-          'weight' => '6',
+          'weight' => '8',
         ),
         'path' => array(
-          'weight' => '4',
+          'weight' => '5',
         ),
       ),
     ),
@@ -2206,7 +2216,11 @@ echo date(\'now\');
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'locale_custom_disabled_strings_en';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    '' => array(
+      'You are not logged in.' => 'Welcome to the <br>Pennywise Ad Creation page.',
+    ),
+  );
   $export['locale_custom_disabled_strings_en'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -2216,7 +2230,6 @@ echo date(\'now\');
   $strongarm->value = array(
     '' => array(
       'A validation e-mail has been sent to your e-mail address. In order to gain full access to the site, you will need to follow the instructions in that message.' => 'A validation e-mail has been sent to your e-mail address. If you wish to create another ad in the future, or gain access to other features of this site consider validating your address, by following the instructions in that message.',
-      'You are not logged in.' => 'Welcome to the <br>Pennywise Ad Creation page.',
     ),
   );
   $export['locale_custom_strings_en'] = $strongarm;
@@ -3911,8 +3924,8 @@ ad/*';
   $strongarm->api_version = 1;
   $strongarm->name = 'theme_pwt_settings';
   $strongarm->value = array(
-    'toggle_logo' => 0,
-    'toggle_name' => 0,
+    'toggle_logo' => 1,
+    'toggle_name' => 1,
     'toggle_slogan' => 1,
     'toggle_node_user_picture' => 1,
     'toggle_comment_user_picture' => 1,
@@ -4027,7 +4040,7 @@ ad/*';
     'alpha_toggle_page_title' => 1,
     'alpha_toggle_feed_icons' => 1,
     'alpha_hidden_title' => 0,
-    'alpha_hidden_site_name' => 0,
+    'alpha_hidden_site_name' => 1,
     'alpha_hidden_site_slogan' => 1,
     'alpha_region_dashboard_inactive_force' => 0,
     'alpha_region_dashboard_inactive_zone' => NULL,
@@ -4099,36 +4112,6 @@ ad/*';
     'alpha_region_menu_css' => '',
     'alpha_region_menu_equal_height_element' => 0,
     'alpha_region_menu_equal_height_container' => 0,
-    'alpha_zone_user_wrapper' => 1,
-    'alpha_zone_user_force' => 0,
-    'alpha_zone_user_order' => 0,
-    'alpha_zone_user_section' => 'header',
-    'alpha_zone_user_weight' => '1',
-    'alpha_zone_user_columns' => '12',
-    'alpha_zone_user_primary' => NULL,
-    'alpha_zone_user_css' => '',
-    'alpha_zone_user_wrapper_css' => '',
-    'alpha_zone_user_equal_height_container' => 0,
-    'alpha_region_user_first_force' => 0,
-    'alpha_region_user_first_zone' => 'user',
-    'alpha_region_user_first_prefix' => '0',
-    'alpha_region_user_first_columns' => '8',
-    'alpha_region_user_first_suffix' => '0',
-    'alpha_region_user_first_weight' => '1',
-    'alpha_region_user_first_position' => '0',
-    'alpha_region_user_first_css' => '',
-    'alpha_region_user_first_equal_height_element' => 0,
-    'alpha_region_user_first_equal_height_container' => 0,
-    'alpha_region_user_second_force' => 0,
-    'alpha_region_user_second_zone' => 'user',
-    'alpha_region_user_second_prefix' => '0',
-    'alpha_region_user_second_columns' => '4',
-    'alpha_region_user_second_suffix' => '0',
-    'alpha_region_user_second_weight' => '2',
-    'alpha_region_user_second_position' => '0',
-    'alpha_region_user_second_css' => '',
-    'alpha_region_user_second_equal_height_element' => 0,
-    'alpha_region_user_second_equal_height_container' => 0,
     'alpha_zone_threeup_wrapper' => 1,
     'alpha_zone_threeup_force' => 0,
     'alpha_zone_threeup_order' => 1,
@@ -4169,6 +4152,36 @@ ad/*';
     'alpha_region_threeup_three_css' => '',
     'alpha_region_threeup_three_equal_height_element' => 0,
     'alpha_region_threeup_three_equal_height_container' => 0,
+    'alpha_zone_user_wrapper' => 1,
+    'alpha_zone_user_force' => 0,
+    'alpha_zone_user_order' => 0,
+    'alpha_zone_user_section' => 'header',
+    'alpha_zone_user_weight' => '1',
+    'alpha_zone_user_columns' => '12',
+    'alpha_zone_user_primary' => NULL,
+    'alpha_zone_user_css' => '',
+    'alpha_zone_user_wrapper_css' => '',
+    'alpha_zone_user_equal_height_container' => 0,
+    'alpha_region_user_first_force' => 0,
+    'alpha_region_user_first_zone' => 'user',
+    'alpha_region_user_first_prefix' => '0',
+    'alpha_region_user_first_columns' => '8',
+    'alpha_region_user_first_suffix' => '0',
+    'alpha_region_user_first_weight' => '1',
+    'alpha_region_user_first_position' => '0',
+    'alpha_region_user_first_css' => '',
+    'alpha_region_user_first_equal_height_element' => 0,
+    'alpha_region_user_first_equal_height_container' => 0,
+    'alpha_region_user_second_force' => 0,
+    'alpha_region_user_second_zone' => 'user',
+    'alpha_region_user_second_prefix' => '0',
+    'alpha_region_user_second_columns' => '4',
+    'alpha_region_user_second_suffix' => '0',
+    'alpha_region_user_second_weight' => '2',
+    'alpha_region_user_second_position' => '0',
+    'alpha_region_user_second_css' => '',
+    'alpha_region_user_second_equal_height_element' => 0,
+    'alpha_region_user_second_equal_height_container' => 0,
     'alpha_zone_branding_wrapper' => 1,
     'alpha_zone_branding_force' => 0,
     'alpha_zone_branding_order' => 0,

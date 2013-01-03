@@ -50,7 +50,6 @@ function pw_display_views_default_views() {
   $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['label'] = '';
   $handler->display->display_options['fields']['field_link']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_link']['alter']['strip_tags'] = TRUE;
   $handler->display->display_options['fields']['field_link']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_link']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_link']['hide_empty'] = TRUE;
@@ -71,7 +70,6 @@ function pw_display_views_default_views() {
   $handler->display->display_options['fields']['field_display_ad']['alter']['absolute'] = TRUE;
   $handler->display->display_options['fields']['field_display_ad']['alter']['external'] = TRUE;
   $handler->display->display_options['fields']['field_display_ad']['alter']['replace_spaces'] = TRUE;
-  $handler->display->display_options['fields']['field_display_ad']['alter']['path_case'] = 'lower';
   $handler->display->display_options['fields']['field_display_ad']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_display_ad']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_display_ad']['settings'] = array(
@@ -216,7 +214,6 @@ function pw_display_views_default_views() {
   $handler->display->display_options['fields']['field_display_ad']['alter']['absolute'] = TRUE;
   $handler->display->display_options['fields']['field_display_ad']['alter']['external'] = TRUE;
   $handler->display->display_options['fields']['field_display_ad']['alter']['replace_spaces'] = TRUE;
-  $handler->display->display_options['fields']['field_display_ad']['alter']['path_case'] = 'lower';
   $handler->display->display_options['fields']['field_display_ad']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_display_ad']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_display_ad']['settings'] = array(
@@ -396,7 +393,6 @@ function pw_display_views_default_views() {
   $handler->display->display_options['fields']['field_display_ad']['alter']['absolute'] = TRUE;
   $handler->display->display_options['fields']['field_display_ad']['alter']['external'] = TRUE;
   $handler->display->display_options['fields']['field_display_ad']['alter']['replace_spaces'] = TRUE;
-  $handler->display->display_options['fields']['field_display_ad']['alter']['path_case'] = 'lower';
   $handler->display->display_options['fields']['field_display_ad']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_display_ad']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_display_ad']['settings'] = array(
@@ -606,7 +602,6 @@ function pw_display_views_default_views() {
   $handler->display->display_options['fields']['field_display_ad']['alter']['absolute'] = TRUE;
   $handler->display->display_options['fields']['field_display_ad']['alter']['external'] = TRUE;
   $handler->display->display_options['fields']['field_display_ad']['alter']['replace_spaces'] = TRUE;
-  $handler->display->display_options['fields']['field_display_ad']['alter']['path_case'] = 'lower';
   $handler->display->display_options['fields']['field_display_ad']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_display_ad']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_display_ad']['type'] = 'file_rendered';
@@ -765,7 +760,6 @@ function pw_display_views_default_views() {
   $handler->display->display_options['fields']['field_display_ad']['alter']['absolute'] = TRUE;
   $handler->display->display_options['fields']['field_display_ad']['alter']['external'] = TRUE;
   $handler->display->display_options['fields']['field_display_ad']['alter']['replace_spaces'] = TRUE;
-  $handler->display->display_options['fields']['field_display_ad']['alter']['path_case'] = 'lower';
   $handler->display->display_options['fields']['field_display_ad']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_display_ad']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_display_ad']['type'] = 'file_rendered';
@@ -945,7 +939,6 @@ function pw_display_views_default_views() {
   $handler->display->display_options['fields']['field_display_ad']['alter']['absolute'] = TRUE;
   $handler->display->display_options['fields']['field_display_ad']['alter']['external'] = TRUE;
   $handler->display->display_options['fields']['field_display_ad']['alter']['replace_spaces'] = TRUE;
-  $handler->display->display_options['fields']['field_display_ad']['alter']['path_case'] = 'lower';
   $handler->display->display_options['fields']['field_display_ad']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_display_ad']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_display_ad']['settings'] = array(

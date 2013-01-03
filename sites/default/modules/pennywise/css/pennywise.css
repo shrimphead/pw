@@ -549,7 +549,7 @@ body.page-admin-pennywise .button a:hover {
   vertical-align: bottom;
 }
 /******************* Classifieds Table Layout ADMIN ********/
-/* AD SUBMISION ADMIN */
+/* AD SUBMISION ADMIN TABLE */
 body.page-admin-pennywise-classified-ad-s {
   /*   section listing */
 
@@ -560,17 +560,39 @@ body.page-admin-pennywise-classified-ad-s {
   /* details-price */
 
 }
-body.page-admin-pennywise-classified-ad-s .submission-placement-section,
-body.page-admin-pennywise-classified-ad-s .submission-placement-areas {
-  padding: 5px 20px;
+body.page-admin-pennywise-classified-ad-s #views-form-classified-ad-administration-incoming-ads .views-table caption {
+  font-size: 2em;
+  background-color: #ffff00;
+  border-radius: 20px 20px 0 0;
+  -moz-border-radius: 20px 20px 0 0;
+  -webkit-border-radius: 20px 20px 0 0;
+}
+body.page-admin-pennywise-classified-ad-s #views-form-classified-ad-administration-incoming-ads .submission-placement-cell {
+  width: 10%;
+  font-size: .8em;
+  line-height: 1.2em;
+}
+body.page-admin-pennywise-classified-ad-s #views-form-classified-ad-administration-incoming-ads .admin-ad-data-cell {
+  width: 40%;
+}
+body.page-admin-pennywise-classified-ad-s #views-form-classified-ad-administration-incoming-ads .client-data-cell {
+  width: 15%;
+}
+body.page-admin-pennywise-classified-ad-s #views-form-classified-ad-administration-incoming-ads .details-price-cell {
+  width: 20%;
+}
+body.page-admin-pennywise-classified-ad-s .submission-placement-section ul li,
+body.page-admin-pennywise-classified-ad-s .submission-placement-areas ul li {
   text-align: center;
+  list-style: none;
+  padding: 5px 20px;
+  margin-bottom: 10px;
   background-color: #fff8dd;
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
-  margin-bottom: 20px;
 }
-body.page-admin-pennywise-classified-ad-s .submission-placement-areas {
+body.page-admin-pennywise-classified-ad-s .submission-placement-areas ul li {
   background-color: rgba(9, 201, 0, 0.2);
 }
 body.page-admin-pennywise-classified-ad-s table.admin-incoming-ad-info {
