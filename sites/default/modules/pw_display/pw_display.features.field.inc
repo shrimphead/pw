@@ -473,6 +473,249 @@ function pw_display_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-display_ads-field_entity_reference'.
+  $fields['node-display_ads-field_entity_reference'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_entity_reference',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'node' => array(
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'entityreference',
+      'settings' => array(
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+          'sort' => array(
+            'direction' => 'ASC',
+            'property' => 'title',
+            'type' => 'property',
+          ),
+          'target_bundles' => array(
+            'attachment' => 'attachment',
+          ),
+        ),
+        'handler_submit' => 'Change handler',
+        'target_type' => 'node',
+        'user_role_field' => array(
+          1 => 0,
+          2 => 0,
+          3 => 0,
+          4 => 0,
+          5 => 0,
+          6 => 0,
+          7 => 0,
+          8 => 0,
+          9 => '9',
+          10 => 0,
+          11 => 0,
+        ),
+      ),
+      'translatable' => '0',
+      'type' => 'entityreference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'display_ads',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Link this display ad to a PDF attachment, another display ad or even a classified ad. Link to a specific PW web page, or even an online web submission form. You can also create the attachment right here.
+<strong>Display ads can only be linked. Do not create another display ad here!</strong>',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '16',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'token' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '16',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_entity_reference',
+      'label' => 'File Attach',
+      'required' => 0,
+      'settings' => array(
+        'custom_add_another' => 'Attach another',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'inline_entity_form',
+        'settings' => array(
+          'fields' => array(),
+          'type_settings' => array(
+            'allow_existing' => 1,
+            'delete_references' => 0,
+            'match_operator' => 'CONTAINS',
+          ),
+        ),
+        'type' => 'inline_entity_form',
+        'weight' => '6',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-display_ads-field_high_res_ad'.
+  $fields['node-display_ads-field_high_res_ad'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_high_res_ad',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'file',
+      'settings' => array(
+        'display_default' => 1,
+        'display_field' => 1,
+        'storage_class' => array(
+          'class_id' => '1',
+          'current_class_id' => '1',
+        ),
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'file',
+    ),
+    'field_instance' => array(
+      'bundle' => 'display_ads',
+      'deleted' => '0',
+      'description' => 'Upload related document.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_default',
+          'weight' => '6',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '12',
+        ),
+        'token' => array(
+          'label' => 'above',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_default',
+          'weight' => '6',
+        ),
+      ),
+      'ds_extras_field_template' => '',
+      'entity_type' => 'node',
+      'field_name' => 'field_high_res_ad',
+      'label' => 'Related File',
+      'required' => 0,
+      'settings' => array(
+        'custom_add_another' => '',
+        'description_field' => 1,
+        'file_directory' => 'images/attachment',
+        'file_extensions' => 'pdf gif tif jpg',
+        'max_filesize' => '4MB',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'file',
+        'settings' => array(
+          'filefield_sources' => array(
+            'filefield_sources' => array(
+              'attach' => 0,
+              'reference' => 'reference',
+              'remote' => 0,
+            ),
+            'source_attach' => array(
+              'absolute' => '0',
+              'attach_mode' => 'copy',
+              'path' => 'display-ad/attachment',
+            ),
+            'source_reference' => array(
+              'autocomplete' => '0',
+            ),
+          ),
+          'insert' => 0,
+          'insert_absolute' => FALSE,
+          'insert_class' => '',
+          'insert_default' => 'auto',
+          'insert_styles' => array(
+            'auto' => 'auto',
+            'image' => 0,
+            'image_classified_ad_image_small' => 0,
+            'image_display_ad_banner' => 0,
+            'image_display_ad_poster' => 0,
+            'image_display_ad_print_full' => 0,
+            'image_display_ad_print_thumbnail' => 0,
+            'image_display_ad_splash' => 0,
+            'image_display_ad_target' => 0,
+            'image_editorial_block_list_header' => 0,
+            'image_editorial_header' => 0,
+            'image_editorial_small' => 0,
+            'image_editorial_teaser' => 0,
+            'image_editorial_thumbnail' => 0,
+            'image_large' => 0,
+            'image_medium' => 0,
+            'image_square_thumbnail' => 0,
+            'image_thumbnail' => 0,
+            'link' => 0,
+          ),
+          'insert_width' => '',
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'file_generic',
+        'weight' => '7',
+      ),
+    ),
+  );
+
   // Exported field: 'node-display_ads-field_link'.
   $fields['node-display_ads-field_link'] = array(
     'field_config' => array(
@@ -904,10 +1147,14 @@ with <strong>Page 30</strong>.<br>
   t('Display Ad');
   t('Display Ad Type');
   t('Email');
+  t('File Attach');
   t('Link');
   t('Link file here by typing the title of the uploaded file name. To upload a file click <a href=\'/node/add/attachment\' target=\'_NEW\'>here.</a>');
+  t('Link this display ad to a PDF attachment, another display ad or even a classified ad. Link to a specific PW web page, or even an online web submission form. You can also create the attachment right here.
+<strong>Display ads can only be linked. Do not create another display ad here!</strong>');
   t('Optional email contact for business.');
   t('Publishing Date');
+  t('Related File');
   t('Section');
   t('Section Selector');
   t('Select the ad type. This will affect the ads placement and thumbnail size. <br>
@@ -926,6 +1173,7 @@ with <strong>Page 30</strong>.<br>
 <p><strong>NOTE: YOU must include HTTP://</strong><br>if the URL is not located at http://PennywiseAds.com
 ');
   t('Upload (or select) display ad.');
+  t('Upload related document.');
 
   return $fields;
 }

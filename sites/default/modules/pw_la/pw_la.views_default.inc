@@ -348,7 +348,7 @@ function pw_la_views_default_views() {
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['label'] = '';
   $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_image']['alter']['path'] = 'contact/[uid]/contact';
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = 'user/[uid]/contact';
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
@@ -394,7 +394,7 @@ function pw_la_views_default_views() {
   $handler->display->display_options['fields']['contact']['element_wrapper_class'] = '.contact-button';
   $handler->display->display_options['fields']['contact']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['contact']['text'] = 'Contact';
-  /* Field: Field: Phone Number */
+  /* Field: Field: Phone */
   $handler->display->display_options['fields']['field_phone']['id'] = 'field_phone';
   $handler->display->display_options['fields']['field_phone']['table'] = 'field_data_field_phone';
   $handler->display->display_options['fields']['field_phone']['field'] = 'field_phone';
@@ -585,7 +585,7 @@ function pw_la_views_default_views() {
   $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['uid']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
-  /* Field: Field: Phone Number */
+  /* Field: Field: Phone */
   $handler->display->display_options['fields']['field_phone']['id'] = 'field_phone';
   $handler->display->display_options['fields']['field_phone']['table'] = 'field_data_field_phone';
   $handler->display->display_options['fields']['field_phone']['field'] = 'field_phone';
@@ -603,7 +603,7 @@ function pw_la_views_default_views() {
   $handler->display->display_options['fields']['field_fax']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['field_fax']['click_sort_column'] = 'number';
   $handler->display->display_options['fields']['field_fax']['type'] = 'local_phone_number';
-  /* Sort criterion: User: Address (field_address:last_name) */
+  /* Sort criterion: Field: Address (field_address:last_name) */
   $handler->display->display_options['sorts']['field_address_last_name']['id'] = 'field_address_last_name';
   $handler->display->display_options['sorts']['field_address_last_name']['table'] = 'field_data_field_address';
   $handler->display->display_options['sorts']['field_address_last_name']['field'] = 'field_address_last_name';

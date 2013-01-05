@@ -440,6 +440,7 @@ function pw_cl_field_group_info() {
       0 => 'field_price',
       1 => 'field_email',
       2 => 'field_phone',
+      3 => 'field_address',
     ),
     'format_type' => 'multipage',
     'format_settings' => array(

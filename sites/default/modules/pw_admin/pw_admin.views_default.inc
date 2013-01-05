@@ -2358,6 +2358,20 @@ function pw_admin_views_default_views() {
   $handler->display->display_options['fields']['field_phone']['group_column'] = 'number';
   $handler->display->display_options['fields']['field_phone']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_phone']['delta_offset'] = '0';
+  /* Field: Field: Address */
+  $handler->display->display_options['fields']['field_address']['id'] = 'field_address';
+  $handler->display->display_options['fields']['field_address']['table'] = 'field_data_field_address';
+  $handler->display->display_options['fields']['field_address']['field'] = 'field_address';
+  $handler->display->display_options['fields']['field_address']['label'] = '';
+  $handler->display->display_options['fields']['field_address']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_address']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_address']['click_sort_column'] = 'country';
+  $handler->display->display_options['fields']['field_address']['settings'] = array(
+    'use_widget_handlers' => 1,
+    'format_handlers' => array(
+      'address' => 'address',
+    ),
+  );
   /* Field: Ad Payment: CCID. */
   $handler->display->display_options['fields']['ccid_1']['id'] = 'ccid_1';
   $handler->display->display_options['fields']['ccid_1']['table'] = 'adp';
@@ -2518,6 +2532,8 @@ function pw_admin_views_default_views() {
 <dt>Email:</dt><dd>[mail]</dd></dl>
 <dl class=\'client-data client-phone\'>
 <dt>Phone:</dt><dd> [field_phone]</dd></dl>
+<dl class=\'client-data client-address\'>
+<dt>Address:</dt><dd> [field_address]</dd></dl>
 </dl>
 </div>
 ';
@@ -6875,11 +6891,12 @@ function pw_admin_views_default_views() {
   $handler->display->display_options['empty']['php']['label'] = 'Get Parent Taxonomy TID and create Link';
   $handler->display->display_options['empty']['php']['empty'] = TRUE;
   $handler->display->display_options['empty']['php']['php_output'] = '<?php
-global $base_path;
+global $base_root;
+echo $base_root;
 $term_id =  $view->args[0];
 $parent = taxonomy_get_parents($term_id);
 $ptid = array_values($parent);
-echo "<h4><a href=\'" . $base_path . "/taxonomy/term/" . $ptid[0]->tid . "\'> See more ads in " . $ptid[0]->name . "</a></h4>";
+echo "<h4><a href=\'" . $base_root . "/taxonomy/term/" . $ptid[0]->tid . "\'> See more ads in " . $ptid[0]->name . "</a></h4>";
 ?>';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Taxonomy term: Name */

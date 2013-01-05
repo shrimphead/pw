@@ -145,6 +145,91 @@ function pw_cl_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-ad_s-field_address'.
+  $fields['node-ad_s-field_address'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_address',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'addressfield',
+      'settings' => array(
+        'user_role_field' => array(
+          1 => 0,
+          2 => 0,
+          3 => 0,
+          4 => 0,
+          5 => 0,
+          6 => 0,
+          7 => 0,
+          8 => 0,
+          9 => 0,
+          10 => 0,
+        ),
+      ),
+      'translatable' => '0',
+      'type' => 'addressfield',
+    ),
+    'field_instance' => array(
+      'bundle' => 'ad_s',
+      'default_value' => array(
+        0 => array(
+          'element_key' => 'node|ad_s|field_address|und|0',
+          'country' => 'CA',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'addressfield',
+          'settings' => array(
+            'format_handlers' => array(
+              0 => 'address',
+            ),
+            'use_widget_handlers' => 1,
+          ),
+          'type' => 'addressfield_default',
+          'weight' => 21,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_address',
+      'label' => 'Mailing Address',
+      'required' => 1,
+      'settings' => array(
+        'custom_add_another' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'addressfield',
+        'settings' => array(
+          'available_countries' => array(
+            'CA' => 'CA',
+          ),
+          'format_handlers' => array(
+            'address' => 'address',
+            'address-hide-country' => 'address-hide-country',
+            'organisation' => 0,
+            'name-full' => 0,
+            'name-oneline' => 0,
+          ),
+        ),
+        'type' => 'addressfield_standard',
+        'weight' => '35',
+      ),
+    ),
+  );
+
   // Exported field: 'node-ad_s-field_agree'.
   $fields['node-ad_s-field_agree'] = array(
     'field_config' => array(
@@ -409,7 +494,7 @@ function pw_cl_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'email_textfield',
-        'weight' => '35',
+        'weight' => '37',
       ),
     ),
   );
@@ -486,11 +571,8 @@ function pw_cl_field_default_fields() {
         'default_image' => 0,
         'file_directory' => 'online_ad_submission_images',
         'file_extensions' => 'png gif jpg jpeg',
-        'imagecrop' => array(
-          'classified_list_js_crop' => 0,
-        ),
-        'max_filesize' => '1MB',
-        'max_resolution' => '1200x1200',
+        'max_filesize' => '4MB',
+        'max_resolution' => '2000x2000',
         'min_resolution' => '60x60',
         'title_field' => 0,
         'user_register_form' => FALSE,
@@ -544,7 +626,7 @@ function pw_cl_field_default_fields() {
             'link' => 0,
           ),
           'insert_width' => '',
-          'preview_image_style' => 'classified_list_nocrop',
+          'preview_image_style' => '',
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
@@ -645,6 +727,8 @@ function pw_cl_field_default_fields() {
           8 => 0,
           9 => 0,
           10 => 0,
+          11 => 0,
+          12 => 0,
         ),
       ),
       'translatable' => '0',
@@ -920,7 +1004,7 @@ function pw_cl_field_default_fields() {
           'size' => 15,
         ),
         'type' => 'phone_number',
-        'weight' => '34',
+        'weight' => '36',
       ),
     ),
   );
@@ -975,7 +1059,7 @@ function pw_cl_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '36',
+        'weight' => '38',
       ),
     ),
   );
@@ -2181,6 +2265,8 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
           8 => 0,
           9 => 0,
           10 => 0,
+          11 => 0,
+          12 => 0,
         ),
       ),
       'translatable' => '0',
@@ -2604,6 +2690,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
   t('Image Uploader');
   t('Link');
   t('Liveload Your Ad');
+  t('Mailing Address');
   t('Notes');
   t('Number of weeks you wish to run your ad.<br/>
 <strong>Book 2 weeks receive your 3rd week FREE!</strong>');

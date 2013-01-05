@@ -34,9 +34,8 @@ function ad_payment_send_email($email_type, $details = NULL) {
 
     case 'inhouse': // Inhouse Receipt
     default:
-       #$to = variable_get('pennywise_classified_settings_email', 'k2@pennywiseads.com');
       $to = variable_get('pw_email_inhouse_receipt', 'info@pennywiseads.com');
-      $from = variable_get('pw_email', 'info@pennywiseads.com');
+      $from = $user->mail;  //variable_get('pw_email', 'info@pennywiseads.com');
       $result = drupal_mail('ad_payment', 'inhouse', $to, $language, $details, $from, $send);
 
       if ($result['result'] == TRUE) {
@@ -119,6 +118,7 @@ function ad_payment_mail($key, &$message, $params) {
 * - - - (Why pending?) - details as to why.
 */
 function email_receipt_body($message = NULL) {
+
   // Get ad submission details
   $ad = $message['params']['values'];
   $rate = $message['params']['rate'];
