@@ -1016,8 +1016,8 @@ function pw_display_views_default_views() {
   $handler->display->display_options['filters']['field_display_ad_type_value']['group'] = 1;
   $handler->display->display_options['block_description'] = 'Front Page Poster (2) Block';
 
-  /* Display: Front Banner */
-  $handler = $view->new_display('block', 'Front Banner', 'block_2');
+  /* Display: FRONT Page Banner  */
+  $handler = $view->new_display('block', 'FRONT Page Banner ', 'block_2');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
@@ -1033,11 +1033,6 @@ function pw_display_views_default_views() {
   $handler->display->display_options['empty']['view']['field'] = 'view';
   $handler->display->display_options['empty']['view']['view_to_insert'] = 'display_ad_blocks:banner_default_filler';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Promoted to front page */
-  $handler->display->display_options['sorts']['promote']['id'] = 'promote';
-  $handler->display->display_options['sorts']['promote']['table'] = 'node';
-  $handler->display->display_options['sorts']['promote']['field'] = 'promote';
-  $handler->display->display_options['sorts']['promote']['order'] = 'DESC';
   /* Sort criterion: Global: Random */
   $handler->display->display_options['sorts']['random']['id'] = 'random';
   $handler->display->display_options['sorts']['random']['table'] = 'views';
@@ -1092,7 +1087,153 @@ function pw_display_views_default_views() {
     'banner' => 'banner',
   );
   $handler->display->display_options['filters']['field_display_ad_type_value']['group'] = 1;
+  /* Filter criterion: Content: Promoted to front page */
+  $handler->display->display_options['filters']['promote']['id'] = 'promote';
+  $handler->display->display_options['filters']['promote']['table'] = 'node';
+  $handler->display->display_options['filters']['promote']['field'] = 'promote';
+  $handler->display->display_options['filters']['promote']['value'] = '1';
   $handler->display->display_options['block_description'] = 'Banner Block w/TID';
+
+  /* Display: Front Poster Block (1) */
+  $handler = $view->new_display('block', 'Front Poster Block (1)', 'block_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Poster Block';
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = '';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<a href=\'http://localhost:8888/pw7/advertising-information/sales\' class=\'poster-block-advertising-link\'>See your ad here<br>Advertise with Pennywise!</a>';
+  $handler->display->display_options['footer']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Link */
+  $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
+  $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
+  $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
+  $handler->display->display_options['fields']['field_link']['label'] = '';
+  $handler->display->display_options['fields']['field_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_link']['alter']['strip_tags'] = TRUE;
+  $handler->display->display_options['fields']['field_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_link']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_link']['empty'] = 'http://pennywiseads.com/node/[nid]';
+  $handler->display->display_options['fields']['field_link']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['field_link']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_link']['type'] = 'link_plain';
+  $handler->display->display_options['fields']['field_link']['group_column'] = 'url';
+  $handler->display->display_options['fields']['field_link']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_link']['delta_limit'] = '3';
+  $handler->display->display_options['fields']['field_link']['delta_offset'] = '0';
+  /* Field: Content: Display Ad */
+  $handler->display->display_options['fields']['field_display_ad']['id'] = 'field_display_ad';
+  $handler->display->display_options['fields']['field_display_ad']['table'] = 'field_data_field_display_ad';
+  $handler->display->display_options['fields']['field_display_ad']['field'] = 'field_display_ad';
+  $handler->display->display_options['fields']['field_display_ad']['label'] = '';
+  $handler->display->display_options['fields']['field_display_ad']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_display_ad']['alter']['path'] = '[field_link]';
+  $handler->display->display_options['fields']['field_display_ad']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_display_ad']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['field_display_ad']['alter']['replace_spaces'] = TRUE;
+  $handler->display->display_options['fields']['field_display_ad']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_display_ad']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_display_ad']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+  );
+  $handler->display->display_options['fields']['field_display_ad']['group_column'] = 'fid';
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['text'] = 'Edit';
+  /* Field: Content: Delete link */
+  $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['label'] = '';
+  $handler->display->display_options['fields']['delete_node']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['delete_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['delete_node']['text'] = 'Delete';
+  /* Field: Global: Contextual Links */
+  $handler->display->display_options['fields']['contextual_links']['id'] = 'contextual_links';
+  $handler->display->display_options['fields']['contextual_links']['table'] = 'views';
+  $handler->display->display_options['fields']['contextual_links']['field'] = 'contextual_links';
+  $handler->display->display_options['fields']['contextual_links']['label'] = '';
+  $handler->display->display_options['fields']['contextual_links']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['contextual_links']['fields'] = array(
+    'delete_node' => 'delete_node',
+    'edit_node' => 'edit_node',
+    'field_link' => 0,
+    'field_display_ad' => 0,
+  );
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Promoted to front page */
+  $handler->display->display_options['sorts']['promote']['id'] = 'promote';
+  $handler->display->display_options['sorts']['promote']['table'] = 'node';
+  $handler->display->display_options['sorts']['promote']['field'] = 'promote';
+  $handler->display->display_options['sorts']['promote']['order'] = 'DESC';
+  /* Sort criterion: Global: Random */
+  $handler->display->display_options['sorts']['random']['id'] = 'random';
+  $handler->display->display_options['sorts']['random']['table'] = 'views';
+  $handler->display->display_options['sorts']['random']['field'] = 'random';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'AND',
+  );
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'display_ads' => 'display_ads',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Display Ad Type (field_display_ad_type) */
+  $handler->display->display_options['filters']['field_display_ad_type_value']['id'] = 'field_display_ad_type_value';
+  $handler->display->display_options['filters']['field_display_ad_type_value']['table'] = 'field_data_field_display_ad_type';
+  $handler->display->display_options['filters']['field_display_ad_type_value']['field'] = 'field_display_ad_type_value';
+  $handler->display->display_options['filters']['field_display_ad_type_value']['value'] = array(
+    'poster' => 'poster',
+  );
+  $handler->display->display_options['filters']['field_display_ad_type_value']['group'] = 1;
+  $handler->display->display_options['block_description'] = 'Front Page Poster (2) Block';
   $export['display_ad_blocks'] = $view;
 
   return $export;

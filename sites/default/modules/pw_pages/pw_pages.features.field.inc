@@ -1070,18 +1070,16 @@ function pw_pages_field_default_fields() {
         'default' => array(
           'label' => 'hidden',
           'module' => 'text',
-          'settings' => array(
-            'masonry' => 0,
-            'masonry_animated' => 1,
-            'masonry_animated_duration' => '500',
-            'masonry_center' => 0,
-            'masonry_gutter' => '0',
-            'masonry_resizable' => 1,
-            'masonry_rtl' => 0,
-            'masonry_width' => '200',
-          ),
+          'settings' => array(),
           'type' => 'text_default',
           'weight' => '3',
+        ),
+        'simple_teaser' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_plain',
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -1090,7 +1088,7 @@ function pw_pages_field_default_fields() {
             'trim_length' => '350',
           ),
           'type' => 'text_summary_or_trimmed',
-          'weight' => '2',
+          'weight' => '3',
         ),
       ),
       'entity_type' => 'node',
@@ -1188,13 +1186,19 @@ function pw_pages_field_default_fields() {
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '10',
+          'weight' => '12',
+        ),
+        'simple_teaser' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '9',
+          'weight' => '10',
         ),
       ),
       'entity_type' => 'node',
@@ -1215,132 +1219,6 @@ function pw_pages_field_default_fields() {
         ),
         'type' => 'entityreference_autocomplete',
         'weight' => '7',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-attachment-field_file'.
-  $fields['node-attachment-field_file'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_file',
-      'field_permissions' => array(
-        'type' => '0',
-      ),
-      'foreign keys' => array(
-        'fid' => array(
-          'columns' => array(
-            'fid' => 'fid',
-          ),
-          'table' => 'file_managed',
-        ),
-      ),
-      'indexes' => array(
-        'fid' => array(
-          0 => 'fid',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'file',
-      'settings' => array(
-        'display_default' => 1,
-        'display_field' => 1,
-        'storage_class' => array(
-          'class_id' => '2',
-          'current_class_id' => '2',
-        ),
-        'uri_scheme' => 'storage-field-file',
-      ),
-      'translatable' => '0',
-      'type' => 'file',
-    ),
-    'field_instance' => array(
-      'bundle' => 'attachment',
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'file',
-          'settings' => array(),
-          'type' => 'file_default',
-          'weight' => 11,
-        ),
-        'teaser' => array(
-          'label' => 'inline',
-          'module' => 'file',
-          'settings' => array(),
-          'type' => 'file_table',
-          'weight' => '3',
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_file',
-      'label' => 'File',
-      'required' => 1,
-      'settings' => array(
-        'custom_add_another' => '',
-        'description_field' => 0,
-        'file_directory' => 'storage/attachments',
-        'file_extensions' => 'txt pdf doc tif psd jpg png ind exl',
-        'max_filesize' => '10 MB',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'file',
-        'settings' => array(
-          'filefield_sources' => array(
-            'filefield_sources' => array(
-              'attach' => 'attach',
-              'clipboard' => 0,
-              'reference' => 'reference',
-              'remote' => 0,
-            ),
-            'source_attach' => array(
-              'absolute' => '0',
-              'attach_mode' => 'move',
-              'path' => 'storage/attachments',
-            ),
-            'source_imce' => array(
-              'imce_mode' => 0,
-            ),
-            'source_reference' => array(
-              'autocomplete' => '1',
-            ),
-          ),
-          'insert' => 0,
-          'insert_absolute' => 0,
-          'insert_class' => '',
-          'insert_default' => 'auto',
-          'insert_styles' => array(
-            'auto' => 'auto',
-            'icon_link' => 0,
-            'image' => 0,
-            'image_classified-list-style' => 0,
-            'image_classified_list_nocrop' => 0,
-            'image_classified_page_style' => 0,
-            'image_display_ad_print_thumbnail' => 0,
-            'image_editorial_block_list_header' => 0,
-            'image_editorial_header' => 0,
-            'image_editorial_small' => 0,
-            'image_editorial_teaser' => 0,
-            'image_editorial_thumbnail' => 0,
-            'image_large' => 0,
-            'image_medium' => 0,
-            'image_miniature_square' => 0,
-            'image_square_thumbnail' => 0,
-            'image_thumbnail' => 0,
-            'link' => 0,
-          ),
-          'insert_width' => '',
-          'progress_indicator' => 'throbber',
-        ),
-        'type' => 'file_generic',
-        'weight' => '1',
       ),
     ),
   );
@@ -1390,16 +1268,26 @@ function pw_pages_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'hidden',
+          'module' => 'file_entity',
+          'settings' => array(
+            'file_view_mode' => 'default',
+          ),
+          'type' => 'file_rendered',
+          'weight' => '4',
+        ),
+        'simple_teaser' => array(
+          'label' => 'hidden',
           'module' => 'file',
           'settings' => array(),
-          'type' => 'file_default',
-          'weight' => '4',
+          'type' => 'file_url_plain',
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'hidden',
+          'module' => 'file',
           'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '1',
+          'type' => 'file_default',
+          'weight' => '2',
         ),
       ),
       'entity_type' => 'node',
@@ -1527,14 +1415,16 @@ function pw_pages_field_default_fields() {
           'settings' => array(
             'image_link' => 'file',
             'image_style' => 'large',
-            'masonry' => 0,
-            'masonry_animated' => 1,
-            'masonry_animated_duration' => '500',
-            'masonry_center' => 0,
-            'masonry_gutter' => '0',
-            'masonry_resizable' => 1,
-            'masonry_rtl' => 0,
-            'masonry_width' => '200',
+          ),
+          'type' => 'image',
+          'weight' => '1',
+        ),
+        'simple_teaser' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => 'content',
+            'image_style' => 'thumbnail',
           ),
           'type' => 'image',
           'weight' => '0',
@@ -1669,11 +1559,17 @@ function pw_pages_field_default_fields() {
           'type' => 'link_default',
           'weight' => '5',
         ),
+        'simple_teaser' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '10',
+          'weight' => '11',
         ),
       ),
       'entity_type' => 'node',
@@ -3789,7 +3685,6 @@ NOTE: Thumbnail image required.',
   t('Edition Date');
   t('Email');
   t('Extra Images');
-  t('File');
   t('Header Image');
   t('Highlighted Link');
   t('If the attachment is several pages or files you can reference the other items here.');

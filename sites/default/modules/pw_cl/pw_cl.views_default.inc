@@ -464,21 +464,20 @@ function pw_cl_views_default_views() {
   $handler->display->display_options['sorts']['field_ad_type_value_1']['table'] = 'field_data_field_ad_type';
   $handler->display->display_options['sorts']['field_ad_type_value_1']['field'] = 'field_ad_type_value';
   $handler->display->display_options['sorts']['field_ad_type_value_1']['order'] = 'DESC';
-  /* Sort criterion: Content: Sticky */
-  $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
-  $handler->display->display_options['sorts']['sticky']['table'] = 'node';
-  $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
-  $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
-  /* Sort criterion: Content: Classified Ad Type (field_ad_type) */
-  $handler->display->display_options['sorts']['field_ad_type_value']['id'] = 'field_ad_type_value';
-  $handler->display->display_options['sorts']['field_ad_type_value']['table'] = 'field_data_field_ad_type';
-  $handler->display->display_options['sorts']['field_ad_type_value']['field'] = 'field_ad_type_value';
-  $handler->display->display_options['sorts']['field_ad_type_value']['order'] = 'DESC';
   /* Sort criterion: Field: Header Image (field_image:fid) */
   $handler->display->display_options['sorts']['field_image_fid']['id'] = 'field_image_fid';
   $handler->display->display_options['sorts']['field_image_fid']['table'] = 'field_data_field_image';
   $handler->display->display_options['sorts']['field_image_fid']['field'] = 'field_image_fid';
   $handler->display->display_options['sorts']['field_image_fid']['order'] = 'DESC';
+  /* Sort criterion: Content: Body (body:format) */
+  $handler->display->display_options['sorts']['body_format']['id'] = 'body_format';
+  $handler->display->display_options['sorts']['body_format']['table'] = 'field_data_body';
+  $handler->display->display_options['sorts']['body_format']['field'] = 'body_format';
+  /* Sort criterion: Content: Sticky */
+  $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
+  $handler->display->display_options['sorts']['sticky']['table'] = 'node';
+  $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
+  $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
   /* Contextual filter: Content: Has taxonomy term ID (with depth) */
   $handler->display->display_options['arguments']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
   $handler->display->display_options['arguments']['term_node_tid_depth']['table'] = 'node';

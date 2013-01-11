@@ -605,6 +605,45 @@ body {
   }
 }
 
+/* Digital Edition Link Block */
+.block-pw-edition {
+  ul#pw-edition {
+    ul, li {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      border-bottom: 1pt solid @darksand;
+      padding: 4px;
+      a {
+        width: 100%;
+        margin: 0;
+      }
+    }
+    li:hover {
+      background-color: @sand;
+    }
+  }
+}
+
+/* CTools Jump Menu */
+#block-jump-menu-jump-menu-m-menu-browse-classifi {
+  width: 140px;
+  h2 .block-title {
+    display: none;
+  }
+  #edit-jump #ctools-jump-menu, #edit-jump--2 {
+    width: 135px;
+    .d-1 {
+      font-weight: bolder;
+      font-size: 1.4em;
+    }
+    .d-2 {
+      line-height: 1em;
+    }
+  }
+}
+
 /*****************  DISPLAY ADS  *****************/
 
 .view-id-display_ad_blocks {
@@ -1300,6 +1339,22 @@ ul.pw-classified-nav-list, .menu-name-menu-pennywise-digital-edition ul, .block-
     li.classified-ad-block {
       width: 90%;
     }
+  }
+}
+
+/* No Children Sub-List Block */
+#taxonomy-sub-list-no-children-block {
+  width: 80%;
+  background-color: @lightsand;
+  .border-radius;
+  p {
+    padding: 10%;
+    .center;
+    font-size: 2em;
+  }
+  h3.sub-list-block-submit-link a {
+    font-size: 1.2em;
+    background-color: inherit;
   }
 }
 

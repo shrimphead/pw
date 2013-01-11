@@ -645,13 +645,12 @@ function ad_payment_taxonomy($op, $type, $array = array()) {
   switch ($type) {
     case 'term':
       variable_del('ad_payment_business_rated');
-//      variable_del('ad_payment_classification_headers');
       break;
   }
 }
 
 /**
-* Cuastom function
+* Custom function
 *
 * Returns a nested array of classifieds with header and children.
 */

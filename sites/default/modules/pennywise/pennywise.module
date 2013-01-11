@@ -315,6 +315,18 @@ function pennywise_block_info() {
     'visibility' => 0,
     'cache' => 8,
   );
+  $blocks['pw_tmtv'] = array(
+    'info'    => t('TMTV Image Link'),
+    'status'  => FALSE,
+    'visibility' => 0,
+    'cache' => 8,
+  );
+  $blocks['pw_edition'] = array(
+    'info'    => t('PW Digital Edition Links'),
+    'status'  => FALSE,
+    'visibility' => 0,
+    'cache' => 8,
+  );
 
   return $blocks;
 }
@@ -337,9 +349,15 @@ function pennywise_block_configure($delta) {
         // OUtput
         $form['link_group']['link'] = array(
           '#type'         => 'item',
-          '#description'  => l('Admistrative Default Settings', 'admin/pennywise/settings'),
+          '#description'  => l('Administrative Default Settings', 'admin/pennywise/settings'),
         );
+      break;
+    case 'pw_tmtv';
 
+      $form['tmtv_link'] = array(
+        '#type' => 'textfield',
+        '#description' => t('Link to TMTV News Page'),
+      );
       break;
   }
 
@@ -347,6 +365,18 @@ function pennywise_block_configure($delta) {
 }
 
 
+/**
+* Implementation of HOOK_block_save
+*
+* Saving PW Custom block data into variables table.
+*/
+function pennywise_block_save() {
+  switch($delta) {
+    case 'tmtv_link':
+      break;
+  }
+  return ;
+}
 
 /**
  * Implementation of HOOK_block_view
@@ -360,6 +390,30 @@ function pennywise_block_view($delta = '') {
   global $base_url;
 
   switch($delta) {
+
+    case 'pw_edition':
+      $dig_edition = l('Browse Online', variable_get('pw_edition_link', 'edition'));
+      $subject = $dig_edition;
+      $t = l('Trail & Rossland', variable_get('pw_edition_trail_link', 'edition/trail-salmo-beaver-valley'));
+      $n = l('Nelson & Salmo', variable_get('pw_edition_trail_link', 'edition/nelson-salmo'));
+      $c = l('Castlegar & Slocan Valley', variable_get('pw_edition_trail_link', 'edition/castlegar-slocan-valley'));
+      $k = l('Kootenay Lake', variable_get('pw_edition_trail_link', 'edition/kootenay-lake'));
+      $items = array(
+        array('data' => $t, 'id' => 't-edtion'),
+        array('data' => $n, 'id' => 'n-edtion'),
+        array('data' => $c, 'id' => 'c-edtion'),
+        array('data' => $k, 'id' => 'k-edtion'),
+      );
+      $content = theme('item_list', array('items' => $items, 'attributes' => array('class' => 'online-edition', 'id' => 'pw-edition')));
+      break;
+
+    case 'pw_tmtv':
+      $subject    = '';
+      $image_path = file_create_url(drupal_get_path('module', 'pennywise') . '/images/tmtv_2.png');
+      $image      = '<img width="140px" height="177px" src="' . $image_path . '" alt="' . t('TMTV News') . '" />';
+      $content    = l($image, 'http://www.tmtv.net/newsroom.html', array('html' => TRUE, 'attributes' => array('rel' => 'TMTV', 'id' => 'TMTV-Link', 'title' => t('TMTV Newsroom'))));
+      break;
+
     case 'pw_logo':
       $subject    = '';
       $logo_path  = theme_get_setting('logo');

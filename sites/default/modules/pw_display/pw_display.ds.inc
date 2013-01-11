@@ -18,21 +18,21 @@ function pw_display_ds_layout_settings_info() {
   $ds_layout->view_mode = 'default';
   $ds_layout->layout = 'ds_2col_stacked';
   $ds_layout->settings = array(
-    'hide_empty_regions' => 1,
-    'hide_sidebars' => 1,
     'regions' => array(
       'header' => array(
         0 => 'field_display_ad',
       ),
       'left' => array(
-        0 => 'title',
-        1 => 'field_ad_copy',
+        1 => 'title',
+        2 => 'field_ad_copy',
       ),
       'right' => array(
-        0 => 'field_ad_client',
-        1 => 'field_link',
-        2 => 'field_email',
-        3 => 'field_high_res_ad',
+        3 => 'field_ad_client',
+        4 => 'field_link',
+        5 => 'field_email',
+      ),
+      'footer' => array(
+        6 => 'field_special_feature_link',
       ),
     ),
     'fields' => array(
@@ -42,9 +42,18 @@ function pw_display_ds_layout_settings_info() {
       'field_ad_client' => 'right',
       'field_link' => 'right',
       'field_email' => 'right',
-      'field_high_res_ad' => 'right',
+      'field_special_feature_link' => 'footer',
     ),
     'classes' => array(),
+    'wrappers' => array(
+      'header' => 'div',
+      'left' => 'div',
+      'right' => 'div',
+      'footer' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 0,
   );
   $export['node|display_ads|default'] = $ds_layout;
 

@@ -10,6 +10,7 @@ dependencies[] = comment
 dependencies[] = context
 dependencies[] = ctools
 dependencies[] = delta
+dependencies[] = jump_menu
 dependencies[] = logintoboggan
 dependencies[] = menu
 dependencies[] = menu_block

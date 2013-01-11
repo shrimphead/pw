@@ -230,55 +230,61 @@ function pw_la_context_default_contexts() {
           'module' => 'ad_payment',
           'delta' => 'ad_payment_create_ad',
           'region' => 'sidebar_first',
-          'weight' => '-32',
-        ),
-        'views-20eeba41cb621b5fc7f09165eda65f99' => array(
-          'module' => 'views',
-          'delta' => '20eeba41cb621b5fc7f09165eda65f99',
-          'region' => 'sidebar_first',
-          'weight' => '-31',
+          'weight' => '-10',
         ),
         'views--exp-search_ads-search_page' => array(
           'module' => 'views',
           'delta' => '-exp-search_ads-search_page',
           'region' => 'sidebar_first',
-          'weight' => '-30',
+          'weight' => '-9',
+        ),
+        'jump_menu-jump_menu-m_menu-browse-classifi' => array(
+          'module' => 'jump_menu',
+          'delta' => 'jump_menu-m_menu-browse-classifi',
+          'region' => 'sidebar_first',
+          'weight' => '-8',
         ),
         'views-27d2d6d0e3ed6c5fa504fe7a9076159a' => array(
           'module' => 'views',
           'delta' => '27d2d6d0e3ed6c5fa504fe7a9076159a',
           'region' => 'sidebar_first',
-          'weight' => '-29',
+          'weight' => '-7',
         ),
-        'menu_block-5' => array(
-          'module' => 'menu_block',
-          'delta' => '5',
+        'pennywise-pw_tmtv' => array(
+          'module' => 'pennywise',
+          'delta' => 'pw_tmtv',
           'region' => 'sidebar_first',
-          'weight' => '-28',
-        ),
-        'menu-menu-advertising-links' => array(
-          'module' => 'menu',
-          'delta' => 'menu-advertising-links',
-          'region' => 'sidebar_first',
-          'weight' => '-27',
+          'weight' => '-6',
         ),
         'views-editorial_views-editorial_block' => array(
           'module' => 'views',
           'delta' => 'editorial_views-editorial_block',
           'region' => 'sidebar_first',
-          'weight' => '-26',
+          'weight' => '-5',
+        ),
+        'pennywise-pw_edition' => array(
+          'module' => 'pennywise',
+          'delta' => 'pw_edition',
+          'region' => 'sidebar_first',
+          'weight' => '-4',
+        ),
+        'menu-menu-advertising-links' => array(
+          'module' => 'menu',
+          'delta' => 'menu-advertising-links',
+          'region' => 'sidebar_first',
+          'weight' => '-3',
         ),
         'user-login' => array(
           'module' => 'user',
           'delta' => 'login',
           'region' => 'sidebar_first',
-          'weight' => '-25',
+          'weight' => '-2',
         ),
         'logintoboggan-logintoboggan_logged_in' => array(
           'module' => 'logintoboggan',
           'delta' => 'logintoboggan_logged_in',
           'region' => 'sidebar_first',
-          'weight' => '-10',
+          'weight' => '-1',
         ),
         'views-display_ad_blocks-target_block' => array(
           'module' => 'views',
@@ -361,7 +367,7 @@ function pw_la_context_default_contexts() {
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'footer_all';
-  $context->description = 'Footer 4 fold boxe links';
+  $context->description = 'Footer 4 fold boxes links';
   $context->tag = 'layout';
   $context->conditions = array(
     'path' => array(
@@ -380,11 +386,11 @@ function pw_la_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-27d2d6d0e3ed6c5fa504fe7a9076159a' => array(
-          'module' => 'views',
-          'delta' => '27d2d6d0e3ed6c5fa504fe7a9076159a',
+        'pennywise-pw_edition' => array(
+          'module' => 'pennywise',
+          'delta' => 'pw_edition',
           'region' => 'postscript_first',
-          'weight' => '-10',
+          'weight' => '-8',
         ),
         'views-editorial_slideshow-block_1' => array(
           'module' => 'views',
@@ -411,7 +417,7 @@ function pw_la_context_default_contexts() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Footer 4 fold boxe links');
+  t('Footer 4 fold boxes links');
   t('layout');
   $export['footer_all'] = $context;
 
@@ -466,25 +472,31 @@ function pw_la_context_default_contexts() {
           'module' => 'views',
           'delta' => 'display_ad_blocks-target_block',
           'region' => 'sidebar_first',
-          'weight' => '-10',
+          'weight' => '-45',
         ),
         'ad_payment-ad_payment_create_ad' => array(
           'module' => 'ad_payment',
           'delta' => 'ad_payment_create_ad',
           'region' => 'sidebar_first',
-          'weight' => '-9',
+          'weight' => '-44',
+        ),
+        'pennywise-pw_tmtv' => array(
+          'module' => 'pennywise',
+          'delta' => 'pw_tmtv',
+          'region' => 'sidebar_first',
+          'weight' => '-43',
         ),
         'views-ef0d1e47fd179cf664b200173efd842c' => array(
           'module' => 'views',
           'delta' => 'ef0d1e47fd179cf664b200173efd842c',
           'region' => 'sidebar_first',
-          'weight' => '-8',
+          'weight' => '-42',
         ),
         'user-login' => array(
           'module' => 'user',
           'delta' => 'login',
           'region' => 'sidebar_first',
-          'weight' => '-7',
+          'weight' => '-41',
         ),
         'views-display_ad_blocks-banner_block' => array(
           'module' => 'views',

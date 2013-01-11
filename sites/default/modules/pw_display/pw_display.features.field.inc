@@ -63,7 +63,7 @@ function pw_display_field_default_fields() {
           'label' => 'hidden',
           'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'taxonomy_term_reference_plain',
           'weight' => '3',
         ),
         'teaser' => array(
@@ -139,7 +139,7 @@ function pw_display_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
@@ -360,7 +360,7 @@ function pw_display_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '13',
+          'weight' => '16',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -546,7 +546,7 @@ function pw_display_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '16',
+          'weight' => '19',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -631,10 +631,9 @@ function pw_display_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'file',
           'settings' => array(),
-          'type' => 'file_default',
-          'weight' => '6',
+          'type' => 'hidden',
+          'weight' => '14',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -761,7 +760,7 @@ with <strong>Page 30</strong>.<br>
 ',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'link',
           'settings' => array(),
           'type' => 'link_default',
@@ -857,7 +856,7 @@ with <strong>Page 30</strong>.<br>
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '15',
+          'weight' => '18',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -933,7 +932,7 @@ with <strong>Page 30</strong>.<br>
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '14',
+          'weight' => '17',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1020,9 +1019,13 @@ with <strong>Page 30</strong>.<br>
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '17',
+          'module' => 'entityreference',
+          'settings' => array(
+            'links' => 1,
+            'view_mode' => 'teaser',
+          ),
+          'type' => 'entityreference_entity_view',
+          'weight' => '6',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1106,7 +1109,7 @@ with <strong>Page 30</strong>.<br>
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '12',
+          'weight' => '15',
         ),
         'teaser' => array(
           'label' => 'above',

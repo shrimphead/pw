@@ -148,9 +148,8 @@ function email_receipt_body($message = NULL) {
 
   // Set Message (if holiday)
   $standard_message = 'PLEASE NOTE:
-    Your ad will be reviewed by our friendly staff before being placed online and in print.
-    Liveload ads are given priority and often processed within 1/2 hour after submission (during regular business hours).
-    Otherwise the ad will wait until our next print edition which is every Tuesday.';
+  Live Load ads are given priority and will be processed as quickly as possible (during regular business hours).
+  Regular ads placed before 3pm on Thursday will appear in the following Tuesday\'s print edition.';
 
   // Check to see is the holiday settings are set and get message.
   $holiday = variable_get('pennywise_holiday_settings', NULL);
@@ -192,7 +191,7 @@ Address: Box 430,
 
 $message
 
-We appreciate your business, and look forward to helping you again.
+Thank you for placing your ads with the Pennywise, we appreciate your business .
 
 Sincerly,
 The Pennywise Team.

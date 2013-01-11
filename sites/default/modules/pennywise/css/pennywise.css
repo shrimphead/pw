@@ -559,6 +559,8 @@ body.page-admin-pennywise-classified-ad-s {
 
   /* details-price */
 
+  /* submited ad details */
+
 }
 body.page-admin-pennywise-classified-ad-s #views-form-classified-ad-administration-incoming-ads .views-table caption {
   font-size: 2em;
@@ -627,6 +629,26 @@ body.page-admin-pennywise-classified-ad-s table.details-price tr.details-price-t
 body.page-admin-pennywise-classified-ad-s table.details-price td {
   margin: 0;
   padding: 3px 5px;
+}
+body.page-admin-pennywise-classified-ad-s .ad-details-toggle-outer-box {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 4px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  background-color: #fbfaf9;
+}
+body.page-admin-pennywise-classified-ad-s .ad-details-toggle-box-content {
+  text-align: left;
+  font-weight: 300;
+  padding: 10px;
+  font-size: .9em;
+  line-height: 1.4em;
 }
 /* #views-form-classified-ad-administration-classified-pagelink { */
 .vbo-views-form table {

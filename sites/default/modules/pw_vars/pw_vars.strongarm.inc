@@ -1735,7 +1735,7 @@ echo date(\'now\');
         'custom_settings' => FALSE,
       ),
       'simple_teaser' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'castlegar_edition_view' => array(
         'custom_settings' => FALSE,
@@ -1750,6 +1750,12 @@ echo date(\'now\');
         'custom_settings' => FALSE,
       ),
       'trail_edition_view' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'revision' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -1870,6 +1876,9 @@ echo date(\'now\');
         'custom_settings' => FALSE,
       ),
       'trail_edition_view' => array(
+        'custom_settings' => FALSE,
+      ),
+      'revision' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -2318,6 +2327,7 @@ echo date(\'now\');
     6 => 'menu-advertising-links',
     8 => 'menu-pennywise-digital-edition',
     9 => 'menu-header-menu',
+    10 => 'menu-browse-classifieds',
   );
   $export['menu_default_active_menus'] = $strongarm;
 
@@ -2327,8 +2337,9 @@ echo date(\'now\');
   $strongarm->name = 'menu_expanded';
   $strongarm->value = array(
     0 => 'menu-advertising-links',
-    1 => 'menu-pw-admin',
-    2 => 'menu-pw-super-menu',
+    1 => 'menu-browse-classifieds',
+    2 => 'menu-pw-admin',
+    3 => 'menu-pw-super-menu',
   );
   $export['menu_expanded'] = $strongarm;
 
@@ -2369,24 +2380,23 @@ echo date(\'now\');
     29 => 30,
     30 => 29,
     31 => 28,
-    32 => 27,
-    33 => 25,
-    34 => 24,
-    35 => 23,
-    36 => 21,
-    37 => 15,
-    38 => 14,
-    39 => 13,
-    40 => 11,
-    41 => 10,
-    42 => 8,
-    43 => 7,
-    44 => 6,
-    45 => 5,
-    46 => 4,
-    47 => 3,
-    48 => 2,
-    49 => 1,
+    32 => 25,
+    33 => 24,
+    34 => 23,
+    35 => 21,
+    36 => 15,
+    37 => 14,
+    38 => 13,
+    39 => 11,
+    40 => 10,
+    41 => 8,
+    42 => 7,
+    43 => 6,
+    44 => 5,
+    45 => 4,
+    46 => 3,
+    47 => 2,
+    48 => 1,
   );
   $export['menu_masks'] = $strongarm;
 
@@ -3757,7 +3767,7 @@ ad/*';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_404';
-  $strongarm->value = 'search';
+  $strongarm->value = 'search404';
   $export['site_404'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -3841,7 +3851,7 @@ ad/*';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'taxonomy_menu_hide_empty_terms_classification';
-  $strongarm->value = 0;
+  $strongarm->value = 1;
   $export['taxonomy_menu_hide_empty_terms_classification'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -3855,7 +3865,7 @@ ad/*';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'taxonomy_menu_rebuild_classification';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['taxonomy_menu_rebuild_classification'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -3876,14 +3886,14 @@ ad/*';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'taxonomy_menu_vocab_menu_classification';
-  $strongarm->value = 'menu-pw-super-menu';
+  $strongarm->value = 'menu-browse-classifieds';
   $export['taxonomy_menu_vocab_menu_classification'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'taxonomy_menu_vocab_parent_classification';
-  $strongarm->value = 'menu-pw-super-menu:0';
+  $strongarm->value = '0';
   $export['taxonomy_menu_vocab_parent_classification'] = $strongarm;
 
   $strongarm = new stdClass();

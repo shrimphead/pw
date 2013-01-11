@@ -154,7 +154,7 @@ function pw_cl_field_default_fields() {
       'entity_types' => array(),
       'field_name' => 'field_address',
       'field_permissions' => array(
-        'type' => '0',
+        'type' => '1',
       ),
       'foreign keys' => array(),
       'indexes' => array(),
@@ -182,6 +182,11 @@ function pw_cl_field_default_fields() {
       'default_value' => array(
         0 => array(
           'element_key' => 'node|ad_s|field_address|und|0',
+          'thoroughfare' => '',
+          'premise' => '',
+          'locality' => '',
+          'administrative_area' => '',
+          'postal_code' => '',
           'country' => 'CA',
         ),
       ),
@@ -203,7 +208,7 @@ function pw_cl_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_address',
-      'label' => 'Mailing Address',
+      'label' => 'Address',
       'required' => 1,
       'settings' => array(
         'custom_add_another' => '',
@@ -218,14 +223,14 @@ function pw_cl_field_default_fields() {
           ),
           'format_handlers' => array(
             'address' => 'address',
-            'address-hide-country' => 'address-hide-country',
+            'address-hide-country' => 0,
             'organisation' => 0,
             'name-full' => 0,
             'name-oneline' => 0,
           ),
         ),
         'type' => 'addressfield_standard',
-        'weight' => '35',
+        'weight' => '38',
       ),
     ),
   );
@@ -494,7 +499,7 @@ function pw_cl_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'email_textfield',
-        'weight' => '37',
+        'weight' => '40',
       ),
     ),
   );
@@ -572,7 +577,7 @@ function pw_cl_field_default_fields() {
         'file_directory' => 'online_ad_submission_images',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '4MB',
-        'max_resolution' => '2000x2000',
+        'max_resolution' => '1200x1200',
         'min_resolution' => '60x60',
         'title_field' => 0,
         'user_register_form' => FALSE,
@@ -621,6 +626,7 @@ function pw_cl_field_default_fields() {
             'image_editorial_tiny' => 0,
             'image_large' => 0,
             'image_medium' => 0,
+            'image_miniature_square' => 0,
             'image_square_thumbnail' => 0,
             'image_thumbnail' => 0,
             'link' => 0,
@@ -708,7 +714,7 @@ function pw_cl_field_default_fields() {
       'entity_types' => array(),
       'field_name' => 'field_phone',
       'field_permissions' => array(
-        'type' => '1',
+        'type' => '0',
       ),
       'foreign keys' => array(),
       'indexes' => array(),
@@ -1004,7 +1010,7 @@ function pw_cl_field_default_fields() {
           'size' => 15,
         ),
         'type' => 'phone_number',
-        'weight' => '36',
+        'weight' => '39',
       ),
     ),
   );
@@ -1059,7 +1065,7 @@ function pw_cl_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '38',
+        'weight' => '41',
       ),
     ),
   );
@@ -2246,7 +2252,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'entity_types' => array(),
       'field_name' => 'field_phone',
       'field_permissions' => array(
-        'type' => '1',
+        'type' => '0',
       ),
       'foreign keys' => array(),
       'indexes' => array(),
@@ -2676,6 +2682,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
   t('Ad Creation Override');
   t('Ad Details');
   t('Adding an image will improve your chances of getting seen. Everyone likes to see an item before buying, why not show them right now.');
+  t('Address');
   t('Area');
   t('Area Code');
   t('Body');
@@ -2690,7 +2697,6 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
   t('Image Uploader');
   t('Link');
   t('Liveload Your Ad');
-  t('Mailing Address');
   t('Notes');
   t('Number of weeks you wish to run your ad.<br/>
 <strong>Book 2 weeks receive your 3rd week FREE!</strong>');

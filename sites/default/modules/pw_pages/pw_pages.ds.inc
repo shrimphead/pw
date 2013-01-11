@@ -123,14 +123,9 @@ function pw_pages_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
     'title' => array(
-      'weight' => '1',
+      'weight' => '0',
       'label' => 'hidden',
       'format' => 'default',
-    ),
-    'post_date' => array(
-      'weight' => '2',
-      'label' => 'hidden',
-      'format' => 'ds_post_date_short',
     ),
   );
   $export['node|attachment|default'] = $ds_fieldsetting;
@@ -430,27 +425,29 @@ function pw_pages_ds_layout_settings_info() {
   $ds_layout->view_mode = 'default';
   $ds_layout->layout = 'ds_1col';
   $ds_layout->settings = array(
-    'hide_empty_regions' => 0,
-    'hide_sidebars' => 0,
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_image',
-        1 => 'title',
-        2 => 'post_date',
-        3 => 'body',
-        4 => 'field_high_res_ad',
-        5 => 'field_link',
+        0 => 'title',
+        1 => 'field_image',
+        2 => 'body',
+        3 => 'field_high_res_ad',
+        4 => 'field_link',
       ),
     ),
     'fields' => array(
-      'field_image' => 'ds_content',
       'title' => 'ds_content',
-      'post_date' => 'ds_content',
+      'field_image' => 'ds_content',
       'body' => 'ds_content',
       'field_high_res_ad' => 'ds_content',
       'field_link' => 'ds_content',
     ),
     'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 0,
   );
   $export['node|attachment|default'] = $ds_layout;
 
@@ -510,15 +507,15 @@ function pw_pages_ds_layout_settings_info() {
       'ds_content' => array(
         0 => 'title',
         1 => 'field_image',
-        2 => 'body',
-        3 => 'field_file',
+        2 => 'field_high_res_ad',
+        3 => 'body',
       ),
     ),
     'fields' => array(
       'title' => 'ds_content',
       'field_image' => 'ds_content',
+      'field_high_res_ad' => 'ds_content',
       'body' => 'ds_content',
-      'field_file' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(
