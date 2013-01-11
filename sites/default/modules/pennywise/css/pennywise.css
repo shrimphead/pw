@@ -557,10 +557,6 @@ body.page-admin-pennywise-classified-ad-s {
 
   /* client data */
 
-  /* details-price */
-
-  /* submited ad details */
-
 }
 body.page-admin-pennywise-classified-ad-s #views-form-classified-ad-administration-incoming-ads .views-table caption {
   font-size: 2em;
@@ -618,19 +614,21 @@ body.page-admin-pennywise-classified-ad-s .client-data dl.client-data dd {
   margin: 0;
   padding: 0;
 }
-body.page-admin-pennywise-classified-ad-s .details-recipt-number,
-body.page-admin-pennywise-classified-ad-s details-reciept-number {
+/* details-price */
+.details-recipt-number,
+details-reciept-number {
   text-align: center;
 }
-body.page-admin-pennywise-classified-ad-s table.details-price tr.details-price-subtotal,
-body.page-admin-pennywise-classified-ad-s table.details-price tr.details-price-total {
+table.details-price tr.details-price-subtotal,
+table.details-price tr.details-price-total {
   background-color: #ffffff;
 }
-body.page-admin-pennywise-classified-ad-s table.details-price td {
+table.details-price td {
   margin: 0;
   padding: 3px 5px;
 }
-body.page-admin-pennywise-classified-ad-s .ad-details-toggle-outer-box {
+/* submited ad details */
+.ad-details-toggle-outer-box {
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -643,7 +641,7 @@ body.page-admin-pennywise-classified-ad-s .ad-details-toggle-outer-box {
   -webkit-border-radius: 10px;
   background-color: #fbfaf9;
 }
-body.page-admin-pennywise-classified-ad-s .ad-details-toggle-box-content {
+.ad-details-toggle-box-content {
   text-align: left;
   font-weight: 300;
   padding: 10px;

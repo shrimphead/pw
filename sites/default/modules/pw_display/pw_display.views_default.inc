@@ -465,19 +465,25 @@ function pw_display_views_default_views() {
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['row_class'] = 'display-ad-print-grid';
-  $handler->display->display_options['style_options']['columns'] = '5';
-  $handler->display->display_options['style_options']['fill_single_line'] = FALSE;
+  $handler->display->display_options['style_options']['columns'] = '6';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Display Ad */
   $handler->display->display_options['fields']['field_display_ad']['id'] = 'field_display_ad';
   $handler->display->display_options['fields']['field_display_ad']['table'] = 'field_data_field_display_ad';
@@ -506,7 +512,7 @@ function pw_display_views_default_views() {
   $handler->display->display_options['fields']['field_ad_copy']['field'] = 'field_ad_copy';
   $handler->display->display_options['fields']['field_ad_copy']['label'] = '';
   $handler->display->display_options['fields']['field_ad_copy']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_ad_copy']['alter']['path'] = '[view_node]';
+  $handler->display->display_options['fields']['field_ad_copy']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['field_ad_copy']['element_type'] = 'div';
   $handler->display->display_options['fields']['field_ad_copy']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_ad_copy']['type'] = 'text_trimmed';
