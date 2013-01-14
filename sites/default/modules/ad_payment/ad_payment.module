@@ -43,7 +43,7 @@
 // FORM DEBUG
 // Displays Ad Payment Data
 define ('DEBUG_ADP', FALSE); // DEBUG ALL!
-define ('DEBUG_FORM', FALSE); // Check form inputs.
+define ('DEBUG_FORM', TRUE); // Check form inputs.
 define ('DEBUG_USER', FALSE); // Check USER creation data.
 define ('DEBUG_EMAIL', FALSE); // Check receipt and email features.
 define ('DEBUG_PAYMENT', FALSE); // Debug ad payment stuff. Does not include jQuery!
@@ -238,11 +238,10 @@ function ad_payment_form_ad_s_node_form_alter(&$form, &$form_state, $form_id) {
 
 
   if (DEBUG_ADP || DEBUG_FORM) {
-    $debug_info = array(
-      'form' => $form,
-      'form_state' => $form_state,
-    );
-    #watchdog('Ad Payment', $debug_info, WATCHDOG_INFO);
+  //  dpm('form');
+  //  dpm($form);
+  //  dpm('form state');
+  //  dpm($form_state);
   }
 }
 
@@ -360,12 +359,9 @@ function _ad_payment_cc_submit($form, &$form_state) {
     $form['#action'] =  $temp_id . '/thank-you';
   }
 
-//  if ($submit) {
-//    //watchdog('Ad Payment', 'Ad submitted: ' . $temp_id);
-//  }
-//  else {
-//    //watchdog('Ad Payment', 'Unsuccessful ad submission: ' . $temp_id);
-//  }
+  if (DEBUG_FORM || DEBUG_ADP) {
+    watchdog('Ad Payment', 'Ad CC_Submit: ' . $temp_id);
+  }
 
   // // Submit Data to Netidea
   // // Commented Out Until Live test

@@ -444,15 +444,15 @@ function pw_la_context_default_contexts() {
           'region' => 'content',
           'weight' => '-36',
         ),
-        'menu_block-5' => array(
-          'module' => 'menu_block',
-          'delta' => '5',
-          'region' => 'content',
-          'weight' => '-36',
-        ),
         'views-taxonomy_listing-tax_sub_list' => array(
           'module' => 'views',
           'delta' => 'taxonomy_listing-tax_sub_list',
+          'region' => 'content',
+          'weight' => '-36',
+        ),
+        'menu_block-5' => array(
+          'module' => 'menu_block',
+          'delta' => '5',
           'region' => 'content',
           'weight' => '-36',
         ),
@@ -467,6 +467,12 @@ function pw_la_context_default_contexts() {
           'delta' => 'main',
           'region' => 'content',
           'weight' => '-34',
+        ),
+        'views-display_ad_blocks-splash_block' => array(
+          'module' => 'views',
+          'delta' => 'display_ad_blocks-splash_block',
+          'region' => 'splash_two',
+          'weight' => '-10',
         ),
         'views-display_ad_blocks-target_block' => array(
           'module' => 'views',
@@ -545,6 +551,12 @@ function pw_la_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'views-display_ad_blocks-splash_block' => array(
+          'module' => 'views',
+          'delta' => 'display_ad_blocks-splash_block',
+          'region' => 'splash_two',
+          'weight' => '-10',
+        ),
         'pennywise-pw_contact' => array(
           'module' => 'pennywise',
           'delta' => 'pw_contact',

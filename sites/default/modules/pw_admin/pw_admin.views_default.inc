@@ -7204,7 +7204,7 @@ function pw_admin_views_default_views() {
 global $base_root;
 global $base_path;
 $term_id =  $view->args[0];
-dpm($term_id);
+
 $term = taxonomy_term_load($term_id);
 $parent = taxonomy_get_parents($term_id);
 $ptid = array_values($parent);
