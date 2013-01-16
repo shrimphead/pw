@@ -31,7 +31,6 @@ function pw_cl_views_default_views() {
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
-  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '15';
   $handler->display->display_options['style_plugin'] = 'list';
@@ -39,7 +38,7 @@ function pw_cl_views_default_views() {
     0 => array(
       'field' => 'field_tags',
       'rendered' => 0,
-      'rendered_strip' => 0,
+      'rendered_strip' => 1,
     ),
     1 => array(
       'field' => 'field_ad_type',
@@ -51,10 +50,6 @@ function pw_cl_views_default_views() {
   $handler->display->display_options['style_options']['class'] = 'search-result-list';
   $handler->display->display_options['style_options']['wrapper_class'] = 'search-result-wrapper';
   $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['inline'] = array(
-    'field_ad_type' => 'field_ad_type',
-    'field_tags' => 'field_tags',
-  );
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
   /* Field: Field: Header Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
@@ -128,7 +123,7 @@ function pw_cl_views_default_views() {
   $handler->display->display_options['fields']['nothing']['element_class'] = 'classified-ad-copy';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
-  /* Field: Field: Phone */
+  /* Field: Field: Phone Number */
   $handler->display->display_options['fields']['field_phone']['id'] = 'field_phone';
   $handler->display->display_options['fields']['field_phone']['table'] = 'field_data_field_phone';
   $handler->display->display_options['fields']['field_phone']['field'] = 'field_phone';
@@ -140,7 +135,7 @@ function pw_cl_views_default_views() {
   $handler->display->display_options['fields']['field_phone']['group_column'] = 'number';
   $handler->display->display_options['fields']['field_phone']['delta_limit'] = '3';
   $handler->display->display_options['fields']['field_phone']['delta_offset'] = '0';
-  /* Field: Field: Email */
+  /* Field: Content: Email */
   $handler->display->display_options['fields']['field_email']['id'] = 'field_email';
   $handler->display->display_options['fields']['field_email']['table'] = 'field_data_field_email';
   $handler->display->display_options['fields']['field_email']['field'] = 'field_email';

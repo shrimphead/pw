@@ -498,3 +498,18 @@ function pennywise_block_view($delta = '') {
   return $block;
 }
 
+
+/**
+ * Implements hook_jcarousel_skin_info().
+ */
+function pennywise_jcarousel_skin_info() {
+  $skins = array();
+
+  $skins['print'] = array(
+    'title' => t('PW Print'),
+    'file' => 'skins/print/jcarousel-print.css',
+  );
+
+  return $skins;
+}
+
