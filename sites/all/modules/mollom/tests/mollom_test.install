@@ -42,12 +42,3 @@ function mollom_test_schema() {
   return $schema;
 }
 
-/**
- * Implements hook_uninstall().
- */
-function mollom_test_uninstall() {
-  db_delete('variable')
-    ->condition('name', db_like('mollom_test.') . '%', 'LIKE')
-    ->execute();
-}
-

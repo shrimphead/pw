@@ -143,15 +143,12 @@ function media_field_schema($field) {
     'indexes' => array(
       'fid' => array('fid'),
     ),
-<<<<<<< HEAD
-=======
     'foreign keys' => array(
       'file_managed' => array(
         'table' => 'file_managed',
         'columns' => array('fid' => 'fid'),
       ),
     ),
->>>>>>> release1.7
   );
 }
 

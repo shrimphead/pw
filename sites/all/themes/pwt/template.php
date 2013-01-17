@@ -9,8 +9,8 @@
  *
  *
  */
- 
- 
+
+
 
 /**
  * Preprocesses menus being rendered in blocks to add zebra-striping classes to
@@ -26,8 +26,7 @@
  * </ul>
  */
 function pwt_preprocess_menu_advertising_links_block_wrapper(&$variables, $hook) {
-  dpm($variables);
-  
+
   $zebra = 0;
   foreach (element_children($variables['content']) as $mlid){
     $variables['content'][$mlid]['#attributes']['class'][] = ($zebra % 2) ? 'odd' : 'even';
@@ -35,8 +34,34 @@ function pwt_preprocess_menu_advertising_links_block_wrapper(&$variables, $hook)
   }
 }
 
+/**
+* Implementation of template_preprocess_taxonomy_term
+*/
+function pwt_taxonomy_term_view_alter(&$build) {
+//  dpm($build);
+}
 
-// function pwt_menu_alter(&$items) {
-//   dpm ($items);
-// 
+/**
+* Implementation of HOOK_preprocess_block
+*/
+
+function pwt_preprocess_block(&$variables) {
+ // dpm($variables);
+  if ($variables['elements']['#delta'] == 6) {
+    //dpm('Header');
+    //dpm($variables);
+   // $variables['elements']['#content']['10056']
+  }
+}
+
+
+
+/**
+* Implementation of HOOK_views_exposed_form
+*/
+// function pwt_preprocess_views_exposed_form($vars) {
+//   if ($vars['form']['#id'] == 'views-exposed-form-search-ads-search-page') {
+//     dpm('Views Exposed');
+//     dpm($vars);
+//   }
 // }

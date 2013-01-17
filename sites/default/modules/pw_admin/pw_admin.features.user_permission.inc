@@ -21,6 +21,7 @@ function pw_admin_user_default_permissions() {
       4 => 'editorial editor',
       5 => 'page editor',
       6 => 'sales',
+      7 => 'user editor',
     ),
     'module' => 'contextual',
   );
@@ -30,19 +31,15 @@ function pw_admin_user_default_permissions() {
     'name' => 'access dashboard',
     'roles' => array(
       0 => 'administrator',
+      1 => 'classified editor',
+      2 => 'digital edition editor',
+      3 => 'display ad editor',
+      4 => 'editorial editor',
+      5 => 'page editor',
+      6 => 'sales',
+      7 => 'user editor',
     ),
     'module' => 'dashboard',
-  );
-
-  // Exported permission: access devel information.
-  $permissions['access devel information'] = array(
-    'name' => 'access devel information',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'anonymous user',
-      2 => 'submit ad',
-    ),
-    'module' => 'devel',
   );
 
   // Exported permission: access site-wide contact form.
@@ -89,10 +86,9 @@ function pw_admin_user_default_permissions() {
     'roles' => array(
       0 => 'administrator',
       1 => 'classified editor',
-      2 => 'digital edition editor',
-      3 => 'display ad editor',
-      4 => 'editorial editor',
-      5 => 'page editor',
+      2 => 'display ad editor',
+      3 => 'editorial editor',
+      4 => 'page editor',
     ),
     'module' => 'addanother',
   );
@@ -135,6 +131,8 @@ function pw_admin_user_default_permissions() {
       3 => 'display ad editor',
       4 => 'editorial editor',
       5 => 'page editor',
+      6 => 'sales',
+      7 => 'user editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -149,6 +147,7 @@ function pw_admin_user_default_permissions() {
       3 => 'display ad editor',
       4 => 'editorial editor',
       5 => 'page editor',
+      6 => 'user editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -163,6 +162,8 @@ function pw_admin_user_default_permissions() {
       3 => 'display ad editor',
       4 => 'editorial editor',
       5 => 'page editor',
+      6 => 'sales',
+      7 => 'user editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -177,6 +178,8 @@ function pw_admin_user_default_permissions() {
       3 => 'display ad editor',
       4 => 'editorial editor',
       5 => 'page editor',
+      6 => 'sales',
+      7 => 'user editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -186,6 +189,8 @@ function pw_admin_user_default_permissions() {
     'name' => 'execute node_assign_owner_action',
     'roles' => array(
       0 => 'administrator',
+      1 => 'display ad editor',
+      2 => 'user editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -200,6 +205,8 @@ function pw_admin_user_default_permissions() {
       3 => 'display ad editor',
       4 => 'editorial editor',
       5 => 'page editor',
+      6 => 'sales',
+      7 => 'user editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -214,6 +221,8 @@ function pw_admin_user_default_permissions() {
       3 => 'display ad editor',
       4 => 'editorial editor',
       5 => 'page editor',
+      6 => 'sales',
+      7 => 'user editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -228,6 +237,8 @@ function pw_admin_user_default_permissions() {
       3 => 'display ad editor',
       4 => 'editorial editor',
       5 => 'page editor',
+      6 => 'sales',
+      7 => 'user editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -242,6 +253,8 @@ function pw_admin_user_default_permissions() {
       3 => 'display ad editor',
       4 => 'editorial editor',
       5 => 'page editor',
+      6 => 'sales',
+      7 => 'user editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -256,6 +269,7 @@ function pw_admin_user_default_permissions() {
       3 => 'display ad editor',
       4 => 'editorial editor',
       5 => 'page editor',
+      6 => 'user editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -265,11 +279,7 @@ function pw_admin_user_default_permissions() {
     'name' => 'execute node_unpromote_action',
     'roles' => array(
       0 => 'administrator',
-      1 => 'classified editor',
-      2 => 'digital edition editor',
-      3 => 'display ad editor',
-      4 => 'editorial editor',
-      5 => 'page editor',
+      1 => 'display ad editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -284,6 +294,8 @@ function pw_admin_user_default_permissions() {
       3 => 'display ad editor',
       4 => 'editorial editor',
       5 => 'page editor',
+      6 => 'sales',
+      7 => 'user editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -298,6 +310,7 @@ function pw_admin_user_default_permissions() {
       3 => 'display ad editor',
       4 => 'editorial editor',
       5 => 'page editor',
+      6 => 'user editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -307,10 +320,6 @@ function pw_admin_user_default_permissions() {
     'name' => 'execute pathauto_node_update_action',
     'roles' => array(
       0 => 'administrator',
-      1 => 'classified editor',
-      2 => 'display ad editor',
-      3 => 'editorial editor',
-      4 => 'page editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -320,10 +329,6 @@ function pw_admin_user_default_permissions() {
     'name' => 'execute pathauto_taxonomy_term_update_action',
     'roles' => array(
       0 => 'administrator',
-      1 => 'classified editor',
-      2 => 'display ad editor',
-      3 => 'editorial editor',
-      4 => 'page editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -335,20 +340,12 @@ function pw_admin_user_default_permissions() {
     'module' => 'actions_permissions',
   );
 
-  // Exported permission: execute php code.
-  $permissions['execute php code'] = array(
-    'name' => 'execute php code',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'devel',
-  );
-
   // Exported permission: execute realname_action_realname_update.
   $permissions['execute realname_action_realname_update'] = array(
     'name' => 'execute realname_action_realname_update',
     'roles' => array(
       0 => 'administrator',
+      1 => 'user editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -358,6 +355,7 @@ function pw_admin_user_default_permissions() {
     'name' => 'execute system_block_ip_action',
     'roles' => array(
       0 => 'administrator',
+      1 => 'user editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -376,6 +374,7 @@ function pw_admin_user_default_permissions() {
     'name' => 'execute system_message_action',
     'roles' => array(
       0 => 'administrator',
+      1 => 'user editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -389,6 +388,7 @@ function pw_admin_user_default_permissions() {
       2 => 'display ad editor',
       3 => 'editorial editor',
       4 => 'page editor',
+      5 => 'user editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -398,6 +398,7 @@ function pw_admin_user_default_permissions() {
     'name' => 'execute user_block_user_action',
     'roles' => array(
       0 => 'administrator',
+      1 => 'user editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -412,6 +413,7 @@ function pw_admin_user_default_permissions() {
       3 => 'display ad editor',
       4 => 'editorial editor',
       5 => 'page editor',
+      6 => 'user editor',
     ),
     'module' => 'actions_permissions',
   );
@@ -468,6 +470,7 @@ function pw_admin_user_default_permissions() {
     'name' => 'grant content access',
     'roles' => array(
       0 => 'administrator',
+      1 => 'digital edition editor',
     ),
     'module' => 'content_access',
   );
@@ -477,6 +480,15 @@ function pw_admin_user_default_permissions() {
     'name' => 'grant own content access',
     'roles' => array(
       0 => 'administrator',
+      1 => 'authenticated user',
+      2 => 'classified editor',
+      3 => 'digital edition editor',
+      4 => 'display ad client',
+      5 => 'display ad editor',
+      6 => 'editorial editor',
+      7 => 'page editor',
+      8 => 'sales',
+      9 => 'user editor',
     ),
     'module' => 'content_access',
   );
@@ -491,6 +503,7 @@ function pw_admin_user_default_permissions() {
       3 => 'display ad editor',
       4 => 'editorial editor',
       5 => 'page editor',
+      6 => 'sales',
     ),
     'module' => 'addanother',
   );
@@ -500,6 +513,7 @@ function pw_admin_user_default_permissions() {
     'name' => 'view passwords',
     'roles' => array(
       0 => 'administrator',
+      1 => 'user editor',
     ),
     'module' => 'aes',
   );

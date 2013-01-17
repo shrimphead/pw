@@ -34,28 +34,23 @@ function getMollomCaptcha() {
 
   var context = $(this).parents('form');
 
-  // Extract the form build ID and Mollom content ID from the form.
+  // Extract the Mollom session id and form build id from the form.
+  var mollomSessionId = $('input.mollom-session-id', context).val();
   var formBuildId = $('input[name="form_build_id"]', context).val();
-  var mollomContentId = $('input.mollom-content-id', context).val();
-
-  var path = 'mollom/captcha/' + newCaptchaType + '/' + formBuildId;
-  if (mollomContentId) {
-    path += '/' + mollomContentId;
-  }
 
   // Retrieve a CAPTCHA:
-  $.getJSON(Drupal.settings.basePath + path,
+  $.getJSON(Drupal.settings.basePath + 'mollom/captcha/' + newCaptchaType + '/' + formBuildId + '/' + mollomSessionId,
     function (data) {
       if (!(data && data.content)) {
         return;
       }
       // Inject new CAPTCHA.
       $('.mollom-captcha-content', context).parent().html(data.content);
-      // Update CAPTCHA ID.
-      $('input.mollom-captcha-id', context).val(data.captchaId);
+      // Update session id.
+      $('input.mollom-session-id', context).val(data.session_id);
       // Add an onclick-event handler for the new link.
       Drupal.attachBehaviors(context);
-      // Focus on the CAPTCHA input.
+      // Focus on the CATPCHA input.
       $('input[name="mollom[captcha]"]', context).focus();
     }
   );

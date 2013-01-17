@@ -16,7 +16,7 @@ function pw_admin_filter_default_formats() {
     'name' => 'Edition Editor',
     'cache' => '1',
     'status' => '1',
-    'weight' => '-6',
+    'weight' => '-10',
     'filters' => array(
       'filter_url' => array(
         'weight' => '0',
@@ -42,7 +42,7 @@ function pw_admin_filter_default_formats() {
     'name' => 'Filtered HTML',
     'cache' => '1',
     'status' => '1',
-    'weight' => '-9',
+    'weight' => '-7',
     'filters' => array(
       'filter_url' => array(
         'weight' => '0',
@@ -51,12 +51,10 @@ function pw_admin_filter_default_formats() {
           'filter_url_length' => '72',
         ),
       ),
-      'scribd_filter' => array(
+      'filter_markdown' => array(
         'weight' => '0',
         'status' => '1',
-        'settings' => array(
-          'scribd_filter_display_method' => 'embed_html5',
-        ),
+        'settings' => array(),
       ),
       'filter_html' => array(
         'weight' => '1',
@@ -86,50 +84,10 @@ function pw_admin_filter_default_formats() {
     'name' => 'Full HTML',
     'cache' => '1',
     'status' => '1',
-    'weight' => '-8',
+    'weight' => '-6',
     'filters' => array(
-      'lightbox2_filter' => array(
-        'weight' => '-49',
-        'status' => '1',
-        'settings' => array(),
-      ),
-      'lightbox_modal_filter' => array(
-        'weight' => '-48',
-        'status' => '1',
-        'settings' => array(),
-      ),
-      'lightbox_slideshow_filter' => array(
-        'weight' => '-47',
-        'status' => '1',
-        'settings' => array(),
-      ),
-      'filter_url' => array(
-        'weight' => '-44',
-        'status' => '1',
-        'settings' => array(
-          'filter_url_length' => '72',
-        ),
-      ),
-      'filter_autop' => array(
-        'weight' => '-40',
-        'status' => '1',
-        'settings' => array(),
-      ),
       'filter_htmlcorrector' => array(
         'weight' => '-37',
-        'status' => '1',
-        'settings' => array(),
-      ),
-<<<<<<< HEAD
-      'scribd_filter' => array(
-        'weight' => '0',
-        'status' => '1',
-        'settings' => array(
-          'scribd_filter_display_method' => 'embed_html5',
-        ),
-=======
-      'filter_markdown' => array(
-        'weight' => '0',
         'status' => '1',
         'settings' => array(),
       ),
@@ -137,7 +95,6 @@ function pw_admin_filter_default_formats() {
         'weight' => '2',
         'status' => '1',
         'settings' => array(),
->>>>>>> release1.7
       ),
     ),
   );
@@ -148,7 +105,7 @@ function pw_admin_filter_default_formats() {
     'name' => 'Markdown Filter',
     'cache' => '1',
     'status' => '1',
-    'weight' => '-7',
+    'weight' => '-8',
     'filters' => array(
       'filter_autop' => array(
         'weight' => '0',
@@ -164,13 +121,6 @@ function pw_admin_filter_default_formats() {
         'weight' => '0',
         'status' => '1',
         'settings' => array(),
-      ),
-      'scribd_filter' => array(
-        'weight' => '0',
-        'status' => '1',
-        'settings' => array(
-          'scribd_filter_display_method' => 'embed_html5',
-        ),
       ),
       'media_filter' => array(
         'weight' => '2',
@@ -191,7 +141,7 @@ function pw_admin_filter_default_formats() {
     'name' => 'Plain text',
     'cache' => '1',
     'status' => '1',
-    'weight' => '-10',
+    'weight' => '-9',
     'filters' => array(
       'filter_html_escape' => array(
         'weight' => '0',

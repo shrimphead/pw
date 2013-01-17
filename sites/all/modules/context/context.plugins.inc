@@ -8,11 +8,7 @@ function _context_context_registry() {
   $registry['conditions'] = array(
     'context' => array(
       'title' => t('Context'),
-<<<<<<< HEAD
-      'description' => t('Set this context on the basis of other active contexts. Put each context on a separate line. You can use the <code>*</code> character as a wildcard and <code>~</code> to prevent this context from activating if the listed context is active. Other contexts which use context conditions can not be used to exclude this context from activating.'),
-=======
       'description' => t('Set this context on the basis of other active contexts. Put each context on a separate line. You can use the <code>*</code> character (asterisk) as a wildcard and the <code>~</code> character (tilde) to prevent this context from activating if the listed context is active. Other contexts which use context conditions can not be used to exclude this context from activating.'),
->>>>>>> release1.7
       'plugin' => 'context_condition_context',
     ),
     'node' => array(

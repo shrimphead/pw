@@ -2485,10 +2485,7 @@ function pw_pages_field_default_fields() {
   t('PDF');
   t('Reference Other');
   t('References');
-<<<<<<< HEAD:sites/default/modules/pw_editorial_related/pw_editorial_related.features.field.inc
-=======
   t('Scribd');
->>>>>>> release1.7:sites/default/modules/pw_pages/pw_pages.field.inc
   t('Scribd ID - pub-18673738874898982461');
   t('Submitted by');
   t('These images can be of lower resolution than the primary header image. These images will only be displayed on the full editorial page, not in any teasers.');

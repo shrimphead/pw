@@ -63,7 +63,7 @@ function pw_display_field_default_fields() {
           'label' => 'hidden',
           'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'taxonomy_term_reference_plain',
           'weight' => '3',
         ),
         'teaser' => array(
@@ -72,6 +72,13 @@ function pw_display_field_default_fields() {
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
           'weight' => '2',
+        ),
+        'token' => array(
+          'label' => 'hidden',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '3',
         ),
       ),
       'entity_type' => 'node',
@@ -90,7 +97,7 @@ function pw_display_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '5',
+        'weight' => '7',
       ),
     ),
   );
@@ -132,7 +139,7 @@ function pw_display_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
@@ -143,6 +150,13 @@ function pw_display_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '9',
+        ),
+        'token' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '2',
         ),
       ),
       'entity_type' => 'node',
@@ -161,7 +175,7 @@ function pw_display_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '7',
+        'weight' => '9',
       ),
     ),
   );
@@ -194,6 +208,10 @@ function pw_display_field_default_fields() {
       'module' => 'image',
       'settings' => array(
         'default_image' => '993',
+        'storage_class' => array(
+          'class_id' => '1',
+          'current_class_id' => '1',
+        ),
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -218,6 +236,13 @@ function pw_display_field_default_fields() {
           'type' => 'lightbox2__lightbox__thumbnail__large',
           'weight' => '0',
         ),
+        'token' => array(
+          'label' => 'hidden',
+          'module' => 'lightbox2',
+          'settings' => array(),
+          'type' => 'lightbox2__lightbox__large__original',
+          'weight' => '0',
+        ),
       ),
       'entity_type' => 'node',
       'field_name' => 'field_display_ad',
@@ -229,9 +254,9 @@ function pw_display_field_default_fields() {
         'default_image' => 0,
         'file_directory' => 'images/display',
         'file_extensions' => 'png gif jpg jpeg',
-        'max_filesize' => '2MB',
-        'max_resolution' => '1200x1200',
-        'min_resolution' => '80x80',
+        'max_filesize' => '5MB',
+        'max_resolution' => '2000x2000',
+        'min_resolution' => '25x25',
         'title_field' => 1,
         'user_register_form' => FALSE,
       ),
@@ -242,6 +267,7 @@ function pw_display_field_default_fields() {
           'filefield_sources' => array(
             'filefield_sources' => array(
               'attach' => 0,
+              'clipboard' => 0,
               'reference' => 'reference',
               'remote' => 0,
             ),
@@ -250,41 +276,45 @@ function pw_display_field_default_fields() {
               'attach_mode' => 'copy',
               'path' => 'display-ads',
             ),
+            'source_imce' => array(
+              'imce_mode' => 0,
+            ),
             'source_reference' => array(
               'autocomplete' => '1',
             ),
           ),
           'insert' => 0,
-          'insert_absolute' => FALSE,
+          'insert_absolute' => 0,
           'insert_class' => '',
           'insert_default' => 'auto',
           'insert_styles' => array(
             'auto' => 'auto',
+            'icon_link' => 0,
             'image' => 0,
-            'image_classified_ad_image_small' => 0,
-            'image_display_ad_banner' => 0,
-            'image_display_ad_poster' => 0,
-            'image_display_ad_print_full' => 0,
+            'image_classified-list-style' => 0,
+            'image_classified_list_js_crop' => 0,
+            'image_classified_list_nocrop' => 0,
+            'image_classified_page_style' => 0,
             'image_display_ad_print_thumbnail' => 0,
-            'image_display_ad_splash' => 0,
-            'image_display_ad_target' => 0,
             'image_editorial_block_list_header' => 0,
             'image_editorial_header' => 0,
             'image_editorial_small' => 0,
             'image_editorial_teaser' => 0,
             'image_editorial_thumbnail' => 0,
+            'image_editorial_tiny' => 0,
             'image_large' => 0,
             'image_medium' => 0,
+            'image_miniature_square' => 0,
             'image_square_thumbnail' => 0,
             'image_thumbnail' => 0,
             'link' => 0,
           ),
           'insert_width' => '',
-          'preview_image_style' => 'thumbnail',
+          'preview_image_style' => 'medium',
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '0',
+        'weight' => '2',
       ),
     ),
   );
@@ -330,13 +360,19 @@ function pw_display_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '13',
+          'weight' => '16',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '15',
+        ),
+        'token' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '13',
         ),
       ),
       'entity_type' => 'node',
@@ -352,7 +388,7 @@ function pw_display_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '3',
+        'weight' => '6',
       ),
     ),
   );
@@ -409,6 +445,13 @@ function pw_display_field_default_fields() {
           'type' => 'hidden',
           'weight' => '13',
         ),
+        'token' => array(
+          'label' => 'above',
+          'module' => 'email',
+          'settings' => array(),
+          'type' => 'email_default',
+          'weight' => '5',
+        ),
       ),
       'entity_type' => 'node',
       'field_name' => 'field_email',
@@ -461,7 +504,7 @@ function pw_display_field_default_fields() {
         'handler_settings' => array(
           'behaviors' => array(
             'views-select-list' => array(
-              'status' => 1,
+              'status' => 0,
             ),
           ),
           'sort' => array(
@@ -470,13 +513,7 @@ function pw_display_field_default_fields() {
             'type' => 'property',
           ),
           'target_bundles' => array(
-            'article' => 'article',
             'attachment' => 'attachment',
-            'classified' => 'classified',
-            'display_ads' => 'display_ads',
-            'page' => 'page',
-            'pw_digital' => 'pw_digital',
-            'webform' => 'webform',
           ),
         ),
         'handler_submit' => 'Change handler',
@@ -509,13 +546,19 @@ function pw_display_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '16',
+          'weight' => '19',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'token' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '16',
         ),
       ),
       'entity_type' => 'node',
@@ -572,6 +615,10 @@ function pw_display_field_default_fields() {
       'settings' => array(
         'display_default' => 1,
         'display_field' => 1,
+        'storage_class' => array(
+          'class_id' => '1',
+          'current_class_id' => '1',
+        ),
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -584,16 +631,22 @@ function pw_display_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'file',
           'settings' => array(),
-          'type' => 'file_default',
-          'weight' => '6',
+          'type' => 'hidden',
+          'weight' => '14',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '12',
+        ),
+        'token' => array(
+          'label' => 'above',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_default',
+          'weight' => '6',
         ),
       ),
       'ds_extras_field_template' => '',
@@ -707,7 +760,7 @@ with <strong>Page 30</strong>.<br>
 ',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'link',
           'settings' => array(),
           'type' => 'link_default',
@@ -719,6 +772,13 @@ with <strong>Page 30</strong>.<br>
           'type' => 'hidden',
           'weight' => '14',
         ),
+        'token' => array(
+          'label' => 'above',
+          'module' => 'link',
+          'settings' => array(),
+          'type' => 'link_default',
+          'weight' => '4',
+        ),
       ),
       'entity_type' => 'node',
       'field_name' => 'field_link',
@@ -729,12 +789,12 @@ with <strong>Page 30</strong>.<br>
           'class' => '',
           'configurable_title' => 0,
           'rel' => '',
-          'target' => 'user',
+          'target' => 'default',
           'title' => '',
         ),
         'custom_add_another' => '',
         'display' => array(
-          'url_cutoff' => '80',
+          'url_cutoff' => '0',
         ),
         'enable_tokens' => 1,
         'title' => 'optional',
@@ -796,13 +856,19 @@ with <strong>Page 30</strong>.<br>
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '15',
+          'weight' => '18',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '11',
+        ),
+        'token' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '15',
         ),
       ),
       'entity_type' => 'node',
@@ -821,7 +887,7 @@ with <strong>Page 30</strong>.<br>
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '4',
+        'weight' => '3',
       ),
     ),
   );
@@ -866,13 +932,19 @@ with <strong>Page 30</strong>.<br>
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '14',
+          'weight' => '17',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '10',
+        ),
+        'token' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '14',
         ),
       ),
       'entity_type' => 'node',
@@ -888,7 +960,107 @@ with <strong>Page 30</strong>.<br>
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '1',
+        'weight' => '4',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-display_ads-field_special_feature_link'.
+  $fields['node-display_ads-field_special_feature_link'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '5',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_special_feature_link',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'node' => array(
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'entityreference',
+      'settings' => array(
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 1,
+            ),
+          ),
+          'sort' => array(
+            'type' => 'none',
+          ),
+          'target_bundles' => array(
+            'attachment' => 'attachment',
+          ),
+        ),
+        'target_type' => 'node',
+      ),
+      'translatable' => '0',
+      'type' => 'entityreference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'display_ads',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Link file here by typing the title of the uploaded file name. To upload a file click <a href=\'/node/add/attachment\' target=\'_NEW\'>here.</a>',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'entityreference',
+          'settings' => array(
+            'links' => 1,
+            'view_mode' => 'teaser',
+          ),
+          'type' => 'entityreference_entity_view',
+          'weight' => '6',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'token' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '17',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_special_feature_link',
+      'label' => 'Attach File',
+      'required' => 0,
+      'settings' => array(
+        'custom_add_another' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'inline_entity_form',
+        'settings' => array(
+          'fields' => array(),
+          'type_settings' => array(
+            'allow_existing' => 1,
+            'delete_references' => 1,
+            'match_operator' => 'CONTAINS',
+          ),
+        ),
+        'type' => 'inline_entity_form',
+        'weight' => '6',
       ),
     ),
   );
@@ -937,13 +1109,19 @@ with <strong>Page 30</strong>.<br>
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '12',
+          'weight' => '15',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '8',
+        ),
+        'token' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '12',
         ),
       ),
       'entity_type' => 'node',
@@ -959,13 +1137,14 @@ with <strong>Page 30</strong>.<br>
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '2',
+        'weight' => '5',
       ),
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Attach File');
   t('Client');
   t('Description');
   t('Display Ad');
@@ -973,6 +1152,7 @@ with <strong>Page 30</strong>.<br>
   t('Email');
   t('File Attach');
   t('Link');
+  t('Link file here by typing the title of the uploaded file name. To upload a file click <a href=\'/node/add/attachment\' target=\'_NEW\'>here.</a>');
   t('Link this display ad to a PDF attachment, another display ad or even a classified ad. Link to a specific PW web page, or even an online web submission form. You can also create the attachment right here.
 <strong>Display ads can only be linked. Do not create another display ad here!</strong>');
   t('Optional email contact for business.');

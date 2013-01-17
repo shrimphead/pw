@@ -123,13 +123,8 @@ function media_variable_default($name = NULL) {
       // Attributes which can be modified via the wysiwyg and persist.
       'wysiwyg_allowed_attributes' => array('height', 'width', 'hspace', 'vspace', 'border', 'align', 'style', 'alt', 'title', 'class', 'id'),
 
-<<<<<<< HEAD
-      'field_select_media_text' => 'Select media',
-      'field_remove_media_text' => 'Remove media',
-=======
       'field_select_media_text' => t('Select media'),
       'field_remove_media_text' => t('Remove media'),
->>>>>>> release1.7
 
       // Name of the theme to use in media popup dialogs, defaults to admin_theme
       'dialog_theme' => '',

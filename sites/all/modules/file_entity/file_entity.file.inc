@@ -14,10 +14,37 @@ function file_entity_file_presave($file) {
     $file->filemime = file_get_mimetype($file->uri);
   }
 
-  // Always update file type based on filemime.
-  $file->type = file_get_type($file);
+  // The file type is used as a bundle key, and therefore, must not be NULL.
+  // It defaults to FILE_TYPE_NONE when loaded via file_load(), but in case
+  // file_save() is called on a new file object, default it here too.
+  if (!isset($file->type)) {
+    $file->type = FILE_TYPE_NONE;
+  }
+
+  // If the file isn't already assigned a real type, determine what type should
+  // be assigned to it.
+  if ($file->type === FILE_TYPE_NONE) {
+    $type = file_get_type($file);
+    if (isset($type)) {
+      $file->type = $type;
+    }
+  }
 
   field_attach_presave('file', $file);
+}
+
+/**
+ * Implements hook_file_type().
+ */
+function file_entity_file_type($file) {
+  $types = array();
+  foreach (file_type_get_enabled_types() as $type) {
+    if (in_array($file->filemime, $type->mimetypes)) {
+      $types[] = $type->type;
+    }
+  }
+
+  return $types;
 }
 
 /**
@@ -34,11 +61,8 @@ function file_entity_file_insert($file) {
   cache_clear_all();
 
   // Get and store image dimensions.
-<<<<<<< HEAD
-=======
   // @todo We should fetch image dimensions in file_entity_file_presave and
   // then save them in this hook.
->>>>>>> release1.7
   file_entity_image_dimensions($file, TRUE);
 }
 
@@ -55,10 +79,6 @@ function file_entity_file_update($file) {
   // Clear the page and block caches.
   cache_clear_all();
 
-<<<<<<< HEAD
-  // Get and store image dimensions.
-  file_entity_image_dimensions($file, TRUE);
-=======
   // Reset the image dimensions for a file.
   // @todo We should fetch image dimensions in file_entity_file_presave and
   // then save them in this hook.
@@ -74,7 +94,6 @@ function file_entity_file_update($file) {
     // Flush image style derivatives whenever an image is updated.
     image_path_flush($file->uri);
   }
->>>>>>> release1.7
 }
 
 /**
@@ -217,8 +236,6 @@ function file_entity_image_dimensions($file, $force = FALSE) {
     );
   }
 }
-<<<<<<< HEAD
-=======
 
 /**
  * Update the image dimensions stored in any image fields for a file.
@@ -261,4 +278,3 @@ function _file_entity_update_image_field_dimensions($file) {
     }
   }
 }
->>>>>>> release1.7

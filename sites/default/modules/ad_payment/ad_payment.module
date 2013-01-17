@@ -44,22 +44,36 @@
 // Displays Ad Payment Data
 define ('DEBUG_ADP', FALSE); // DEBUG ALL!
 define ('DEBUG_FORM', FALSE); // Check form inputs.
+define ('DEBUG_USER', FALSE); // Check USER creation data.
 define ('DEBUG_EMAIL', FALSE); // Check receipt and email features.
 define ('DEBUG_PAYMENT', FALSE); // Debug ad payment stuff. Does not include jQuery!
+
+/** --------- ADP_LOGIN -----
+ * TRUE -> Go to login form first.
+ * FALSE-> go direct to ad submission, Login in the background.
+ */
+define ('ADP_LOGIN', FALSE);
+
+/** --------- Credit Card Validation -----
+ */
+define ('VALIDATION_TEST_MODE', FALSE);
+
+/* Send message to users */
+function _pw_send_message_to_user($message, $level){
+  $alert_message = t('Internet Explorer 8 is currently experiencing problems with this page.
+    <br>Please use <a href="http://getfirefox.com">Firefox</a> to submit classified ads at this time.');
+
+}
+
 
 /**
 * Implementation of HOOK_menu
 */
 function ad_payment_menu() {
   $items['ad/submit'] = array(
-//    'title'           => 'Submit Classified Ad',
     'access callback' => TRUE,
-//    'page callback'   => 'ap_submit_form_page',
-//    'type'            => MENU_NORMAL_ITEM,
-//  );
     'title'           => 'Submit Classified Ad',
-    //'access callback' => 'Ad Submission: Create new content',
-    'page callback'   => '_ap_submit_ad_page',
+    'page callback'   => 'ap_submit_form_page',
     'type'            => MENU_NORMAL_ITEM,
   );
 
@@ -77,22 +91,6 @@ function ad_payment_menu() {
 
 
 /**
-* Implementation of HOOK_email_registration_name
-*
-* If Email Registration module enabled - hook and rename.
-* - Email registration uses the email field
-* - PW module uses the real_name module
-*
-*/
-function ad_payment_email_registration_name($edit, $account) {
-  if (module_exists('email_registration') && module_exists('realname') ) {
-    $real_name = $account->field_first_name['und'][0]['value'] . '_' . $account->field_last_name['und'][0]['value'];
-    return $real_name;
-  }
-}
-
-
-/**
 * Implementation of custom page.
 *
 * If user not logged in present LoginToboggan form.
@@ -103,9 +101,14 @@ function ad_payment_email_registration_name($edit, $account) {
 * @return
 *  form data
 *
-* The login protion is commented out.
+* The login portion is commented out.
 */
-function _ap_submit_ad_page() {
+function ap_submit_form_page() {
+  $message_status = variable_get('pennywise_classified_settings_submissions_message_status', 0);
+  if ($message_status) {
+    $message = variable_get('pennywise_classified_settings_submissions_message');
+    drupal_set_message($message, $message_status);
+}
 
   // Abort Submission if Admin has disabled submissions.
   $ad_submsision = variable_get('pennywise_classified_settings_submissions', 1);
@@ -118,16 +121,21 @@ function _ap_submit_ad_page() {
 
   global $user;
 
-  // If user is registered go to ad. Else carry on to login/register.
+  // IF user is registered go to ad.
+  // OR login is disabled.
+  //ELSE carry on to login/register.
 
-  if ($user->uid) {
+  if ($user->uid || !ADP_LOGIN) {
+
     module_load_include('inc', 'node', 'node.pages');
-    $form = node_add('ad_s');
-    return drupal_render($form);
+    $ad_sub_form = node_add('ad_s');
+
+    return drupal_render($ad_sub_form);
   }
   elseif (!$user->uid) {
     $active_form = 'register';
   }
+
   //elseif (in_array('submit ad', $user->roles) || in_array('authenticated user', $user->roles)) {
   //  $active_form = 'login';
   //}
@@ -163,7 +171,6 @@ function _ap_submit_ad_page() {
 </div>
 LOGIN;
 
-
   return $content;
 }
 
@@ -188,6 +195,8 @@ function ad_payment_block_info() {
 /**
 * Implementation of hook_block_view
 *
+*  Create Ad Submission Block
+*
 * @return
 *  `Ad Submit` submission form link.
 */
@@ -210,7 +219,7 @@ function ad_payment_block_view($delta = '') {
 *
 * Alter form to increase legibility and flow.
 * - Insert a modular Price block for both PHP and jQuery pricing.
-* - Insert CC Form in the Last Step (unless in EDITOR role)
+* - Insert CC Form in the Last Step
 *
 */
 function ad_payment_form_ad_s_node_form_alter(&$form, &$form_state, $form_id) {
@@ -225,40 +234,24 @@ function ad_payment_form_ad_s_node_form_alter(&$form, &$form_state, $form_id) {
   $form['#fieldgroups']['group_ad']->weight = -20;
   $form['#fieldgroups']['group_upgrade']->weight = -10;
 
+  // Rename File upload to 'image'
+  $form['field_image']['und']['#file_upload_title'] = 'Click here to select an image.';
 
   // Load CC external form
   module_load_include('inc', 'ad_payment', 'ad_payment_form');
   ad_payment_form($form, $form_state);
-
-  //  Ad Price
-  //  - Check only if submitted/in preview.
-  // if ($form_state && $form_state['values']) {
-  //   module_load_include('inc', 'ad_payment', 'ad_payment_price_check');
-  //   $total_price = ad_payment_price_check($form_state, 'form_state');
-  //   $form['field_price']['#default_value'] = $total_price;
-  //   $ad_price = ($total_price == '0.00') ? 'Current Price: $0' : _ad_payment_form_price_display($form_state);
-  // }
 
   // Alter Display of Taxonomy Classification Section
   $pw_list = variable_get('ad_payment_classified_list', ad_payment_get_classified_list() );
 
   $form['field_tags']['und']['#options'] = $pw_list;
 
-  // Store TempID
-  //if (!isset($form_state['redirect'])) {
-  //  $temp_id = time();
-  //  $form_state['node']->title = 'ad_' . $temp_id;
-  //  // Update Form page
-  //  $form_state['redirect']     = 'ad/' . $temp_id . '/thank-you';
-  //  $form['#action'] =  $temp_id . '/thank-you';
-  //}
 
   if (DEBUG_ADP || DEBUG_FORM) {
-    $debug_info = array(
-      'form' => $form,
-      'form_state' => $form_state,
-    );
-    #watchdog('Ad Payment', $debug_info, WATCHDOG_INFO);
+  //  dpm('form');
+  //  dpm($form);
+  //  dpm('form state');
+  //  dpm($form_state);
   }
 }
 
@@ -268,10 +261,14 @@ function ad_payment_form_ad_s_node_form_alter(&$form, &$form_state, $form_id) {
 * Custom CC Validation.
 */
 function _ad_payment_cc_validate(&$form, &$form_state) {
-
   // Check CC Data
   module_load_include('inc', 'ad_payment', 'ad_payment_cc_validate');
-  _ad_payment_validate_cc_data($form_state);
+  $validated = _ad_payment_validate_cc_data($form_state);
+  if (is_array($validated)) {
+    //return FALSE;
+    //dpm($validated);
+    form_set_error($validated['field'], $validated['message']);
+  }
 
   // Get Price
   module_load_include('inc', 'ad_payment', 'ad_payment_price_check');
@@ -289,6 +286,69 @@ function _ad_payment_cc_validate(&$form, &$form_state) {
 }
 
 /**
+* Implementation of custom user registration.
+*
+* array $data
+* $data['phone'], $data['mail'], $data['user_name'],
+*/
+
+function adp_register_new_user($data) {
+  require_once DRUPAL_ROOT . '/' . variable_get('password_inc', 'includes/password.inc');
+  $account = array(
+    'name' => $data['user_name'],
+    'mail' => $data['mail'],
+    'pass' => user_hash_password($data['phone']),
+    'status' => 1,
+    'init' => $data['mail'],
+    'roles' => NULL,
+    'timezone' => variable_get('date_default_timezone', ''),
+    'signature_format' => 'plain_text',
+  );
+  //$account['roles'][NEW_ROLE] = 'submit ad';
+  $account['roles'] = array(4 => 'submit ad');
+    watchdog('ADP - User', 'Creating new user. Name = ' . $account['user_name'] . ', email = ' . $account['mail']   );
+    //dpm('ACCOUNT');
+    //dpm($account);
+  $user = user_save('', $account);
+
+  drupal_session_regenerate();
+
+  return $user;
+}
+
+
+/**
+* Implementation of Form Validation
+*
+* Check the submitted user data in CC data form and create user if none exists.
+*/
+function adp_user_validate($data = NULL) {
+  // Test if user already logged in.
+  global $user;
+
+  if ($user->mail != $mail) {
+    module_invoke_all('user_logout', $user);
+
+    watchdog('ADP - User', 'User Mail already exists. Create new user');
+   // $user = adp_register_new_user($data);
+  }
+  elseif ($user->uid == 0 || !$user) {
+    watchdog('ADP - User', 'Anon User. Create new user');
+    // Test is user_name is registered previously.
+    $user = user_load_by_name($user_name);
+
+    // If no user --> Register New User
+    if ($user->uid == 0) {
+      $user = adp_register_new_user($data);
+    }
+
+  }
+  return $user;
+
+}
+
+
+/**
 * Custom CC Submit Handler.
 *
 * Submit data to Netidea.
@@ -300,15 +360,6 @@ function _ad_payment_cc_validate(&$form, &$form_state) {
 * - Send email comfirmation.
 */
 function _ad_payment_cc_submit($form, &$form_state) {
-
-
-//  $values = $form_state['values'];
-//  $node   = $form_state['node'];
-//  $price  = $form_state['storage']['price'];
-//
-//  $card_type = ($values['field_card_type'] == 0) ? 'Visa' : 'Mastercard';
-//
-
   // Store TempID
   if (!isset($form_state['redirect'])) {
     $temp_id = time();
@@ -318,20 +369,13 @@ function _ad_payment_cc_submit($form, &$form_state) {
     $form['#action'] =  $temp_id . '/thank-you';
   }
 
-  //module_load_include('inc', 'ad_payment', 'ad_payment_price_check');
-  //$submission_vars = ad_payment_price_check($form_state, 'form_state');
-
-  if ($submit) {
-    watchdog('Ad Payment', 'Ad submitted: ' . $temp_id);
-  }
-  else {
-    watchdog('Ad Payment', 'Unsuccessful ad submission: ' . $temp_id);
+  if (DEBUG_FORM || DEBUG_ADP) {
+    watchdog('Ad Payment', 'Ad CC_Submit: ' . $temp_id);
   }
 
   // // Submit Data to Netidea
   // // Commented Out Until Live test
 
-  // define ('VALIDATION_TEST_MODE', FALSE);
   // Following require needs to be enabled to function.
   //  require_once ('classifieds.db.php');
   // /* The CVVID is optional and can be omitted */
@@ -353,6 +397,33 @@ function _ad_payment_cc_submit($form, &$form_state) {
 
 }
 
+/**
+* Implementation of HOOK_node_presave
+*
+* Get UID and $user data for node saving.
+*/
+
+function ad_payment_node_presave($node) {
+  if($node->type == 'ad_s') {
+    // Set User
+    $user_form_data = array(
+      'phone' => $node->field_phone['und'][0]['number'],
+      'mail'  => $node->field_email['und'][0]['email'],
+      'user_name' => trim($node->field_first_name) . '_' . trim($node->field_last_name),
+    );
+
+    $user = adp_user_validate($user_form_data);
+
+    // dpm('USER id = ' . $user->uid);
+    $node->uid = $user->uid;
+
+    //dpm('PreSave Node');
+    //dpm($node);
+  }
+}
+
+
+
 
 /**
  * Implementation of HOOK_node_insert()
@@ -371,13 +442,33 @@ function _ad_payment_cc_submit($form, &$form_state) {
  * - So all the CCID data is rand().
  */
 function ad_payment_node_insert($node) {
-
-
   if($node->type == 'ad_s') {
+    // Set User
+
+//    $phone = $node->field_phone['und'][0]['number'];
+//    $mail = $node->field_email['und'][0]['email'];
+//    $user_name = trim($node->field_first_name) . '_' . trim($node->field_last_name);
+//
+//    $user = adp_user_validate($user_name, $phone, $mail);
+//    $node->uid = $user->uid;
+//
+//    dpm('LOADED USER DATA');
+//    dpm($user);
+//    dpm('NODE INSERT');
+//    dpm($node);
 
     // Double Check Price
     module_load_include('inc', 'ad_payment', 'ad_payment_price_check');
     $details = ad_payment_price_check($node, 'node');
+
+    if (!$node->uid) {
+      //dpm($details);
+      //break;
+      //dpm('NO USER DATA IN NODE!');
+      watchdog('adp', 'No User data in node');
+      $user = adp_user_validate(array('user_name' => $user_name, 'phone' => $phone, 'mail' => $mail));
+
+    }
 
     $fields = array(
       'ccid'    => $node->title,
@@ -401,28 +492,25 @@ function ad_payment_node_insert($node) {
     );
     $nid = db_insert('adp')->fields($fields)->execute();
 
+    if (DEBUG_FORM) {
+//      dpm('Received <b>DETAILS</b>  from Ad Payment');
+//      dpm($details);
+//      dpm('Submitted database FIELDS');
+//      dpm($fields);
+    }
+
     if ($node->nid) {
       // Send Email upon Completion.
+      module_load_include('inc', 'ad_payment', 'ad_payment_mail');
+      ad_payment_send_email('inhouse', $details);
 
-      $to = variable_get('pennywise_classified_settings_email', 'k2@pennywiseads.com');
-      $from = variable_get('pw_email', 'k2@pennywiseads.com');
-      $language = language_default();
-      $send = TRUE;
-      $result = drupal_mail('ad_payment', 'inhouse_receipt', $to, $language, $details, $from, $send);
-
-      if ($result['result'] == TRUE) {
-        // drupal_set_message(t('A copy of this receipt has beed sent to your email address.'), 'status' );
-      }
-      else {
-        watchdog('Ad Payment', 'Inhouse Receipt Email Error', array('to' => $to, 'from' => $from, 'result' => $result, 'data' => $details), WATCHDOG_NOTICE);
-      }
-    variable_set('ad_submission_' . $node->title, $details);
-    drupal_goto('ad/' . $node->title . '/thank-you');
+      variable_set('ad_submission_' . $node->title, $details);
+      drupal_goto('ad/' . $node->title . '/thank-you');
 
     }
     else {
-      watchdog('Ad Payment', 'Ad submission has encountered some errors in saving CC data for nid: @nid - ccid: @ccid',
-        array('@nid' => $node->nid, '@ccid' => $node-title), WATCHDOG_ALERT);
+      //watchdog('Ad Payment', 'Ad submission has encountered some errors in saving CC data for nid: @nid - ccid: @ccid',
+        //array('@nid' => $node->nid, '@ccid' => $node-title), WATCHDOG_ALERT);
       return FALSE;
     }
     // Set up on screen receipt and page redirect.
@@ -563,13 +651,12 @@ function ad_payment_taxonomy($op, $type, $array = array()) {
   switch ($type) {
     case 'term':
       variable_del('ad_payment_business_rated');
-//      variable_del('ad_payment_classification_headers');
       break;
   }
 }
 
 /**
-* Cuastom function
+* Custom function
 *
 * Returns a nested array of classifieds with header and children.
 */

@@ -201,9 +201,6 @@ function feedback_form($form, &$form_state) {
   $form['#attributes']['class'] = array('feedback-form');
 
   // Store the path on which this form is displayed.
-<<<<<<< HEAD
-  $form['location'] = array('#type' => 'value', '#value' => $_GET['q']);
-=======
   if (!isset($form_state['inline']['location'])) {
     $form_state['inline']['location'] = $_GET['q'];
   }
@@ -211,7 +208,6 @@ function feedback_form($form, &$form_state) {
     '#type' => 'value',
     '#value' => $form_state['inline']['location'],
   );
->>>>>>> release1.7
 
   $form['help'] = array(
     '#prefix' => '<div class="feedback-help">',

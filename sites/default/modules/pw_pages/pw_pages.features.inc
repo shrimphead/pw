@@ -16,6 +16,10 @@ function pw_pages_ctools_plugin_api() {
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
   }
+  list($module, $api) = func_get_args();
+  if ($module == "strongarm" && $api == "strongarm") {
+    return array("version" => "1");
+  }
 }
 
 /**
@@ -30,6 +34,12 @@ function pw_pages_views_api() {
  */
 function pw_pages_image_default_styles() {
   $styles = array();
+
+  // Exported image style: classified_list_js_crop.
+  $styles['classified_list_js_crop'] = array(
+    'name' => 'classified_list_js_crop',
+    'effects' => array(),
+  );
 
   // Exported image style: editorial_block_list_header.
   $styles['editorial_block_list_header'] = array(
@@ -79,18 +89,18 @@ function pw_pages_image_default_styles() {
   $styles['editorial_small'] = array(
     'name' => 'editorial_small',
     'effects' => array(
-      1 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
-        'name' => 'image_scale_and_crop',
+      32 => array(
+        'label' => 'Scale and Smart Crop',
+        'help' => 'Similar to "Scale And Crop", but preserves the portion of the image with the most entropy.',
+        'effect callback' => 'smartcrop_scale_effect',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'smartcrop',
+        'name' => 'smartcrop_scale_and_crop',
         'data' => array(
           'width' => '134',
-          'height' => '150',
+          'height' => '104',
+          'upscale' => 0,
         ),
         'weight' => '1',
       ),
@@ -141,6 +151,28 @@ function pw_pages_image_default_styles() {
     ),
   );
 
+  // Exported image style: editorial_tiny.
+  $styles['editorial_tiny'] = array(
+    'name' => 'editorial_tiny',
+    'effects' => array(
+      3 => array(
+        'label' => 'Scale and Smart Crop',
+        'help' => 'Similar to "Scale And Crop", but preserves the portion of the image with the most entropy.',
+        'effect callback' => 'smartcrop_scale_effect',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'smartcrop',
+        'name' => 'smartcrop_scale_and_crop',
+        'data' => array(
+          'width' => '45',
+          'height' => '30',
+          'upscale' => 0,
+        ),
+        'weight' => '2',
+      ),
+    ),
+  );
+
   return $styles;
 }
 
@@ -174,7 +206,7 @@ function pw_pages_node_info() {
       'help' => '',
     ),
     'pw_digital' => array(
-      'name' => t('PW Digital Edition'),
+      'name' => t('Digital Edition'),
       'base' => 'node_content',
       'description' => t('Digital editions of the Pennywise paper. Using PDF with Scribd or other variation to display it.'),
       'has_title' => '1',

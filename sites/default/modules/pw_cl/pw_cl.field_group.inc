@@ -57,10 +57,10 @@ function pw_cl_field_group_info() {
     'children' => array(
       0 => 'title',
       1 => 'path',
-      2 => 'group_ad',
-      3 => 'group_upgrade',
+      2 => 'group_ad_review',
+      3 => 'group_ad',
       4 => 'group_payment',
-      5 => 'group_ad_review',
+      5 => 'group_upgrade',
     ),
     'format_type' => 'multipage-group',
     'format_settings' => array(
@@ -147,10 +147,10 @@ function pw_cl_field_group_info() {
     'label' => 'CREATE AD',
     'weight' => '1',
     'children' => array(
-      0 => 'group_area_rate',
-      1 => 'group_section_duration',
-      2 => 'group_section_group',
-      3 => 'group_ad_copy_block',
+      0 => 'group_ad_copy_block',
+      1 => 'group_area_rate',
+      2 => 'group_section_duration',
+      3 => 'group_section_group',
     ),
     'format_type' => 'multipage',
     'format_settings' => array(
@@ -438,6 +438,9 @@ function pw_cl_field_group_info() {
     'weight' => '4',
     'children' => array(
       0 => 'field_price',
+      1 => 'field_address',
+      2 => 'field_email',
+      3 => 'field_phone',
     ),
     'format_type' => 'multipage',
     'format_settings' => array(

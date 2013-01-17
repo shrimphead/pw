@@ -387,8 +387,6 @@ function pathauto_action_info() {
   );
 
   return $info;
-<<<<<<< HEAD
-=======
 }
 
 /**
@@ -417,7 +415,6 @@ function pathauto_entity_language($entity_type, $entity, $check_language_propert
   }
 
   return !empty($langcode) ? $langcode : LANGUAGE_NONE;
->>>>>>> release1.7
 }
 
 if (!function_exists('path_field_extra_fields')) {
@@ -524,13 +521,7 @@ function pathauto_node_update_alias(stdClass $node, $op, array $options = array(
     return;
   }
 
-<<<<<<< HEAD
-  $options += array(
-    'language' => !empty($node->language) ? $node->language : LANGUAGE_NONE,
-  );
-=======
   $options += array('language' => pathauto_entity_language('node', $node));
->>>>>>> release1.7
 
   // Skip processing if the node has no pattern.
   if (!pathauto_pattern_load_by_entity('node', $node->type, $options['language'])) {
@@ -610,11 +601,7 @@ function pathauto_taxonomy_term_delete($term) {
  */
 function pathauto_form_taxonomy_form_term_alter(&$form, $form_state) {
   $term = $form_state['term'];
-<<<<<<< HEAD
-  $langcode = !empty($term->language) ? $term->language : LANGUAGE_NONE;
-=======
   $langcode = pathauto_entity_language('taxonomy_term', $term);
->>>>>>> release1.7
   pathauto_field_attach_form('taxonomy_term', $term, $form, $form_state, $langcode);
 }
 
@@ -634,14 +621,6 @@ function pathauto_taxonomy_term_update_alias(stdClass $term, $op, array $options
     return;
   }
 
-<<<<<<< HEAD
-  $options += array(
-    'alias children' => FALSE,
-    'language' => !empty($term->language) ? $term->language : LANGUAGE_NONE,
-  );
-
-=======
->>>>>>> release1.7
   $module = 'taxonomy_term';
   if ($term->vid == variable_get('forum_nav_vocabulary', '')) {
     if (module_exists('forum')) {
@@ -822,13 +801,8 @@ function pathauto_user_update_alias_multiple(array $uids, $op, array $options = 
 /**
  * Update action wrapper for pathauto_user_update_alias().
  */
-<<<<<<< HEAD
-function pathauto_user_update_action($user, $context = array()) {
-  pathauto_user_update_alias($user, 'bulkupdate', array('message' => TRUE));
-=======
 function pathauto_user_update_action($account, $context = array()) {
   pathauto_user_update_alias($account, 'bulkupdate', array('message' => TRUE));
->>>>>>> release1.7
 }
 
 /**

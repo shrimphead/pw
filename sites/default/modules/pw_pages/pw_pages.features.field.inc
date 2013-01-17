@@ -61,6 +61,14 @@ function pw_pages_field_default_fields() {
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
             'trim_length' => '80',
           ),
           'type' => 'text_trimmed',
@@ -77,6 +85,14 @@ function pw_pages_field_default_fields() {
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
             'trim_length' => '85',
           ),
           'type' => 'text_trimmed',
@@ -86,6 +102,14 @@ function pw_pages_field_default_fields() {
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
             'trim_length' => '80',
           ),
           'type' => 'text_trimmed',
@@ -95,10 +119,18 @@ function pw_pages_field_default_fields() {
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(
-            'trim_length' => '420',
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+            'trim_length' => '360',
           ),
           'type' => 'text_trimmed',
-          'weight' => '4',
+          'weight' => '3',
         ),
       ),
       'entity_type' => 'node',
@@ -119,7 +151,7 @@ function pw_pages_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '0',
+        'weight' => 0,
       ),
     ),
   );
@@ -212,10 +244,9 @@ function pw_pages_field_default_fields() {
         ),
         'teaser' => array(
           'label' => 'inline',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '3',
+          'type' => 'hidden',
+          'weight' => '10',
         ),
       ),
       'entity_type' => 'node',
@@ -311,10 +342,9 @@ function pw_pages_field_default_fields() {
         ),
         'teaser' => array(
           'label' => 'above',
-          'module' => 'email',
           'settings' => array(),
-          'type' => 'email_default',
-          'weight' => '0',
+          'type' => 'hidden',
+          'weight' => '11',
         ),
       ),
       'ds_extras_field_template' => '',
@@ -369,7 +399,7 @@ function pw_pages_field_default_fields() {
         'handler_settings' => array(
           'behaviors' => array(
             'views-select-list' => array(
-              'status' => 1,
+              'status' => 0,
             ),
           ),
           'sort' => array(
@@ -378,13 +408,7 @@ function pw_pages_field_default_fields() {
             'type' => 'property',
           ),
           'target_bundles' => array(
-            'article' => 'article',
             'attachment' => 'attachment',
-            'classified' => 'classified',
-            'display_ads' => 'display_ads',
-            'page' => 'page',
-            'pw_digital' => 'pw_digital',
-            'webform' => 'webform',
           ),
         ),
         'handler_submit' => 'Change handler',
@@ -449,7 +473,7 @@ function pw_pages_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '13',
         ),
       ),
       'entity_type' => 'node',
@@ -502,6 +526,10 @@ function pw_pages_field_default_fields() {
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
+        'storage_class' => array(
+          'class_id' => '1',
+          'current_class_id' => '1',
+        ),
         'uri_scheme' => 'public',
         'user_role_field' => array(
           1 => 0,
@@ -544,7 +572,7 @@ function pw_pages_field_default_fields() {
           'label' => 'hidden',
           'module' => 'lightbox2',
           'settings' => array(),
-          'type' => 'lightbox2__lightbox__editorial_header__original',
+          'type' => 'lightbox2__lightbox__classified_page_style__original',
           'weight' => '0',
         ),
         'editorial_slideshow' => array(
@@ -553,6 +581,14 @@ function pw_pages_field_default_fields() {
           'settings' => array(
             'image_link' => 'content',
             'image_style' => 'editorial_block_list_header',
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
           ),
           'type' => 'image',
           'weight' => '0',
@@ -563,6 +599,14 @@ function pw_pages_field_default_fields() {
           'settings' => array(
             'image_link' => '',
             'image_style' => '',
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
           ),
           'type' => 'image',
           'weight' => '0',
@@ -573,6 +617,14 @@ function pw_pages_field_default_fields() {
           'settings' => array(
             'image_link' => 'content',
             'image_style' => 'editorial_teaser',
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
           ),
           'type' => 'image',
           'weight' => '0',
@@ -703,13 +755,9 @@ function pw_pages_field_default_fields() {
         ),
         'teaser' => array(
           'label' => 'above',
-          'module' => 'image',
-          'settings' => array(
-            'image_link' => '',
-            'image_style' => '',
-          ),
-          'type' => 'image',
-          'weight' => '0',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '12',
         ),
       ),
       'entity_type' => 'node',
@@ -838,10 +886,9 @@ function pw_pages_field_default_fields() {
         ),
         'teaser' => array(
           'label' => 'above',
-          'module' => 'link',
           'settings' => array(),
-          'type' => 'link_default',
-          'weight' => '6',
+          'type' => 'hidden',
+          'weight' => '9',
         ),
       ),
       'entity_type' => 'node',
@@ -945,10 +992,19 @@ function pw_pages_field_default_fields() {
           'weight' => '9',
         ),
         'teaser' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
+          'type' => 'text_plain',
           'weight' => '2',
         ),
       ),
@@ -1018,14 +1074,21 @@ function pw_pages_field_default_fields() {
           'type' => 'text_default',
           'weight' => '3',
         ),
+        'simple_teaser' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_plain',
+          'weight' => '1',
+        ),
         'teaser' => array(
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(
-            'trim_length' => '200',
+            'trim_length' => '350',
           ),
           'type' => 'text_summary_or_trimmed',
-          'weight' => '2',
+          'weight' => '3',
         ),
       ),
       'entity_type' => 'node',
@@ -1034,8 +1097,8 @@ function pw_pages_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'custom_add_another' => '',
-        'display_summary' => 1,
-        'text_processing' => '0',
+        'display_summary' => 0,
+        'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -1046,7 +1109,7 @@ function pw_pages_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -1082,7 +1145,7 @@ function pw_pages_field_default_fields() {
         'handler_settings' => array(
           'behaviors' => array(
             'views-select-list' => array(
-              'status' => 1,
+              'status' => 0,
             ),
           ),
           'sort' => array(
@@ -1091,13 +1154,7 @@ function pw_pages_field_default_fields() {
             'type' => 'property',
           ),
           'target_bundles' => array(
-            'article' => 'article',
             'attachment' => 'attachment',
-            'classified' => 'classified',
-            'display_ads' => 'display_ads',
-            'page' => 'page',
-            'pw_digital' => 'pw_digital',
-            'webform' => 'webform',
           ),
         ),
         'handler_submit' => 'Change handler',
@@ -1129,13 +1186,19 @@ function pw_pages_field_default_fields() {
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '10',
+          'weight' => '12',
+        ),
+        'simple_teaser' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '9',
+          'weight' => '10',
         ),
       ),
       'entity_type' => 'node',
@@ -1155,7 +1218,7 @@ function pw_pages_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'entityreference_autocomplete',
-        'weight' => '6',
+        'weight' => '7',
       ),
     ),
   );
@@ -1189,6 +1252,10 @@ function pw_pages_field_default_fields() {
       'settings' => array(
         'display_default' => 1,
         'display_field' => 1,
+        'storage_class' => array(
+          'class_id' => '1',
+          'current_class_id' => '1',
+        ),
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -1201,17 +1268,26 @@ function pw_pages_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'hidden',
+          'module' => 'file_entity',
+          'settings' => array(
+            'file_view_mode' => 'default',
+          ),
+          'type' => 'file_rendered',
+          'weight' => '4',
+        ),
+        'simple_teaser' => array(
+          'label' => 'hidden',
           'module' => 'file',
           'settings' => array(),
-          'type' => 'file_default',
-          'weight' => '4',
+          'type' => 'file_url_plain',
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'hidden',
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_default',
-          'weight' => '3',
+          'weight' => '2',
         ),
       ),
       'entity_type' => 'node',
@@ -1274,7 +1350,7 @@ function pw_pages_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_generic',
-        'weight' => '1',
+        'weight' => '7',
       ),
     ),
   );
@@ -1307,6 +1383,10 @@ function pw_pages_field_default_fields() {
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
+        'storage_class' => array(
+          'class_id' => '1',
+          'current_class_id' => '1',
+        ),
         'uri_scheme' => 'public',
         'user_role_field' => array(
           1 => 0,
@@ -1333,8 +1413,18 @@ function pw_pages_field_default_fields() {
           'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
-            'image_link' => '',
+            'image_link' => 'file',
             'image_style' => 'large',
+          ),
+          'type' => 'image',
+          'weight' => '1',
+        ),
+        'simple_teaser' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => 'content',
+            'image_style' => 'thumbnail',
           ),
           'type' => 'image',
           'weight' => '0',
@@ -1343,7 +1433,7 @@ function pw_pages_field_default_fields() {
           'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
-            'image_link' => 'content',
+            'image_link' => 'file',
             'image_style' => 'medium',
           ),
           'type' => 'image',
@@ -1353,7 +1443,7 @@ function pw_pages_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_image',
       'label' => 'Thumbnail',
-      'required' => 0,
+      'required' => 1,
       'settings' => array(
         'alt_field' => 0,
         'custom_add_another' => '',
@@ -1373,6 +1463,7 @@ function pw_pages_field_default_fields() {
           'filefield_sources' => array(
             'filefield_sources' => array(
               'attach' => 0,
+              'clipboard' => 0,
               'reference' => 'reference',
               'remote' => 0,
             ),
@@ -1381,24 +1472,25 @@ function pw_pages_field_default_fields() {
               'attach_mode' => 'copy',
               'path' => 'file_attach',
             ),
+            'source_imce' => array(
+              'imce_mode' => 0,
+            ),
             'source_reference' => array(
               'autocomplete' => '1',
             ),
           ),
           'insert' => 0,
-          'insert_absolute' => FALSE,
+          'insert_absolute' => 0,
           'insert_class' => '',
           'insert_default' => 'auto',
           'insert_styles' => array(
             'auto' => 0,
+            'icon_link' => 0,
             'image' => 'image',
-            'image_classified_ad_image_small' => 0,
-            'image_display_ad_banner' => 0,
-            'image_display_ad_poster' => 0,
-            'image_display_ad_print_full' => 0,
+            'image_classified-list-style' => 0,
+            'image_classified_list_nocrop' => 0,
+            'image_classified_page_style' => 0,
             'image_display_ad_print_thumbnail' => 0,
-            'image_display_ad_splash' => 0,
-            'image_display_ad_target' => 0,
             'image_editorial_block_list_header' => 0,
             'image_editorial_header' => 0,
             'image_editorial_small' => 0,
@@ -1406,6 +1498,7 @@ function pw_pages_field_default_fields() {
             'image_editorial_thumbnail' => 0,
             'image_large' => 'image_large',
             'image_medium' => 'image_medium',
+            'image_miniature_square' => 0,
             'image_square_thumbnail' => 'image_square_thumbnail',
             'image_thumbnail' => 'image_thumbnail',
             'link' => 0,
@@ -1415,7 +1508,7 @@ function pw_pages_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '2',
+        'weight' => '8',
       ),
     ),
   );
@@ -1466,11 +1559,17 @@ function pw_pages_field_default_fields() {
           'type' => 'link_default',
           'weight' => '5',
         ),
+        'simple_teaser' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '10',
+          'weight' => '11',
         ),
       ),
       'entity_type' => 'node',
@@ -1502,7 +1601,7 @@ function pw_pages_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '4',
+        'weight' => '5',
       ),
     ),
   );
@@ -1550,7 +1649,7 @@ function pw_pages_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '3',
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -1613,7 +1712,7 @@ function pw_pages_field_default_fields() {
         'handler_settings' => array(
           'behaviors' => array(
             'views-select-list' => array(
-              'status' => 1,
+              'status' => 0,
             ),
           ),
           'sort' => array(
@@ -1622,13 +1721,7 @@ function pw_pages_field_default_fields() {
             'type' => 'property',
           ),
           'target_bundles' => array(
-            'article' => 'article',
             'attachment' => 'attachment',
-            'classified' => 'classified',
-            'display_ads' => 'display_ads',
-            'page' => 'page',
-            'pw_digital' => 'pw_digital',
-            'webform' => 'webform',
           ),
         ),
         'handler_submit' => 'Change handler',
@@ -1664,7 +1757,7 @@ function pw_pages_field_default_fields() {
             'view_mode' => 'teaser',
           ),
           'type' => 'entityreference_entity_view',
-          'weight' => '4',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1723,6 +1816,10 @@ function pw_pages_field_default_fields() {
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
+        'storage_class' => array(
+          'class_id' => '1',
+          'current_class_id' => '1',
+        ),
         'uri_scheme' => 'public',
         'user_role_field' => array(
           1 => 0,
@@ -1761,6 +1858,14 @@ function pw_pages_field_default_fields() {
           'settings' => array(
             'image_link' => 'content',
             'image_style' => 'medium',
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
           ),
           'type' => 'image',
           'weight' => '1',
@@ -1878,7 +1983,7 @@ function pw_pages_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '10',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2001,7 +2106,7 @@ function pw_pages_field_default_fields() {
           'module' => 'link',
           'settings' => array(),
           'type' => 'link_default',
-          'weight' => '5',
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2088,20 +2193,47 @@ function pw_pages_field_default_fields() {
 <li>Should look like: <em>[scribd id=pub-18673738874898982461 key=yy mode=list] </em></li>
 </ol>',
       'display' => array(
+        'castlegar_edition_view' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
+        ),
         'default' => array(
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '2',
         ),
+        'full' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '2',
+        ),
+        'kootenay_edition_view' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
+        ),
+        'nelson_edition_view' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
+        ),
         'teaser' => array(
           'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(
-            'trim_length' => 600,
-          ),
-          'type' => 'text_summary_or_trimmed',
-          'weight' => 0,
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '0',
+        ),
+        'trail_edition_view' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
         ),
       ),
       'entity_type' => 'node',
@@ -2122,41 +2254,42 @@ function pw_pages_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '6',
+        'weight' => '8',
       ),
     ),
   );
 
-  // Exported field: 'node-pw_digital-field_area'.
-  $fields['node-pw_digital-field_area'] = array(
+  // Exported field: 'node-pw_digital-field_castlegar_edition'.
+  $fields['node-pw_digital-field_castlegar_edition'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '-1',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_area',
+      'field_name' => 'field_castlegar_edition',
       'field_permissions' => array(
         'type' => '0',
       ),
-      'foreign keys' => array(),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
       'indexes' => array(
-        'value' => array(
-          0 => 'value',
+        'format' => array(
+          0 => 'format',
         ),
       ),
       'locked' => '0',
-      'module' => 'list',
+      'module' => 'text',
       'settings' => array(
-        'allowed_values' => array(
-          'Trail' => 'Trail, Beaver Valley & Rossland',
-          'Nelson' => 'Nelson & Salmo',
-          'Castlegar' => 'Castlegar & Slocan Valley',
-          'Kootenay Lake' => 'Kootenay Lake',
-        ),
-        'allowed_values_function' => '',
+        'max_length' => '80',
       ),
       'translatable' => '0',
-      'type' => 'list_text',
+      'type' => 'text',
     ),
     'field_instance' => array(
       'bundle' => 'pw_digital',
@@ -2164,33 +2297,106 @@ function pw_pages_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'castlegar_edition_view' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
+          'type' => 'text_default',
+          'weight' => '0',
+        ),
         'default' => array(
-          'label' => 'inline',
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
+          'type' => 'text_plain',
+          'weight' => '8',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
+          'type' => 'text_plain',
+          'weight' => '8',
+        ),
+        'kootenay_edition_view' => array(
+          'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '4',
         ),
-        'teaser' => array(
-          'label' => 'above',
+        'nelson_edition_view' => array(
+          'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '3',
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
+          'type' => 'text_plain',
+          'weight' => '8',
+        ),
+        'trail_edition_view' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_area',
-      'label' => 'Area',
+      'field_name' => 'field_castlegar_edition',
+      'label' => 'Castlegar Edition',
       'required' => 1,
       'settings' => array(
         'custom_add_another' => '',
+        'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_buttons',
-        'weight' => '12',
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '4',
       ),
     ),
   );
@@ -2223,6 +2429,10 @@ function pw_pages_field_default_fields() {
       'module' => 'image',
       'settings' => array(
         'default_image' => '993',
+        'storage_class' => array(
+          'class_id' => '1',
+          'current_class_id' => '1',
+        ),
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -2233,13 +2443,43 @@ function pw_pages_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'castlegar_edition_view' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '0',
+        ),
         'default' => array(
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '5',
         ),
+        'full' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
+        ),
+        'kootenay_edition_view' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'nelson_edition_view' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'trail_edition_view' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
@@ -2307,7 +2547,7 @@ function pw_pages_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '3',
+        'weight' => '11',
       ),
     ),
   );
@@ -2350,17 +2590,47 @@ function pw_pages_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'castlegar_edition_view' => array(
+          'label' => 'inline',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '6',
+        ),
         'default' => array(
           'label' => 'inline',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '3',
         ),
-        'teaser' => array(
-          'label' => 'above',
+        'full' => array(
+          'label' => 'inline',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '3',
+        ),
+        'kootenay_edition_view' => array(
+          'label' => 'inline',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '6',
+        ),
+        'nelson_edition_view' => array(
+          'label' => 'inline',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '6',
+        ),
+        'teaser' => array(
+          'label' => 'inline',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
+        ),
+        'trail_edition_view' => array(
+          'label' => 'inline',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '6',
         ),
       ),
       'entity_type' => 'node',
@@ -2393,11 +2663,457 @@ function pw_pages_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-pw_digital-field_entity_reference'.
+  $fields['node-pw_digital-field_entity_reference'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_entity_reference',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'node' => array(
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'entityreference',
+      'settings' => array(
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+          'sort' => array(
+            'direction' => 'ASC',
+            'property' => 'title',
+            'type' => 'property',
+          ),
+          'target_bundles' => array(
+            'attachment' => 'attachment',
+          ),
+        ),
+        'handler_submit' => 'Change handler',
+        'target_type' => 'node',
+        'user_role_field' => array(
+          1 => 0,
+          2 => 0,
+          3 => 0,
+          4 => 0,
+          5 => 0,
+          6 => 0,
+          7 => 0,
+          8 => 0,
+          9 => '9',
+          10 => 0,
+          11 => 0,
+        ),
+      ),
+      'translatable' => '0',
+      'type' => 'entityreference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'pw_digital',
+      'deleted' => '0',
+      'description' => 'Create and link special feature pages. Eg. Hometown Business pages, Christmas Carols, and Back to School sections.',
+      'display' => array(
+        'castlegar_edition_view' => array(
+          'label' => 'hidden',
+          'module' => 'entityreference',
+          'settings' => array(
+            'links' => 1,
+            'view_mode' => 'teaser',
+          ),
+          'type' => 'entityreference_entity_view',
+          'weight' => '1',
+        ),
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'entityreference',
+          'settings' => array(
+            'links' => 1,
+            'view_mode' => 'teaser',
+          ),
+          'type' => 'entityreference_entity_view',
+          'weight' => '10',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'entityreference',
+          'settings' => array(
+            'links' => 1,
+            'view_mode' => 'teaser',
+          ),
+          'type' => 'entityreference_entity_view',
+          'weight' => '10',
+        ),
+        'kootenay_edition_view' => array(
+          'label' => 'hidden',
+          'module' => 'entityreference',
+          'settings' => array(
+            'links' => 1,
+            'view_mode' => 'teaser',
+          ),
+          'type' => 'entityreference_entity_view',
+          'weight' => '1',
+        ),
+        'nelson_edition_view' => array(
+          'label' => 'hidden',
+          'module' => 'entityreference',
+          'settings' => array(
+            'links' => 1,
+            'view_mode' => 'teaser',
+          ),
+          'type' => 'entityreference_entity_view',
+          'weight' => '1',
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => 1,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => '10',
+        ),
+        'trail_edition_view' => array(
+          'label' => 'hidden',
+          'module' => 'entityreference',
+          'settings' => array(
+            'links' => 1,
+            'view_mode' => 'teaser',
+          ),
+          'type' => 'entityreference_entity_view',
+          'weight' => '1',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_entity_reference',
+      'label' => 'Special Feature',
+      'required' => 0,
+      'settings' => array(
+        'custom_add_another' => 'Attach another special feature.',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'inline_entity_form',
+        'settings' => array(
+          'fields' => array(),
+          'type_settings' => array(
+            'allow_existing' => 1,
+            'delete_references' => 1,
+            'match_operator' => 'CONTAINS',
+          ),
+        ),
+        'type' => 'inline_entity_form',
+        'weight' => '5',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-pw_digital-field_kootenay_lake_edition'.
+  $fields['node-pw_digital-field_kootenay_lake_edition'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_kootenay_lake_edition',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '80',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'pw_digital',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'castlegar_edition_view' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
+        ),
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
+          'type' => 'text_plain',
+          'weight' => '9',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
+          'type' => 'text_plain',
+          'weight' => '9',
+        ),
+        'kootenay_edition_view' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
+          'type' => 'text_default',
+          'weight' => '0',
+        ),
+        'nelson_edition_view' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
+          'type' => 'text_plain',
+          'weight' => '9',
+        ),
+        'trail_edition_view' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_kootenay_lake_edition',
+      'label' => 'Kootenay Lake Edition',
+      'required' => 1,
+      'settings' => array(
+        'custom_add_another' => '',
+        'text_processing' => '1',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '5',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-pw_digital-field_nelson_edition'.
+  $fields['node-pw_digital-field_nelson_edition'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_nelson_edition',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '80',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'pw_digital',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'castlegar_edition_view' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
+        ),
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
+          'type' => 'text_plain',
+          'weight' => '7',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
+          'type' => 'text_plain',
+          'weight' => '7',
+        ),
+        'kootenay_edition_view' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
+        ),
+        'nelson_edition_view' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
+          'type' => 'text_default',
+          'weight' => '0',
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
+          'type' => 'text_plain',
+          'weight' => '7',
+        ),
+        'trail_edition_view' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '2',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_nelson_edition',
+      'label' => 'Nelson Edition',
+      'required' => 1,
+      'settings' => array(
+        'custom_add_another' => '',
+        'text_processing' => '1',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '3',
+      ),
+    ),
+  );
+
   // Exported field: 'node-pw_digital-field_pdf'.
   $fields['node-pw_digital-field_pdf'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_pdf',
@@ -2422,7 +3138,11 @@ function pw_pages_field_default_fields() {
       'settings' => array(
         'display_default' => 1,
         'display_field' => 0,
-        'uri_scheme' => 'public',
+        'storage_class' => array(
+          'class_id' => '2',
+          'current_class_id' => '1',
+        ),
+        'uri_scheme' => 'storage-field-pdf',
       ),
       'translatable' => '0',
       'type' => 'file',
@@ -2430,8 +3150,14 @@ function pw_pages_field_default_fields() {
     'field_instance' => array(
       'bundle' => 'pw_digital',
       'deleted' => '0',
-      'description' => 'Direct link to pdf for download purposes. Usually starts with --> http://www.scribd.com/doc/ [file_name]',
+      'description' => 'Direct link to pdf for download purposes. <strong>Label the file with the AREA.</strong><br><em>eg. Pennywise_Castlegar_Nov13-2021.pdf</em>',
       'display' => array(
+        'castlegar_edition_view' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '0',
+        ),
         'default' => array(
           'label' => 'hidden',
           'module' => 'file',
@@ -2439,7 +3165,32 @@ function pw_pages_field_default_fields() {
           'type' => 'file_default',
           'weight' => '1',
         ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_default',
+          'weight' => '1',
+        ),
+        'kootenay_edition_view' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'nelson_edition_view' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'trail_edition_view' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
@@ -2452,10 +3203,10 @@ function pw_pages_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'custom_add_another' => '',
-        'description_field' => 0,
+        'description_field' => 1,
         'file_directory' => 'pdf',
-        'file_extensions' => 'pdf zip rar',
-        'max_filesize' => '12MB',
+        'file_extensions' => 'pdf',
+        'max_filesize' => '10MB',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -2465,26 +3216,32 @@ function pw_pages_field_default_fields() {
           'filefield_sources' => array(
             'filefield_sources' => array(
               'attach' => 0,
-              'reference' => 'reference',
-              'remote' => 'remote',
+              'clipboard' => 0,
+              'reference' => 0,
+              'remote' => 0,
             ),
             'source_attach' => array(
               'absolute' => '0',
               'attach_mode' => 'copy',
               'path' => 'file_attach',
             ),
+            'source_imce' => array(
+              'imce_mode' => 0,
+            ),
             'source_reference' => array(
               'autocomplete' => '1',
             ),
           ),
           'insert' => 0,
-          'insert_absolute' => FALSE,
+          'insert_absolute' => 0,
           'insert_class' => '',
           'insert_default' => 'auto',
           'insert_styles' => array(
             'auto' => 'auto',
+            'icon_link' => 0,
             'image' => 0,
             'image_classified-list-style' => 0,
+            'image_classified_list_nocrop' => 0,
             'image_classified_page_style' => 0,
             'image_display_ad_print_thumbnail' => 0,
             'image_editorial_block_list_header' => 0,
@@ -2494,6 +3251,7 @@ function pw_pages_field_default_fields() {
             'image_editorial_thumbnail' => 0,
             'image_large' => 0,
             'image_medium' => 0,
+            'image_miniature_square' => 0,
             'image_square_thumbnail' => 0,
             'image_thumbnail' => 0,
             'link' => 0,
@@ -2502,7 +3260,7 @@ function pw_pages_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_generic',
-        'weight' => '2',
+        'weight' => '5',
       ),
     ),
   );
@@ -2557,14 +3315,63 @@ function pw_pages_field_default_fields() {
 <li>Should look like: <em>[scribd id=pub-18673738874898982461 key=yy mode=list]</em>
 ',
       'display' => array(
+        'castlegar_edition_view' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '0',
+        ),
         'default' => array(
           'label' => 'hidden',
           'module' => 'text',
-          'settings' => array(),
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
           'type' => 'text_default',
           'weight' => '0',
         ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
+          'type' => 'text_default',
+          'weight' => '0',
+        ),
+        'kootenay_edition_view' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'nelson_edition_view' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'trail_edition_view' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
@@ -2587,7 +3394,271 @@ function pw_pages_field_default_fields() {
           'size' => '80',
         ),
         'type' => 'text_textfield',
-        'weight' => '1',
+        'weight' => '6',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-pw_digital-field_special_feature_link'.
+  $fields['node-pw_digital-field_special_feature_link'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '5',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_special_feature_link',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'node' => array(
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'entityreference',
+      'settings' => array(
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 1,
+            ),
+          ),
+          'sort' => array(
+            'type' => 'none',
+          ),
+          'target_bundles' => array(
+            'attachment' => 'attachment',
+          ),
+        ),
+        'target_type' => 'node',
+      ),
+      'translatable' => '0',
+      'type' => 'entityreference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'pw_digital',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Link special feature here by typing the name of the file.<br>
+If you have not uploaded the special feature <a href=\'/node/add/attachment\' target=\'_NEW\'>click here.</a><br>
+NOTE: Thumbnail image required.',
+      'display' => array(
+        'castlegar_edition_view' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'default' => array(
+          'label' => 'above',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => 11,
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'kootenay_edition_view' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'nelson_edition_view' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'trail_edition_view' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_special_feature_link',
+      'label' => 'Special Feature Link',
+      'required' => 0,
+      'settings' => array(
+        'custom_add_another' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'entityreference',
+        'settings' => array(
+          'match_operator' => 'CONTAINS',
+          'path' => '',
+          'size' => '60',
+        ),
+        'type' => 'entityreference_autocomplete',
+        'weight' => '9',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-pw_digital-field_trail'.
+  $fields['node-pw_digital-field_trail'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_trail',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '80',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'pw_digital',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'castlegar_edition_view' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '2',
+        ),
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
+          'type' => 'text_plain',
+          'weight' => '6',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
+          'type' => 'text_plain',
+          'weight' => '6',
+        ),
+        'kootenay_edition_view' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '2',
+        ),
+        'nelson_edition_view' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '2',
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
+          'type' => 'text_plain',
+          'weight' => '6',
+        ),
+        'trail_edition_view' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
+          'type' => 'text_default',
+          'weight' => '0',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_trail',
+      'label' => 'Trail Edition',
+      'required' => 1,
+      'settings' => array(
+        'custom_add_another' => '',
+        'text_processing' => '1',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '2',
       ),
     ),
   );
@@ -2606,9 +3677,11 @@ function pw_pages_field_default_fields() {
   t('Attachment');
   t('Body');
   t('By default when you add an attachment you will see a thumbnail/link to the file and the user can click on it to view it at a higher resolution. <strong>By adding a link here you override that and the user is instead sent to this web address.</strong>');
+  t('Castlegar Edition');
   t('Cover');
+  t('Create and link special feature pages. Eg. Hometown Business pages, Christmas Carols, and Back to School sections.');
   t('Description');
-  t('Direct link to pdf for download purposes. Usually starts with --> http://www.scribd.com/doc/ [file_name]');
+  t('Direct link to pdf for download purposes. <strong>Label the file with the AREA.</strong><br><em>eg. Pennywise_Castlegar_Nov13-2021.pdf</em>');
   t('Edition Date');
   t('Email');
   t('Extra Images');
@@ -2616,17 +3689,25 @@ function pw_pages_field_default_fields() {
   t('Highlighted Link');
   t('If the attachment is several pages or files you can reference the other items here.');
   t('Inserted Images');
+  t('Kootenay Lake Edition');
   t('Link');
+  t('Link special feature here by typing the name of the file.<br>
+If you have not uploaded the special feature <a href=\'/node/add/attachment\' target=\'_NEW\'>click here.</a><br>
+NOTE: Thumbnail image required.');
+  t('Nelson Edition');
   t('Optional thumbnail of file. If uploading a PDF (or any kind of image) please include a thumbnail/screen capture so that the viewer can see what they are getting with this.');
   t('PDF');
   t('Reference Other');
   t('References');
   t('Scribd');
+  t('Special Feature');
+  t('Special Feature Link');
   t('Submitted by');
   t('These images can be of lower resolution than the primary header image. These images will only be displayed on the full editorial page, not in any teasers.');
   t('This image will be at the top of the page and used through out the site as the articles primary image.');
   t('This link field is for expressly highlighting a specific link. It will be displayed in large type.');
   t('Thumbnail');
+  t('Trail Edition');
   t('You can also copy and paste the whole text from Scribd.
 <ol>
 <li>Navigate to the edition you want to embed.

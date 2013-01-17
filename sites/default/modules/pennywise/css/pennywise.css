@@ -1,4 +1,7 @@
 /* COLOURS */
+/* lighten(@editorial, 25); */
+/* darken(@editorial, 10); */
+/*  #F63;  */
 .center {
   margin-left: auto;
   margin-right: auto;
@@ -30,21 +33,25 @@
   background-color: #e5e0dc;
   border-width: thin;
 }
-.ds-form-3col-stacked {
+.ds-form-3col-stacked,
+#pw-digital-node-form {
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   width: 1160px;
   background-color: #d1e5ff;
 }
-.ds-form-3col-stacked .tabledrag-toggle-weight {
+.ds-form-3col-stacked .tabledrag-toggle-weight,
+#pw-digital-node-form .tabledrag-toggle-weight {
   visibility: hidden;
   height: 0;
 }
-.ds-form-3col-stacked table.tableheader-processed {
+.ds-form-3col-stacked table.tableheader-processed,
+#pw-digital-node-form table.tableheader-processed {
   width: 200px;
 }
-.ds-form-3col-stacked h3 {
+.ds-form-3col-stacked h3,
+#pw-digital-node-form h3 {
   /*     border-bottom: 2pt groove @plum; */
 
   text-transform: uppercase;
@@ -53,7 +60,7 @@
   width: 80%;
   margin: 0 auto 0 auto;
   display: block;
-  background-color: #3366cc;
+  background-color: #0059b3;
   color: #ffffff;
   /*     span { padding: 0 15px; background-color: @white;} */
 
@@ -61,13 +68,16 @@
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
 }
-.ds-form-3col-stacked .form-wrapper {
+.ds-form-3col-stacked .form-wrapper,
+#pw-digital-node-form .form-wrapper {
   width: 90%;
 }
-.ds-form-3col-stacked .form-item {
+.ds-form-3col-stacked .form-item,
+#pw-digital-node-form .form-item {
   width: 100%;
 }
-.ds-form-3col-stacked .group-left {
+.ds-form-3col-stacked .group-left,
+#pw-digital-node-form .group-left {
   padding: 10px;
   width: 380px;
   background-color: #ffcc99;
@@ -77,15 +87,18 @@
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
 }
-.ds-form-3col-stacked .group-middle {
+.ds-form-3col-stacked .group-middle,
+#pw-digital-node-form .group-middle {
   width: 280px;
   padding: 10px;
   height: 100%;
 }
-.ds-form-3col-stacked .group-middle div {
+.ds-form-3col-stacked .group-middle div,
+#pw-digital-node-form .group-middle div {
   width: 100%;
 }
-.ds-form-3col-stacked .group-right {
+.ds-form-3col-stacked .group-right,
+#pw-digital-node-form .group-right {
   width: 280px;
   padding: 10px;
   border-left: solid 1pt #ffffff;
@@ -96,8 +109,30 @@
   -webkit-border-radius: 10px;
   margin: 4px;
 }
-.ds-form-3col-stacked .form-item {
+.ds-form-3col-stacked .form-item,
+#pw-digital-node-form .form-item {
   width: 100%;
+}
+/* Digital Edition - 2 col */
+#pw-digital-node-form {
+  /* turn off help display to simplify layout */
+
+}
+#pw-digital-node-form .group-left {
+  width: 60%;
+}
+#pw-digital-node-form .group-right {
+  width: 25%;
+}
+#pw-digital-node-form #edit-field-trail-und-0-format-guidelines,
+#pw-digital-node-form #edit-field-nelson-edition-und-0-format-guidelines,
+#pw-digital-node-form #edit-field-castlegar-edition-und-0-format-guidelines,
+#pw-digital-node-form #edit-field-kootenay-lake-edition-und-0-format-guidelines,
+#pw-digital-node-form #edit-field-trail-und-0-format-help,
+#pw-digital-node-form #edit-field-nelson-edition-und-0-format-help,
+#pw-digital-node-form #edit-field-castlegar-edition-und-0-format-help,
+#pw-digital-node-form #edit-field-kootenay-lake-edition-und-0-format-help {
+  display: none;
 }
 /* Editorial (Article) & Classified Node Form Style */
 .node-article-form .ds-form-3col-stacked .group-left,
@@ -174,6 +209,35 @@
   width: 380px;
 }
 /*************************** ADMIN Interface */
+/**** dashboard ****/
+body.page-admin-pennywise .button a {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  color: #ffffff;
+  background-color: #003366;
+  text-decoration: none;
+  padding: 4px 8px;
+  text-align: center;
+  font-weight: 600;
+}
+body.page-admin-pennywise .button a:hover {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  color: #003366;
+  background-color: #d1e5ff;
+}
+#block-views-admin-dashboard-display-dash .view-id-admin_dashboard table.views-table tr.Promoted {
+  margin-left: solid 5pt #009900;
+}
 .view-display-admin-v2 table,
 .view-id-editorial_administration table,
 .view-id-page_administration table {
@@ -208,17 +272,7 @@
   /*       height: 38px; */
 
   border: 1pt solid #ffff00;
-}
-.view-display-admin-v2 td.editorial-col .Enabled,
-.view-id-editorial_administration td.editorial-col .Enabled,
-.view-id-page_administration td.editorial-col .Enabled,
-.view-display-admin-v2 td.display-col .Enabled,
-.view-id-editorial_administration td.display-col .Enabled,
-.view-id-page_administration td.display-col .Enabled,
-.view-display-admin-v2 td .Enabled,
-.view-id-editorial_administration td .Enabled,
-.view-id-page_administration td .Enabled {
-  background-color: #ffffcc;
+  text-align: center;
 }
 .view-display-admin-v2 td.editorial-col .Disabled,
 .view-id-editorial_administration td.editorial-col .Disabled,
@@ -229,7 +283,18 @@
 .view-display-admin-v2 td .Disabled,
 .view-id-editorial_administration td .Disabled,
 .view-id-page_administration td .Disabled {
-  background-color: #39ff30;
+  background-color: #ffffcc;
+}
+.view-display-admin-v2 td.editorial-col .Enabled,
+.view-id-editorial_administration td.editorial-col .Enabled,
+.view-id-page_administration td.editorial-col .Enabled,
+.view-display-admin-v2 td.display-col .Enabled,
+.view-id-editorial_administration td.display-col .Enabled,
+.view-id-page_administration td.display-col .Enabled,
+.view-display-admin-v2 td .Enabled,
+.view-id-editorial_administration td .Enabled,
+.view-id-page_administration td .Enabled {
+  background-color: #00ff00;
 }
 .view-display-admin-v2 td.editorial-col .field-promote-status-Promoted,
 .view-id-editorial_administration td.editorial-col .field-promote-status-Promoted,
@@ -240,7 +305,7 @@
 .view-display-admin-v2 td .field-promote-status-Promoted,
 .view-id-editorial_administration td .field-promote-status-Promoted,
 .view-id-page_administration td .field-promote-status-Promoted {
-  background-color: #046300;
+  background-color: #003300;
 }
 .view-display-admin-v2 td.editorial-col .views-field,
 .view-id-editorial_administration td.editorial-col .views-field,
@@ -350,7 +415,10 @@
 .view-display-admin-v2 td .no-marker,
 .view-id-editorial_administration td .no-marker,
 .view-id-page_administration td .no-marker {
-  display: none;
+  background-color: #ffffff;
+  border: 1pt solid #e5e0dc;
+  /*       display: none; */
+
 }
 .view-display-admin-v2 .field-publish-link,
 .view-id-editorial_administration .field-publish-link,
@@ -421,7 +489,7 @@
   -moz-border-radius: 0 3px 3px 0;
   -webkit-border-radius: 0 3px 3px 0;
   color: #ffffff;
-  background-color: #09c900;
+  background-color: #009900;
 }
 .view-display-admin-v2 .field-unpublish-link,
 .view-id-editorial_administration .field-unpublish-link,
@@ -481,6 +549,105 @@
   vertical-align: bottom;
 }
 /******************* Classifieds Table Layout ADMIN ********/
+/* AD SUBMISION ADMIN TABLE */
+body.page-admin-pennywise-classified-ad-s {
+  /*   section listing */
+
+  /* ad copy info table */
+
+  /* client data */
+
+}
+body.page-admin-pennywise-classified-ad-s #views-form-classified-ad-administration-incoming-ads .views-table caption {
+  font-size: 2em;
+  background-color: #ffff00;
+  border-radius: 20px 20px 0 0;
+  -moz-border-radius: 20px 20px 0 0;
+  -webkit-border-radius: 20px 20px 0 0;
+}
+body.page-admin-pennywise-classified-ad-s #views-form-classified-ad-administration-incoming-ads .submission-placement-cell {
+  width: 10%;
+  font-size: .8em;
+  line-height: 1.2em;
+}
+body.page-admin-pennywise-classified-ad-s #views-form-classified-ad-administration-incoming-ads .admin-ad-data-cell {
+  width: 40%;
+}
+body.page-admin-pennywise-classified-ad-s #views-form-classified-ad-administration-incoming-ads .client-data-cell {
+  width: 15%;
+}
+body.page-admin-pennywise-classified-ad-s #views-form-classified-ad-administration-incoming-ads .details-price-cell {
+  width: 20%;
+}
+body.page-admin-pennywise-classified-ad-s .submission-placement-section ul li,
+body.page-admin-pennywise-classified-ad-s .submission-placement-areas ul li {
+  text-align: center;
+  list-style: none;
+  padding: 5px 20px;
+  margin-bottom: 10px;
+  background-color: #fff8dd;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+body.page-admin-pennywise-classified-ad-s .submission-placement-areas ul li {
+  background-color: rgba(9, 201, 0, 0.2);
+}
+body.page-admin-pennywise-classified-ad-s table.admin-incoming-ad-info {
+  text-align: center;
+}
+body.page-admin-pennywise-classified-ad-s table.admin-incoming-ad-info td {
+  margin: 0;
+  padding: 0;
+}
+body.page-admin-pennywise-classified-ad-s .client-data dl.client-data dt {
+  text-align: center;
+  /*         width: 100%; */
+
+  border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  background-color: #d1e5ff;
+  font-size: .6 em;
+}
+body.page-admin-pennywise-classified-ad-s .client-data dl.client-data dd {
+  margin: 0;
+  padding: 0;
+}
+/* details-price */
+.details-recipt-number,
+details-reciept-number {
+  text-align: center;
+}
+table.details-price tr.details-price-subtotal,
+table.details-price tr.details-price-total {
+  background-color: #ffffff;
+}
+table.details-price td {
+  margin: 0;
+  padding: 3px 5px;
+}
+/* submited ad details */
+.ad-details-toggle-outer-box {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 4px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  background-color: #fbfaf9;
+}
+.ad-details-toggle-box-content {
+  text-align: left;
+  font-weight: 300;
+  padding: 10px;
+  font-size: .9em;
+  line-height: 1.4em;
+}
 /* #views-form-classified-ad-administration-classified-pagelink { */
 .vbo-views-form table {
   /* status */
@@ -492,7 +659,7 @@
   border-width: 1pt 5pt;
 }
 .vbo-views-form table tr.classified-admin-table-row-published-Published {
-  border-color: #09c900;
+  border-color: #009900;
   border-width: 1pt 5pt;
 }
 .vbo-views-form table tr.odd.classified-admin-table-row-published-Not {
@@ -501,7 +668,7 @@
   border-width: 1pt 5pt;
 }
 .vbo-views-form table tr.odd.classified-admin-table-row-published-Published {
-  border-color: #0bfc00;
+  border-color: #00cc00;
 }
 .vbo-views-form ul li {
   list-style: none;

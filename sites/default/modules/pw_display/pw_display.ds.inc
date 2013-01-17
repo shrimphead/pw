@@ -18,21 +18,21 @@ function pw_display_ds_layout_settings_info() {
   $ds_layout->view_mode = 'default';
   $ds_layout->layout = 'ds_2col_stacked';
   $ds_layout->settings = array(
-    'hide_empty_regions' => 1,
-    'hide_sidebars' => 1,
     'regions' => array(
       'header' => array(
         0 => 'field_display_ad',
       ),
       'left' => array(
-        0 => 'title',
-        1 => 'field_ad_copy',
+        1 => 'title',
+        2 => 'field_ad_copy',
       ),
       'right' => array(
-        0 => 'field_ad_client',
-        1 => 'field_link',
-        2 => 'field_email',
-        3 => 'field_high_res_ad',
+        3 => 'field_ad_client',
+        4 => 'field_link',
+        5 => 'field_email',
+      ),
+      'footer' => array(
+        6 => 'field_special_feature_link',
       ),
     ),
     'fields' => array(
@@ -42,9 +42,18 @@ function pw_display_ds_layout_settings_info() {
       'field_ad_client' => 'right',
       'field_link' => 'right',
       'field_email' => 'right',
-      'field_high_res_ad' => 'right',
+      'field_special_feature_link' => 'footer',
     ),
     'classes' => array(),
+    'wrappers' => array(
+      'header' => 'div',
+      'left' => 'div',
+      'right' => 'div',
+      'footer' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 0,
   );
   $export['node|display_ads|default'] = $ds_layout;
 
@@ -54,61 +63,59 @@ function pw_display_ds_layout_settings_info() {
   $ds_layout->entity_type = 'node';
   $ds_layout->bundle = 'display_ads';
   $ds_layout->view_mode = 'form';
-  $ds_layout->layout = 'ds_form_3col';
+  $ds_layout->layout = 'ds_1col';
   $ds_layout->settings = array(
-    'hide_empty_regions' => 1,
-    'hide_sidebars' => FALSE,
     'regions' => array(
-      'header' => array(
-        0 => 'field_display_ad',
-      ),
-      'left' => array(
-        0 => 'field_section_all_select',
-        1 => 'field_tags',
-      ),
-      'middle' => array(
-        0 => 'field_display_ad_type',
+      'ds_content' => array(
+        0 => 'group_display_ad',
         1 => 'group_basics',
-        2 => 'field_publish_date',
-        3 => 'field_ad_client',
-        4 => 'title',
-        5 => 'field_ad_copy',
-      ),
-      'right' => array(
-        0 => 'path',
-        1 => 'field_link',
-        2 => 'group_options',
-        3 => 'field_email',
-      ),
-      'footer' => array(
-        0 => 'field_entity_reference',
+        2 => 'field_display_ad',
+        3 => 'group_description_box',
+        4 => 'group_options',
+        5 => 'field_publish_date',
+        6 => 'field_section_all_select',
+        7 => 'group_advanced',
+        8 => 'field_link',
+        10 => 'field_email',
+        11 => 'field_tags',
+        12 => 'field_special_feature_link',
+        13 => 'field_display_ad_type',
+        14 => 'field_ad_client',
+        15 => 'title',
+        16 => 'field_ad_copy',
       ),
       'hidden' => array(
-        0 => 'field_high_res_ad',
-        1 => 'group_description_box',
-        2 => '_add_existing_field',
+        9 => 'path',
+        17 => '_add_existing_field',
       ),
     ),
     'fields' => array(
-      'field_display_ad' => 'header',
-      'field_section_all_select' => 'left',
-      'field_tags' => 'left',
-      'field_display_ad_type' => 'middle',
-      'group_basics' => 'middle',
-      'path' => 'right',
-      'field_publish_date' => 'middle',
-      'field_link' => 'right',
-      'field_ad_client' => 'middle',
-      'group_options' => 'right',
-      'field_email' => 'right',
-      'title' => 'middle',
-      'field_entity_reference' => 'footer',
-      'field_high_res_ad' => 'hidden',
-      'field_ad_copy' => 'middle',
-      'group_description_box' => 'hidden',
+      'group_display_ad' => 'ds_content',
+      'group_basics' => 'ds_content',
+      'field_display_ad' => 'ds_content',
+      'group_description_box' => 'ds_content',
+      'group_options' => 'ds_content',
+      'field_publish_date' => 'ds_content',
+      'field_section_all_select' => 'ds_content',
+      'group_advanced' => 'ds_content',
+      'field_link' => 'ds_content',
+      'path' => 'hidden',
+      'field_email' => 'ds_content',
+      'field_tags' => 'ds_content',
+      'field_special_feature_link' => 'ds_content',
+      'field_display_ad_type' => 'ds_content',
+      'field_ad_client' => 'ds_content',
+      'title' => 'ds_content',
+      'field_ad_copy' => 'ds_content',
       '_add_existing_field' => 'hidden',
     ),
     'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 0,
   );
   $export['node|display_ads|form'] = $ds_layout;
 

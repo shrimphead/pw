@@ -16,4 +16,4 @@ files[] = css/pennywise.css
 files[] = css/pennywise.less
 
 ;jQuery
-scripts[] = js/pw_form_admin.js
+scripts[] = js/pw_admin.js

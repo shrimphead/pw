@@ -156,7 +156,7 @@
 	-webkit-column-gap: @col-gap;
 	column-count: @col-count;
 	column-gap: @col-gap;
-	
+
  -webkit-column-span:1; /* Chrome */
  column-span:1;
 
@@ -164,15 +164,10 @@
 	orphans: 8;
 }
 
-@editorial: #339a00;
-@editorial_light: #a4d2b3; /* lighten(@editorial, 25); */
-@editorial_dark: #060; /* darken(@editorial, 10); */
-
-
 /************ UNHIDE MOBILE REGIONS ************/
-#zone-postscript, 
-#zone-threeup, 
-#zone-header, 
+#zone-postscript,
+#zone-threeup,
+#zone-header,
 #region-header-second,
 #block-feedback-form {
   visibility: visible;
@@ -181,8 +176,8 @@
 }
 
 /************* HIDE MOBILE NAVIGATION ************/
-#zone-preface-wrapper, 
-#region-preface-second, 
+#zone-preface-wrapper,
+#region-preface-second,
 #region-preface-third {
   display: none;
 }
@@ -286,7 +281,88 @@ body {
 #region-header-second {
   display: block;
 }
+
+/* header menu PW block */
+#region-super-menu {
+  #block-menu-block-6 .content {
+    .block-inner h2.block-title {
+    }
+    ul.menu {
+
+      li {
+        float: right;
+        a {
+          padding: 2px 25px;
+        }
+      }
+    }
+  }
+}
+
+/* FRONT PAGE */
+body.front {
+  #region-content {
+    #block-menu-block-5 {
+     .menu-name-menu-pennywise-digital-edition {
+       margin: 0;
+       padding: 0;
+       width: auto;
+       background-color: @lightsand;
+     }
+/*       float: left; */
+      width: 480px;
+      margin-top: -100px;
+      ul.menu {
+        width: 480px;
+        margin: 0;
+        padding: 0;
+        li {
+          margin: 0; padding: 0;
+          width: 100%;
+          text-align: center;
+          font-size: 1.4em;
+        }
+        ul.menu {
+          li {
+            font-size: .8em;
+            border: none;
+            float: left;
+            width: 22%;
+            text-align: center;
+            padding: 3px;
+            margin: none;
+          }
+        }
+      }
+    }
+  }
+}
+
 /****** classifieds *******/
+
+/**** classified taxonomy tree list columns ********/
+.view-display-id-full_list_page {
+  width: 780px;
+  ul.stem_class {
+    margin: 0 auto;
+    display: block;
+    width: 780px;
+    li {
+      max-width: 220px;
+      float: left;
+      ul {
+        max-width: 210px;
+        padding: 10px;
+        li {
+          a {
+          }
+          float: none;
+        }
+      }
+    }
+  }
+}
+
 /* Classifed - Sub-section links */
 .classified-sub_section-links {
   .col;
@@ -317,6 +393,31 @@ body {
 }
 
 
+/**** classified ads page *****/
+.view-id-section_pages {
+  display: table-cell;
+  width: 580px;
+   /* general sections */
+  ul.classified-ad-group-section {
+    width: 560px;
+    margin: 0 auto;
+    padding: 0;
+    li {
+      display: block;
+
+    }
+    li.classified-ad-block {
+      float: left;
+      width: 260px;
+      padding: 5px;
+      margin: 3px 5px;
+      .border-radius;
+      background-color: @lightsand;
+      border-width: 1pt;
+    }
+  }
+}
+
 
 /****** display ads ********/
 .view-display-id-poster_block {
@@ -346,10 +447,29 @@ body {
   }
 }
 
-
+/* Advertising Rates Page */
+.page-node-68817 {
+  .field-name-field-entity-reference {
+    .node-attachment.view-mode-teaser {
+      text-align: center;
+      padding: 8px;
+      background-color: @classified_light;
+      .border-radius;
+      width: 260px;
+      margin-bottom: 30px;
+      .field-name-field-image
+      {
+        width: 100%;
+        img {
+          margin: 0 auto;
+          display: block;
+        }
+      }
+    }
+  }
+}
 
 /* Ad Submission Page */
-/*ad submission page */
 body.page-ad-submit {
   .vertical-tabs {
     margin: 4em 0 1em 15em;
@@ -367,7 +487,7 @@ body.page-ad-submit {
     }
     #node_ad_s_form_group_payment {
       .fieldset-wrapper {
-        margin: 0 20% 0 35%;
+/*         margin: 0 20% 0 35%; */
       }
     }
     #edit-field-ad-copy {
@@ -386,14 +506,8 @@ body.page-ad-submit {
 
 /********* Editorial ******/
 /* editorial */
-.view-display-id-editorial_highlight {
-  .views-field-body {
-    .field-content {
-      .col(2, .5em);
-    }
-  }
-}
 /* details block */
+view-display-id-editorial_main_page
 .node-article.view-mode-full {
   .field-group-fieldset {
     font-size: .9em;
@@ -418,8 +532,8 @@ body.page-ad-submit {
   margin: 0 20px 20px 10px;
 }
 
-
 /* default block - header*/
+
 .view-id-editorial_views {
   .editorial-attachment-highlight-list-item {
     .views-field-field-image img {
@@ -452,4 +566,12 @@ body.page-ad-submit {
     text-transform: uppercase;
   }
   /* list items */
+}
+/* editorial page */
+.view-display-id-editorial_main_page {
+  .view-display-id-attachment_1 {
+    .views-row {
+      width: 260px;
+    }
+  }
 }

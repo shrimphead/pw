@@ -10,11 +10,7 @@
 function pw_admin_field_default_fields() {
   $fields = array();
 
-<<<<<<< HEAD
-  // Exported field: 'node-webform-body'
-=======
   // Exported field: 'node-webform-body'.
->>>>>>> release1.7
   $fields['node-webform-body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -40,10 +36,7 @@ function pw_admin_field_default_fields() {
           0 => 'format',
         ),
       ),
-<<<<<<< HEAD
-=======
       'locked' => '0',
->>>>>>> release1.7
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -58,7 +51,16 @@ function pw_admin_field_default_fields() {
         'default' => array(
           'label' => 'hidden',
           'module' => 'text',
-          'settings' => array(),
+          'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
+          ),
           'type' => 'text_default',
           'weight' => 0,
         ),
@@ -66,6 +68,14 @@ function pw_admin_field_default_fields() {
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(
+            'masonry' => 0,
+            'masonry_animated' => 1,
+            'masonry_animated_duration' => '500',
+            'masonry_center' => 0,
+            'masonry_gutter' => '0',
+            'masonry_resizable' => 1,
+            'masonry_rtl' => 0,
+            'masonry_width' => '200',
             'trim_length' => 600,
           ),
           'type' => 'text_summary_or_trimmed',
@@ -77,10 +87,7 @@ function pw_admin_field_default_fields() {
       'label' => 'Body',
       'required' => FALSE,
       'settings' => array(
-<<<<<<< HEAD
-=======
         'custom_add_another' => '',
->>>>>>> release1.7
         'display_summary' => TRUE,
         'text_processing' => 1,
         'user_register_form' => FALSE,
@@ -97,11 +104,7 @@ function pw_admin_field_default_fields() {
     ),
   );
 
-<<<<<<< HEAD
-  // Exported field: 'taxonomy_term-classification-field_business_rated'
-=======
   // Exported field: 'taxonomy_term-classification-field_business_rated'.
->>>>>>> release1.7
   $fields['taxonomy_term-classification-field_business_rated'] = array(
     'field_config' => array(
       'active' => '1',
