@@ -424,20 +424,35 @@ function pw_la_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+<<<<<<< HEAD
   $context->name = 'frontpage_classified_layout';
   $context->description = 'Front page for PW site';
+=======
+  $context->name = 'header_all';
+  $context->description = 'All pages - site wide header';
+>>>>>>> feature_email_receipts
   $context->tag = 'layout';
   $context->conditions = array(
     'path' => array(
       'values' => array(
+<<<<<<< HEAD
         '<front>' => '<front>',
         'classifieds' => 'classifieds',
+=======
+        '~admin/*' => '~admin/*',
+      ),
+    ),
+    'sitewide' => array(
+      'values' => array(
+        1 => 1,
+>>>>>>> feature_email_receipts
       ),
     ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+<<<<<<< HEAD
         'views--exp-search_ads-search_page' => array(
           'module' => 'views',
           'delta' => '-exp-search_ads-search_page',
@@ -467,9 +482,29 @@ function pw_la_context_default_contexts() {
           'delta' => 'main',
           'region' => 'content',
           'weight' => '-34',
+=======
+        'views-display_ad_blocks-splash_block' => array(
+          'module' => 'views',
+          'delta' => 'display_ad_blocks-splash_block',
+          'region' => 'splash_two',
+          'weight' => '-10',
+        ),
+        'pennywise-pw_contact' => array(
+          'module' => 'pennywise',
+          'delta' => 'pw_contact',
+          'region' => 'menu',
+          'weight' => '-28',
+        ),
+        'menu_block-6' => array(
+          'module' => 'menu_block',
+          'delta' => '6',
+          'region' => 'super_menu',
+          'weight' => '-10',
+>>>>>>> feature_email_receipts
         ),
         'views-display_ad_blocks-splash_block' => array(
           'module' => 'views',
+<<<<<<< HEAD
           'delta' => 'display_ad_blocks-splash_block',
           'region' => 'splash_two',
           'weight' => '-10',
@@ -514,80 +549,35 @@ function pw_la_context_default_contexts() {
           'module' => 'views',
           'delta' => 'deba537d237e294b8f1a706f5b8291e0',
           'region' => 'header_second',
+=======
+          'delta' => '-exp-search_ads-search_page',
+          'region' => 'preface_third',
+>>>>>>> feature_email_receipts
           'weight' => '-10',
         ),
       ),
     ),
     'delta' => array(
+<<<<<<< HEAD
       'delta_template' => 'clone_of_ad_submission_layout',
+=======
+      'delta_template' => 'traditional',
+>>>>>>> feature_email_receipts
     ),
   );
   $context->condition_mode = 0;
 
   // Translatables
   // Included for use with string extractors like potx.
+<<<<<<< HEAD
   t('Front page for PW site');
   t('layout');
   $export['frontpage_classified_layout'] = $context;
-
-  $context = new stdClass();
-  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
-  $context->api_version = 3;
-  $context->name = 'header_all';
-  $context->description = 'All pages - site wide header';
-  $context->tag = 'layout';
-  $context->conditions = array(
-    'path' => array(
-      'values' => array(
-        '~admin/*' => '~admin/*',
-      ),
-    ),
-    'sitewide' => array(
-      'values' => array(
-        1 => 1,
-      ),
-    ),
-  );
-  $context->reactions = array(
-    'block' => array(
-      'blocks' => array(
-        'views-display_ad_blocks-splash_block' => array(
-          'module' => 'views',
-          'delta' => 'display_ad_blocks-splash_block',
-          'region' => 'splash_two',
-          'weight' => '-10',
-        ),
-        'pennywise-pw_contact' => array(
-          'module' => 'pennywise',
-          'delta' => 'pw_contact',
-          'region' => 'menu',
-          'weight' => '-28',
-        ),
-        'menu_block-6' => array(
-          'module' => 'menu_block',
-          'delta' => '6',
-          'region' => 'super_menu',
-          'weight' => '-10',
-        ),
-        'views--exp-search_ads-search_page' => array(
-          'module' => 'views',
-          'delta' => '-exp-search_ads-search_page',
-          'region' => 'preface_third',
-          'weight' => '-10',
-        ),
-      ),
-    ),
-    'delta' => array(
-      'delta_template' => 'traditional',
-    ),
-  );
-  $context->condition_mode = 0;
-
-  // Translatables
-  // Included for use with string extractors like potx.
+=======
   t('All pages - site wide header');
   t('layout');
   $export['header_all'] = $context;
+>>>>>>> feature_email_receipts
 
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
@@ -607,6 +597,27 @@ function pw_la_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+<<<<<<< HEAD
+        'views-display_ad_blocks-splash_block' => array(
+          'module' => 'views',
+          'delta' => 'display_ad_blocks-splash_block',
+          'region' => 'splash_two',
+          'weight' => '-10',
+        ),
+        'pennywise-pw_contact' => array(
+          'module' => 'pennywise',
+          'delta' => 'pw_contact',
+          'region' => 'menu',
+          'weight' => '-28',
+        ),
+        'menu_block-6' => array(
+          'module' => 'menu_block',
+          'delta' => '6',
+          'region' => 'super_menu',
+          'weight' => '-10',
+        ),
+=======
+>>>>>>> feature_email_receipts
         'views--exp-search_ads-search_page' => array(
           'module' => 'views',
           'delta' => '-exp-search_ads-search_page',
@@ -614,6 +625,9 @@ function pw_la_context_default_contexts() {
           'weight' => '-10',
         ),
       ),
+    ),
+    'delta' => array(
+      'delta_template' => 'traditional',
     ),
   );
   $context->condition_mode = 0;
@@ -624,6 +638,65 @@ function pw_la_context_default_contexts() {
   t('layout');
   $export['search'] = $context;
 
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'search';
+  $context->description = 'Search layout';
+  $context->tag = 'layout';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+<<<<<<< HEAD
+        'search?' => 'search?',
+        'search*' => 'search*',
+        'search?*' => 'search?*',
+=======
+        'ad/*' => 'ad/*',
+        'submit-ad' => 'submit-ad',
+        'user/*' => 'user/*',
+        'search/*' => 'search/*',
+        'ad/submit' => 'ad/submit',
+        'ad/submit/*' => 'ad/submit/*',
+        'thank-you/*' => 'thank-you/*',
+>>>>>>> feature_email_receipts
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+<<<<<<< HEAD
+        'views--exp-search_ads-search_page' => array(
+          'module' => 'views',
+          'delta' => '-exp-search_ads-search_page',
+          'region' => 'content',
+=======
+        'pennywise-pw_contact' => array(
+          'module' => 'pennywise',
+          'delta' => 'pw_contact',
+          'region' => 'menu',
+>>>>>>> feature_email_receipts
+          'weight' => '-10',
+        ),
+      ),
+    ),
+<<<<<<< HEAD
+=======
+    'delta' => array(
+      'delta_template' => 'traditional',
+    ),
+>>>>>>> feature_email_receipts
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Search layout');
+  t('layout');
+  $export['search'] = $context;
+
+<<<<<<< HEAD
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
@@ -666,5 +739,7 @@ function pw_la_context_default_contexts() {
   t('layout');
   $export['simple_page'] = $context;
 
+=======
+>>>>>>> feature_email_receipts
   return $export;
 }

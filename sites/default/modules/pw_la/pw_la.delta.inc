@@ -112,6 +112,7 @@ function pw_la_delta_default_templates() {
   $delta = new stdClass();
   $delta->disabled = FALSE; /* Edit this to true to make a default delta disabled initially */
   $delta->api_version = 3;
+<<<<<<< HEAD
   $delta->machine_name = 'clone_of_ad_submission_layout';
   $delta->name = 'Front PW';
   $delta->description = 'Front Page layout';
@@ -264,11 +265,13 @@ function pw_la_delta_default_templates() {
   $delta = new stdClass();
   $delta->disabled = FALSE; /* Edit this to true to make a default delta disabled initially */
   $delta->api_version = 3;
+=======
+>>>>>>> feature_email_receipts
   $delta->machine_name = 'traditional';
   $delta->name = 'Traditional';
   $delta->description = 'Centered content between 2 sidebars';
   $delta->theme = 'pwt';
-  $delta->mode = 'preserve';
+  $delta->mode = 'override';
   $delta->parent = '';
   $delta->settings = array(
     'theme_pwt_settings' => array(

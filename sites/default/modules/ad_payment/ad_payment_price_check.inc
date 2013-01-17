@@ -126,6 +126,12 @@ function _ad_payment_get_payment_variables($data, $type = NULL){
   }
 
   if (DEBUG_ADP || DEBUG_PAYMENT) {
+    dpm('TYPE = ' . $type);
+    dpm("DATA");
+    dpm($data);
+    dpm('Form Values');
+    dpm($form_values);
+
     if ($form_values) {
       $debug_var = array(
         '@type' => $form_values['parse'],
@@ -312,6 +318,12 @@ function ad_payment_price_check(&$var, $data_type) {
       '@total_rounded' => $total,
     );
     watchdog('Ad Payment', $feedback_message, $feedback_vars, WATCHDOG_INFO);
+
+    dpm('Feedback Message');
+    dpm(t($feedback_message, $feedback_vars));
+    dpm('STORAGE');
+    dpm($storage);
+
     // Base
 //    drupal_set_message(t('Base Price: $@base = $@base_rate base price + @image_price (if any) + (@over words over @ $@word_rate word)',
 //      array('@base' => $base_price, '@base_rate' => $rate['base_rate'], '@image_price' => $img_price, '@word_rate' => $rate['word_rate'], '@over' => $count['over'])));
@@ -463,6 +475,8 @@ function ad_payment_validate_rate($tid = NULL, $submitted_rate = NULL) {
   $rate = array_merge($get_rate, $pricing);
 
   if (DEBUG_ADP || DEBUG_PAYMENT) {
+    dpm('Pricing');
+    dpm($pricing);
     $debug_var = array(
       '@rate' => $pricing['rate_name'],
     );

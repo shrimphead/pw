@@ -26,7 +26,11 @@ dependencies[] = masquerade
 dependencies[] = media
 dependencies[] = menu
 dependencies[] = options
+<<<<<<< HEAD
 ; dependencies[] = pw_la
+=======
+dependencies[] = pw_la
+>>>>>>> feature_email_receipts
 dependencies[] = scribd_filter
 dependencies[] = strongarm
 dependencies[] = taxonomy
