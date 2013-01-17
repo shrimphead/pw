@@ -43,7 +43,7 @@
 // FORM DEBUG
 // Displays Ad Payment Data
 define ('DEBUG_ADP', FALSE); // DEBUG ALL!
-define ('DEBUG_FORM', TRUE); // Check form inputs.
+define ('DEBUG_FORM', FALSE); // Check form inputs.
 define ('DEBUG_USER', FALSE); // Check USER creation data.
 define ('DEBUG_EMAIL', FALSE); // Check receipt and email features.
 define ('DEBUG_PAYMENT', FALSE); // Debug ad payment stuff. Does not include jQuery!
@@ -58,7 +58,12 @@ define ('ADP_LOGIN', FALSE);
  */
 define ('VALIDATION_TEST_MODE', FALSE);
 
+/* Send message to users */
+function _pw_send_message_to_user($message, $level){
+  $alert_message = t('Internet Explorer 8 is currently experiencing problems with this page.
+    <br>Please use <a href="http://getfirefox.com">Firefox</a> to submit classified ads at this time.');
 
+}
 
 
 /**
@@ -96,9 +101,14 @@ function ad_payment_menu() {
 * @return
 *  form data
 *
-* The login protion is commented out.
+* The login portion is commented out.
 */
 function ap_submit_form_page() {
+  $message_status = variable_get('pennywise_classified_settings_submissions_message_status', 0);
+  if ($message_status) {
+    $message = variable_get('pennywise_classified_settings_submissions_message');
+    drupal_set_message($message, $message_status);
+}
 
   // Abort Submission if Admin has disabled submissions.
   $ad_submsision = variable_get('pennywise_classified_settings_submissions', 1);
