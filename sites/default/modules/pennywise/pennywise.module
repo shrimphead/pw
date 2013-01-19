@@ -510,6 +510,17 @@ function pennywise_jcarousel_skin_info() {
     'file' => 'skins/print/jcarousel-print.css',
   );
 
+  $skins['print2'] = array(
+    'title' => t('PW Print Wide'),
+    'file' => 'skins/print/jcarousel-print2.css',
+  );
+
+
+  $skins['editorial'] = array(
+    'title' => t('Vertical Ed'),
+    'file' => 'skins/editorial/jcarousel-editorial.css',
+  );
+
   return $skins;
 }
 

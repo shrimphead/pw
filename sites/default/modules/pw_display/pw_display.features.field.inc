@@ -59,12 +59,26 @@ function pw_display_field_default_fields() {
 <li>Wedding Announcements
 </ul>',
       'display' => array(
+        'block_list_item' => array(
+          'label' => 'hidden',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '1',
+        ),
         'default' => array(
           'label' => 'hidden',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_plain',
           'weight' => '3',
+        ),
+        'print_display_ad' => array(
+          'label' => 'hidden',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -138,12 +152,28 @@ function pw_display_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'block_list_item' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '11',
+        ),
         'default' => array(
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '2',
+          'weight' => '5',
+        ),
+        'print_display_ad' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'trim_length' => '60',
+          ),
+          'type' => 'text_trimmed',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -222,11 +252,28 @@ function pw_display_field_default_fields() {
       'deleted' => '0',
       'description' => 'Upload (or select) display ad.',
       'display' => array(
-        'default' => array(
+        'block_list_item' => array(
           'label' => 'hidden',
           'module' => 'lightbox2',
           'settings' => array(),
-          'type' => 'lightbox2__lightbox__large__original',
+          'type' => 'lightbox2__lightbox__thumbnail__large',
+          'weight' => '0',
+        ),
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => '',
+          ),
+          'type' => 'image',
+          'weight' => '0',
+        ),
+        'print_display_ad' => array(
+          'label' => 'hidden',
+          'module' => 'lightbox2',
+          'settings' => array(),
+          'type' => 'lightbox2__lightbox__display_ad_print_cropped_vert_thumbnail__original',
           'weight' => '0',
         ),
         'teaser' => array(
@@ -356,11 +403,24 @@ function pw_display_field_default_fields() {
       'description' => 'Select the ad type. This will affect the ads placement and thumbnail size. <br>
 <strong>ALL ADS ARE FORCED RESIZED TO THE AD TYPE.</strong>.',
       'display' => array(
+        'block_list_item' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => '17',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '16',
+          'weight' => '15',
+        ),
+        'print_display_ad' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '14',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -432,12 +492,25 @@ function pw_display_field_default_fields() {
       'deleted' => '0',
       'description' => 'Optional email contact for business.',
       'display' => array(
+        'block_list_item' => array(
+          'label' => 'above',
+          'module' => 'email',
+          'settings' => array(),
+          'type' => 'email_default',
+          'weight' => '15',
+        ),
         'default' => array(
           'label' => 'above',
           'module' => 'email',
           'settings' => array(),
           'type' => 'email_default',
-          'weight' => '5',
+          'weight' => '2',
+        ),
+        'print_display_ad' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -542,11 +615,26 @@ function pw_display_field_default_fields() {
       'description' => 'Link this display ad to a PDF attachment, another display ad or even a classified ad. Link to a specific PW web page, or even an online web submission form. You can also create the attachment right here.
 <strong>Display ads can only be linked. Do not create another display ad here!</strong>',
       'display' => array(
+        'block_list_item' => array(
+          'label' => 'above',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => '4',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '19',
+          'weight' => '18',
+        ),
+        'print_display_ad' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '17',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -629,11 +717,25 @@ function pw_display_field_default_fields() {
       'deleted' => '0',
       'description' => 'Upload related document.',
       'display' => array(
+        'block_list_item' => array(
+          'label' => 'above',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_default',
+          'weight' => '14',
+        ),
         'default' => array(
+          'label' => 'above',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_default',
+          'weight' => '7',
+        ),
+        'print_display_ad' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '14',
+          'weight' => '12',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -759,12 +861,25 @@ with <strong>Page 30</strong>.<br>
 <p><strong>NOTE: YOU must include HTTP://</strong><br>if the URL is not located at http://PennywiseAds.com
 ',
       'display' => array(
+        'block_list_item' => array(
+          'label' => 'above',
+          'module' => 'link',
+          'settings' => array(),
+          'type' => 'link_default',
+          'weight' => '16',
+        ),
         'default' => array(
           'label' => 'hidden',
           'module' => 'link',
           'settings' => array(),
           'type' => 'link_default',
-          'weight' => '4',
+          'weight' => '1',
+        ),
+        'print_display_ad' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -852,11 +967,24 @@ with <strong>Page 30</strong>.<br>
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'block_list_item' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '13',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '18',
+          'weight' => '17',
+        ),
+        'print_display_ad' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '16',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -928,11 +1056,24 @@ with <strong>Page 30</strong>.<br>
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'block_list_item' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => '12',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '17',
+          'weight' => '16',
+        ),
+        'print_display_ad' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '15',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1017,6 +1158,15 @@ with <strong>Page 30</strong>.<br>
       'deleted' => '0',
       'description' => 'Link file here by typing the title of the uploaded file name. To upload a file click <a href=\'/node/add/attachment\' target=\'_NEW\'>here.</a>',
       'display' => array(
+        'block_list_item' => array(
+          'label' => 'above',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => '3',
+        ),
         'default' => array(
           'label' => 'above',
           'module' => 'entityreference',
@@ -1026,6 +1176,12 @@ with <strong>Page 30</strong>.<br>
           ),
           'type' => 'entityreference_entity_view',
           'weight' => '6',
+        ),
+        'print_display_ad' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1073,6 +1229,9 @@ with <strong>Page 30</strong>.<br>
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_tags',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -1105,11 +1264,24 @@ with <strong>Page 30</strong>.<br>
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'block_list_item' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '10',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '15',
+          'weight' => '14',
+        ),
+        'print_display_ad' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '13',
         ),
         'teaser' => array(
           'label' => 'above',

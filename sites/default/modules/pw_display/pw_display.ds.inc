@@ -5,10 +5,137 @@
  */
 
 /**
+ * Implements hook_ds_field_settings_info().
+ */
+function pw_display_ds_field_settings_info() {
+  $export = array();
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'node|display_ads|block_list_item';
+  $ds_fieldsetting->entity_type = 'node';
+  $ds_fieldsetting->bundle = 'display_ads';
+  $ds_fieldsetting->view_mode = 'block_list_item';
+  $ds_fieldsetting->settings = array(
+    'title' => array(
+      'weight' => '2',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+  );
+  $export['node|display_ads|block_list_item'] = $ds_fieldsetting;
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'node|display_ads|default';
+  $ds_fieldsetting->entity_type = 'node';
+  $ds_fieldsetting->bundle = 'display_ads';
+  $ds_fieldsetting->view_mode = 'default';
+  $ds_fieldsetting->settings = array(
+    'title' => array(
+      'weight' => '4',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'link' => '0',
+        'wrapper' => 'h4',
+        'class' => '',
+      ),
+    ),
+  );
+  $export['node|display_ads|default'] = $ds_fieldsetting;
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'node|display_ads|print_display_ad';
+  $ds_fieldsetting->entity_type = 'node';
+  $ds_fieldsetting->bundle = 'display_ads';
+  $ds_fieldsetting->view_mode = 'print_display_ad';
+  $ds_fieldsetting->settings = array(
+    'title' => array(
+      'weight' => '2',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'link' => '1',
+        'wrapper' => 'em',
+        'class' => '',
+      ),
+    ),
+    'node_link' => array(
+      'weight' => '4',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'link text' => 'more',
+        'wrapper' => '',
+        'class' => 'more-button button',
+      ),
+    ),
+  );
+  $export['node|display_ads|print_display_ad'] = $ds_fieldsetting;
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'node|display_ads|teaser';
+  $ds_fieldsetting->entity_type = 'node';
+  $ds_fieldsetting->bundle = 'display_ads';
+  $ds_fieldsetting->view_mode = 'teaser';
+  $ds_fieldsetting->settings = array(
+    'title' => array(
+      'weight' => '1',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'link' => '1',
+        'wrapper' => 'h4',
+        'class' => '',
+      ),
+    ),
+  );
+  $export['node|display_ads|teaser'] = $ds_fieldsetting;
+
+  return $export;
+}
+
+/**
  * Implements hook_ds_layout_settings_info().
  */
 function pw_display_ds_layout_settings_info() {
   $export = array();
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'node|display_ads|block_list_item';
+  $ds_layout->entity_type = 'node';
+  $ds_layout->bundle = 'display_ads';
+  $ds_layout->view_mode = 'block_list_item';
+  $ds_layout->layout = 'ds_2col_fluid';
+  $ds_layout->settings = array(
+    'classes' => array(),
+    'wrappers' => array(
+      'left' => 'div',
+      'right' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 0,
+    'regions' => array(
+      'left' => array(
+        0 => 'field_display_ad',
+      ),
+      'right' => array(
+        0 => 'field_ad_client',
+        1 => 'title',
+      ),
+    ),
+    'fields' => array(
+      'field_display_ad' => 'left',
+      'field_ad_client' => 'right',
+      'title' => 'right',
+    ),
+  );
+  $export['node|display_ads|block_list_item'] = $ds_layout;
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
@@ -23,26 +150,28 @@ function pw_display_ds_layout_settings_info() {
         0 => 'field_display_ad',
       ),
       'left' => array(
-        1 => 'title',
-        2 => 'field_ad_copy',
+        1 => 'field_link',
+        2 => 'field_email',
       ),
       'right' => array(
         3 => 'field_ad_client',
-        4 => 'field_link',
-        5 => 'field_email',
+        4 => 'title',
+        5 => 'field_ad_copy',
       ),
       'footer' => array(
         6 => 'field_special_feature_link',
+        7 => 'field_high_res_ad',
       ),
     ),
     'fields' => array(
       'field_display_ad' => 'header',
-      'title' => 'left',
-      'field_ad_copy' => 'left',
+      'field_link' => 'left',
+      'field_email' => 'left',
       'field_ad_client' => 'right',
-      'field_link' => 'right',
-      'field_email' => 'right',
+      'title' => 'right',
+      'field_ad_copy' => 'right',
       'field_special_feature_link' => 'footer',
+      'field_high_res_ad' => 'footer',
     ),
     'classes' => array(),
     'wrappers' => array(
@@ -121,6 +250,47 @@ function pw_display_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
+  $ds_layout->id = 'node|display_ads|print_display_ad';
+  $ds_layout->entity_type = 'node';
+  $ds_layout->bundle = 'display_ads';
+  $ds_layout->view_mode = 'print_display_ad';
+  $ds_layout->layout = 'ds_2col_stacked';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'left' => array(
+        0 => 'field_display_ad',
+      ),
+      'header' => array(
+        1 => 'field_ad_client',
+      ),
+      'right' => array(
+        2 => 'title',
+        3 => 'field_ad_copy',
+        4 => 'node_link',
+      ),
+    ),
+    'fields' => array(
+      'field_display_ad' => 'left',
+      'field_ad_client' => 'header',
+      'title' => 'right',
+      'field_ad_copy' => 'right',
+      'node_link' => 'right',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'header' => 'div',
+      'left' => 'div',
+      'right' => 'div',
+      'footer' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 0,
+  );
+  $export['node|display_ads|print_display_ad'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
   $ds_layout->id = 'node|display_ads|teaser';
   $ds_layout->entity_type = 'node';
   $ds_layout->bundle = 'display_ads';
@@ -144,6 +314,24 @@ function pw_display_ds_layout_settings_info() {
     'classes' => array(),
   );
   $export['node|display_ads|teaser'] = $ds_layout;
+
+  return $export;
+}
+
+/**
+ * Implements hook_ds_view_modes_info().
+ */
+function pw_display_ds_view_modes_info() {
+  $export = array();
+
+  $ds_view_mode = new stdClass();
+  $ds_view_mode->api_version = 1;
+  $ds_view_mode->view_mode = 'print_display_ad';
+  $ds_view_mode->label = 'Print Teaser';
+  $ds_view_mode->entities = array(
+    'node' => 'node',
+  );
+  $export['print_display_ad'] = $ds_view_mode;
 
   return $export;
 }

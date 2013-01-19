@@ -1,54 +1,33 @@
 name = PW Layout
-description = General layout
+description = General Layout Rules, Context and Delta
 core = 7.x
 package = Pennywise
 php = 5.2.4
-<<<<<<< HEAD
-version = 7.x-1.7
-=======
 version = 7.x-2.0
->>>>>>> feature_email_receipts
 project = pw_la
 dependencies[] = ad_payment
-dependencies[] = comment
 dependencies[] = context
 dependencies[] = ctools
 dependencies[] = delta
+dependencies[] = delta_blocks
 dependencies[] = jump_menu
-dependencies[] = logintoboggan
 dependencies[] = menu
 dependencies[] = menu_block
 dependencies[] = page_title
 dependencies[] = pennywise
+dependencies[] = redirect
+dependencies[] = system
+dependencies[] = user
 dependencies[] = views
-dependencies[] = views_bulk_operations
-features[context][] = admin_dashboard
-features[context][] = classified_ad_layout
-features[context][] = contact_block
+features[context][] = admin_boxes
+features[context][] = classifieds_et_al
 features[context][] = footer_all
-<<<<<<< HEAD
-features[context][] = frontpage_classified_layout
-=======
->>>>>>> feature_email_receipts
-features[context][] = header_all
-features[context][] = search
+features[context][] = front_page
 features[context][] = simple_page
-features[context][] = 403
+features[context][] = top_stuff
 features[ctools][] = context:context:3
 features[ctools][] = delta:delta:3
 features[ctools][] = views:views_default:3.0
-features[delta][] = ad_submission_layout
-features[delta][] = admin_theme_
-<<<<<<< HEAD
-features[delta][] = clone_of_ad_submission_layout
-features[delta][] = clone_of_content_left
-features[delta][] = content_left
-=======
->>>>>>> feature_email_receipts
-features[delta][] = traditional
+features[delta][] = default_center
+features[delta][] = front
 features[features_api][] = api:1
-features[views_view][] = classified_header_block
-features[views_view][] = front_page_classifieds
-features[views_view][] = sales_people
-features[views_view][] = sales_people_page
-features[views_view][] = user_page_access

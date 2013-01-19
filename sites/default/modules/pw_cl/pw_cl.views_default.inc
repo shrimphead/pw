@@ -26,31 +26,64 @@ function pw_cl_views_default_views() {
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
-  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'time';
+  $handler->display->display_options['cache']['results_lifespan'] = '3600';
+  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['output_lifespan'] = '3600';
+  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['type'] = 'input_required';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['text_input_required_format'] = 'edition_editor';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '15';
-  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['grouping'] = array(
     0 => array(
       'field' => 'field_tags',
-      'rendered' => 0,
-      'rendered_strip' => 1,
-    ),
-    1 => array(
-      'field' => 'field_ad_type',
       'rendered' => 1,
       'rendered_strip' => 0,
     ),
   );
-  $handler->display->display_options['style_options']['row_class'] = 'search-result-row';
-  $handler->display->display_options['style_options']['class'] = 'search-result-list';
-  $handler->display->display_options['style_options']['wrapper_class'] = 'search-result-wrapper';
+  $handler->display->display_options['style_options']['row_class'] = 'classified-ad-[field_ad_type] display-[field_display_ad_type]';
   $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  /* Field: Content: Classified Ad Type */
+  $handler->display->display_options['fields']['field_ad_type']['id'] = 'field_ad_type';
+  $handler->display->display_options['fields']['field_ad_type']['table'] = 'field_data_field_ad_type';
+  $handler->display->display_options['fields']['field_ad_type']['field'] = 'field_ad_type';
+  $handler->display->display_options['fields']['field_ad_type']['label'] = '';
+  $handler->display->display_options['fields']['field_ad_type']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_ad_type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_ad_type']['element_default_classes'] = FALSE;
+  /* Field: Content: Display Ad Type */
+  $handler->display->display_options['fields']['field_display_ad_type']['id'] = 'field_display_ad_type';
+  $handler->display->display_options['fields']['field_display_ad_type']['table'] = 'field_data_field_display_ad_type';
+  $handler->display->display_options['fields']['field_display_ad_type']['field'] = 'field_display_ad_type';
+  $handler->display->display_options['fields']['field_display_ad_type']['label'] = '';
+  $handler->display->display_options['fields']['field_display_ad_type']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_display_ad_type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_display_ad_type']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_display_ad_type']['empty'] = 'none';
+  $handler->display->display_options['fields']['field_display_ad_type']['type'] = 'list_key';
+  /* Field: Content: Type */
+  $handler->display->display_options['fields']['type']['id'] = 'type';
+  $handler->display->display_options['fields']['type']['table'] = 'node';
+  $handler->display->display_options['fields']['type']['field'] = 'type';
+  $handler->display->display_options['fields']['type']['label'] = '';
+  $handler->display->display_options['fields']['type']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['type']['link_to_node'] = TRUE;
+  /* Field: Content: Section */
+  $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
+  $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
+  $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
+  $handler->display->display_options['fields']['field_tags']['label'] = '';
+  $handler->display->display_options['fields']['field_tags']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_tags']['element_type'] = 'h4';
+  $handler->display->display_options['fields']['field_tags']['element_class'] = 'search-classified-section-header';
+  $handler->display->display_options['fields']['field_tags']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
   /* Field: Field: Header Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -67,37 +100,33 @@ function pw_cl_views_default_views() {
   );
   $handler->display->display_options['fields']['field_image']['group_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['delta_limit'] = 'all';
-  /* Field: Content: Classified Ad Type */
-  $handler->display->display_options['fields']['field_ad_type']['id'] = 'field_ad_type';
-  $handler->display->display_options['fields']['field_ad_type']['table'] = 'field_data_field_ad_type';
-  $handler->display->display_options['fields']['field_ad_type']['field'] = 'field_ad_type';
-  $handler->display->display_options['fields']['field_ad_type']['label'] = '';
-  $handler->display->display_options['fields']['field_ad_type']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_ad_type']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_ad_type']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_ad_type']['empty_zero'] = TRUE;
-  /* Field: Content: Section */
-  $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
-  $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
-  $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
-  $handler->display->display_options['fields']['field_tags']['label'] = '';
-  $handler->display->display_options['fields']['field_tags']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_tags']['element_type'] = 'h4';
-  $handler->display->display_options['fields']['field_tags']['element_class'] = 'search-classified-section-header';
-  $handler->display->display_options['fields']['field_tags']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_type'] = 'div';
+  $handler->display->display_options['fields']['nid']['element_class'] = 'classified-more-link';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nid']['link_to_node'] = TRUE;
   /* Field: Content: Ad Copy */
   $handler->display->display_options['fields']['field_ad_copy']['id'] = 'field_ad_copy';
   $handler->display->display_options['fields']['field_ad_copy']['table'] = 'field_data_field_ad_copy';
   $handler->display->display_options['fields']['field_ad_copy']['field'] = 'field_ad_copy';
   $handler->display->display_options['fields']['field_ad_copy']['label'] = '';
-  $handler->display->display_options['fields']['field_ad_copy']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_ad_copy']['alter']['path'] = '[nid]';
   $handler->display->display_options['fields']['field_ad_copy']['alter']['max_length'] = '80';
+  $handler->display->display_options['fields']['field_ad_copy']['alter']['more_link'] = TRUE;
+  $handler->display->display_options['fields']['field_ad_copy']['alter']['more_link_text'] = 'more';
+  $handler->display->display_options['fields']['field_ad_copy']['alter']['more_link_path'] = 'node/[nid]';
   $handler->display->display_options['fields']['field_ad_copy']['alter']['trim'] = TRUE;
-  $handler->display->display_options['fields']['field_ad_copy']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_ad_copy']['element_class'] = 'ad';
+  $handler->display->display_options['fields']['field_ad_copy']['alter']['html'] = TRUE;
+  $handler->display->display_options['fields']['field_ad_copy']['element_type'] = 'p';
+  $handler->display->display_options['fields']['field_ad_copy']['element_class'] = 'classified-ad-[field_ad_type] display-[field_display_ad_type]';
   $handler->display->display_options['fields']['field_ad_copy']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_ad_copy']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_ad_copy']['type'] = 'text_plain';
   $handler->display->display_options['fields']['field_ad_copy']['settings'] = array(
     'trim_length' => '110',
   );
@@ -112,18 +141,7 @@ function pw_cl_views_default_views() {
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['view_node']['text'] = 'more';
-  /* Field: Global: Body &amp; Link */
-  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['table'] = 'views';
-  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['ui_name'] = 'Global: Body & Link';
-  $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_ad_copy] <span class=\'classified-more-link\'>[view_node]</span>';
-  $handler->display->display_options['fields']['nothing']['element_type'] = 'div';
-  $handler->display->display_options['fields']['nothing']['element_class'] = 'classified-ad-copy';
-  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
-  /* Field: Field: Phone Number */
+  /* Field: Field: Phone */
   $handler->display->display_options['fields']['field_phone']['id'] = 'field_phone';
   $handler->display->display_options['fields']['field_phone']['table'] = 'field_data_field_phone';
   $handler->display->display_options['fields']['field_phone']['field'] = 'field_phone';
@@ -135,41 +153,6 @@ function pw_cl_views_default_views() {
   $handler->display->display_options['fields']['field_phone']['group_column'] = 'number';
   $handler->display->display_options['fields']['field_phone']['delta_limit'] = '3';
   $handler->display->display_options['fields']['field_phone']['delta_offset'] = '0';
-  /* Field: Content: Email */
-  $handler->display->display_options['fields']['field_email']['id'] = 'field_email';
-  $handler->display->display_options['fields']['field_email']['table'] = 'field_data_field_email';
-  $handler->display->display_options['fields']['field_email']['field'] = 'field_email';
-  $handler->display->display_options['fields']['field_email']['label'] = '';
-  $handler->display->display_options['fields']['field_email']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_email']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_email']['empty_zero'] = TRUE;
-  $handler->display->display_options['fields']['field_email']['delta_offset'] = '0';
-  /* Field: Content: Link */
-  $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
-  $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
-  $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
-  $handler->display->display_options['fields']['field_link']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_link']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_link']['empty_zero'] = TRUE;
-  $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_link']['group_column'] = 'url';
-  $handler->display->display_options['fields']['field_link']['delta_limit'] = '3';
-  $handler->display->display_options['fields']['field_link']['delta_offset'] = '0';
-  /* Field: Content: Type */
-  $handler->display->display_options['fields']['type']['id'] = 'type';
-  $handler->display->display_options['fields']['type']['table'] = 'node';
-  $handler->display->display_options['fields']['type']['field'] = 'type';
-  $handler->display->display_options['fields']['type']['label'] = '';
-  $handler->display->display_options['fields']['type']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
-  /* Field: Content: Edit link */
-  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
-  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
-  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
-  $handler->display->display_options['fields']['edit_node']['label'] = '';
-  $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['edit_node']['text'] = 'Edit';
   /* Field: Global: Contextual Links */
   $handler->display->display_options['fields']['contextual_links']['id'] = 'contextual_links';
   $handler->display->display_options['fields']['contextual_links']['table'] = 'views';
@@ -189,16 +172,24 @@ function pw_cl_views_default_views() {
     'field_link' => 0,
     'type' => 0,
   );
+  /* Sort criterion: Content: Section (field_tags) */
+  $handler->display->display_options['sorts']['field_tags_tid']['id'] = 'field_tags_tid';
+  $handler->display->display_options['sorts']['field_tags_tid']['table'] = 'field_data_field_tags';
+  $handler->display->display_options['sorts']['field_tags_tid']['field'] = 'field_tags_tid';
+  /* Sort criterion: Content: Classified Ad Type (field_ad_type) */
+  $handler->display->display_options['sorts']['field_ad_type_value']['id'] = 'field_ad_type_value';
+  $handler->display->display_options['sorts']['field_ad_type_value']['table'] = 'field_data_field_ad_type';
+  $handler->display->display_options['sorts']['field_ad_type_value']['field'] = 'field_ad_type_value';
+  $handler->display->display_options['sorts']['field_ad_type_value']['order'] = 'DESC';
+  /* Sort criterion: Content: Body (body:format) */
+  $handler->display->display_options['sorts']['body_format']['id'] = 'body_format';
+  $handler->display->display_options['sorts']['body_format']['table'] = 'field_data_body';
+  $handler->display->display_options['sorts']['body_format']['field'] = 'body_format';
   /* Sort criterion: Field: Header Image (field_image:fid) */
   $handler->display->display_options['sorts']['field_image_fid']['id'] = 'field_image_fid';
   $handler->display->display_options['sorts']['field_image_fid']['table'] = 'field_data_field_image';
   $handler->display->display_options['sorts']['field_image_fid']['field'] = 'field_image_fid';
   $handler->display->display_options['sorts']['field_image_fid']['order'] = 'DESC';
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -213,6 +204,8 @@ function pw_cl_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'classified' => 'classified',
     'display_ads' => 'display_ads',
+    'article' => 'article',
+    'page' => 'page',
   );
   $handler->display->display_options['filters']['type']['group'] = '0';
   /* Filter criterion: Content: Ad Copy (field_ad_copy) */
@@ -223,10 +216,8 @@ function pw_cl_views_default_views() {
   $handler->display->display_options['filters']['field_ad_copy_value']['group'] = '0';
   $handler->display->display_options['filters']['field_ad_copy_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_ad_copy_value']['expose']['operator_id'] = 'field_ad_copy_value_op';
-  $handler->display->display_options['filters']['field_ad_copy_value']['expose']['label'] = 'Search Classifieds';
   $handler->display->display_options['filters']['field_ad_copy_value']['expose']['operator'] = 'field_ad_copy_value_op';
   $handler->display->display_options['filters']['field_ad_copy_value']['expose']['identifier'] = 'search_ads';
-  $handler->display->display_options['filters']['field_ad_copy_value']['expose']['required'] = TRUE;
   $handler->display->display_options['filters']['field_ad_copy_value']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
@@ -240,6 +231,14 @@ function pw_cl_views_default_views() {
     10 => 0,
     12 => 0,
     3 => 0,
+  );
+  $handler->display->display_options['filters']['field_ad_copy_value']['group_info']['label'] = 'Ad Copy (field_ad_copy)';
+  $handler->display->display_options['filters']['field_ad_copy_value']['group_info']['identifier'] = 'field_ad_copy_value';
+  $handler->display->display_options['filters']['field_ad_copy_value']['group_info']['remember'] = FALSE;
+  $handler->display->display_options['filters']['field_ad_copy_value']['group_info']['group_items'] = array(
+    1 => array(),
+    2 => array(),
+    3 => array(),
   );
 
   /* Display: Page */

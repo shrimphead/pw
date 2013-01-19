@@ -92,6 +92,9 @@ function pw_cl_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_ad_details',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -115,7 +118,7 @@ function pw_cl_field_default_fields() {
       'bundle' => 'ad_s',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => '<a href=\'mailto:info@pennywiseads.com\'>Click Here To submit <strong>Free for Free</strong> ads</a>',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -140,7 +143,7 @@ function pw_cl_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '0',
+        'weight' => 0,
       ),
     ),
   );
@@ -1205,6 +1208,9 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_tags',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -1235,7 +1241,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'bundle' => 'ad_s',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => '<a href=\'mailto:info@pennywiseads.com?subject=Submit FREE for FREE ad\'>Click Here To submit <strong>Free</strong> for Free ads.</a> Some restriction apply.',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -2574,6 +2580,9 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_tags',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -2647,6 +2656,8 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('<a href=\'mailto:info@pennywiseads.com\'>Click Here To submit <strong>Free for Free</strong> ads</a>');
+  t('<a href=\'mailto:info@pennywiseads.com?subject=Submit FREE for FREE ad\'>Click Here To submit <strong>Free</strong> for Free ads.</a> Some restriction apply.');
   t('<big><strong>Test your file first!</strong></big>
 <ol>
 <li>To minimize any problems paste Adworks copy into <em>TextWrangler</em>:

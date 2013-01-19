@@ -35,6 +35,28 @@ function pw_display_views_api() {
 function pw_display_image_default_styles() {
   $styles = array();
 
+  // Exported image style: display_ad_print_cropped_vert_thumbnail.
+  $styles['display_ad_print_cropped_vert_thumbnail'] = array(
+    'name' => 'display_ad_print_cropped_vert_thumbnail',
+    'effects' => array(
+      5 => array(
+        'label' => 'Scale and Smart Crop',
+        'help' => 'Similar to "Scale And Crop", but preserves the portion of the image with the most entropy.',
+        'effect callback' => 'smartcrop_scale_effect',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'smartcrop',
+        'name' => 'smartcrop_scale_and_crop',
+        'data' => array(
+          'width' => '95',
+          'height' => '140',
+          'upscale' => 0,
+        ),
+        'weight' => '1',
+      ),
+    ),
+  );
+
   // Exported image style: display_ad_print_thumbnail.
   $styles['display_ad_print_thumbnail'] = array(
     'name' => 'display_ad_print_thumbnail',

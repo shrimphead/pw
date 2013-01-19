@@ -1292,18 +1292,27 @@ rel="lightbox[field_display_ad_1]%5B<p><a href=\'[field_display_ad_1]\'Download 
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'jcarousel';
   $handler->display->display_options['style_options']['wrap'] = 'both';
-  $handler->display->display_options['style_options']['skin'] = 'tango';
-  $handler->display->display_options['style_options']['visible'] = '5';
+  $handler->display->display_options['style_options']['skin'] = 'print2';
+  $handler->display->display_options['style_options']['visible'] = '4';
   $handler->display->display_options['style_options']['scroll'] = '1';
-  $handler->display->display_options['style_options']['auto'] = '10';
+  $handler->display->display_options['style_options']['auto'] = '6';
   $handler->display->display_options['style_options']['autoPause'] = 1;
   $handler->display->display_options['style_options']['easing'] = '';
   $handler->display->display_options['style_options']['vertical'] = 0;
+  $handler->display->display_options['style_options']['navigation'] = 'after';
   $handler->display->display_options['style_options']['ajax'] = 1;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'ds';
+  $handler->display->display_options['row_options']['view_mode'] = 'print_display_ad';
+  $handler->display->display_options['row_options']['load_comments'] = 0;
+  $handler->display->display_options['row_options']['grouping'] = 0;
+  $handler->display->display_options['row_options']['advanced'] = 0;
+  $handler->display->display_options['row_options']['delta_fieldset']['delta_fields'] = array(
+    'field_area_taxonomy' => 'field_area_taxonomy',
+  );
+  $handler->display->display_options['row_options']['grouping_fieldset']['group_field'] = 'field_data_field_ad_copy|field_ad_copy_format';
+  $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'print_display_ad';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
@@ -1392,6 +1401,14 @@ rel="lightbox[field_display_ad_1]%5B<p><a href=\'[field_display_ad_1]\'Download 
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Ad Copy (field_ad_copy:format) */
+  $handler->display->display_options['sorts']['field_ad_copy_format']['id'] = 'field_ad_copy_format';
+  $handler->display->display_options['sorts']['field_ad_copy_format']['table'] = 'field_data_field_ad_copy';
+  $handler->display->display_options['sorts']['field_ad_copy_format']['field'] = 'field_ad_copy_format';
+  /* Sort criterion: Content: Section (field_tags) */
+  $handler->display->display_options['sorts']['field_tags_tid']['id'] = 'field_tags_tid';
+  $handler->display->display_options['sorts']['field_tags_tid']['table'] = 'field_data_field_tags';
+  $handler->display->display_options['sorts']['field_tags_tid']['field'] = 'field_tags_tid';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
@@ -1422,7 +1439,28 @@ rel="lightbox[field_display_ad_1]%5B<p><a href=\'[field_display_ad_1]\'Download 
     'print' => 'print',
   );
   $handler->display->display_options['filters']['field_display_ad_type_value']['group'] = 1;
-  $handler->display->display_options['block_description'] = 'Print Block';
+  /* Filter criterion: Content: Section (field_tags) */
+  $handler->display->display_options['filters']['field_tags_tid']['id'] = 'field_tags_tid';
+  $handler->display->display_options['filters']['field_tags_tid']['table'] = 'field_data_field_tags';
+  $handler->display->display_options['filters']['field_tags_tid']['field'] = 'field_tags_tid';
+  $handler->display->display_options['filters']['field_tags_tid']['value'] = array(
+    32 => '32',
+    24 => '24',
+    14 => '14',
+    17 => '17',
+    20 => '20',
+    16 => '16',
+    15 => '15',
+    35 => '35',
+    37 => '37',
+    48 => '48',
+    54 => '54',
+  );
+  $handler->display->display_options['filters']['field_tags_tid']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['field_tags_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_tags_tid']['vocabulary'] = 'classification';
+  $handler->display->display_options['filters']['field_tags_tid']['hierarchy'] = 1;
+  $handler->display->display_options['block_description'] = 'Front Highlight Print Block';
   $export['display_ad_blocks'] = $view;
 
   return $export;

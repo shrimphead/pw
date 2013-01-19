@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Code for the PW Layout feature.
+ * Code for the Pennywise Layout feature.
  */
 
 include_once 'pw_la.features.inc';
