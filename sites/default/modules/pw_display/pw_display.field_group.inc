@@ -116,10 +116,10 @@ function pw_display_field_group_info() {
     'label' => 'Display Ad',
     'weight' => '0',
     'children' => array(
-      0 => 'group_description_box',
+      0 => 'group_advanced',
       1 => 'group_basics',
-      2 => 'group_options',
-      3 => 'group_advanced',
+      2 => 'group_description_box',
+      3 => 'group_options',
     ),
     'format_type' => 'accordion',
     'format_settings' => array(

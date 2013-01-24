@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * pw_pages.features.menu_custom.inc
+ * pw_editorial.features.menu_custom.inc
  */
 
 /**
  * Implements hook_menu_default_menu_custom().
  */
-function pw_pages_menu_default_menu_custom() {
+function pw_editorial_menu_default_menu_custom() {
   $menus = array();
 
   // Exported menu: menu-advertising-links.

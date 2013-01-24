@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * pw_pages.views_default.inc
+ * pw_editorial.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function pw_pages_views_default_views() {
+function pw_editorial_views_default_views() {
   $export = array();
 
   $view = new view();
@@ -1260,6 +1260,17 @@ function pw_pages_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Sort criterion: Field: Header Image (field_image:fid) */
+  $handler->display->display_options['sorts']['field_image_fid']['id'] = 'field_image_fid';
+  $handler->display->display_options['sorts']['field_image_fid']['table'] = 'field_data_field_image';
+  $handler->display->display_options['sorts']['field_image_fid']['field'] = 'field_image_fid';
+  $handler->display->display_options['sorts']['field_image_fid']['order'] = 'DESC';
   $handler->display->display_options['block_description'] = 'Editorial (5) Block';
 
   /* Display: Vertical Slide */

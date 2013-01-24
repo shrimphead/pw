@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * pw_pages.features.user_role.inc
+ * pw_editorial.features.user_role.inc
  */
 
 /**
  * Implements hook_user_default_roles().
  */
-function pw_pages_user_default_roles() {
+function pw_editorial_user_default_roles() {
   $roles = array();
 
   // Exported role: digital edition editor.

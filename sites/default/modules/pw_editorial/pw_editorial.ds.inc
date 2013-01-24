@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * pw_pages.ds.inc
+ * pw_editorial.ds.inc
  */
 
 /**
  * Implements hook_ds_field_settings_info().
  */
-function pw_pages_ds_field_settings_info() {
+function pw_editorial_ds_field_settings_info() {
   $export = array();
 
   $ds_fieldsetting = new stdClass();
@@ -191,7 +191,7 @@ function pw_pages_ds_field_settings_info() {
 /**
  * Implements hook_ds_layout_settings_info().
  */
-function pw_pages_ds_layout_settings_info() {
+function pw_editorial_ds_layout_settings_info() {
   $export = array();
 
   $ds_layout = new stdClass();
@@ -704,7 +704,7 @@ function pw_pages_ds_layout_settings_info() {
 /**
  * Implements hook_ds_view_modes_info().
  */
-function pw_pages_ds_view_modes_info() {
+function pw_editorial_ds_view_modes_info() {
   $export = array();
 
   $ds_view_mode = new stdClass();

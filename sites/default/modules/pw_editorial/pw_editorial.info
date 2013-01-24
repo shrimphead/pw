@@ -1,10 +1,10 @@
-name = PW Pages
-description = Editorial, Pages, Digital Edition & Attachments. Display, and admin
+name = PW Editorial & More
+description = Editorial, Pages, Digital Edition & Attachments.
 core = 7.x
 package = Pennywise
 php = 5.2.4
 version = 7.x-2.8
-project = pw_pages
+project = pw_editorial
 dependencies[] = ctools
 dependencies[] = date
 dependencies[] = ds

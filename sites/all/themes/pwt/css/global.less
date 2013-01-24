@@ -1134,69 +1134,114 @@ ul.pw-classified-nav-list, .menu-name-menu-pennywise-digital-edition ul, .block-
 }
 
 /* SEARCH PAGE */
-<<<<<<< HEAD
-/*
 .page-search {
-  .view-id-search_ads {
-    .view-grouping-header a {
-        width: 90%;
-        background-color: @classified_med;
-        color: @white;
-        font-size: 1.4em;
-        margin: 20px 10px;
-        padding: 10px 15px 3px 15px;
-        .border-radius-custom;
-    }
-    .search-result-wrapper {
-      h3 { display: none; }
-      ul {
-        border: solid 3pt @classified_med;
-        padding: 5px;
-        li {
-          list-style: none;
-          padding: 5px;
-        }
-        li:first-line {
-          font-weight: bold;
-        }
-=======
-body .view-display-id-search_page {
-  h3 {
-    border: 2pt solid @alert;
-  }
-  .view-grouping-header a {
-      width: 90%;
+  .view-display-id-search_page {
+    h3 {
+      clear: both;
       background-color: @classified_med;
-      color: @white;
-      font-size: 1.4em;
-      margin: 20px 10px;
-      padding: 10px 15px 3px 15px;
+      padding: 5px 40px;
+      margin: 15px 0 0 0;
       .border-radius-custom;
-  }
-  .search-result-wrapper {
-    h3 { display: none; }
-    ul {
-      border: solid 3pt @classified_med;
-      padding: 5px;
-      li {
-        list-style: none;
-        padding: 5px;
+      a {
+        color: @white;
       }
-      li:first-line {
-        font-weight: bold;
->>>>>>> feature_email_receipts
+    }
+    ul.search-results-list {
+      border: 1pt solid @classified_dark;
+      border-top: none;
+      margin: 0;
+      padding: 10px;
+      li {
+        clear: both;
+        padding: 8px;
+        margin: 5px;
+        font-size: 1.1em;
+        p {
+          margin: 0;
+        }
+        .views-field-field-phone {
+          font-weight: 700;
+        }
+        .search-result-page-wrapper {
+          display: table;
+          .search-result-page-image-wrapper {
+            margin: 0 10px 10px 0;
+            display: table-cell;
+          }
+          .search-result-page-copy-wrapper {
+            display: table-cell;
+            float: left;
+            padding: 5px 10px;
+            a {
+              padding: 2px 5px;
+              background-color: @sunlight;
+              .border-radius;
+            }
+            a:hover {
+              background-color: @alert;
+            }
+            .search-result-phone {
+              background: @white;
+              padding: 2px 5px;
+              text-align: center;
+              .border-radius;
+            }
+          }
+          .search-result-page-copy-wrapper:first-line {
+            font-weight: 600;
+          }
+          .search-result-page-clear {
+            clear: both;
+            width: 100%;
+          }
+        }
+      }
+      li.views-row-last {
+        .border-radius-custom(0, 0, 10px, 10px);
+      }
+      li.views-row-first {
+        .border-radius-custom;
+      }
+      li.classified-ad-Liveload {
+        background-color: @sunlight;
+        border: 1pt solid @alert;
       }
     }
   }
 }
-<<<<<<< HEAD
-*/
-=======
->>>>>>> feature_email_receipts
+
+/* PAGER */
+ul.pager {
+    border: none;
+    margin: 20px;
+    display: block;
+    height: 22px;
+  li {
+    border: none;
+    width: auto;
+    a {
+      height: 14px;
+      width: auto;
+    }
+  }
+  li.pager-previous, li.pager-next {
+    width: auto;
+    height: 22px;
+    a { width: auto; }
+  }
+}
+
 
 /*****************  CLASSIFIEDS  *****************/
 
 /** FRONT PAGE = classified sections - tree listings page **/
+  .block-f9a11ccbc914f473ca208 {
+    /* front display ad block */
+    h2 {
+      display: none;
+    }
+  }
+
 #main-content {
   #views-exposed-form-search-ads-search-page,
   #views-exposed-form-search-ads-search-page--2 {
@@ -1381,19 +1426,11 @@ body .view-display-id-search_page {
     padding: 10%;
     .center;
     font-size: 2em;
-<<<<<<< HEAD
   }
   h3.sub-list-block-submit-link a {
     font-size: 1.2em;
     background-color: inherit;
   }
-=======
-  }
-  h3.sub-list-block-submit-link a {
-    font-size: 1.2em;
-    background-color: inherit;
-  }
->>>>>>> feature_email_receipts
 }
 
 /*** classified ads with MASONRY blocks ****/

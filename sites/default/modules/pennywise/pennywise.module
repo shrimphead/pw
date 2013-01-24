@@ -510,9 +510,9 @@ function pennywise_jcarousel_skin_info() {
     'file' => 'skins/print/jcarousel-print.css',
   );
 
-  $skins['print2'] = array(
-    'title' => t('PW Print Wide'),
-    'file' => 'skins/print/jcarousel-print2.css',
+  $skins['front'] = array(
+    'title' => t('Front'),
+    'file' => 'skins/front/jcarousel-front.css',
   );
 
 

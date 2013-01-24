@@ -6856,7 +6856,7 @@ function pw_admin_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '200',
   );
-  /* Field: Content: Related File */
+  /* Field: Content: Attachment */
   $handler->display->display_options['fields']['field_high_res_ad']['id'] = 'field_high_res_ad';
   $handler->display->display_options['fields']['field_high_res_ad']['table'] = 'field_data_field_high_res_ad';
   $handler->display->display_options['fields']['field_high_res_ad']['field'] = 'field_high_res_ad';

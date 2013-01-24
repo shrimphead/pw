@@ -930,7 +930,6 @@ rel="lightbox[field_display_ad_1]%5B<p><a href=\'[field_display_ad_1]\'Download 
   /* Display: Front Poster Block (2) */
   $handler = $view->new_display('block', 'Front Poster Block (2)', 'front_mulitiple_poster_block');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Poster Block';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
@@ -1292,27 +1291,24 @@ rel="lightbox[field_display_ad_1]%5B<p><a href=\'[field_display_ad_1]\'Download 
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'jcarousel';
   $handler->display->display_options['style_options']['wrap'] = 'both';
-  $handler->display->display_options['style_options']['skin'] = 'print2';
+  $handler->display->display_options['style_options']['skin'] = 'front';
   $handler->display->display_options['style_options']['visible'] = '4';
-  $handler->display->display_options['style_options']['scroll'] = '1';
+  $handler->display->display_options['style_options']['scroll'] = '3';
   $handler->display->display_options['style_options']['auto'] = '6';
   $handler->display->display_options['style_options']['autoPause'] = 1;
   $handler->display->display_options['style_options']['easing'] = '';
   $handler->display->display_options['style_options']['vertical'] = 0;
-  $handler->display->display_options['style_options']['navigation'] = 'after';
   $handler->display->display_options['style_options']['ajax'] = 1;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'ds';
-  $handler->display->display_options['row_options']['view_mode'] = 'print_display_ad';
-  $handler->display->display_options['row_options']['load_comments'] = 0;
-  $handler->display->display_options['row_options']['grouping'] = 0;
-  $handler->display->display_options['row_options']['advanced'] = 0;
-  $handler->display->display_options['row_options']['delta_fieldset']['delta_fields'] = array(
-    'field_area_taxonomy' => 'field_area_taxonomy',
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'field_ad_copy' => 'field_ad_copy',
+    'view_node' => 'view_node',
+    'nothing' => 'nothing',
   );
-  $handler->display->display_options['row_options']['grouping_fieldset']['group_field'] = 'field_data_field_ad_copy|field_ad_copy_format';
-  $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'print_display_ad';
+  $handler->display->display_options['row_options']['separator'] = '<br>';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
@@ -1347,12 +1343,13 @@ rel="lightbox[field_display_ad_1]%5B<p><a href=\'[field_display_ad_1]\'Download 
 [field_ad_client]<br>
 [field_ad_copy]<br>
 ';
+  $handler->display->display_options['fields']['field_display_ad']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_display_ad']['element_class'] = 'jcarousel-skin-front-display-ad';
   $handler->display->display_options['fields']['field_display_ad']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_display_ad']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_display_ad']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_display_ad']['type'] = 'lightbox2__lightbox__display_ad_print_thumbnail__original';
   $handler->display->display_options['fields']['field_display_ad']['settings'] = array(
-    'image_style' => 'display_ad_print_thumbnail',
+    'image_style' => 'display_ad_smart_crop_med_square',
     'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_display_ad']['group_column'] = 'fid';
@@ -1361,13 +1358,15 @@ rel="lightbox[field_display_ad_1]%5B<p><a href=\'[field_display_ad_1]\'Download 
   $handler->display->display_options['fields']['field_ad_client']['table'] = 'field_data_field_ad_client';
   $handler->display->display_options['fields']['field_ad_client']['field'] = 'field_ad_client';
   $handler->display->display_options['fields']['field_ad_client']['label'] = '';
+  $handler->display->display_options['fields']['field_ad_client']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_ad_client']['alter']['text'] = '<a href="[field_display_ad_1]" 
 rel="lightbox[_field_display_ad]<p><a href= title class="lightbox-processed" http: pennywiseads.com sites default files images display>"
 >[field_ad_client]</a>';
   $handler->display->display_options['fields']['field_ad_client']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_ad_client']['alter']['path'] = '[field_display_ad_1] ';
-  $handler->display->display_options['fields']['field_ad_client']['alter']['rel'] = 'lightshow';
-  $handler->display->display_options['fields']['field_ad_client']['element_type'] = 'h6';
+  $handler->display->display_options['fields']['field_ad_client']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_ad_client']['alter']['link_class'] = 'jcarousel-skin-front-client';
+  $handler->display->display_options['fields']['field_ad_client']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_ad_client']['element_class'] = '.jcarousel-skin-front-client';
   $handler->display->display_options['fields']['field_ad_client']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_ad_client']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_ad_client']['type'] = 'taxonomy_term_reference_plain';
@@ -1376,10 +1375,12 @@ rel="lightbox[_field_display_ad]<p><a href= title class="lightbox-processed" htt
   $handler->display->display_options['fields']['field_ad_copy']['table'] = 'field_data_field_ad_copy';
   $handler->display->display_options['fields']['field_ad_copy']['field'] = 'field_ad_copy';
   $handler->display->display_options['fields']['field_ad_copy']['label'] = '';
+  $handler->display->display_options['fields']['field_ad_copy']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_ad_copy']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_ad_copy']['alter']['path'] = '[field_display_ad_1]';
-  $handler->display->display_options['fields']['field_ad_copy']['alter']['rel'] = 'lightshow';
-  $handler->display->display_options['fields']['field_ad_copy']['element_type'] = 'em';
+  $handler->display->display_options['fields']['field_ad_copy']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_ad_copy']['alter']['link_class'] = 'jcarousel-skin-front-body';
+  $handler->display->display_options['fields']['field_ad_copy']['element_type'] = 'p';
+  $handler->display->display_options['fields']['field_ad_copy']['element_class'] = 'jcarousel-skin-front-body';
   $handler->display->display_options['fields']['field_ad_copy']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_ad_copy']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_ad_copy']['type'] = 'text_trimmed';
@@ -1396,10 +1397,26 @@ rel="lightbox[_field_display_ad]<p><a href= title class="lightbox-processed" htt
 rel="lightbox[field_display_ad_1]%5B<p><a href=\'[field_display_ad_1]\'Download Original</a></p>%5D" title class="lightbox-processed views-ajax-processed-processed">
 [field_ad_client]<br>[field_ad_copy]
 </a>';
-  $handler->display->display_options['fields']['view_node']['element_type'] = 'div';
-  $handler->display->display_options['fields']['view_node']['element_class'] = '.button-link';
+  $handler->display->display_options['fields']['view_node']['element_class'] = 'button-link';
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['text'] = 'More';
+  /* Field: Global: Layout */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['ui_name'] = 'Global: Layout';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class=\'jcarousel-skin-front-wrapper\'>
+<div class=\'jcarousel-skin-front-details\'>
+[field_ad_client] <br> 
+[field_ad_copy] <br> 
+[view_node]
+</div>
+</div>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Ad Copy (field_ad_copy:format) */
   $handler->display->display_options['sorts']['field_ad_copy_format']['id'] = 'field_ad_copy_format';

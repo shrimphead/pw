@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * pw_pages.features.inc
+ * pw_editorial.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function pw_pages_ctools_plugin_api() {
+function pw_editorial_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "ds" && $api == "ds") {
     return array("version" => "1");
@@ -25,14 +25,14 @@ function pw_pages_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function pw_pages_views_api() {
+function pw_editorial_views_api() {
   return array("version" => "3.0");
 }
 
 /**
  * Implements hook_image_default_styles().
  */
-function pw_pages_image_default_styles() {
+function pw_editorial_image_default_styles() {
   $styles = array();
 
   // Exported image style: classified_list_js_crop.
@@ -201,7 +201,7 @@ function pw_pages_image_default_styles() {
 /**
  * Implements hook_node_info().
  */
-function pw_pages_node_info() {
+function pw_editorial_node_info() {
   $items = array(
     'article' => array(
       'name' => t('Editorial'),

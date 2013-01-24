@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * pw_pages.field_group.inc
+ * pw_editorial.field_group.inc
  */
 
 /**
  * Implements hook_field_group_info().
  */
-function pw_pages_field_group_info() {
+function pw_editorial_field_group_info() {
   $export = array();
 
   $field_group = new stdClass();

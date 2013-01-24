@@ -315,10 +315,11 @@ function pw_vars_strongarm() {
   $strongarm->value = array(
     32 => 'Animals & Livestock',
     24 => 'Announcements',
-    14 => 'Bulletin Boards',
+    1 => 'Bulletin Board',
     17 => 'Education & Workshops',
     20 => 'Employment & Business Opportunities',
     16 => 'Events & Marketplace',
+    131 => 'Free',
     15 => 'Merchandise',
     35 => 'Obituaries',
     37 => 'Real Estate Listings',
@@ -1413,6 +1414,21 @@ echo date(\'now\');
     'full' => 'full',
     'teaser' => 'teaser',
     'nodeform' => 'nodeform',
+    'rss' => 0,
+    'search_index' => 0,
+    'search_result' => 0,
+    'diff_standard' => 0,
+    'token' => 0,
+    'block_list_header' => 0,
+    'block_list_item' => 0,
+    'castlegar_edition_view' => 0,
+    'editorial_slideshow' => 0,
+    'kootenay_edition_view' => 0,
+    'nelson_edition_view' => 0,
+    'print_display_ad' => 0,
+    'simple_teaser' => 0,
+    'trail_edition_view' => 0,
+    'revision' => 0,
   );
   $export['exclude_node_title_content_type_modes_adworks_file'] = $strongarm;
 
@@ -1424,6 +1440,21 @@ echo date(\'now\');
     'full' => 'full',
     'teaser' => 'teaser',
     'nodeform' => 'nodeform',
+    'rss' => 0,
+    'search_index' => 0,
+    'search_result' => 0,
+    'diff_standard' => 0,
+    'token' => 0,
+    'block_list_header' => 0,
+    'block_list_item' => 0,
+    'castlegar_edition_view' => 0,
+    'editorial_slideshow' => 0,
+    'kootenay_edition_view' => 0,
+    'nelson_edition_view' => 0,
+    'print_display_ad' => 0,
+    'simple_teaser' => 0,
+    'trail_edition_view' => 0,
+    'revision' => 0,
   );
   $export['exclude_node_title_content_type_modes_ad_s'] = $strongarm;
 
@@ -1434,6 +1465,21 @@ echo date(\'now\');
   $strongarm->value = array(
     'full' => 0,
     'teaser' => 0,
+    'rss' => 0,
+    'search_index' => 0,
+    'search_result' => 0,
+    'diff_standard' => 0,
+    'token' => 0,
+    'block_list_header' => 0,
+    'block_list_item' => 0,
+    'castlegar_edition_view' => 0,
+    'editorial_slideshow' => 0,
+    'kootenay_edition_view' => 0,
+    'nelson_edition_view' => 0,
+    'print_display_ad' => 0,
+    'simple_teaser' => 0,
+    'trail_edition_view' => 0,
+    'revision' => 0,
     'nodeform' => 0,
   );
   $export['exclude_node_title_content_type_modes_article'] = $strongarm;
@@ -1445,6 +1491,21 @@ echo date(\'now\');
   $strongarm->value = array(
     'full' => 0,
     'teaser' => 0,
+    'rss' => 0,
+    'search_index' => 0,
+    'search_result' => 0,
+    'diff_standard' => 0,
+    'token' => 0,
+    'block_list_header' => 0,
+    'block_list_item' => 0,
+    'castlegar_edition_view' => 0,
+    'editorial_slideshow' => 0,
+    'kootenay_edition_view' => 0,
+    'nelson_edition_view' => 0,
+    'print_display_ad' => 0,
+    'simple_teaser' => 0,
+    'trail_edition_view' => 0,
+    'revision' => 0,
     'nodeform' => 0,
   );
   $export['exclude_node_title_content_type_modes_attachment'] = $strongarm;
@@ -1457,6 +1518,21 @@ echo date(\'now\');
     'full' => 'full',
     'teaser' => 'teaser',
     'nodeform' => 'nodeform',
+    'rss' => 0,
+    'search_index' => 0,
+    'search_result' => 0,
+    'diff_standard' => 0,
+    'token' => 0,
+    'block_list_header' => 0,
+    'block_list_item' => 0,
+    'castlegar_edition_view' => 0,
+    'editorial_slideshow' => 0,
+    'kootenay_edition_view' => 0,
+    'nelson_edition_view' => 0,
+    'print_display_ad' => 0,
+    'simple_teaser' => 0,
+    'trail_edition_view' => 0,
+    'revision' => 0,
   );
   $export['exclude_node_title_content_type_modes_classified'] = $strongarm;
 
@@ -1465,8 +1541,23 @@ echo date(\'now\');
   $strongarm->api_version = 1;
   $strongarm->name = 'exclude_node_title_content_type_modes_display_ads';
   $strongarm->value = array(
-    'full' => 0,
-    'teaser' => 0,
+    'full' => 'full',
+    'teaser' => 'teaser',
+    'rss' => 'rss',
+    'print_display_ad' => 'print_display_ad',
+    'simple_teaser' => 'simple_teaser',
+    'search_index' => 0,
+    'search_result' => 0,
+    'diff_standard' => 0,
+    'token' => 0,
+    'block_list_header' => 0,
+    'block_list_item' => 0,
+    'castlegar_edition_view' => 0,
+    'editorial_slideshow' => 0,
+    'kootenay_edition_view' => 0,
+    'nelson_edition_view' => 0,
+    'trail_edition_view' => 0,
+    'revision' => 0,
     'nodeform' => 0,
   );
   $export['exclude_node_title_content_type_modes_display_ads'] = $strongarm;
@@ -1478,6 +1569,21 @@ echo date(\'now\');
   $strongarm->value = array(
     'full' => 0,
     'teaser' => 0,
+    'rss' => 0,
+    'search_index' => 0,
+    'search_result' => 0,
+    'diff_standard' => 0,
+    'token' => 0,
+    'block_list_header' => 0,
+    'block_list_item' => 0,
+    'castlegar_edition_view' => 0,
+    'editorial_slideshow' => 0,
+    'kootenay_edition_view' => 0,
+    'nelson_edition_view' => 0,
+    'print_display_ad' => 0,
+    'simple_teaser' => 0,
+    'trail_edition_view' => 0,
+    'revision' => 0,
     'nodeform' => 0,
   );
   $export['exclude_node_title_content_type_modes_page'] = $strongarm;
@@ -1489,6 +1595,21 @@ echo date(\'now\');
   $strongarm->value = array(
     'full' => 0,
     'teaser' => 0,
+    'rss' => 0,
+    'search_index' => 0,
+    'search_result' => 0,
+    'diff_standard' => 0,
+    'token' => 0,
+    'block_list_header' => 0,
+    'block_list_item' => 0,
+    'castlegar_edition_view' => 0,
+    'editorial_slideshow' => 0,
+    'kootenay_edition_view' => 0,
+    'nelson_edition_view' => 0,
+    'print_display_ad' => 0,
+    'simple_teaser' => 0,
+    'trail_edition_view' => 0,
+    'revision' => 0,
     'nodeform' => 0,
   );
   $export['exclude_node_title_content_type_modes_pw_digital'] = $strongarm;
@@ -1500,6 +1621,21 @@ echo date(\'now\');
   $strongarm->value = array(
     'full' => 0,
     'teaser' => 0,
+    'rss' => 0,
+    'search_index' => 0,
+    'search_result' => 0,
+    'diff_standard' => 0,
+    'token' => 0,
+    'block_list_header' => 0,
+    'block_list_item' => 0,
+    'castlegar_edition_view' => 0,
+    'editorial_slideshow' => 0,
+    'kootenay_edition_view' => 0,
+    'nelson_edition_view' => 0,
+    'print_display_ad' => 0,
+    'simple_teaser' => 0,
+    'trail_edition_view' => 0,
+    'revision' => 0,
     'nodeform' => 0,
   );
   $export['exclude_node_title_content_type_modes_webform'] = $strongarm;
@@ -1543,7 +1679,7 @@ echo date(\'now\');
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'exclude_node_title_content_type_value_display_ads';
-  $strongarm->value = 'none';
+  $strongarm->value = 'all';
   $export['exclude_node_title_content_type_value_display_ads'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -2043,7 +2179,10 @@ echo date(\'now\');
           'weight' => '8',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '4',
+        ),
+        'redirect' => array(
+          'weight' => '30',
         ),
       ),
     ),

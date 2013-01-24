@@ -15,6 +15,7 @@ function pw_vars_user_default_permissions() {
     'name' => 'access administration menu',
     'roles' => array(
       0 => 'administrator',
+      1 => 'digital edition editor',
     ),
     'module' => 'admin_menu',
   );
