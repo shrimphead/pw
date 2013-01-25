@@ -676,7 +676,7 @@ body {
 }
 
 /* Poster Block */
-#block-views-ef0d1e47fd179cf664b200173efd842c {
+#block-views-ef0d1e47fd179cf664b200173efd842c, .view-display-id-front_mulitiple_poster_block {
   h2 {
     display: none;
   }
@@ -695,6 +695,36 @@ body {
 
 /* display ad pages - simple page */
 .node-type-display-ads {
+  .node-display-ads.view-mode-full {
+    .field-name-field-link, .field-name-field-email {
+      text-align: center;
+      .field-label {
+        background-color: @alert;
+        font-style: italic;
+        font-size: 1em;
+        padding: 5px;
+        .border-radius-custom(10px,10px,0,0);
+        color: @sunlight;
+        width: 80px;
+        display: block;
+        margin: 10px auto 5px auto;
+      }
+      .field-item a {
+        font-size: 1.4em;
+        background-color: @alert;
+        color: @white;
+        padding: 8px;
+        margin: 10px 0;
+        text-align: center;
+        .border-radius;
+      }
+      .field-item a:hover { background-color: darken(@alert, 20%);color: @sunlight; }
+    }
+    .field-name-field-email {
+      .field-label, .field-item a { background-color: @classified_med; }
+      .field-item a:hover { background-color: @classified_dark; color: @sunlight; }
+    }
+  }
   .ds-2col-stacked.node-display-ads {
     .field-name-field-display-ad {
       a {
@@ -927,10 +957,11 @@ ul.pw-classified-nav-list, .menu-name-menu-pennywise-digital-edition ul, .block-
 /* } */
 
 /*  Slideshow BLOCK */
-/*
  .view-editorial-slideshow  {
   #views_slideshow_cycle_main_editorial_slideshow-editorial_slideshow_block {
-/*     width: 340px; */
+    width: 340px;
+  }
+}
 /*
     background-color: @lightsand;
   }

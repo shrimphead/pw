@@ -35,6 +35,29 @@ function pw_display_views_api() {
 function pw_display_image_default_styles() {
   $styles = array();
 
+  // Exported image style: display_ad_full_page.
+  $styles['display_ad_full_page'] = array(
+    'name' => 'display_ad_full_page',
+    'effects' => array(
+      33 => array(
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => '940',
+          'height' => '1020',
+          'upscale' => 0,
+        ),
+        'weight' => '1',
+      ),
+    ),
+  );
+
   // Exported image style: display_ad_print_cropped_vert_thumbnail.
   $styles['display_ad_print_cropped_vert_thumbnail'] = array(
     'name' => 'display_ad_print_cropped_vert_thumbnail',
@@ -76,6 +99,96 @@ function pw_display_image_default_styles() {
           'upscale' => 0,
         ),
         'weight' => '1',
+      ),
+    ),
+  );
+
+  // Exported image style: display_ad_smart_crop_med_square.
+  $styles['display_ad_smart_crop_med_square'] = array(
+    'name' => 'display_ad_smart_crop_med_square',
+    'effects' => array(
+      6 => array(
+        'label' => 'Scale and Smart Crop',
+        'help' => 'Similar to "Scale And Crop", but preserves the portion of the image with the most entropy.',
+        'effect callback' => 'smartcrop_scale_effect',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'smartcrop',
+        'name' => 'smartcrop_scale_and_crop',
+        'data' => array(
+          'width' => '165',
+          'height' => '220',
+          'upscale' => 0,
+        ),
+        'weight' => '1',
+      ),
+      7 => array(
+        'label' => 'Rounded Corners',
+        'help' => 'This is true cropping, not overlays, so the result <em>can</em> be transparent.',
+        'effect callback' => 'canvasactions_roundedcorners_image',
+        'dimensions passthrough' => TRUE,
+        'form callback' => 'canvasactions_roundedcorners_form',
+        'summary theme' => 'canvasactions_roundedcorners_summary',
+        'module' => 'imagecache_canvasactions',
+        'name' => 'canvasactions_roundedcorners',
+        'data' => array(
+          'radius' => '16',
+          'independent_corners_set' => array(
+            'independent_corners' => 1,
+            'radii' => array(
+              'tl' => '20',
+              'tr' => '20',
+              'bl' => '0',
+              'br' => '0',
+            ),
+          ),
+        ),
+        'weight' => '2',
+      ),
+    ),
+  );
+
+  // Exported image style: miniature_square.
+  $styles['miniature_square'] = array(
+    'name' => 'miniature_square',
+    'effects' => array(
+      29 => array(
+        'label' => 'Scale and Smart Crop',
+        'help' => 'Similar to "Scale And Crop", but preserves the portion of the image with the most entropy.',
+        'effect callback' => 'smartcrop_scale_effect',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'smartcrop',
+        'name' => 'smartcrop_scale_and_crop',
+        'data' => array(
+          'width' => '30',
+          'height' => '30',
+          'upscale' => 0,
+        ),
+        'weight' => '1',
+      ),
+      30 => array(
+        'label' => 'Rounded Corners',
+        'help' => 'This is true cropping, not overlays, so the result <em>can</em> be transparent.',
+        'effect callback' => 'canvasactions_roundedcorners_image',
+        'dimensions passthrough' => TRUE,
+        'form callback' => 'canvasactions_roundedcorners_form',
+        'summary theme' => 'canvasactions_roundedcorners_summary',
+        'module' => 'imagecache_canvasactions',
+        'name' => 'canvasactions_roundedcorners',
+        'data' => array(
+          'radius' => '5',
+          'independent_corners_set' => array(
+            'independent_corners' => 0,
+            'radii' => array(
+              'tl' => 0,
+              'tr' => 0,
+              'bl' => 0,
+              'br' => 0,
+            ),
+          ),
+        ),
+        'weight' => '2',
       ),
     ),
   );

@@ -112,6 +112,57 @@
 body.page-ad-submit {
   #ad-s-node-form { /*general style*/
 
+    /* Free for free */
+    #edit-free-box-link {
+      background: inherit;
+      z-index: -30;
+    }
+    .group_free_for_free  {
+      border: 1pt solid #900;
+      font-size: .9em;
+      line-height: 1em;
+      height: 120px;
+        h1.free-for-free-link-box {
+          margin-top: 10px;
+          padding: 20px;
+          font-size: 1.4em;
+          text-align: center;
+          text-transform: uppercase;
+          color: @classified_med;
+          padding: 5px;
+          line-height: 1.6em;
+        }
+        .free {
+          font-size: 1.7em;
+          color: #900;
+        }
+        ul {
+          margin: 10px 0 5px 5px;
+          font-size: .8em;
+        }
+        ul.free-for-free-yes-list {
+          list-style-type:circle;
+          color: @editorial_dark;
+          border-bottom: 1pt solid @classified_light;
+        }
+        ul.free-for-free-no-list {
+          list-style-type: square;
+          color: @alert;
+        }
+      a.free-ad-link {
+        text-align: center;
+        text-decoration: none;
+        background: @alert;
+        color: @white;
+        padding: 5px;
+        text-transform: uppercase;
+      }
+      a:hover {
+        color: @warning;
+      }
+
+    }
+
       /* mobile stylin' */
     ul.horizontal-tabs-list {
       li { width: 23%; }

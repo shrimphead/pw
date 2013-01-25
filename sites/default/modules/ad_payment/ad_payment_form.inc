@@ -7,6 +7,20 @@
 */
 
 function ad_payment_form(&$form, $form_state) {
+  // FREE FOR FREE
+  $form['#groups']['group_free_for_free'] = 'form';
+  $form['#group_children']['free_box_link'] = 'group_free_for_free';
+
+  $form['free_box_link'] = array(
+    '#type' => 'fieldset',
+    '#weight' => 80,
+  );
+  $form['free_box_link']['free'] = array(
+    '#weight' => 80,
+    '#prefix' => '<div class="grid-14">',
+    '#markup' => '&nbsp;',
+    '#suffix' => '</div>',
+  );
   // Get User Name
   global $user;
   $user_data = user_load($user->uid);

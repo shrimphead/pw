@@ -147,10 +147,11 @@ function pw_cl_field_group_info() {
     'label' => 'CREATE AD',
     'weight' => '1',
     'children' => array(
-      0 => 'group_ad_copy_block',
-      1 => 'group_area_rate',
-      2 => 'group_section_duration',
-      3 => 'group_section_group',
+      0 => 'group_free_for_free',
+      1 => 'group_ad_copy_block',
+      2 => 'group_area_rate',
+      3 => 'group_section_duration',
+      4 => 'group_section_group',
     ),
     'format_type' => 'multipage',
     'format_settings' => array(
@@ -176,7 +177,7 @@ function pw_cl_field_group_info() {
   $field_group->parent_name = 'group_ad';
   $field_group->data = array(
     'label' => 'Area & Rate',
-    'weight' => '12',
+    'weight' => '11',
     'children' => array(
       0 => 'field_area',
     ),
@@ -196,6 +197,31 @@ function pw_cl_field_group_info() {
     ),
   );
   $export['group_area_rate|node|ad_s|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_cl_ad_master|node|classified|form';
+  $field_group->group_name = 'group_cl_ad_master';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'classified';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Classified Master Group',
+    'weight' => '5',
+    'children' => array(
+      0 => 'group_contact',
+    ),
+    'format_type' => 'htabs',
+    'format_settings' => array(
+      'label' => 'Classified Master Group',
+      'instance_settings' => array(
+        'classes' => 'grid-6',
+      ),
+    ),
+  );
+  $export['group_cl_ad_master|node|classified|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -438,9 +464,9 @@ function pw_cl_field_group_info() {
     'weight' => '4',
     'children' => array(
       0 => 'field_price',
-      1 => 'field_address',
-      2 => 'field_email',
-      3 => 'field_phone',
+      1 => 'field_email',
+      2 => 'field_phone',
+      3 => 'field_address',
     ),
     'format_type' => 'multipage',
     'format_settings' => array(
@@ -466,7 +492,7 @@ function pw_cl_field_group_info() {
   $field_group->parent_name = 'group_ad';
   $field_group->data = array(
     'label' => 'Section & Duration',
-    'weight' => '13',
+    'weight' => '12',
     'children' => array(
       0 => 'field_rate',
       1 => 'field_duration',
@@ -499,7 +525,7 @@ function pw_cl_field_group_info() {
   $field_group->parent_name = 'group_ad';
   $field_group->data = array(
     'label' => 'Classified Section',
-    'weight' => '14',
+    'weight' => '13',
     'children' => array(
       0 => 'field_tags',
     ),
@@ -549,6 +575,58 @@ function pw_cl_field_group_info() {
     ),
   );
   $export['group_upgrade|node|ad_s|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'path|node|classified|form';
+  $field_group->group_name = 'path';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'classified';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'URL path settings',
+    'weight' => '8',
+    'children' => array(),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'instance_settings' => array(
+        'classes' => 'path-form',
+      ),
+      'formatter' => 'collapsed',
+    ),
+  );
+  $export['path|node|classified|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'path|node|display_ads|form';
+  $field_group->group_name = 'path';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'display_ads';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'URL path settings',
+    'weight' => '4',
+    'children' => array(),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'formatter' => 'open',
+      'instance_settings' => array(
+        'description' => '',
+        'show_label' => 1,
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+        'classes' => '',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['path|node|display_ads|form'] = $field_group;
 
   return $export;
 }

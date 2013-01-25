@@ -70,6 +70,7 @@ function pw_la_context_default_contexts() {
         '~thank-you' => '~thank-you',
         '~ad/*/thank-you' => '~ad/*/thank-you',
         '~user/login' => '~user/login',
+        '~display/*' => '~display/*',
         'ad/*' => 'ad/*',
         '<front>' => '<front>',
         'classifieds' => 'classifieds',
@@ -363,6 +364,9 @@ function pw_la_context_default_contexts() {
           'weight' => '-10',
         ),
       ),
+    ),
+    'delta' => array(
+      'delta_template' => 'simple_large_content',
     ),
   );
   $context->condition_mode = 0;
