@@ -248,10 +248,10 @@ function ad_payment_form_ad_s_node_form_alter(&$form, &$form_state, $form_id) {
 
 
   if (DEBUG_ADP || DEBUG_FORM) {
-    dpm('form');
-    dpm($form);
-    dpm('form state');
-    dpm($form_state);
+  //  dpm('form');
+  //  dpm($form);
+  //  dpm('form state');
+  //  dpm($form_state);
   }
 }
 

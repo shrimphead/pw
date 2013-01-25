@@ -90,6 +90,21 @@ function pw_cl_ds_field_settings_info() {
   );
   $export['node|classified|default'] = $ds_fieldsetting;
 
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'node|classified|teaser';
+  $ds_fieldsetting->entity_type = 'node';
+  $ds_fieldsetting->bundle = 'classified';
+  $ds_fieldsetting->view_mode = 'teaser';
+  $ds_fieldsetting->settings = array(
+    'links' => array(
+      'weight' => '3',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+  );
+  $export['node|classified|teaser'] = $ds_fieldsetting;
+
   return $export;
 }
 
@@ -310,6 +325,41 @@ function pw_cl_ds_layout_settings_info() {
     'classes' => array(),
   );
   $export['node|classified|form'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'node|classified|teaser';
+  $ds_layout->entity_type = 'node';
+  $ds_layout->bundle = 'classified';
+  $ds_layout->view_mode = 'teaser';
+  $ds_layout->layout = 'ds_2col_fluid';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'left' => array(
+        0 => 'field_image',
+      ),
+      'right' => array(
+        1 => 'field_ad_copy',
+        2 => 'field_phone',
+        3 => 'links',
+      ),
+    ),
+    'fields' => array(
+      'field_image' => 'left',
+      'field_ad_copy' => 'right',
+      'field_phone' => 'right',
+      'links' => 'right',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'left' => 'div',
+      'right' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 0,
+  );
+  $export['node|classified|teaser'] = $ds_layout;
 
   return $export;
 }

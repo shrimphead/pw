@@ -322,6 +322,53 @@ function pw_cl_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_free_for_free|node|ad_s|form';
+  $field_group->group_name = 'group_free_for_free';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'ad_s';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_ad';
+  $field_group->data = array(
+    'label' => '',
+    'weight' => '14',
+    'children' => array(),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => '',
+      'instance_settings' => array(
+        'required_fields' => 0,
+        'classes' => 'grid-14 free-for-free-div',
+        'description' => '      <h1 class="free-for-free-link-box box-1 grid-5 alpha">Submit <span class="free">FREE</span> for <span class="free">FREE</span> Classified Here.</h4>
+      <div class=\'grid-8 omega\'>
+         <ul class="grid-4 free-for-free-yes-list alpha">
+         <li>15 - 25 words</li>
+         <li>1 single, personal item only.</li>
+         <li>YES Puppies FREE to good home;</li>
+         <li>YES FREE pink floral couch;</li>
+         <li>YES FREE 2 wheel bike will fit 8 yr old</li>
+        </ul>
+        <ul class="grid-4 free-for-free-no-list omega">
+         <li>NO services please.</li>
+         <li>NO free estimates;</li>
+         <li>NO buy 3 get the 4th one FREE?</li>
+         <li>NO free ride to polling station</li>
+          </ul>
+        <a href="mailto:info@pennywiseads.com?subject=Submit FREE for FREE ad" class="free-ad-link grid-7 alpha omega">
+Submit Free Ad</a>
+</div>',
+        'show_label' => '0',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $export['group_free_for_free|node|ad_s|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_opt_image_block|node|ad_s|form';
   $field_group->group_name = 'group_opt_image_block';
   $field_group->entity_type = 'node';
@@ -484,6 +531,31 @@ function pw_cl_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_publishing_group|node|classified|form';
+  $field_group->group_name = 'group_publishing_group';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'classified';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Publishing Group',
+    'weight' => '7',
+    'children' => array(),
+    'format_type' => 'htab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => '',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_publishing_group|node|classified|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_section_duration|node|ad_s|form';
   $field_group->group_name = 'group_section_duration';
   $field_group->entity_type = 'node';
@@ -598,35 +670,6 @@ function pw_cl_field_group_info() {
     ),
   );
   $export['path|node|classified|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
-  $field_group->identifier = 'path|node|display_ads|form';
-  $field_group->group_name = 'path';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'display_ads';
-  $field_group->mode = 'form';
-  $field_group->parent_name = '';
-  $field_group->data = array(
-    'label' => 'URL path settings',
-    'weight' => '4',
-    'children' => array(),
-    'format_type' => 'div',
-    'format_settings' => array(
-      'formatter' => 'open',
-      'instance_settings' => array(
-        'description' => '',
-        'show_label' => 1,
-        'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
-        'classes' => '',
-        'required_fields' => 1,
-      ),
-    ),
-  );
-  $export['path|node|display_ads|form'] = $field_group;
 
   return $export;
 }

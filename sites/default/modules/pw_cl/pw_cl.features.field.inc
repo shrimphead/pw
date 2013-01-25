@@ -1241,7 +1241,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
       'bundle' => 'ad_s',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '<a href=\'mailto:info@pennywiseads.com?subject=Submit FREE for FREE ad\'>Click Here To submit <strong>Free</strong> for Free ads.</a> Some restriction apply.',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -2662,7 +2662,6 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
   // Translatables
   // Included for use with string extractors like potx.
   t('<a href=\'mailto:info@pennywiseads.com\'>Click Here To submit <strong>Free for Free</strong> ads</a>');
-  t('<a href=\'mailto:info@pennywiseads.com?subject=Submit FREE for FREE ad\'>Click Here To submit <strong>Free</strong> for Free ads.</a> Some restriction apply.');
   t('<big><strong>Test your file first!</strong></big>
 <ol>
 <li>To minimize any problems paste Adworks copy into <em>TextWrangler</em>:
