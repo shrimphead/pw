@@ -8,6 +8,25 @@
 
 function ad_payment_form(&$form, $form_state) {
   // FREE FOR FREE
+  $free4free = '
+      <h1 class="free-for-free-link-box box-1 grid-5 alpha">Submit <span class="free">FREE</span> for <span class="free">FREE</span> Classified Here.</h4>
+      <div class="grid-10 preface-1 omega alpha">
+        <ul class="grid-4 free-for-free-yes-list alpha">
+         <li>15 - 25 words</li>
+         <li>1 single, personal item only.</li>
+         <li>YES Puppies FREE to good home;</li>
+         <li>YES FREE pink floral couch;</li>
+         <li>YES FREE 2 wheel bike will fit 8 yr old</li>
+        </ul>
+        <ul class="grid-4 free-for-free-no-list omega">
+         <li>NO services please.</li>
+         <li>NO free estimates;</li>
+         <li>NO buy 3 get the 4th one FREE?</li>
+         <li>NO free ride to polling station</li>
+        </ul>
+        <a href="mailto:info@pennywiseads.com?subject=Submit FREE for FREE ad" class="free-ad-link grid-8 alpha omega">Submit Free Ad</a>
+      </div> ';
+
   $form['#groups']['group_free_for_free'] = 'form';
   $form['#group_children']['free_box_link'] = 'group_free_for_free';
 
@@ -17,8 +36,8 @@ function ad_payment_form(&$form, $form_state) {
   );
   $form['free_box_link']['free'] = array(
     '#weight' => 80,
-    '#prefix' => '<div class="grid-14">',
-    '#markup' => '&nbsp;',
+    '#prefix' => '<div class="grid-15 alpha omega">',
+    '#markup' => $free4free,
     '#suffix' => '</div>',
   );
   // Get User Name

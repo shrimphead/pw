@@ -112,7 +112,7 @@
 body.page-ad-submit {
   #ad-s-node-form { /*general style*/
 
-    /* Free for free */
+    /* AD FORM SPECIAL NOTICES ---> Free for free */
     #edit-free-box-link {
       background: inherit;
       z-index: -30;
@@ -122,47 +122,59 @@ body.page-ad-submit {
       .border-radius;
       font-size: .9em;
       line-height: 1em;
-      height: 120px;
+      padding: 0;
+        .form-wrapper, .fieldset-wrapper { margin: 0; padding: 0;}
         h1.free-for-free-link-box {
-          margin-top: 10px;
-          padding: 20px;
-          font-size: 1.4em;
+          font-size: 1.6em;
           text-align: center;
           text-transform: uppercase;
           color: @classified_med;
-          padding: 5px;
-          line-height: 1.6em;
+          padding: 0;
+          margin: 0;
+          line-height: 1.4em;
         }
         .free {
           font-size: 1.7em;
           color: #900;
+          clear: left;
+          display: block;
         }
         ul {
+          border: 1pt solid;
           margin: 10px 0 5px 5px;
           font-size: .8em;
+          padding: 5px;
+          list-style: none;
+          list-style-position: inside;
+          font-weight: 800;
+          color: white;
         }
         ul.free-for-free-yes-list {
+          border-color: @editorial_dark;
           list-style-type:circle;
-          color: @editorial_dark;
+          background-color: @editorial_dark;
           border-bottom: 1pt solid @classified_light;
         }
         ul.free-for-free-no-list {
+          border-color: @alert;
           list-style-type: square;
-          color: @alert;
+          background-color: @alert;
         }
       a.free-ad-link {
         text-align: center;
         text-decoration: none;
-        background: @alert;
+        background: #900;
         color: @white;
         padding: 5px;
         text-transform: uppercase;
+        margin: 2px;
       }
       a:hover {
         color: @warning;
       }
 
     }
+    /* END AD FORM SPECIAL NOTICES ---> Free for free */
 
       /* mobile stylin' */
     ul.horizontal-tabs-list {

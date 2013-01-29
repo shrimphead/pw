@@ -329,33 +329,16 @@ function pw_cl_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_ad';
   $field_group->data = array(
-    'label' => '',
+    'label' => 'Special Notices',
     'weight' => '14',
     'children' => array(),
     'format_type' => 'div',
     'format_settings' => array(
-      'label' => '',
+      'label' => 'Special Notices',
       'instance_settings' => array(
         'required_fields' => 0,
-        'classes' => 'grid-14 free-for-free-div',
-        'description' => '      <h1 class="free-for-free-link-box box-1 grid-5 alpha">Submit <span class="free">FREE</span> for <span class="free">FREE</span> Classified Here.</h4>
-      <div class=\'grid-8 omega\'>
-         <ul class="grid-4 free-for-free-yes-list alpha">
-         <li>15 - 25 words</li>
-         <li>1 single, personal item only.</li>
-         <li>YES Puppies FREE to good home;</li>
-         <li>YES FREE pink floral couch;</li>
-         <li>YES FREE 2 wheel bike will fit 8 yr old</li>
-        </ul>
-        <ul class="grid-4 free-for-free-no-list omega">
-         <li>NO services please.</li>
-         <li>NO free estimates;</li>
-         <li>NO buy 3 get the 4th one FREE?</li>
-         <li>NO free ride to polling station</li>
-          </ul>
-        <a href="mailto:info@pennywiseads.com?subject=Submit FREE for FREE ad" class="free-ad-link grid-7 alpha omega">
-Submit Free Ad</a>
-</div>',
+        'classes' => 'grid-15 special-notices-box omega',
+        'description' => '&nbsp;',
         'show_label' => '0',
         'label_element' => 'h3',
         'effect' => 'none',
