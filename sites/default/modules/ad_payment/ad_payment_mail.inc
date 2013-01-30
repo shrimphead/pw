@@ -178,7 +178,7 @@ Rate: $rate_name
 Subtotal: $$subtotal $discount
 Taxes:    $$taxes
 Total:    $$total
-Billed to $card.
+Billed to credit card.
 
 CONTACT US
 You can contact us 9am to 5pm Monday to Thursday (& until 4pm on Friday).

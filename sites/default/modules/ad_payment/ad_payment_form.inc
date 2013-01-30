@@ -9,22 +9,24 @@
 function ad_payment_form(&$form, $form_state) {
   // FREE FOR FREE
   $free4free = '
-      <h1 class="free-for-free-link-box box-1 grid-5 alpha">Submit <span class="free">FREE</span> for <span class="free">FREE</span> Classified Here.</h4>
+      <h1 class="free-for-free-link-box box-1 grid-5 alpha">
+        <a href="mailto:info@pennywiseads.com?subject=Submit FREE for FREE ad" class="free-ad-link ">
+          Submit <span class="free">FREE</span> for <span class="free">FREE</span> Classified <span="click">Click Here</span>.
+          </a>
+      </h1>
       <div class="grid-10 preface-1 omega alpha">
-        <ul class="grid-4 free-for-free-yes-list alpha">
-         <li>15 - 25 words</li>
-         <li>1 single, personal item only.</li>
-         <li>YES Puppies FREE to good home;</li>
-         <li>YES FREE pink floral couch;</li>
-         <li>YES FREE 2 wheel bike will fit 8 yr old</li>
-        </ul>
-        <ul class="grid-4 free-for-free-no-list omega">
-         <li>NO services please.</li>
-         <li>NO free estimates;</li>
-         <li>NO buy 3 get the 4th one FREE?</li>
-         <li>NO free ride to polling station</li>
-        </ul>
-        <a href="mailto:info@pennywiseads.com?subject=Submit FREE for FREE ad" class="free-ad-link grid-8 alpha omega">Submit Free Ad</a>
+        <h4>Save our Landfills - Share your Treasure!</h4>
+        <p class="free-for-free-yes-list ">
+         Please use 15 - 25 words to describe your one personal item per Free for Free ad.
+          <ul>
+            <li>Puppies FREE to good home</li>
+            <li>FREE pink floral couch</li>
+            <li>FREE 2 wheel bike will fit 8 year old</li>
+          </ul>
+        </p>
+        <p class=" free-for-free-no-list ">
+          Please don\'t post services in FREE for FREE such as free estimates. Plus no free rides to polling station, or buy 3 get 1 free.
+        </p>
       </div> ';
 
   $form['#groups']['group_free_for_free'] = 'form';

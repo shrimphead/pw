@@ -343,6 +343,21 @@ function pw_la_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'mobile_layout';
+  $context->description = '';
+  $context->tag = 'default';
+  $context->conditions = array();
+  $context->reactions = array();
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('default');
+  $export['mobile_layout'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'simple_page';
   $context->description = 'Content, header and footer only. No sidebars or header.';
   $context->tag = 'Pages';
@@ -366,7 +381,7 @@ function pw_la_context_default_contexts() {
       ),
     ),
     'delta' => array(
-      'delta_template' => 'simple_large_content',
+      'delta_template' => 'content_only',
     ),
   );
   $context->condition_mode = 0;
