@@ -47,13 +47,12 @@ function pwt_taxonomy_term_view_alter(&$build) {
 
 function pwt_preprocess_block(&$variables) {
  // dpm($variables);
-  if ($variables['elements']['#delta'] == 6) {
+//  if ($variables['elements']['#delta'] == 6) {
     //dpm('Header');
     //dpm($variables);
    // $variables['elements']['#content']['10056']
-  }
+//  }
 }
-
 
 
 /**

@@ -169,10 +169,16 @@
 #zone-threeup,
 #zone-header,
 #region-header-second,
-#block-feedback-form {
+#block-feedback-form,
+#block-pennywise-pw-edition
+ {
   visibility: visible;
   display: block;
   height: auto;
+}
+/* mobile hide */
+.pw-contact-local_phone-wrapper, .pw-contact-fax-wrapper, .pw-contact-address-wrapper, #block-pennywise-pw-tmtv, #block-user-login {
+  display: inherit;
 }
 
 /************* HIDE MOBILE NAVIGATION ************/
@@ -282,6 +288,141 @@ body {
   display: block;
 }
 
+/***************** HEADER :: CONTACT BAR  ********/
+#block-pennywise-pw-contact {
+  background-color: transparent;
+  margin: 10px 0;
+  display: table;
+  width: 100%;
+  color: @black;
+  #pw-contact-info-block {
+    margin: 0;
+    background-color: @white;
+    border: solid 2pt @classified_light;
+/*     padding: 4px; */
+    .center;
+    .border-radius;
+    height: 40px;
+
+/*     div {display: inline; } */
+  }
+  dt, dd {
+    display: inline;
+    font-size: .8em;
+    font-weight: bolder;
+    margin: 0; padding: 0;
+  }
+  dt {
+    margin: 0;
+    padding: 0;
+  }
+  dd {
+/*     margin: 0 10px 0 4px; */
+    .button;
+  }
+  /* Individual Fields */
+  .pw-contact-wrapper {
+    margin: 4px;
+    width: 170px;
+    float: left;
+    line-height: 1.2em;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  dt.pw-contact-label {
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+  dd.pw-contact-value {
+    font-size: larger;
+    clear: both;
+  }
+  .pw-contact-toll_free-wrapper {
+    font-size: .9em;
+    font-weight: bolder;
+    background-color: @sunlight;
+    .border-radius;
+    max-width: 200px;
+    margin: 2px;
+  }
+  dt.pw-contact-email-label, dt.pw-contact-facebook-label, dt.pw-contact-address-label {
+    display: none;
+  }
+  dd.pw-contact-email-value, dd.pw-contact-address-value  {
+    font-size: smaller;
+  }
+  .pw-contact-email-wrapper {
+    max-width: 60px;
+    padding: 6px 4px;
+  }
+  .pw-contact-facebook-wrapper {
+    max-width: 60px;
+    margin: 8px;
+    height: 100%;
+    vertical-align: middle;
+  }
+  dd.pw-contact-facebook-value, .pw-contact-facebook-wrapper {
+    padding: 0;
+    margin: 0;
+  }
+  dd.pw-contact-facebook-value a {
+    float: left;
+    background-image: url(../../../../default/files/facebook-logo_30.png);
+    color: transparent;
+    background-color: inherit;
+    background-repeat: no-repeat;
+    .border-radius(0);
+    width: 40px;
+    height: 30px;
+    background-position-x: 5px;
+    background-position-y: 5px;
+  }
+  dd.pw-contact-facebook-value a:hover {
+    color: @black;
+  }
+  dd.pw-contact-address-value {
+    display: block;
+    line-height: 1.1em;
+    width: 180px;
+    font-size: 1em;
+    padding: 4px 0 0 0 ;
+  }
+
+
+}
+/* mobile hide */
+
+
+
+/* BLOCKS */
+/* CTools Jump Menu Classified Browser */
+#block-jump-menu-jump-menu-m-menu-browse-classifi {
+/*   width: 140px; */
+  h2.block-title {
+    display: none;
+  }
+  #edit-jump #ctools-jump-menu, #edit-jump--2 {
+/*     width: 135px; */
+    .d-1 {
+      font-weight: bolder;
+      font-size: 1.4em;
+    }
+    .d-2 {
+      line-height: 1em;
+    }
+  }
+}
+
+/* Browse Classifieds */
+#edit-jump {
+  width: 136px;
+}
+#edit-search-ads, #edit-search-ads--2 {
+  width: 130px;
+  .center;
+}
+
 /* header menu PW block */
 #region-super-menu {
   #block-menu-block-6 .content {
@@ -359,6 +500,70 @@ body.front {
 }
 
 /****** classifieds *******/
+
+.view-display-id-full_list_page {
+  width: 400px;
+  a {
+    text-decoration: none;
+  }
+  ul.stem_class {
+    width: 400px;
+/*     padding: 10px; */
+/*     margin: auto; */
+/*     .cols(3); */
+    li {
+      width: 400px;
+      margin: 10px 0 5px 5px;
+      /* border: 1pt solid @classified_light; */
+      background-color: lighten(@classified_light, 5);
+      .border-radius;
+      padding: 5px;
+      text-align: center;
+      a {
+        width: 100%;
+        border-right: 5pt;
+        border-color: @classified_light;
+        margin: 0;
+        padding: 0 5px;
+        color: @classified_dark;
+        font-size: 1.4em;
+/*         line-height: 1.2em; */
+      }
+       a:hover {
+         background: @white;
+         border-color: @classified_med;
+       }
+    }
+    ul.branch_class{
+/*       background-color: @classified_light; */
+      line-height: 1em;
+      margin: 0;
+      li {
+        background-color: none;
+        border: none;
+        margin: 0 0 0 20px;
+        padding: 0;
+        width: 90%;
+        list-style: circle;
+        list-style-position: outside;
+        line-height: inherit;
+        text-align: left;
+        a {
+          border-left: 2pt;
+          font-weight: 200;
+          border: 0;
+          padding: 2px 8px;
+          width: 100%;
+          line-height: inherit;
+          color: @classified_med;
+          font-size: .9em;
+/*           line-height: 1em; */
+       }
+     }
+    }
+
+  }
+}
 
 /**** classified taxonomy tree list columns ********/
 .view-display-id-full_list_page {

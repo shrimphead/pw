@@ -665,9 +665,14 @@ function ad_payment_get_classified_list() {
   $parents = ad_payment_get_classification_headers();
   foreach ($parents as $tid => $term) {
     $children = taxonomy_get_children($tid);
-      foreach ($children as $child) {
-        $pw_list[$term][$child->tid] = $child->name;
-      }
+    foreach ($children as $child) {
+      $pw_list[$term][$child->tid] = $child->name;
+    }
+    // Add any category that doesn't have a child (eg. Bulletin Board).
+    if (!array_key_exists($term, $pw_list) && $term != 'Free') {
+      $pw_list[$tid] = $term;
+    }
+
   }
   return $pw_list;
 }

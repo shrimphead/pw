@@ -1,4 +1,5 @@
 <?php print $doctype; ?>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 <html lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"<?php print $rdf->version . $rdf->namespaces; ?>>
 <head<?php print $rdf->profile; ?>>
   <?php print $head; ?>
@@ -8,6 +9,7 @@
   <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body<?php print $attributes;?>>
+<h1>NEW TEST</h1>
   <div id="skip-link">
     <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
   </div>

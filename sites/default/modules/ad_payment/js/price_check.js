@@ -1,3 +1,5 @@
+(function ($) {
+
 Drupal.adPayment = Drupal.adPayment || {};
 
 
@@ -36,7 +38,7 @@ Drupal.adPayment.validate = function(ad) {
   // Hyphenation Check
 	var hyphensRg = /([A-Za-z0-9][-_.*#]){2,}/;
   if (hyphensRg.test(ad.copy)) {
-    state = true;
+    var state = true;
     ad.errorMsg.hyphen = Drupal.t('<h3>Too Many Connections!</h3> You have too many connections between words. This can include periods between words or hyphens. If this is correct you can ignore this warning.');
     jQuery('#field-ad-copy-add-more-wrapper').addClass('error element-error');
   }
@@ -316,11 +318,11 @@ Drupal.adPayment.displayMsg = function() {
   }
   else if (ad.area > 0 && ad.area < 4) {
     ad.msg.areaList = Drupal.t("<dt>Areas: @area </dt><dd> @areas</dd>", {'@area': ad.area, '@areas': ad.areaList});
-    ad.msg.areaListSum = Drupal.t("<dt>Areas:</dt><dd> @area</dd>", {'@area': ad.area,});
+    ad.msg.areaListSum = Drupal.t("<dt>Areas:</dt><dd> @area</dd>", {'@area': ad.area});
   }
   else if (ad.area == 4) {
     ad.msg.areaList = Drupal.t("<dt>Areas: @area </dt><dd> @areas <br />$2 Discount on ad.</dd>", {'@area': ad.area, '@areas': ad.areaList});
-    ad.msg.areaListSum = Drupal.t("<dt>Areas:</dt><dd> @area </dd>", {'@area': ad.area,});
+    ad.msg.areaListSum = Drupal.t("<dt>Areas:</dt><dd> @area </dd>", {'@area': ad.area});
   }
   else {
     ad.msg.areaList = '<dt>Area: None Selected</dt><dd>Please select an area for your ad to appear in.</dd>';
@@ -440,6 +442,7 @@ Drupal.adPayment.displayMsg = function() {
  * Sidebar-first - summary
  * Content Review - hidden until submitting
  */
+
 jQuery(document).ready(function() {
 
 
@@ -550,3 +553,4 @@ jQuery(document).ready(function() {
   };
 });
 
+}(jQuery));

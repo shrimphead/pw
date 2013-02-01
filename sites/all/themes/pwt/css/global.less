@@ -295,123 +295,46 @@ body {
 #zone-header {
   padding-bottom: 8px;
 }
-/***************** HEADER :: CONTACT BAR  ********/
+
+/* header */
 #block-pennywise-pw-contact {
-  background-color: transparent;
-  margin: 10px 0;
-  display: table;
-  width: 100%;
-  #pw-contact-info-block {
-    margin: 0;
-    background-color: @white;
-    border: solid 2pt @classified_light;
-/*     padding: 4px; */
-    .center;
-    .border-radius;
-    height: 40px;
-
-/*     div {display: inline; } */
-  }
-  dt, dd {
-    display: inline;
-    font-size: .8em;
-    font-weight: bolder;
-    margin: 0; padding: 0;
-  }
-  dt {
-    margin: 0;
-    padding: 0;
-  }
-  dd {
-/*     margin: 0 10px 0 4px; */
-    .button;
-  }
-  /* Individual Fields */
-  .pw-contact-wrapper {
-    margin: 4px;
-    width: 170px;
-    float: left;
-    line-height: 1.2em;
-    display: table-cell;
-    vertical-align: middle;
-  }
-  dt.pw-contact-label {
-    width: 100%;
-    text-align: center;
-    display: block;
-  }
-  dd.pw-contact-value {
-    font-size: larger;
-    clear: both;
-  }
+  background-color: @white;
+  border: solid 2pt @classified_light;
+  .border-radius;
   .pw-contact-toll_free-wrapper {
-    font-size: .9em;
-    font-weight: bolder;
-    background-color: @sunlight;
-    .border-radius;
-    max-width: 200px;
-    margin: 2px;
+    font-size: 1.6em;
+    text-align: center;
+    font-weight: 800;
+    dt, dd {
+      width: 40%;float: left;
+    }
   }
-  dt.pw-contact-email-label, dt.pw-contact-facebook-label, dt.pw-contact-address-label {
-    display: none;
-  }
-  dd.pw-contact-email-value, dd.pw-contact-address-value  {
-    font-size: smaller;
-  }
-  .pw-contact-email-wrapper {
-    max-width: 60px;
-    padding: 6px 4px;
-  }
+  .pw-contact-email-wrapper,
+  .pw-contact-local_phone-wrapper,
+  .pw-contact-fax-wrapper,
+  .pw-contact-address-wrapper,
   .pw-contact-facebook-wrapper {
-    max-width: 60px;
-    margin: 8px;
-    height: 100%;
-    vertical-align: middle;
-  }
-  dd.pw-contact-facebook-value, .pw-contact-facebook-wrapper {
-    padding: 0;
-    margin: 0;
-  }
-  dd.pw-contact-facebook-value a {
-    float: left;
-    background-image: url(../../../../default/files/facebook-logo_30.png);
-    color: transparent;
-    background-color: inherit;
-    background-repeat: no-repeat;
-    .border-radius(0);
-    width: 40px;
-    height: 30px;
-    background-position-x: 5px;
-    background-position-y: 5px;
-  }
-  dd.pw-contact-facebook-value a:hover {
-    color: @black;
-  }
-  dd.pw-contact-address-value {
-    display: block;
-    line-height: 1.1em;
-    width: 180px;
-    font-size: 1em;
-    padding: 4px 0 0 0 ;
-  }
-
-  /* mobile hide */
-  .pw-contact-local_phone-wrapper, .pw-contact-fax-wrapper, .pw-contact-address-wrapper {
     display: none;
   }
-
 }
-
 
 #region-preface-third {
   width: 75%;
   .center;
-
 }
 
 /********** HIDE ON MOBILE *****************/
+.pw-contact-local_phone-wrapper,
+.pw-contact-fax-wrapper,
+.pw-contact-address-wrapper,
+#block-pennywise-pw-tmtv,
+#block-user-login,
+#block-pennywise-pw-edition
+ {
+  display: none;
+}
+
 #zone-postscript,
-#zone-threeup,
 #region-header-second,
 #region-splash-one,
 #region-splash-two,
@@ -427,15 +350,6 @@ body {
   }
 }
 
-#region-branding {
-/*   width: 460px; /* Grid 6 */
-  .logo-img {
-    a {
-      .center;
-/*       padding: 10px; */
-    }
-  }
-}
 
 /**************** Contextual Links ***/
 .contextual-links-wrapper {
@@ -501,8 +415,9 @@ body {
 }
 #region-sidebar-first {
    #edit-jump {
-    width: 136px;
      .block {
+      margin: 0 auto;
+      display: block;
       padding: 3px 3px 10px 3px;
       margin: 0 0 15px 0;
       ul.menu li {
@@ -517,10 +432,69 @@ body {
 .zone-preface #views-exposed-form-search-ads-search-page--2,
 .zone-preface #views-exposed-form-search-ads-search-page {
   /* Search box in preface */
+/*
   background-color: @other;
   color: @white;
   margin-bottom: 20px;
+  width: 140px; float: left;
+*/
 }
+#block-views-exp-search-ads-search-page {
+}
+#block-views-exp-search-ads-search-page,
+#block-jump-menu-jump-menu-m-menu-browse-classifi {
+  width: 100%;
+}
+/* CTools Jump Menu */
+#block-jump-menu-jump-menu-m-menu-browse-classifi {
+/*   width: 140px; */
+  h2.block-title {
+    display: none;
+  }
+  #edit-jump #ctools-jump-menu, #edit-jump--2 {
+/*     width: 135px; */
+    .d-1 {
+      font-weight: bolder;
+      font-size: 1.4em;
+    }
+    .d-2 {
+      line-height: 1em;
+    }
+  }
+}
+
+/******************* SEARCH Blocks *********************/
+
+/* search block */
+#views-exposed-form-search-ads-search-page,
+#views-exposed-form-search-ads-search-page--2 {
+  color: @white;
+  text-align: center;
+  .border-radius;
+  background-color: @classified_dark;
+  padding: 4px 1px;
+  #edit-search-ads, #edit-search-ads--2 {
+/*     width: 130px; */
+    .center;
+  }
+  .views-exposed-widget {
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+    float: none;
+  }
+}
+
+/*
+#region-user-second {
+  #edit-search-ads-wrapper,
+  #edit-search-ads--2-wrapper {
+    color: @white;
+    text-align: center;
+  }
+}
+*/
+
 
 /* submit ad block */
 
@@ -626,23 +600,6 @@ body {
   }
 }
 
-/* CTools Jump Menu */
-#block-jump-menu-jump-menu-m-menu-browse-classifi {
-  width: 140px;
-  h2 .block-title {
-    display: none;
-  }
-  #edit-jump #ctools-jump-menu, #edit-jump--2 {
-    width: 135px;
-    .d-1 {
-      font-weight: bolder;
-      font-size: 1.4em;
-    }
-    .d-2 {
-      line-height: 1em;
-    }
-  }
-}
 
 /*****************  DISPLAY ADS  *****************/
 
@@ -780,8 +737,8 @@ body {
   }
 }
 
-/******************* SEARCH Blocks *********************/
 /* views exposed classified SEARCH */
+/*
 #region-content #views-exposed-form-search-ads-search-page {
   background-color: @classified_med;
   color: @white;
@@ -797,32 +754,7 @@ body {
     width: 300px;
   }
 }
-/* search block */
-#views-exposed-form-search-ads-search-page,
-#views-exposed-form-search-ads-search-page--2 {
-  color: @white;
-  text-align: center;
-  .border-radius;
-  background-color: @classified_dark;
-  padding: 4px 1px;
-  #edit-search-ads, #edit-search-ads--2 {
-    width: 130px;
-    .center;
-  }
-  .views-exposed-widget {
-    padding: 0px;
-    margin: 0px;
-    float: none;
-  }
-}
-
-#region-user-second {
-  #edit-search-ads-wrapper,
-  #edit-search-ads--2-wrapper {
-    color: @white;
-    text-align: center;
-  }
-}
+*/
 
 
 .view-display-id-all_classified_listing_jump_list {
@@ -957,11 +889,13 @@ ul.pw-classified-nav-list, .menu-name-menu-pennywise-digital-edition ul, .block-
 /* } */
 
 /*  Slideshow BLOCK */
+/*
  .view-editorial-slideshow  {
   #views_slideshow_cycle_main_editorial_slideshow-editorial_slideshow_block {
     width: 340px;
   }
 }
+*/
 /*
     background-color: @lightsand;
   }
@@ -1273,6 +1207,7 @@ ul.pager {
     }
   }
 
+/*
 #main-content {
   #views-exposed-form-search-ads-search-page,
   #views-exposed-form-search-ads-search-page--2 {
@@ -1287,71 +1222,9 @@ ul.pager {
   }
 }
 
-.view-display-id-full_list_page {
-  width: 400px;
-  a {
-    text-decoration: none;
-  }
-  ul.stem_class {
-    width: 400px;
-/*     padding: 10px; */
-/*     margin: auto; */
-/*     .cols(3); */
-    li {
-      width: 400px;
-      margin: 10px 0 5px 5px;
-      /* border: 1pt solid @classified_light; */
-      background-color: lighten(@classified_light, 5);
-      .border-radius;
-      padding: 5px;
-      text-align: center;
-      a {
-        width: 100%;
-        border-right: 5pt;
-        border-color: @classified_light;
-        margin: 0;
-        padding: 0 5px;
-        color: @classified_dark;
-        font-size: 1.4em;
-/*         line-height: 1.2em; */
-      }
-       a:hover {
-         background: @white;
-         border-color: @classified_med;
-       }
-    }
-    ul.branch_class{
-/*       background-color: @classified_light; */
-      line-height: 1em;
-      margin: 0;
-      li {
-        background-color: none;
-        border: none;
-        margin: 0 0 0 20px;
-        padding: 0;
-        width: 90%;
-        list-style: circle;
-        list-style-position: outside;
-        line-height: inherit;
-        text-align: left;
-        a {
-          border-left: 2pt;
-          font-weight: 200;
-          border: 0;
-          padding: 2px 8px;
-          width: 100%;
-          line-height: inherit;
-          color: @classified_med;
-          font-size: .9em;
-/*           line-height: 1em; */
-       }
-     }
-    }
-
-  }
-}
-
+*/
 /* Main Sections BLOCK */
+/*
 .view-section-pages, .view-search-ads {
    li.views-row-even, .views-row-odd {
       background-color: @lightsand;
@@ -1360,6 +1233,7 @@ ul.pager {
       background-color: @sand;
     }
 }
+*/
 
 .classified-full_section-links {
   background-color: @white;
