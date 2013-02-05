@@ -298,6 +298,7 @@ function pw_editorial_field_default_fields() {
           9 => '9',
           10 => 0,
           11 => 0,
+          12 => 0,
         ),
       ),
       'translatable' => '0',
@@ -502,7 +503,7 @@ function pw_editorial_field_default_fields() {
   $fields['node-article-field_image'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '5',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_image',
@@ -1491,7 +1492,7 @@ function pw_editorial_field_default_fields() {
   $fields['node-attachment-field_image'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '5',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_image',
@@ -1924,7 +1925,7 @@ function pw_editorial_field_default_fields() {
   $fields['node-page-field_image'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '5',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_image',

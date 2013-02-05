@@ -481,6 +481,7 @@ function pw_display_field_default_fields() {
           9 => '9',
           10 => 0,
           11 => 0,
+          12 => 0,
         ),
       ),
       'translatable' => '0',
@@ -1279,7 +1280,9 @@ with <strong>Page 30</strong>.<br>
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        ),
         'type' => 'options_select',
         'weight' => '5',
       ),

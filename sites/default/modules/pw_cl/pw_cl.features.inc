@@ -137,6 +137,20 @@ function pw_cl_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'free' => array(
+      'name' => t('Free Ad'),
+      'base' => 'node_content',
+      'description' => t('Free ad'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => t('Please use 15 - 25 words to describe your one personal item per Free for Free ad.
+<ul>
+<li>Puppies FREE to good home
+<li>FREE pink floral couch
+<li>FREE 2 wheel bike will fit 8 year old 
+</ul>
+Please don\'t post services in FREE for FREE such as free estimates, no free rides to polling station, or buy 3 get 1 free. '),
+    ),
   );
   return $items;
 }

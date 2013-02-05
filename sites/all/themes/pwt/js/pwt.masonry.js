@@ -8,7 +8,7 @@
     var width = $(window).width();
     if (width >= 600) {
       width = 280;
-      console.log(width, 'Masonry width');
+      // console.log(width, 'Masonry width');
     }
 //    if ( width == '') {
 //      console.log(width, 'No Masonry width');
@@ -16,11 +16,9 @@
 //    }
     else if (width <= 600 || width >= 280) {
       width = width -60;
-      console.log(width, 'Masonry width');
     }
     else {
       width = width -20;
-      console.log(width, ' - Variable Masonry width');
     };
 
     // Classifieds

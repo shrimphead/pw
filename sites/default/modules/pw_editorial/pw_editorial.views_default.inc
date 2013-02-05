@@ -1179,7 +1179,7 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['footer']['php']['table'] = 'views';
   $handler->display->display_options['footer']['php']['field'] = 'php';
   $handler->display->display_options['footer']['php']['php_output'] = '<?php GLOBAL $base_path; GLOBAL $base_root; $link =  $base_root . $base_path . "editorial"; ?><a href=\'<?php echo $link;?>\' class=\' editorial-slideshow-link editorial-slideshow-footer-link\'>Read All >> </a>';
-  /* Field: Field: Header Image */
+  /* Field: Field: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -1266,7 +1266,7 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Sort criterion: Field: Header Image (field_image:fid) */
+  /* Sort criterion: Field: Image (field_image:fid) */
   $handler->display->display_options['sorts']['field_image_fid']['id'] = 'field_image_fid';
   $handler->display->display_options['sorts']['field_image_fid']['table'] = 'field_data_field_image';
   $handler->display->display_options['sorts']['field_image_fid']['field'] = 'field_image_fid';
@@ -1301,7 +1301,7 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['empty']['view']['empty'] = TRUE;
   $handler->display->display_options['empty']['view']['view_to_insert'] = 'editorial_slideshow:block_1';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Field: Header Image */
+  /* Field: Field: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -1368,7 +1368,7 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'article' => 'article',
   );
-  /* Filter criterion: Field: Header Image (field_image:fid) */
+  /* Filter criterion: Field: Image (field_image:fid) */
   $handler->display->display_options['filters']['field_image_fid']['id'] = 'field_image_fid';
   $handler->display->display_options['filters']['field_image_fid']['table'] = 'field_data_field_image';
   $handler->display->display_options['filters']['field_image_fid']['field'] = 'field_image_fid';
@@ -1412,7 +1412,7 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['row_class'] = 'editorial-listing-block';
   $handler->display->display_options['row_plugin'] = 'node';
-  /* Field: Field: Header Image */
+  /* Field: Field: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -1565,7 +1565,7 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Field: Header Image */
+  /* Field: Field: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -1768,7 +1768,7 @@ function pw_editorial_views_default_views() {
     'edit_node' => 0,
     'comment_count' => 0,
   );
-  /* Field: Field: Header Image */
+  /* Field: Field: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -1891,7 +1891,7 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Field: Header Image (field_image:fid) */
+  /* Sort criterion: Field: Image (field_image:fid) */
   $handler->display->display_options['sorts']['field_image_fid']['id'] = 'field_image_fid';
   $handler->display->display_options['sorts']['field_image_fid']['table'] = 'field_data_field_image';
   $handler->display->display_options['sorts']['field_image_fid']['field'] = 'field_image_fid';
@@ -1986,7 +1986,7 @@ function pw_editorial_views_default_views() {
     'title' => 0,
     'field_link' => 0,
   );
-  /* Field: Field: Header Image */
+  /* Field: Field: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -2026,7 +2026,7 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['view_node']['text'] = 'More';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Field: Header Image (field_image:fid) */
+  /* Sort criterion: Field: Image (field_image:fid) */
   $handler->display->display_options['sorts']['field_image_fid']['id'] = 'field_image_fid';
   $handler->display->display_options['sorts']['field_image_fid']['table'] = 'field_data_field_image';
   $handler->display->display_options['sorts']['field_image_fid']['field'] = 'field_image_fid';
@@ -2093,7 +2093,7 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['header']['area']['content'] = '<h2 class=\'block-title editorial-highlight-box editorial-highlight-box-link\'><a href=\'http://pennywiseads.com/editorial\'>Community Editorials<a></h2>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Field: Header Image */
+  /* Field: Field: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -2132,7 +2132,7 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['text'] = 'EDIT';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Field: Header Image (field_image:fid) */
+  /* Sort criterion: Field: Image (field_image:fid) */
   $handler->display->display_options['sorts']['field_image_fid']['id'] = 'field_image_fid';
   $handler->display->display_options['sorts']['field_image_fid']['table'] = 'field_data_field_image';
   $handler->display->display_options['sorts']['field_image_fid']['field'] = 'field_image_fid';
@@ -2420,7 +2420,7 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['fields']['field_area_taxonomy']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_area_taxonomy']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_area_taxonomy']['delta_offset'] = '0';
-  /* Field: Field: Header Image */
+  /* Field: Field: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -2433,6 +2433,7 @@ function pw_editorial_views_default_views() {
     'image_style' => 'medium',
     'image_link' => '',
   );
+  $handler->display->display_options['fields']['field_image']['delta_limit'] = '5';
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Field: User: First Name */
   $handler->display->display_options['fields']['field_first_name']['id'] = 'field_first_name';
@@ -2472,7 +2473,7 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['fields']['contact']['element_wrapper_class'] = '.contact-button';
   $handler->display->display_options['fields']['contact']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['contact']['text'] = 'Contact';
-  /* Field: Field: Phone Number */
+  /* Field: Field: Phone */
   $handler->display->display_options['fields']['field_phone']['id'] = 'field_phone';
   $handler->display->display_options['fields']['field_phone']['table'] = 'field_data_field_phone';
   $handler->display->display_options['fields']['field_phone']['field'] = 'field_phone';

@@ -468,6 +468,7 @@ function pw_cl_field_default_fields() {
           9 => '9',
           10 => 0,
           11 => 0,
+          12 => 0,
         ),
       ),
       'translatable' => '0',
@@ -511,7 +512,7 @@ function pw_cl_field_default_fields() {
   $fields['node-ad_s-field_image'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '5',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_image',
@@ -1987,6 +1988,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
           9 => '9',
           10 => 0,
           11 => 0,
+          12 => 0,
         ),
       ),
       'translatable' => '0',
@@ -2042,7 +2044,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
   $fields['node-classified-field_image'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '5',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_image',
@@ -2659,6 +2661,456 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
     ),
   );
 
+  // Exported field: 'node-free-field_body_text'.
+  $fields['node-free-field_body_text'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_body_text',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'free',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Please use 15 - 25 words (about 100 characters) to describe your one personal item per Free for Free ad.
+<ul><li>Puppies FREE to good home
+<li>FREE pink floral couch
+<li>FREE 2 wheel bike will fit 8 year old 
+</ul>
+Please don\'t post services in FREE for FREE such as free estimates, no free rides to polling station, or buy 3 get 1 free. ',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '2',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '3',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_body_text',
+      'label' => 'Ad Copy',
+      'required' => 1,
+      'settings' => array(
+        'custom_add_another' => '',
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'maxlength_js' => '100',
+          'maxlength_js_enforce' => 1,
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+          'maxlength_js_truncate_html' => 0,
+          'rows' => '5',
+        ),
+        'type' => 'text_textarea',
+        'weight' => '0',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-free-field_contact_seller'.
+  $fields['node-free-field_contact_seller'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_contact_seller',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          'email' => 'Email me for more details.',
+          'phone' => 'Phone me for more details.',
+          'none' => 'None. All relevant information is in ad.',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'free',
+      'default_value' => array(
+        0 => array(
+          'value' => 'email',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => 'What\'s the best way to contact you about the item?
+PennywiseAds can create an anonymous email link, highlight your contact phone number.
+In addition you will be sent an email when anyone comments on your ad.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '10',
+        ),
+        'full' => array(
+          'label' => 'inline',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '10',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '2',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_contact_seller',
+      'label' => 'Contact Details',
+      'required' => 1,
+      'settings' => array(
+        'custom_add_another' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        ),
+        'type' => 'options_buttons',
+        'weight' => '6',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-free-field_image'.
+  $fields['node-free-field_image'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_image',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'image',
+      'settings' => array(
+        'default_image' => 0,
+        'storage_class' => array(
+          'class_id' => '1',
+          'current_class_id' => '1',
+        ),
+        'uri_scheme' => 'public',
+        'user_role_field' => array(
+          1 => 0,
+          2 => 0,
+          3 => '3',
+          4 => 0,
+          5 => '5',
+          6 => '6',
+          7 => '7',
+          8 => 0,
+          9 => '9',
+          10 => '10',
+        ),
+      ),
+      'translatable' => '0',
+      'type' => 'image',
+    ),
+    'field_instance' => array(
+      'bundle' => 'free',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => 'classified-list-style',
+          ),
+          'type' => 'image',
+          'weight' => '0',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => 'classified-list-style',
+          ),
+          'type' => 'image',
+          'weight' => '1',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '0',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_image',
+      'label' => 'Image',
+      'required' => 0,
+      'settings' => array(
+        'alt_field' => 0,
+        'custom_add_another' => '',
+        'default_image' => 0,
+        'file_directory' => 'free',
+        'file_extensions' => 'png gif jpg jpeg',
+        'max_filesize' => '2MB',
+        'max_resolution' => '',
+        'min_resolution' => '',
+        'title_field' => 0,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'imagefield_crop',
+        'settings' => array(
+          'collapsible' => '2',
+          'croparea' => '500x500',
+          'enforce_minimum' => 1,
+          'enforce_ratio' => 1,
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+          'preview_image_style' => 'thumbnail',
+          'progress_indicator' => 'throbber',
+          'resolution' => '200x150',
+        ),
+        'type' => 'imagefield_crop_widget',
+        'weight' => '1',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-free-field_price_free'.
+  $fields['node-free-field_price_free'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_price_free',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          'Free' => 'Free',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'free',
+      'default_value' => array(
+        0 => array(
+          'value' => 'Free',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => '1',
+        ),
+        'full' => array(
+          'label' => 'inline',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => '0',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '1',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_price_free',
+      'label' => 'Price',
+      'required' => 1,
+      'settings' => array(
+        'custom_add_another' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        ),
+        'type' => 'options_buttons',
+        'weight' => '5',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-free-field_tags'.
+  $fields['node-free-field_tags'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_tags',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'tid' => array(
+          'columns' => array(
+            'tid' => 'tid',
+          ),
+          'table' => 'taxonomy_term_data',
+        ),
+      ),
+      'indexes' => array(
+        'tid' => array(
+          0 => 'tid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'taxonomy',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'classification',
+            'parent' => 0,
+          ),
+        ),
+      ),
+      'translatable' => '0',
+      'type' => 'taxonomy_term_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'free',
+      'default_value' => array(
+        0 => array(
+          'tid' => '131',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 11,
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_tags',
+      'label' => 'Section',
+      'required' => 0,
+      'settings' => array(
+        'custom_add_another' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        ),
+        'type' => 'options_select',
+        'weight' => '7',
+      ),
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('<a href=\'mailto:info@pennywiseads.com\'>Click Here To submit <strong>Free for Free</strong> ads</a>');
@@ -2705,6 +3157,7 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
   t('Classified Ad Type');
   t('Confirm your ad submission.');
   t('Confirmation');
+  t('Contact Details');
   t('Duration');
   t('Email');
   t('Image');
@@ -2717,12 +3170,21 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
 <strong>Book 2 weeks receive your 3rd week FREE!</strong>');
   t('Phone');
   t('Phone Number');
+  t('Please use 15 - 25 words (about 100 characters) to describe your one personal item per Free for Free ad.
+<ul><li>Puppies FREE to good home
+<li>FREE pink floral couch
+<li>FREE 2 wheel bike will fit 8 year old 
+</ul>
+Please don\'t post services in FREE for FREE such as free estimates, no free rides to polling station, or buy 3 get 1 free. ');
   t('Price');
   t('Publish Date');
   t('Rate');
   t('Section');
   t('This email is for verification purposes and a receipts only, and we will not send you any unsolicited emails or pass your email to any 3rd party.');
   t('Use the override to \'go through the motions\' of checking the ads but do not save the ads.');
+  t('What\'s the best way to contact you about the item?
+PennywiseAds can create an anonymous email link, highlight your contact phone number.
+In addition you will be sent an email when anyone comments on your ad.');
 
   return $fields;
 }

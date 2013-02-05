@@ -323,6 +323,66 @@ body {
   .center;
 }
 
+/* hide node previews */
+.preview {
+  h3 { display: none; }
+  .node-unpublished.node-teaser.node-preview {
+    display: none;
+  }
+}
+/* FREE NODES */
+.page-node-add-free,
+.node-type-free.page-node-edit {
+  .preview {
+    .node-free.node-unpublished.node-preview {
+      margin: 25px;
+      padding: 25px;
+
+    }
+  }
+  .node-preview.view-mode-full {
+    background-color: @lightsand;
+    padding: 25px;
+  }
+  #free-node-form {
+    border-top: 5px solid @classified_light;
+    margin-top: 25px;
+    padding: 35px;
+    background-color: @lightsand;
+    .border-radius;
+    #edit-field-price-free {
+      background-color: @classified_light;
+      padding: 2px 20px 3px 20px;
+      .border-radius;
+    }
+  }
+  #comment-form {
+    width: 300px;
+  }
+  #edit-field-tags {
+    display: none;
+  }
+  .imagefield-crop-preview {
+    padding: 8px;
+    .border-radius;
+    img {
+      margin: 10px auto;
+      display: block;
+    }
+  }
+  #edit-actions {
+    .center;
+    padding: 10px;
+    .border-radius;
+    background-color: @darksand;
+  }
+}
+
+.page-node.node-type-free {
+  h1#page-title {
+    display: none;
+  }
+}
 /********** HIDE ON MOBILE *****************/
 .pw-contact-local_phone-wrapper,
 .pw-contact-fax-wrapper,
@@ -333,6 +393,7 @@ body {
  {
   display: none;
 }
+
 
 #zone-postscript,
 #region-header-second,

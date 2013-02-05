@@ -48,7 +48,7 @@ function inline_entity_form_autocomplete($entity_type, $field_name, $bundle, $st
     return MENU_ACCESS_DENIED;
   }
 
-  $matches = array();
+  $results = array();
   if ($field['type'] == 'commerce_product_reference') {
     $match_operator = strtolower($controller->getSetting('match_operator'));
     $products = commerce_product_match_products($field, $instance, $string, $match_operator, array(), 10, TRUE);
@@ -417,7 +417,12 @@ function inline_entity_form_field_widget_form(&$form, &$form_state, $field, $ins
 
   // Mark the parent form submit button with a special flag that will trigger
   // a save of inline forms and entity weights.
-  $form['actions']['submit']['#ief_submit_all'] = TRUE;
+  if (!empty($form['submit'])) {
+    $form['submit']['#ief_submit_all'] = TRUE;
+  }
+  elseif (!empty($form['actions']['submit'])) {
+    $form['actions']['submit']['#ief_submit_all'] = TRUE;
+  }
 
   // Initialize the IEF array in form state.
   if (empty($form_state['inline_entity_form'][$ief_id])) {
@@ -565,7 +570,7 @@ function inline_entity_form_field_widget_form(&$form, &$form_state, $field, $ins
         );
 
         // Make sure entity_access is not checked for unsaved entities.
-        $entity_id = entity_id($controller->entityType(), $entity);
+        list($entity_id) = entity_extract_ids($controller->entityType(), $entity);
         if (empty($entity_id) || entity_access('update', $controller->entityType(), $entity)) {
           $row['actions']['ief_entity_edit'] = array(
             '#type' => 'submit',
@@ -718,7 +723,8 @@ function inline_entity_form_field_widget_form(&$form, &$form_state, $field, $ins
         // Hide the cancel button if the reference field is required but
         // contains no values. That way the user is forced to create an entity.
         if (!$controller->getSetting('allow_existing') && $instance['required']
-          && empty($form_state['inline_entity_form'][$ief_id]['entities'])) {
+          && empty($form_state['inline_entity_form'][$ief_id]['entities'])
+          && count($settings['create_bundles']) == 1) {
           $element['form']['actions']['ief_add_cancel']['#access'] = FALSE;
         }
       }
@@ -1088,7 +1094,7 @@ function inline_entity_form_remove_confirm($form, &$form_state) {
   $status = $controller->removeFormSubmit($remove_form, $form_state);
   if ($status == IEF_ENTITY_UNLINK_DELETE) {
     $settings = $form_state['inline_entity_form'][$ief_id]['settings'];
-    $entity_id = entity_id($settings['entity_type'], $remove_form['#entity']);
+    list($entity_id) = entity_extract_ids($settings['entity_type'], $remove_form['#entity']);
     $form_state['inline_entity_form'][$ief_id]['delete'][] = $entity_id;
     unset($form_state['inline_entity_form'][$ief_id]['entities'][$delta]);
   }
@@ -1117,9 +1123,11 @@ function inline_entity_form_open_form($form, &$form_state) {
   $form_values = drupal_array_get_nested_value($form_state['values'], $parents);
 
   $form_state['inline_entity_form'][$ief_id]['form'] = $form_state['triggering_element']['#ief_form'];
-  $form_state['inline_entity_form'][$ief_id]['form settings'] = array(
-    'bundle' => $form_values['actions']['bundle'],
-  );
+  if (!empty($form_values['actions']['bundle'])) {
+    $form_state['inline_entity_form'][$ief_id]['form settings'] = array(
+      'bundle' => $form_values['actions']['bundle'],
+    );
+  }
 }
 
 /**
@@ -1233,7 +1241,9 @@ function inline_entity_form_field_attach_submit($parent_entity_type, $parent_ent
         if ($item['needs_save']) {
           $controller->save($item['entity'], $context);
         }
-        $entity_ids[] = array($values['settings']['column'] => entity_id($entity_type, $item['entity']));
+
+        list($entity_id) = entity_extract_ids($entity_type, $item['entity']);
+        $entity_ids[] = array($values['settings']['column'] => $entity_id);
       }
       // Set the list of ids as the field value.
       $parent_entity->{$field_name}[$langcode] = $entity_ids;
@@ -1277,8 +1287,8 @@ function inline_entity_form_create_entity($entity_type, $bundle, $language = NUL
     $default_values[$bundle_key] = $bundle;
   }
   // Set the language if we have both a language key and a language value.
-  if (isset($language) && !empty($info['entity keys']['language'])) {
-    $language_key = $info['entity keys']['language'];
+  if (isset($language) && !empty($entity_info['entity keys']['language'])) {
+    $language_key = $entity_info['entity keys']['language'];
     $default_values[$language_key] = $language;
   }
 
@@ -1332,7 +1342,7 @@ function theme_inline_entity_form_entity_table($variables) {
   $rows = array();
   foreach (element_children($form) as $key) {
     $entity = $form[$key]['#entity'];
-    $entity_id = entity_id($entity_type, $entity);
+    list($entity_id) = entity_extract_ids($entity_type, $entity);
     // Many field formatters (such as the ones for files and images) need
     // certain data that might be missing on unsaved entities because the field
     // load hooks haven't run yet. Because of that, those hooks are invoked

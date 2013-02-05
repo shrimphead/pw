@@ -1057,6 +1057,20 @@ echo date(\'now\');
         10 => 12,
         11 => 3,
       ),
+      'free' => array(
+        0 => 1,
+        1 => 4,
+        2 => 2,
+        3 => 8,
+        4 => 9,
+        5 => 11,
+        6 => 5,
+        7 => 6,
+        8 => 7,
+        9 => 10,
+        10 => 12,
+        11 => 3,
+      ),
     ),
     'view_own' => array(
       'adworks_file' => array(
@@ -1114,6 +1128,11 @@ echo date(\'now\');
         1 => 6,
         2 => 3,
       ),
+      'free' => array(
+        0 => 2,
+        1 => 5,
+        2 => 3,
+      ),
     ),
     'per_node' => array(
       'adworks_file' => 0,
@@ -1125,6 +1144,7 @@ echo date(\'now\');
       'pw_digital' => 0,
       'ad_s' => 0,
       'display_ads' => 0,
+      'free' => 0,
     ),
     'priority' => array(
       'adworks_file' => '0',
@@ -1136,6 +1156,7 @@ echo date(\'now\');
       'pw_digital' => '0',
       'ad_s' => '0',
       'display_ads' => '-10',
+      'free' => '0',
     ),
   );
   $export['content_access_settings'] = $strongarm;
@@ -2398,17 +2419,16 @@ echo date(\'now\');
     37 => 15,
     38 => 14,
     39 => 13,
-    40 => 12,
-    41 => 11,
-    42 => 10,
-    43 => 8,
-    44 => 7,
-    45 => 6,
-    46 => 5,
-    47 => 4,
-    48 => 3,
-    49 => 2,
-    50 => 1,
+    40 => 11,
+    41 => 10,
+    42 => 8,
+    43 => 7,
+    44 => 6,
+    45 => 5,
+    46 => 4,
+    47 => 3,
+    48 => 2,
+    49 => 1,
   );
   $export['menu_masks'] = $strongarm;
 
@@ -3772,7 +3792,7 @@ ad/*';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_403';
-  $strongarm->value = 'toboggan/denied';
+  $strongarm->value = '';
   $export['site_403'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -4484,7 +4504,7 @@ ad/*';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'user_email_verification';
-  $strongarm->value = FALSE;
+  $strongarm->value = 1;
   $export['user_email_verification'] = $strongarm;
 
   $strongarm = new stdClass();

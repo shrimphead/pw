@@ -152,6 +152,9 @@
   width: 300px;
 }
 /* Display Ad Node Form */
+.node-display_ads-form #edit-field-tags-und {
+  height: 250px;
+}
 .node-display_ads-form #field-ad-copy-add-more-wrapper {
   width: 100%;
 }

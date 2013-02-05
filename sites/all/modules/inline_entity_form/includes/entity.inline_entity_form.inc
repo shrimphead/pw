@@ -228,7 +228,7 @@ class EntityInlineEntityFormController {
     $entity = $entity_form['#entity'];
 
     if (!empty($info['fieldable'])) {
-      field_attach_form_validate($this->entityType, $entity, $entity_form, $form_state, LANGUAGE_NONE);
+      field_attach_form_validate($this->entityType, $entity, $entity_form, $form_state);
     }
   }
 
@@ -303,7 +303,7 @@ class EntityInlineEntityFormController {
    */
   public function removeForm($remove_form, &$form_state) {
     $entity = $remove_form['#entity'];
-    $entity_id = entity_id($this->entityType, $entity);
+    list($entity_id) = entity_extract_ids($this->entityType, $entity);
     $entity_label = entity_label($this->entityType, $entity);
 
     $remove_form['message'] = array(
@@ -337,7 +337,7 @@ class EntityInlineEntityFormController {
    */
   public function removeFormSubmit($remove_form, &$form_state) {
     $entity = $remove_form['#entity'];
-    $entity_id = entity_id($this->entityType, $entity);
+    list($entity_id) = entity_extract_ids($this->entityType, $entity);
     $form_values = drupal_array_get_nested_value($form_state['values'], $remove_form['#parents']);
     // This entity hasn't been saved yet, we can just unlink it.
     if (empty($entity_id)) {
