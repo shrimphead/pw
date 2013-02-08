@@ -119,6 +119,18 @@ $schema['adp'] = array(
       'length' => '1024',
       'not null' => TRUE,
     ),
+    'phone' => array(
+      'description' => 'Phone',
+      'type' => 'varchar',
+      'length' => '1024',
+      'not null' => FALSE,
+    ),
+    'email' => array(
+      'description' => 'Email.',
+      'type' => 'varchar',
+      'length' => '1024',
+      'not null' => FALSE,
+    ),
   ),
   'primary key' => array('nid'),
 );
@@ -126,14 +138,27 @@ $schema['adp'] = array(
 }
 
 /**
-* Adds a Card Name field to the ADP table.
+* Adds User Phone to ADP table.
 */
+function ad_payment_update_7104() {
+  $field = array(
+      'type' => 'varchar',
+      'length' => 1024,
+      'not null' => FALSE,
+/*       'description' => 'Phone' */
+  );
+  db_add_field('adp', 'phone', $field);
+}
 
-//function ad_payment_update_7100() {
-//  db_add_field('adp', 'card_name', array(
-//    'type' => 'varchar',
-//    'length' => 256,
-//    'not null' => TRUE,
-//    'description' => 'Name as it appears on card.')
-//  );
-//}
+/**
+* Adds User Email to ADP table.
+*/
+function ad_payment_update_7105() {
+  $field = array(
+      'type' => 'varchar',
+      'length' => 1024,
+      'not null' => FALSE,
+/*       'description' => 'Email' */
+  );
+  db_add_field('adp', 'email', $field);
+}

@@ -53,24 +53,21 @@ function pw_cl_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Ad Group',
-    'weight' => '1',
+    'weight' => '0',
     'children' => array(
-      0 => 'title',
-      1 => 'path',
-      2 => 'group_ad_review',
-      3 => 'group_ad',
-      4 => 'group_payment',
-      5 => 'group_upgrade',
+      0 => 'group_ad',
+      1 => 'group_payment',
+      2 => 'group_upgrade',
     ),
     'format_type' => 'multipage-group',
     'format_settings' => array(
       'label' => 'Ad Group',
       'instance_settings' => array(
         'classes' => '',
-        'page_header' => '1',
-        'page_counter' => '0',
+        'page_header' => '3',
+        'page_counter' => '2',
         'move_button' => '1',
-        'move_additional' => '1',
+        'move_additional' => '0',
       ),
     ),
   );
@@ -145,7 +142,7 @@ function pw_cl_field_group_info() {
   $field_group->parent_name = 'group_ad_grouping';
   $field_group->data = array(
     'label' => 'CREATE AD',
-    'weight' => '1',
+    'weight' => '0',
     'children' => array(
       0 => 'group_free_for_free',
       1 => 'group_ad_copy_block',
@@ -155,13 +152,12 @@ function pw_cl_field_group_info() {
     ),
     'format_type' => 'multipage',
     'format_settings' => array(
-      'label' => 'CREATE AD',
+      'formatter' => 'no-start',
       'instance_settings' => array(
-        'required_fields' => 1,
-        'classes' => '',
         'description' => '',
+        'classes' => '',
+        'required_fields' => 1,
       ),
-      'formatter' => 'start',
     ),
   );
   $export['group_ad|node|ad_s|form'] = $field_group;
@@ -360,7 +356,7 @@ function pw_cl_field_group_info() {
   $field_group->parent_name = 'group_upgrade';
   $field_group->data = array(
     'label' => 'optional_image_block',
-    'weight' => '17',
+    'weight' => '1',
     'children' => array(
       0 => 'field_image',
     ),
@@ -392,7 +388,7 @@ function pw_cl_field_group_info() {
   $field_group->parent_name = 'group_upgrade';
   $field_group->data = array(
     'label' => 'optional liveload block',
-    'weight' => '18',
+    'weight' => '2',
     'children' => array(
       0 => 'field_promote',
     ),
@@ -424,7 +420,7 @@ function pw_cl_field_group_info() {
   $field_group->parent_name = 'group_upgrade';
   $field_group->data = array(
     'label' => 'Optional notes block',
-    'weight' => '19',
+    'weight' => '3',
     'children' => array(
       0 => 'field_notes',
     ),
@@ -491,22 +487,27 @@ function pw_cl_field_group_info() {
   $field_group->parent_name = 'group_ad_grouping';
   $field_group->data = array(
     'label' => 'PAYMENT',
-    'weight' => '4',
+    'weight' => '2',
     'children' => array(
       0 => 'field_price',
-      1 => 'field_email',
-      2 => 'field_phone',
-      3 => 'field_address',
+      1 => 'field_ad_details',
+      2 => 'field_email',
+      3 => 'field_phone',
+      4 => 'field_address',
+      5 => 'title',
+      6 => 'path',
+      7 => 'redirect',
+      8 => 'group_review',
+      9 => 'group_user_details',
     ),
     'format_type' => 'multipage',
     'format_settings' => array(
-      'label' => 'PAYMENT',
-      'instance_settings' => array(
-        'required_fields' => 1,
-        'classes' => '',
-        'description' => '',
-      ),
       'formatter' => 'no-start',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => '',
+        'required_fields' => 1,
+      ),
     ),
   );
   $export['group_payment|node|ad_s|form'] = $field_group;
@@ -612,7 +613,7 @@ function pw_cl_field_group_info() {
   $field_group->parent_name = 'group_ad_grouping';
   $field_group->data = array(
     'label' => 'OPTIONS',
-    'weight' => '3',
+    'weight' => '1',
     'children' => array(
       0 => 'group_opt_image_block',
       1 => 'group_opt_liveload_block',
@@ -620,13 +621,12 @@ function pw_cl_field_group_info() {
     ),
     'format_type' => 'multipage',
     'format_settings' => array(
-      'label' => 'OPTIONS',
-      'instance_settings' => array(
-        'required_fields' => 1,
-        'classes' => '',
-        'description' => '',
-      ),
       'formatter' => 'no-start',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => '',
+        'required_fields' => 1,
+      ),
     ),
   );
   $export['group_upgrade|node|ad_s|form'] = $field_group;

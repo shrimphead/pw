@@ -327,6 +327,12 @@ function pennywise_block_info() {
     'visibility' => 0,
     'cache' => 8,
   );
+  $blocks['submit_editorial'] = array(
+    'info'    => t('Submit Editorial'),
+    'status'  => FALSE,
+    'visibility' => 0,
+    'cache' => 8,
+  );
 
   return $blocks;
 }
@@ -405,6 +411,11 @@ function pennywise_block_view($delta = '') {
         array('data' => $k, 'id' => 'k-edtion'),
       );
       $content = theme('item_list', array('items' => $items, 'attributes' => array('class' => 'online-edition', 'id' => 'pw-edition')));
+      break;
+
+    case 'submit_editorial':
+      $subject    = '';
+      $content    = l('Submit Editorial', 'editorial/submit', array('attributes' => array('id' => 'editorial-submit-link')));
       break;
 
     case 'pw_tmtv':

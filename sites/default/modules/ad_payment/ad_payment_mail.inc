@@ -11,15 +11,16 @@
 */
 function ad_payment_send_email($email_type, $details = NULL) {
   //dpm($details);
-  global $user;
-
-  // Set defaults
+//  global $user;
+//  dpm('DETAILS');
+//  dpm($details);
+//  // Set defaults
   $language = language_default();
   $send = TRUE;
 
   switch ($email_type) {
     case 'receipt':  // Customer Receipt
-      $to = $user->mail;
+      $to = $details['values']['user']['email'];
       $from = variable_get('pw_email', 'k2@pennywiseads.com');
       $result = drupal_mail('ad_payment', 'receipt', $to, $language, $details, $from, $send);
 
@@ -35,7 +36,7 @@ function ad_payment_send_email($email_type, $details = NULL) {
     case 'inhouse': // Inhouse Receipt
     default:
       $to = variable_get('pw_email_inhouse_receipt', 'info@pennywiseads.com');
-      $from = $user->mail;  //variable_get('pw_email', 'info@pennywiseads.com');
+      $from = $details['values']['user']['email'];
       $result = drupal_mail('ad_payment', 'inhouse', $to, $language, $details, $from, $send);
 
       if ($result['result'] == TRUE) {
@@ -132,7 +133,6 @@ function email_receipt_body($message = NULL) {
   $area_count = $ad['area_count'];
 
   $rate = $ad['rate'];
-  $rate_name = $rate['rate_name'];
 
   $section_count = $ad['section_count'];
   $section = $ad['sections'];
@@ -173,7 +173,7 @@ $ad_copy
 
 PAYMENT INFO
 Submitted by: $name
-Rate: $rate_name
+Rate: $rate
 
 Subtotal: $$subtotal $discount
 Taxes:    $$taxes

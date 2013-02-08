@@ -227,8 +227,8 @@ function ad_payment_form_ad_s_node_form_alter(&$form, &$form_state, $form_id) {
   $form['actions']['save']['#value']  = 'Submit Ad';
 
   // Insert CC Validation.
-  $form['#validate'][] = '_ad_payment_cc_validate';
-  $form['#submit'][]   = '_ad_payment_cc_submit';
+  $form['#validate'][] = 'ad_payment_cc_validate';
+  $form['#submit'][]   = 'ad_payment_cc_submit';
 
   // Float First 2 Groups.
   $form['#fieldgroups']['group_ad']->weight = -20;

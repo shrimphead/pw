@@ -2345,6 +2345,8 @@ function pw_admin_views_default_views() {
   $handler->display->display_options['fields']['card_name']['field'] = 'card_name';
   $handler->display->display_options['fields']['card_name']['label'] = '';
   $handler->display->display_options['fields']['card_name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['card_name']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['card_name']['alter']['text'] = '[card_name] <br> [name]';
   $handler->display->display_options['fields']['card_name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['card_name']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['card_name']['decrypt_aes'] = 1;
@@ -2447,6 +2449,22 @@ function pw_admin_views_default_views() {
   $handler->display->display_options['fields']['uid']['label'] = '';
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+  /* Field: Ad Payment: Email */
+  $handler->display->display_options['fields']['email']['id'] = 'email';
+  $handler->display->display_options['fields']['email']['table'] = 'adp';
+  $handler->display->display_options['fields']['email']['field'] = 'email';
+  $handler->display->display_options['fields']['email']['label'] = '';
+  $handler->display->display_options['fields']['email']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['email']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['email']['decrypt_aes'] = 1;
+  /* Field: Ad Payment: Phone */
+  $handler->display->display_options['fields']['phone']['id'] = 'phone';
+  $handler->display->display_options['fields']['phone']['table'] = 'adp';
+  $handler->display->display_options['fields']['phone']['field'] = 'phone';
+  $handler->display->display_options['fields']['phone']['label'] = '';
+  $handler->display->display_options['fields']['phone']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['phone']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['phone']['decrypt_aes'] = 1;
   /* Field: Content: Ad Details */
   $handler->display->display_options['fields']['field_ad_details']['id'] = 'field_ad_details';
   $handler->display->display_options['fields']['field_ad_details']['table'] = 'field_data_field_ad_details';
@@ -2506,11 +2524,11 @@ function pw_admin_views_default_views() {
   $handler->display->display_options['fields']['nothing_3']['label'] = 'Customer';
   $handler->display->display_options['fields']['nothing_3']['alter']['text'] = '<div class=\'client-data\'>
 <dl class=\'client-data client-name\'>
-<dt>Name:</dt><dd>[field_first_name] [field_last_name] [name]</dd></dl>
+<dt>Name:</dt><dd>[card_name] </dd></dl>
 <dl class=\'client-data client-email\'>
-<dt>Email:</dt><dd>[mail]</dd></dl>
+<dt>Email:</dt><dd>[email] </dd></dl>
 <dl class=\'client-data client-phone\'>
-<dt>Phone:</dt><dd> [field_phone]</dd></dl>
+<dt>Phone:</dt><dd> [field_phone][phone]</dd></dl>
 <dl class=\'client-data client-address\'>
 <dt>Address:</dt><dd> [field_address]</dd></dl>
 </dl>

@@ -189,7 +189,7 @@ function pw_vars_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_ad_s';
-  $strongarm->value = 'edit-inline-registration';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_ad_s'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1233,7 +1233,7 @@ echo date(\'now\');
     'group_basics|node|display_ads|form' => FALSE,
     'group_contact|node|client|form' => FALSE,
     'group_vgroup_parent|node|ad_s|form' => TRUE,
-    'group_ad_review|node|ad_s|form' => FALSE,
+    'group_ad_review|node|ad_s|form' => TRUE,
     'group_details|node|article|form' => FALSE,
     'group_bonus|node|article|form' => FALSE,
     'group_area_rate|node|ad_s|form' => FALSE,
@@ -1269,6 +1269,8 @@ echo date(\'now\');
     'group_display_ad_file|node|display_ads|form' => TRUE,
     'group_advanced|node|display_ads|form' => FALSE,
     'group_free_for_free|node|ad_s|form' => FALSE,
+    'group_review|node|ad_s|form' => FALSE,
+    'group_user_details|node|ad_s|form' => FALSE,
   );
   $export['default_field_group'] = $strongarm;
 
@@ -1640,13 +1642,13 @@ echo date(\'now\');
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '8',
+          'weight' => '71',
         ),
         'path' => array(
-          'weight' => '7',
+          'weight' => '72',
         ),
         'redirect' => array(
-          'weight' => '30',
+          'weight' => '73',
         ),
       ),
       'display' => array(),

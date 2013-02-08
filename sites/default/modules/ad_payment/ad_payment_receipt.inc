@@ -137,8 +137,6 @@ function ad_payment_receipt($temp_id, $data = NULL) {
           <dt class='receipt-contact-email'>Email:</dt>
           <dd class='receipt-contact-email'>" . $data['values']['user']['email'] . "</dt>
         </dl>
-         <em>If you wish to edit this information or use it for future ad submissions you must can
-           register your account <a href='" . $base_url . '/user/' . $data['values']['user']['uid'] . "/edit '>here</a>.</em>
      </div>
     </div>
     ";

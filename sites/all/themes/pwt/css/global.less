@@ -563,7 +563,7 @@ body {
   h2 { display: none; }
 }
 
-.contact-button, #ad-submission-link-wrapper {
+.contact-button, #ad-submission-link-wrapper, .block-pennywise-submit-editorial .content {
   margin-bottom: 20px;
   .center;
   a:link {
@@ -574,7 +574,7 @@ body {
     border: 2pt solid @white;
     .drop-shadow;
   }
-  a:visited { color: @white; }
+  a:visited { color: @white; background-color: @other; }
   a:hover {
     .drop-shadow(3px, 3px, 6px, lighten(@black, 10));
     background-color: @other_dark;
@@ -587,6 +587,18 @@ body {
 #ad-submission-link-wrapper {
   font-size: 1.6em;
   width: 100%;
+}
+
+/* Submit Editorial block */
+/* same as submit ad block above */
+.block-pennywise-submit-editorial {
+  a#editorial-submit-link {
+    background-color: @editorial_dark;
+    width: 140px;
+  }
+  a:hover {
+    background-color: @editorial;
+  }
 }
 
 /* Editorial Block */
@@ -727,14 +739,19 @@ body {
         display: block;
         margin: 10px auto 5px auto;
       }
-      .field-item a {
-        font-size: 1.4em;
+      .field-item {
         background-color: @alert;
-        color: @white;
-        padding: 8px;
-        margin: 10px 0;
         text-align: center;
         .border-radius;
+        padding: 4px 8px;
+        margin: 0 10px;
+        a {
+          font-size: 1.4em;
+          color: @white;
+        }
+        a:hover {
+          color: @sunlight;
+        }
       }
       .field-item a:hover { background-color: darken(@alert, 20%);color: @sunlight; }
     }
@@ -1157,6 +1174,43 @@ ul.pw-classified-nav-list, .menu-name-menu-pennywise-digital-edition ul, .block-
   clear: both;
   width: 90%;
   margin: 0 20px 20px 10px;
+}
+
+/* submit editorial page */
+.page-node-111578, /* local */
+.page-node-126539 { /* remote */
+  .node-webform.node-published {
+    form {
+      padding: 25px;
+      .fieldset-legend {
+        font-size: 1.4em;
+        font-weight: 700;
+      }
+      .fieldset-wrapper, .webform-component-fieldset {
+        background-color: @sand;
+        .border-radius;
+      }
+      .webform-component-guidelines, .webform-component-editorial-guidelines {
+      }
+      #edit-actions {
+        input#edit-next {
+          font-size: 1.6em;
+          margin-left: 200px;
+          padding: 3px 25px;
+        }
+        input#edit-submit {
+          background-color: @editorial_light;
+          font-size: 2em;
+        }
+      }
+      #webform-component-editorial-article--highlight {
+        background-color: @darksand;
+        .fieldset-wrapper, .webform-component-fieldset {
+          background-color: @lightsand;
+        }
+      }
+    }
+  }
 }
 
 /* SEARCH PAGE */

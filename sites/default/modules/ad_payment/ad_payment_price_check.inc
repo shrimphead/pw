@@ -26,9 +26,9 @@
  * @return
  *  Human readable array of ad submission data.
  */
-function _ad_payment_pricing_details($node) {
+function ad_payment_pricing_details($node) {
   // Get RAW DATA for processing
-  $storage['values'] = _ad_payment_get_payment_variables($node);
+  $storage['values'] = ad_payment_get_payment_variables($node);
 
   $rate = ad_payment_validate_rate($storage);
 
@@ -65,7 +65,7 @@ function _ad_payment_pricing_details($node) {
  * @return
  *  array of form/node values
  */
-function _ad_payment_get_payment_variables($data, $type = NULL){
+function ad_payment_get_payment_variables($data, $type = NULL){
   switch ($type) {
     case 'form_state':
       $form_state = $data;
@@ -126,11 +126,11 @@ function _ad_payment_get_payment_variables($data, $type = NULL){
   }
 
   if (DEBUG_ADP || DEBUG_PAYMENT) {
-    dpm('TYPE = ' . $type);
-    dpm("DATA");
-    dpm($data);
-    dpm('Form Values');
-    dpm($form_values);
+ //   dpm('TYPE = ' . $type);
+ //   dpm("DATA");
+ //   dpm($data);
+ //   dpm('Form Values');
+ //   dpm($form_values);
 
     if ($form_values) {
       $debug_var = array(
@@ -208,7 +208,7 @@ function ad_payment_parse_array($array_to_parse = NULL, $key = NULL) {
 /**
 * Process ad price depending on returned form values.
 *
-* This function the authoritative source of ad pricing
+* This function is the authoritative source of ad pricing
 * @param $data_type
 *   Alter the output depending on this variable.
 *   - Possible options:
@@ -225,7 +225,7 @@ function ad_payment_price_check(&$var, $data_type) {
   $storage = array();
 
   // Get RAW DATA for processing
-  $values = _ad_payment_get_payment_variables($var, $data_type);
+  $values = ad_payment_get_payment_variables($var, $data_type);
 
   // Validate Rate
   $rate = ad_payment_validate_rate($values['section_default'], $values['rate']);
@@ -237,10 +237,10 @@ function ad_payment_price_check(&$var, $data_type) {
   $sections = $values['section_count'];
 
   // Validate Duration
-  $duration = _ad_payment_set_ad_duration($values['duration']);
+  $duration = ad_payment_set_ad_duration($values['duration']);
 
   // Word Count
-  $count = _ad_payment_word_counter($values['ad_copy']);
+  $count = ad_payment_word_counter($values['ad_copy']);
 
   // Options
   $liveload = ($values['ad_type'] == 'Liveload Your Ad!') ? 1 : 0;
@@ -269,12 +269,12 @@ function ad_payment_price_check(&$var, $data_type) {
 
   // Taxes
   $tax_rate = variable_get('ad_payment_taxrate', '.12');
-  $taxes = _ad_payment_dollar_format($sub_total * $tax_rate);
+  $taxes = ad_payment_dollar_format($sub_total * $tax_rate);
 
   // 6. Total Cost
   $total = $sub_total + $taxes;
     // Round Total
-    $total = _ad_payment_dollar_format($total);
+    $total = ad_payment_dollar_format($total);
 
   // Set Price Variables
   $storage = array(
@@ -319,10 +319,10 @@ function ad_payment_price_check(&$var, $data_type) {
     );
     watchdog('Ad Payment', $feedback_message, $feedback_vars, WATCHDOG_INFO);
 
-    dpm('Feedback Message');
-    dpm(t($feedback_message, $feedback_vars));
-    dpm('STORAGE');
-    dpm($storage);
+  //  dpm('Feedback Message');
+  //  dpm(t($feedback_message, $feedback_vars));
+  //  dpm('STORAGE');
+  //  dpm($storage);
 
     // Base
 //    drupal_set_message(t('Base Price: $@base = $@base_rate base price + @image_price (if any) + (@over words over @ $@word_rate word)',
@@ -475,8 +475,8 @@ function ad_payment_validate_rate($tid = NULL, $submitted_rate = NULL) {
   $rate = array_merge($get_rate, $pricing);
 
   if (DEBUG_ADP || DEBUG_PAYMENT) {
-    dpm('Pricing');
-    dpm($pricing);
+    //dpm('Pricing');
+    //dpm($pricing);
     $debug_var = array(
       '@rate' => $pricing['rate_name'],
     );
@@ -497,7 +497,7 @@ function ad_payment_validate_rate($tid = NULL, $submitted_rate = NULL) {
 * - Use set_/get_ variable
 * - Cache business rated Terms
 */
-function _ad_payment_business_rating($storage) {
+function ad_payment_business_rating($storage) {
   $term_id = $storage['values']['section'];
   $term = taxonomy_term_load($term_id);
   if($term->field_business_rated['und'][0]['value'] == FALSE) {
@@ -518,7 +518,7 @@ function _ad_payment_business_rating($storage) {
 *   duration['actual']   = actual ad duration weeks
 *
 */
-function _ad_payment_set_ad_duration($weeks) {
+function ad_payment_set_ad_duration($weeks) {
   if (!$weeks) {
     watchdog('Ad Payment', 'Unable to set duration. Number of weeks selected --> @weeks <--', array('@weeks' => $weeks));
   }
@@ -576,7 +576,7 @@ function _ad_payment_set_ad_duration($weeks) {
 * @return
 *   total word count.
 */
-function _ad_payment_word_counter($copy) {
+function ad_payment_word_counter($copy) {
   // Make sure all periods are followed by a space.
 
   // $copy = str_replace('.', '. ', $copy);
@@ -604,7 +604,7 @@ function _ad_payment_word_counter($copy) {
 /**
 * Custom Price Integer Display.
 */
-function _ad_payment_dollar_format($amount)  	{
+function ad_payment_dollar_format($amount)  	{
   $new_amount = sprintf("%.2f",$amount);
   return $new_amount;
 }

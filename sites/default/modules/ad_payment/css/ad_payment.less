@@ -107,6 +107,10 @@
   }
 }
 
+a.ad-submission-link {
+  background-color: @alert;
+  border: 1pt solid @white;
+}
 /************* AD FORM *********/
 /*ad submission page */
 body.page-ad-submit {
@@ -215,7 +219,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21f8ffe8', e
       display: none;
     }
       /* hide details */
-    #edit-field-ad-details, #field-ad-details-add-more-wrapper {
+   .form-item-field-ad-details-und-0-value /* , #field-ad-details-add-more-wrapper */ {
+/*       border: 10pt solid #900; */
+      display: none;
+    }
+    #edit-field-price {
       display: none;
     }
 
@@ -418,20 +426,48 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21f8ffe8', e
       .border-radius;
       background-color: @white;
       width: 400px;
-      float: left;
+/*       float: left; */
     }
     #edit-field-address-und-0 {
       .border-radius;
       background-color: @sunlight;
       width: 350px;
+/*
       float: left;
       margin-left: 20px;
+*/
     }
+/*
     #field-phone-add-more-wrapper, #edit-field-email, #edit-field-price {
       width: 400px;
       margin: 5px auto;
       clear: both;
     }
+*/
+  }
+}
+
+/* AD REVIEW BOX jquery */
+#review-ad-box-ad {
+  background: @classified_light;
+  border: 1pt solid @classified_med;
+  padding: 10pt;
+  .border-radius;
+}
+#review-ad-box-price {
+  font-size: .9em;
+  line-height: 1em;
+  dl {
+    margin: 2px;
+    dt, dd {
+      font-size: 1em;
+      line-height: 1.1em;
+    }
+    dt { font-weight: bold;}
+  }
+  ul {
+    list-style: circle;
+    list-style-position: inside;
   }
 }
 

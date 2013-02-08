@@ -46,6 +46,7 @@ Please don\'t post services, free estimates, buy 3 get 1 free, or free rides to 
     '#markup' => $free4free,
     '#suffix' => '</div>',
   );
+
   // Get User Name
   global $user;
   $user_data = user_load($user->uid);
@@ -150,7 +151,7 @@ Please don\'t post services, free estimates, buy 3 get 1 free, or free rides to 
   $form['card']['field_cc_number'] = array(
     '#type' => 'textfield',
     '#title' => t('Credit Card Number'),
-    '#validate' => array('_ad_payment_cc_number_validate'),
+    '#validate' => array('ad_payment_cc_number_validate'),
     '#size' => 26,
     '#maxlength' => 36,
     '#default_value' => $cc_number,

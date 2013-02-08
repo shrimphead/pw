@@ -118,7 +118,7 @@ function pw_cl_field_default_fields() {
       'bundle' => 'ad_s',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '<a href=\'mailto:info@pennywiseads.com\'>Click Here To submit <strong>Free for Free</strong> ads</a>',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -140,10 +140,14 @@ function pw_cl_field_default_fields() {
         'active' => 1,
         'module' => 'text',
         'settings' => array(
+          'maxlength_js' => '',
+          'maxlength_js_enforce' => 0,
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+          'maxlength_js_truncate_html' => 0,
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '0',
+        'weight' => '70',
       ),
     ),
   );
@@ -233,72 +237,7 @@ function pw_cl_field_default_fields() {
           ),
         ),
         'type' => 'addressfield_standard',
-        'weight' => '38',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-ad_s-field_agree'.
-  $fields['node-ad_s-field_agree'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_agree',
-      'field_permissions' => array(
-        'type' => '0',
-      ),
-      'foreign keys' => array(),
-      'indexes' => array(
-        'value' => array(
-          0 => 'value',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'list',
-      'settings' => array(
-        'allowed_values' => array(
-          'Not Yet' => 'Not Yet.',
-          'Confirm' => 'Confirm',
-        ),
-        'allowed_values_function' => '',
-      ),
-      'translatable' => '0',
-      'type' => 'list_text',
-    ),
-    'field_instance' => array(
-      'bundle' => 'ad_s',
-      'default_value' => array(
-        0 => array(
-          'value' => 'Not Yet',
-        ),
-      ),
-      'deleted' => '0',
-      'description' => 'Confirm your ad submission.',
-      'display' => array(
-        'default' => array(
-          'label' => 'hidden',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '16',
-        ),
-      ),
-      'ds_extras_field_template' => '',
-      'entity_type' => 'node',
-      'field_name' => 'field_agree',
-      'label' => 'Confirmation',
-      'required' => 1,
-      'settings' => array(
-        'custom_add_another' => '',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_buttons',
-        'weight' => '8',
+        'weight' => '68',
       ),
     ),
   );
@@ -503,7 +442,7 @@ function pw_cl_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'email_textfield',
-        'weight' => '40',
+        'weight' => '67',
       ),
     ),
   );
@@ -1014,7 +953,7 @@ function pw_cl_field_default_fields() {
           'size' => 15,
         ),
         'type' => 'phone_number',
-        'weight' => '39',
+        'weight' => '66',
       ),
     ),
   );
@@ -1069,7 +1008,7 @@ function pw_cl_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '41',
+        'weight' => '69',
       ),
     ),
   );
@@ -3113,7 +3052,6 @@ In addition you will be sent an email when anyone comments on your ad.',
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('<a href=\'mailto:info@pennywiseads.com\'>Click Here To submit <strong>Free for Free</strong> ads</a>');
   t('<big><strong>Test your file first!</strong></big>
 <ol>
 <li>To minimize any problems paste Adworks copy into <em>TextWrangler</em>:
@@ -3155,8 +3093,6 @@ Available from Monday through Thursday, 9 am - 4:30 pm PST (Friday 9am until 3pm
   t('Body');
   t('Classification');
   t('Classified Ad Type');
-  t('Confirm your ad submission.');
-  t('Confirmation');
   t('Contact Details');
   t('Duration');
   t('Email');

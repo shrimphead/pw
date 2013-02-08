@@ -63,7 +63,7 @@ Drupal.adPayment.validate = function(ad) {
 
       if (bizRatedSections[ad.section]) {
         // Biz Rated
-        state = true;
+        var state = true;
         jQuery('.form-item-field-tags-und, #edit-field-rate-und').addClass('error element-error');
         ad.errorMsg.section = Drupal.t("<h3>@section is a business rated section.</h3> Please choose another section or change your ad rating to </em>Business</em>.", {'@section': bizRatedSections[ad.section]});
       }
@@ -92,7 +92,7 @@ Drupal.adPayment.validate = function(ad) {
     jQuery('#validation-box').html(validationBoxes);
     // Make sure the "NEXT" button is visable.
     jQuery('.multipage-button').show();
-;
+
   }
   else {
     jQuery('#validation-box').html('').removeClass('messages error');
@@ -164,6 +164,12 @@ Drupal.adPayment.formData = function(ad) {
     ad.formRate = 'Not Set';
   };
 
+  // IMAGE
+  if (jQuery('#edit-field-image-und-0-upload').val()) {
+    ad.imageFile = jQuery('#edit-field-image-und-0-upload').val();
+    ad.image     = 1;
+  }
+
   // DURATION
   ad.duration = jQuery('#edit-field-duration-und').val();
 
@@ -181,7 +187,20 @@ Drupal.adPayment.formData = function(ad) {
   // Section
   if(jQuery('#edit-field-tags-und').val()) {
     ad.section = jQuery('#edit-field-tags-und').val().length;
+
+    if (ad.section = jQuery('#edit-field-tags-und').val().length == 1) {
+      ad.sectionName = jQuery('#edit-field-tags-und option:selected').text();
+    }
+    else if (ad.section = jQuery('#edit-field-tags-und').val().length > 1) {
+      ad.sectionName = '';
+      jQuery('#edit-field-tags-und option:selected').each(function() {
+        ad.sectionName += jQuery(this).text() + ', ';
+      });
+    };
+    ad.sectionCount = jQuery('#edit-field-tags-und').val().length;
   }
+//  console.log('Sections: ', ad.section);
+//  console.log('SectionCount: ', ad.sectionCount);
 
   // Validate Form Data
   ad = Drupal.adPayment.validate(ad);
@@ -194,7 +213,7 @@ Drupal.adPayment.formData = function(ad) {
  * Format Currency
  */
 Drupal.adPayment.formatCurrency = function(num) {
-  num = isNaN(num) || num == '\u65533' || num === '' || num === null ? 0.00 : num;
+  var num = isNaN(num) || num == '\u65533' || num === '' || num === null ? 0.00 : num;
   return parseFloat(num).toFixed(2);
 };
 
@@ -267,11 +286,6 @@ Drupal.adPayment.getPrice = function(ad) {
   price.taxesRound    = Drupal.adPayment.formatCurrency(price.taxes);
   price.totalRound    = Drupal.adPayment.formatCurrency(price.total);
 
-//  console.log('Price');
-//  console.log(price);
-//  console.log('Ad');
-//  console.log(ad);
-
   return price;
 };
 
@@ -295,7 +309,7 @@ Drupal.adPayment.displayMsg = function() {
 
   // Show formatted ad:
   if (ad.wordCount > 0) {
-    ad.msg.ad = Drupal.t("<dt>How your ad will look:</dt><dd>@trim </dd>", {'@trim': ad.wordCountTrim});
+    ad.msg.ad = Drupal.t("<dt>Your ad:</dt><dd>@trim </dd>", {'@trim': ad.wordCountTrim});
   }
   else {
     ad.msg.ad = '';
@@ -311,25 +325,28 @@ Drupal.adPayment.displayMsg = function() {
     ad.msg.countOverSum = '<dt>Words over 15:</dt><dd>0</dd>';
   }
 
+  // ad web area free (to be added to the description of areas)
+  // ad.msg.areaInternet += 'Internet Included FREE!';
   // Area MSG
   if (ad.area == 0) {
     ad.msg.areaList = Drupal.t("<dt>Areas:</dt><dd> No Area Selected</dd>");
     ad.msg.areaListSum = Drupal.t("<dt>Areas:</dt><dd><em>No Area Selected</em></dd>");
   }
   else if (ad.area > 0 && ad.area < 4) {
-    ad.msg.areaList = Drupal.t("<dt>Areas: @area </dt><dd> @areas</dd>", {'@area': ad.area, '@areas': ad.areaList});
-    ad.msg.areaListSum = Drupal.t("<dt>Areas:</dt><dd> @area</dd>", {'@area': ad.area});
+    ad.msg.areaList = Drupal.t("<dt>Areas: @area </dt><dd> @areas </dd>", {'@area': ad.area, '@areas': ad.areaList});
+    ad.msg.areaListSum = Drupal.t("<dt>Areas:</dt><dd> @area </dd>", {'@area': ad.area});
   }
   else if (ad.area == 4) {
-    ad.msg.areaList = Drupal.t("<dt>Areas: @area </dt><dd> @areas <br />$2 Discount on ad.</dd>", {'@area': ad.area, '@areas': ad.areaList});
+    ad.msg.areaList = Drupal.t("<dt>Areas: @area </dt><dd> @areas <br />$2 Discount on ad. </dd>", {'@area': ad.area, '@areas': ad.areaList});
     ad.msg.areaListSum = Drupal.t("<dt>Areas:</dt><dd> @area </dd>", {'@area': ad.area});
   }
   else {
-    ad.msg.areaList = '<dt>Area: None Selected</dt><dd>Please select an area for your ad to appear in.</dd>';
+    ad.msg.areaList = Drupal.t('<dt>Area: None Selected</dt><dd>Please select an area for your ad to appear in.</dd>');
     ad.msg.areaListSum = "";
   }
-  // ad web area free
-  ad.msg.areaList += '<em class="price-box duration duration-note">Internet Included FREE</em>';
+
+  // Section
+  ad.msg.section = Drupal.t('<dt>Section (@sectionCount):</dt><dd>@sections</dd>', {'@sectionCount': ad.sectionCount, '@sections': ad.sectionName});
 
   // Rate MSG
   ad.msg.rate = Drupal.t("<dt>Rate:</dt><dd> @rate</dd>", {'@rate': ad.formRate});
@@ -338,29 +355,25 @@ Drupal.adPayment.displayMsg = function() {
   ad.msg.duration = Drupal.t("<dt>Duration:</dt><dd> @duration weeks</dd>", {'@duration': ad.duration}) + ad.msg.durationDiscount;
   ad.msg.durationSum = Drupal.t("<dt>Duration:</dt><dd>@duration weeks</dd>", {'@duration': ad.duration});
   if (ad.duration == '2') {
-    ad.msg.duration = '<dt>Duration:</dt><dd>When you book for 2 weeks you get the 3rd for FREE!</dd>';
-    ad.msg.durationSum = Drupal.t("<dt>Duration:</dt><dd>@duration weeks</dd>", {'@duration': ad.duration});
+    ad.msg.durationMsg = '(When you book for 2 weeks you get the 3rd for FREE!)';
+    ad.msg.duration = Drupal.t("<dt>Duration:</dt><dd>@duration weeks @durationMsg</dd>", {'@duration': ad.duration, '@durationMsg': ad.msg.durationMsg});
   };
+
+  // Image
+  if (ad.image) {
+    ad.msg.image = Drupal.t("<dt>Image:</dt><dd>@imageFile</dd>", {'@imageFile': ad.imageFile});
+  }
+  else {
+    ad.msg.image = '';
+  }
 
   // Liveload
   ad.msg.type = Drupal.t("<dt>Ad Type:</dt><dd> @type</dd>", {'@type': ad.type});
 
   // PRICE
   ad.msg.priceSum = Drupal.t("<dt>Price:</dt><dd><ul class=\"price price-review\"><li class=\"price price-subtotal\">Subtotal: $@basePrice</li><li class=\"price price-taxes\">Taxes: $@taxes</li><li class=\"price price-total\">Total: $@total</li></ul></dd>", {'@basePrice': price.subTotalRound, '@taxes': price.taxesRound,'@total': price.totalRound});
-  ad.msg.priceOverview = Drupal.t("<dt>Price</dt><dd><ul class='price price-review'><li class='price price-subtotal'>Sub Total: $@subTotal</li><li class='price price-option'>Optional Extras: $@optional</li><li class='price price-taxes'>Taxes: $@taxes</li><li class='price price-total'>Total: $@priceTotal</li></dd>", {'@basePrice': price.basePrice, '@overPrice': price.overCount, '@subTotal': price.subTotalRound, '@taxes': price.taxesRound, '@optional': price.optional, '@priceTotal': price.totalRound});
+  ad.msg.priceOverview = Drupal.t("<dt>Price</dt><dd><ul class='price price-review'><li class='price price-subtotal'>Sub Total: $@subTotal</li><li class='price price-image'>Image: $@image</li><li class='price price-liveload'>Liveload: $@liveload</li><li class='price price-taxes'>Taxes: $@taxes</li><li class='price price-total'>Total: $@priceTotal</li></dd>", {'@basePrice': price.basePrice, '@overPrice': price.overCount, '@subTotal': price.subTotalRound, '@taxes': price.taxesRound, '@image': price.image, '@liveload': price.liveload, '@priceTotal': price.totalRound});
 
-  // SHow save on AGREE
-  if (jQuery('#edit-field-agree-und-confirm').is(':checked')) {
-    jQuery('#edit-submit, #edit-preview').show();
-   // jQuery('.multipage-button').hide();
-  }
-  else {
-   // jQuery('#edit-submit, #edit-preview').hide();
-  }
-  if (jQuery('#edit-field-agree-und-not-yet').is(':checked')) {
-   // jQuery('#edit-submit, #edit-preview').hide();
-   // jQuery('.multipage-button').show();
-  }
   // Error Messages
   ad.msg.error = '';
   if (ad.errorMsg) {
@@ -397,22 +410,24 @@ Drupal.adPayment.displayMsg = function() {
   // Review - full review of ad before submission.
   ad.msg.review =
     '<div id="review-ad-box-ad" class="review-ad-block">'
-    + '<h2>Ad</h2>'
+    + '<h4>Ad</h4>'
     + ad.msg.ad
-    + ad.msg.wordcount
-    + ad.msg.countOver
-    + '</div>'
     + '<div id="ad-review-data">'
     + '<div id="review-ad-box-price" class="review-ad-block">'
-    + '<h2>Summary</h2>'
+    + '<h5>Summary</h5>'
     + ad.msg.error
     + '<dl>'
+    + ad.msg.wordcount
+    + ad.msg.countOver
     + ad.msg.areaList
+    + ad.msg.section
     + ad.msg.rate
     + ad.msg.duration
     + ad.msg.type
+    + ad.msg.image
     + ad.msg.priceOverview
     + '</dl>'
+    + '</div>'
     + '</div>'
     ;
   ad.msg.storage =
@@ -428,7 +443,7 @@ Drupal.adPayment.displayMsg = function() {
     + '\'base_price\' => ' + price.subTotalRound + ','
     + '\'total_price\' => ' + price.totalRound + ','
     + ');'
-    // {'@basePrice': price.subTotalRound, '@taxes': price.taxesRound,'@total': price.totalRound});
+
   // SET FORM PRICE
   jQuery('#edit-field-price-und-0-value').val(price.totalRound);
 
@@ -445,18 +460,8 @@ Drupal.adPayment.displayMsg = function() {
 
 jQuery(document).ready(function() {
 
-
-
- // var formID = jQuery("form").attr('id');
- // if (formID == 'ad-s-node-form'){
-
  // New form validation in case of multiple forms detected.
   if (jQuery('#ad-s-node-form').length) {
-
-       // console.log('FOrm Id detected and prepared.');
-
-    // Hide Edit/Submit & image AJAX uploader -  unless on page 4
-  //  jQuery('#edit-submit, #edit-preview').hide();
 
     // Hide Image Upload Button (uploading images always produces an error.
     jQuery('#edit-field-image-und-0-upload-button').hide();
@@ -467,13 +472,11 @@ jQuery(document).ready(function() {
     jQuery(sideBar).prepend(summaryBox);
 
     // Create DIV for OverView
-    //jQuery('#ad-s-node-form').prepend('<div id="ad-review">There are no ads ready to submit at this time.</div>');
     var boxDetails = '<div id="ad-review" class="ad-review-empty-box"> <div id="ad-summary" class="block summary-price-block ad-summary-directions"> <h4 class="ad-summary-header">Directions</h4><ul class="ad-summary-list"> <li>Begin by typing your ad in the <em>Ad Copy</em> box.</li> <li>Below that are your preferences for how & where you want your ad displayed.</li> <li>To get help your ad get noticed check out step <em>2: Options</em>.</li> <li>Enter credit card information in step <em>3: Payment</em>.</li> <li>When satisfied with your ad go to step <em>Review & Submit</em> to submit your finished ad.</li></ul></div></div>';
     jQuery('.group-ad-copy-block').prepend(boxDetails);
-//    jQuery('#ad-review ').hide();
 
     // DIV for ReView
-    var reviewLocation = '#edit-field-agree';
+    var reviewLocation = '#edit-field-ad-details';
     jQuery(reviewLocation).prepend('<div id="review-ad-block"></div>');
 
     // create error box for validation
@@ -483,7 +486,6 @@ jQuery(document).ready(function() {
     jQuery('#ad-s-node-form').bind('click keypress keyup change mouseup', function() { //click change keypress keyup
        // console.log('Action Detected.');
 
-              console.log('Validation.');
       jQuery('#ad-s-node-form').validate({
         rules: {
           field_cc_number: {
@@ -509,48 +511,11 @@ jQuery(document).ready(function() {
       // Store Details for future processing.
       jQuery('#edit-field-ad-details-und-0-value').val(Drupal.adPayment.displayMsg().storage);
 
-      // Hide 'Next Page' upon 'Save' option
-     var ConfirmForm = jQuery('#edit-field-agree-und-confirm:checked').val();
-     // var SaveButton = jQuery('#edit-submit').is(':visible');
 
-
-     // HIDE SUBMIT UNTIL READY
-     if (ConfirmForm) {
-       console.log('Save button is visible');
-       // jQuery('.multipage-button').hide();
-       jQuery('#edit-submit').show();
-     }
-//     else {
-//         jQuery('#edit-submit').hide();
-//         jQuery('.multipage-button').show();
-//        console.log('No save visible.');
-//        var ConfirmPage = jQuery('#edit-field-agree-und-not-yet:checked').val();
-//        if (!ConfirmPage) {
-//         jQuery('.multipage-link-next').hide();
-//        }
-//        else {
-//         jQuery('.multipage-link-next').hide();
-//        }
-////
-//    }
-//
-     // If on the confirmation page --> hide "Next Page" button.
-      // Reinterpret SUBMIT, NEXT & PREVIOUS button's CSS
-       //console.log('Action detected - end of script.');
-
-      // var pageState = jQuery('#node_ad_s_form_group_ad_review').attr('style');
-      // console.log('Page state: ' + pageState);
-      // Hide Submit Button if you're on page 4 and no ad copy.
-      // if (pageState == "display: block;") {
-      //   console.log('You are on page 4.');
-      //   jQuery('#edit-submit, #edit-preview').show();
-      // }
-      // else {
-      //   console.log('Not final page.');
-      //   jQuery('#edit-submit, #edit-preview').hide();
-      // };
     });
   };
 });
 
 }(jQuery));
+
+

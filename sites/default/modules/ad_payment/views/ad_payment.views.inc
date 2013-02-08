@@ -161,10 +161,37 @@ function ad_payment_views_data() {
     ),
   );
 
-  //NAME
+  //CARD NAME
   $data['adp']['card_name'] = array(
     'title' => t('Card Name'),
     'help' => t('Name as it appears on the card.'),
+    'field' => array(
+      'handler' => 'ad_payment_handler_aes_decrypt',
+      'click sortable' => TRUE,
+    ),
+    'sort' => array(
+      'handler' => 'views_handler_sort',
+    ),
+  );
+
+
+  //EMAIL
+  $data['adp']['email'] = array(
+    'title' => t('Email'),
+    'help' => t('Client Email address.'),
+    'field' => array(
+      'handler' => 'ad_payment_handler_aes_decrypt',
+      'click sortable' => TRUE,
+    ),
+    'sort' => array(
+      'handler' => 'views_handler_sort',
+    ),
+  );
+
+  //PHONE
+  $data['adp']['phone'] = array(
+    'title' => t('Phone'),
+    'help' => t('Client Phone Number.'),
     'field' => array(
       'handler' => 'ad_payment_handler_aes_decrypt',
       'click sortable' => TRUE,

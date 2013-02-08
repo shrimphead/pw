@@ -16,7 +16,7 @@
 *      - Prepopulates the email with to and from...
 *    - ad_payment_mail
 *      - Prepares the body of the email.
-*    - _ad_payment_notify
+*    - ad_payment_notify
 *      - Discontinued email notification
 *
 *  - Redirect to thank you upon completion.
@@ -56,14 +56,14 @@ define ('ADP_LOGIN', FALSE);
 
 /** --------- Credit Card Validation -----
  */
-define ('VALIDATION_TEST_MODE', FALSE);
+define ('CC_VALIDATION_MODE', FALSE);
 
 /* Send message to users */
-function _pw_send_message_to_user($message, $level){
-  $alert_message = t('Internet Explorer 8 is currently experiencing problems with this page.
-    <br>Please use <a href="http://getfirefox.com">Firefox</a> to submit classified ads at this time.');
-
-}
+// function _pw_send_message_to_user($message, $level){
+//   $alert_message = t('Internet Explorer 8 is currently experiencing problems with this page.
+//     <br>Please use <a href="http://getfirefox.com">Firefox</a> to submit classified ads at this time.');
+//
+// }
 
 
 /**
@@ -227,8 +227,8 @@ function ad_payment_form_ad_s_node_form_alter(&$form, &$form_state, $form_id) {
   $form['actions']['save']['#value']  = 'Submit Ad';
 
   // Insert CC Validation.
-  $form['#validate'][] = '_ad_payment_cc_validate';
-  $form['#submit'][]   = '_ad_payment_cc_submit';
+  $form['#validate'][] = 'ad_payment_custom_validate';
+  $form['#submit'][]   = 'ad_payment_cc_submit';
 
   // Float First 2 Groups.
   $form['#fieldgroups']['group_ad']->weight = -20;
@@ -248,26 +248,28 @@ function ad_payment_form_ad_s_node_form_alter(&$form, &$form_state, $form_id) {
 
 
   if (DEBUG_ADP || DEBUG_FORM) {
-  //  dpm('form');
-  //  dpm($form);
-  //  dpm('form state');
-  //  dpm($form_state);
+//    dpm('form');
+//    dpm($form);
+//    dpm('form state');
+//    dpm($form_state);
   }
 }
-
 
 
 /**
 * Custom CC Validation.
 */
-function _ad_payment_cc_validate(&$form, &$form_state) {
+function ad_payment_custom_validate(&$form, &$form_state) {
   // Check CC Data
   module_load_include('inc', 'ad_payment', 'ad_payment_cc_validate');
-  $validated = _ad_payment_validate_cc_data($form_state);
+  $validated = ad_payment_validate_cc_data($form_state['values']);
+  //dpm('Validation');
+  //dpm($validated);
+
   if (is_array($validated)) {
-    //return FALSE;
-    //dpm($validated);
-    form_set_error($validated['field'], $validated['message']);
+    foreach($validated as $field => $message) {
+      form_set_error($field, $message);
+    }
   }
 
   // Get Price
@@ -283,6 +285,7 @@ function _ad_payment_cc_validate(&$form, &$form_state) {
   );
   form_set_value($form['field_price'], $updated_price, $form_state);
 
+//  return FALSE;
 }
 
 /**
@@ -292,29 +295,29 @@ function _ad_payment_cc_validate(&$form, &$form_state) {
 * $data['phone'], $data['mail'], $data['user_name'],
 */
 
-function adp_register_new_user($data) {
-  require_once DRUPAL_ROOT . '/' . variable_get('password_inc', 'includes/password.inc');
-  $account = array(
-    'name' => $data['user_name'],
-    'mail' => $data['mail'],
-    'pass' => user_hash_password($data['phone']),
-    'status' => 1,
-    'init' => $data['mail'],
-    'roles' => NULL,
-    'timezone' => variable_get('date_default_timezone', ''),
-    'signature_format' => 'plain_text',
-  );
-  //$account['roles'][NEW_ROLE] = 'submit ad';
-  $account['roles'] = array(4 => 'submit ad');
-    watchdog('ADP - User', 'Creating new user. Name = ' . $account['user_name'] . ', email = ' . $account['mail']   );
-    //dpm('ACCOUNT');
-    //dpm($account);
-  $user = user_save('', $account);
-
-  drupal_session_regenerate();
-
-  return $user;
-}
+// function adp_register_new_user($data) {
+//   require_once DRUPAL_ROOT . '/' . variable_get('password_inc', 'includes/password.inc');
+//   $account = array(
+//     'name' => $data['user_name'],
+//     'mail' => $data['mail'],
+//     'pass' => user_hash_password($data['phone']),
+//     'status' => 1,
+//     'init' => $data['mail'],
+//     'roles' => NULL,
+//     'timezone' => variable_get('date_default_timezone', ''),
+//     'signature_format' => 'plain_text',
+//   );
+//   //$account['roles'][NEW_ROLE] = 'submit ad';
+//   $account['roles'] = array(4 => 'submit ad');
+//     watchdog('ADP - User', 'Creating new user. Name = ' . $account['user_name'] . ', email = ' . $account['mail']   );
+//     //dpm('ACCOUNT');
+//     //dpm($account);
+//   $user = user_save('', $account);
+//
+//   drupal_session_regenerate();
+//
+//   return $user;
+// }
 
 
 /**
@@ -322,30 +325,30 @@ function adp_register_new_user($data) {
 *
 * Check the submitted user data in CC data form and create user if none exists.
 */
-function adp_user_validate($data = NULL) {
-  // Test if user already logged in.
-  global $user;
-
-  if ($user->mail != $mail) {
-    module_invoke_all('user_logout', $user);
-
-    watchdog('ADP - User', 'User Mail already exists. Create new user');
-   // $user = adp_register_new_user($data);
-  }
-  elseif ($user->uid == 0 || !$user) {
-    watchdog('ADP - User', 'Anon User. Create new user');
-    // Test is user_name is registered previously.
-    $user = user_load_by_name($user_name);
-
-    // If no user --> Register New User
-    if ($user->uid == 0) {
-      $user = adp_register_new_user($data);
-    }
-
-  }
-  return $user;
-
-}
+// function adp_user_validate($data = NULL) {
+//   // Test if user already logged in.
+//   global $user;
+//
+//   if ($user->mail != $mail) {
+//     module_invoke_all('user_logout', $user);
+//
+//     watchdog('ADP - User', 'User Mail already exists. Create new user');
+//    // $user = adp_register_new_user($data);
+//   }
+//   elseif ($user->uid == 0 || !$user) {
+//     watchdog('ADP - User', 'Anon User. Create new user');
+//     // Test is user_name is registered previously.
+//     $user = user_load_by_name($user_name);
+//
+//     // If no user --> Register New User
+//     if ($user->uid == 0) {
+//       $user = adp_register_new_user($data);
+//     }
+//
+//   }
+//   return $user;
+//
+// }
 
 
 /**
@@ -359,7 +362,7 @@ function adp_user_validate($data = NULL) {
 * - If already exists link to node.
 * - Send email comfirmation.
 */
-function _ad_payment_cc_submit($form, &$form_state) {
+function ad_payment_cc_submit($form, &$form_state) {
   // Store TempID
   if (!isset($form_state['redirect'])) {
     $temp_id = time();
@@ -403,24 +406,24 @@ function _ad_payment_cc_submit($form, &$form_state) {
 * Get UID and $user data for node saving.
 */
 
-function ad_payment_node_presave($node) {
-  if($node->type == 'ad_s') {
-    // Set User
-    $user_form_data = array(
-      'phone' => $node->field_phone['und'][0]['number'],
-      'mail'  => $node->field_email['und'][0]['email'],
-      'user_name' => trim($node->field_first_name) . '_' . trim($node->field_last_name),
-    );
-
-    $user = adp_user_validate($user_form_data);
-
-    // dpm('USER id = ' . $user->uid);
-    $node->uid = $user->uid;
-
-    //dpm('PreSave Node');
-    //dpm($node);
-  }
-}
+// function ad_payment_node_presave($node) {
+//   if($node->type == 'ad_s') {
+//     // Set User
+//     $user_form_data = array(
+//       'phone' => $node->field_phone['und'][0]['number'],
+//       'mail'  => $node->field_email['und'][0]['email'],
+//       'user_name' => trim($node->field_first_name) . '_' . trim($node->field_last_name),
+//     );
+//
+//     $user = adp_user_validate($user_form_data);
+//
+//     // dpm('USER id = ' . $user->uid);
+//     $node->uid = $user->uid;
+//
+//     //dpm('PreSave Node');
+//     //dpm($node);
+//   }
+// }
 
 
 
@@ -461,20 +464,25 @@ function ad_payment_node_insert($node) {
     module_load_include('inc', 'ad_payment', 'ad_payment_price_check');
     $details = ad_payment_price_check($node, 'node');
 
-    if (!$node->uid) {
-      //dpm($details);
-      //break;
-      //dpm('NO USER DATA IN NODE!');
-      watchdog('adp', 'No User data in node');
-      $user = adp_user_validate(array('user_name' => $user_name, 'phone' => $phone, 'mail' => $mail));
+//    if (!$node->uid) {
+//      //dpm($details);
+//      //break;
+//      //dpm('NO USER DATA IN NODE!');
+//      watchdog('adp', 'No User data in node');
+//      $user = adp_user_validate(array('user_name' => $user_name, 'phone' => $phone, 'mail' => $mail));
+//
+//    }
 
-    }
+//    dpm('Node INSERT');
+//    dpm($details);
 
     $fields = array(
       'ccid'    => $node->title,
-      'uid'     => $node->uid,
+      'uid'     => 0,
       'nid'     => $node->nid,
       'card_name' => aes_encrypt($node->field_first_name . ' ' . $node->field_last_name),
+      'email'     => aes_encrypt($details['values']['user']['email']),
+      'phone'     => aes_encrypt($details['values']['user']['phone']),
       'cc_type' => aes_encrypt(($node->field_card_type == 0) ? 'MasterCard' : 'Visa'),
       'exp_m'   => aes_encrypt($node->field_exp_month),
       'exp_y'   => aes_encrypt($node->field_exp_year),
@@ -543,7 +551,7 @@ function ad_payment_node_delete($node) {
 * @TODO
 *   Create/register THEME
 */
-function _ad_payment_form_price_display($form_state) {
+function ad_payment_form_price_display($form_state) {
   $price = $form_state['storage']['price'];
   if(!$price) {
     return;

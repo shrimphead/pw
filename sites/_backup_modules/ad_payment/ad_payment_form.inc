@@ -111,7 +111,7 @@ function ad_payment_form(&$form, $form_state) {
   $form['card']['field_cc_number'] = array(
     '#type' => 'textfield',
     '#title' => t('Credit Card Number'),
-    '#validate' => array('_ad_payment_cc_number_validate'),
+    '#validate' => array('ad_payment_cc_number_validate'),
     '#size' => 26,
     '#maxlength' => 36,
     '#default_value' => $cc_number,
