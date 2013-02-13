@@ -63,7 +63,7 @@ Please don\'t post services, free estimates, buy 3 get 1 free, or free rides to 
 //  }
 
   // Get Form State data - if any
-  if ($form_state && $form_state['values']) {
+  if ($form_state && isset($form_state['values'])) {
     $cc_number = $form_state['values']['field_cc_number'];
     $cc_month  = $form_state['values']['field_exp_month'];
     $cc_year   = $form_state['values']['field_exp_year'];
