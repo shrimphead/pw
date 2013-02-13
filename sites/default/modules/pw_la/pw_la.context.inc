@@ -71,6 +71,7 @@ function pw_la_context_default_contexts() {
         '~ad/*/thank-you' => '~ad/*/thank-you',
         '~user/login' => '~user/login',
         '~display/*' => '~display/*',
+        '~editorial/submit' => '~editorial/submit',
         'ad/*' => 'ad/*',
         '<front>' => '<front>',
         'classifieds' => 'classifieds',

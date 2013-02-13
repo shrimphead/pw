@@ -121,7 +121,7 @@ function ad_payment_validate_cc_number($form_state_values ) {
   }
 
   //$credit_card_number = strrev (preg_replace ('[^([[:digit:]])]', '', $credit_card_number));  // OLD //  $credit_card_number = strrev (ereg_replace ('[^([:digit:])]', '', $credit_card_number));
-  $credit_card_number_length = strlen ($credit_card_number);
+  $credit_card_number_length = strlen( preg_replace( '/\s+/', '', $credit_card_number));
 
   //dpm('CC Number: ' . $credit_card_number . ' CC Length: ' . $credit_card_number_length);
   // Make card type upper case for comparisons.
@@ -138,12 +138,12 @@ function ad_payment_validate_cc_number($form_state_values ) {
   }
 
   // Check for correct number of digits for each credit card type.
-  if($credit_card_name == "VISA" && ($credit_card_number_length != 13 && $credit_card_number_length != 15)) {
-    $form_validation['field_cc_number'] = 'Credit card number has incorrect number of digits for VISA.';
-    //return $form_validation;
-  }
-  elseif ($credit_card_name == "MASTER CARD" && $credit_card_number_length != 16 ) {
-    $form_validation['field_cc_number'] = 'Credit card number has incorrect number of digits.';
+  // if($cc_data['type'] == "VISA" && ($credit_card_number_length != 13 && $credit_card_number_length != 15)) {
+  //   $form_validation['field_cc_number'] = 'Credit card number has incorrect number of digits for VISA.';
+  //   //return $form_validation;
+  // }
+  if ($credit_card_number_length != 16 ) {
+    $form_validation['field_cc_number'] = 'Credit card number has incorrect number of digits. ' . 'Error #100-' . $credit_card_number_length;
     //return $form_validation;
   }
 
@@ -178,7 +178,7 @@ function ad_payment_validate_cc_number($form_state_values ) {
  * give credit to the original author where possible.                      */
 
   // Strip any non-digits (useful for credit card numbers with spaces and hyphens)
-  $number = preg_replace('/\D/', '', $$credit_card_number);
+  $number = preg_replace('/\D/', '', $credit_card_number);
 
   // Set the string length and parity
   $number_length=strlen($number);
@@ -201,8 +201,8 @@ function ad_payment_validate_cc_number($form_state_values ) {
   }
 
   // If the total mod 10 equals 0, the number is valid
-  if (!$total % 10 == 0) { // ? TRUE : FALSE;
-    $form_validation['field_cc_number'] = 'Please check your credit card number and try again.';
+  if ($total % 10 != 0) { // ? TRUE : FALSE;
+    $form_validation['field_cc_number'] = 'Please check your credit card number and try again. Error #' . ($total % 10) ;
   }
 
 

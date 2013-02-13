@@ -114,7 +114,7 @@ function ad_payment_receipt($temp_id, $data = NULL) {
         </dl>
         <dl class='receipt-contact-card'>
           <dt class='receipt-contact-card'>Payment:</dt>
-          <dd class='receipt-contact-card'>" . $data['values']['user']['card-type'] . "</dt>
+          <dd class='receipt-contact-card'> Credit Card </dt>
         </dl>
       </div>
       </div>

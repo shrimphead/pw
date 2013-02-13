@@ -1157,7 +1157,11 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['css_class'] = 'editorial-slideshow-header-slidey-widey-block';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'time';
+  $handler->display->display_options['cache']['results_lifespan'] = '3600';
+  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['output_lifespan'] = '21600';
+  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
@@ -1173,12 +1177,12 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['header']['php']['id'] = 'php';
   $handler->display->display_options['header']['php']['table'] = 'views';
   $handler->display->display_options['header']['php']['field'] = 'php';
-  $handler->display->display_options['header']['php']['php_output'] = '<?php GLOBAL $base_path; GLOBAL $base_root; $link =  $base_root . $base_path . "editorial"; ?><a href=\'<?php echo $link;?>\' class=\' editorial-slideshow-link editorial-slideshow-header-link\'>Community Editorials</a>';
+  $handler->display->display_options['header']['php']['php_output'] = '<?php GLOBAL $base_path; GLOBAL $base_root; $link =  $base_root . $base_path . "editorial"; ?><a href=\'<?php echo $link;?>\' class=\' editorial-slideshow-link editorial-slideshow-header-link\'>Community Editorials <small>(MORE)</small></a>';
   /* Footer: Global: PHP */
-  $handler->display->display_options['footer']['php']['id'] = 'php';
-  $handler->display->display_options['footer']['php']['table'] = 'views';
-  $handler->display->display_options['footer']['php']['field'] = 'php';
-  $handler->display->display_options['footer']['php']['php_output'] = '<?php GLOBAL $base_path; GLOBAL $base_root; $link =  $base_root . $base_path . "editorial"; ?><a href=\'<?php echo $link;?>\' class=\' editorial-slideshow-link editorial-slideshow-footer-link\'>Read All >> </a>';
+  $handler->display->display_options['footer']['php_1']['id'] = 'php_1';
+  $handler->display->display_options['footer']['php_1']['table'] = 'views';
+  $handler->display->display_options['footer']['php_1']['field'] = 'php';
+  $handler->display->display_options['footer']['php_1']['php_output'] = '<?php GLOBAL $base_path; GLOBAL $base_root; $link =  $base_root . $base_path . "editorial"; ?><a href=\'<?php echo $link;?>\' class=\' editorial-slideshow-link editorial-slideshow-footer-link\'>Read All >> </a>';
   /* Field: Field: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -1252,6 +1256,7 @@ function pw_editorial_views_default_views() {
   $handler = $view->new_display('block', 'Editorial Slideshow (3) Block', 'editorial_slideshow_block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['block_description'] = 'Editorial (3) Block';
+  $handler->display->display_options['block_caching'] = '8';
 
   /* Display: Editorial Slideshow (5) Block */
   $handler = $view->new_display('block', 'Editorial Slideshow (5) Block', 'block_1');
@@ -1272,10 +1277,17 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['sorts']['field_image_fid']['field'] = 'field_image_fid';
   $handler->display->display_options['sorts']['field_image_fid']['order'] = 'DESC';
   $handler->display->display_options['block_description'] = 'Editorial (5) Block';
+  $handler->display->display_options['block_caching'] = '8';
 
   /* Display: Vertical Slide */
   $handler = $view->new_display('block', 'Vertical Slide', 'vertical_editorial_slider');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['cache'] = FALSE;
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'jcarousel';
   $handler->display->display_options['style_options']['wrap'] = '0';
@@ -1287,7 +1299,6 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['style_options']['easing'] = '';
   $handler->display->display_options['style_options']['vertical'] = 1;
   $handler->display->display_options['style_options']['navigation'] = 'after';
-  $handler->display->display_options['style_options']['ajax'] = 1;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -1379,6 +1390,7 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['filters']['promote']['field'] = 'promote';
   $handler->display->display_options['filters']['promote']['value'] = '1';
   $handler->display->display_options['block_description'] = 'Vertical Editorial Slideshow';
+  $handler->display->display_options['block_caching'] = '8';
   $export['editorial_slideshow'] = $view;
 
   $view = new view();
@@ -1396,7 +1408,11 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['title'] = 'Editorial Administration Page';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'time';
+  $handler->display->display_options['cache']['results_lifespan'] = '21600';
+  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['output_lifespan'] = '21600';
+  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -2433,7 +2449,6 @@ function pw_editorial_views_default_views() {
     'image_style' => 'medium',
     'image_link' => '',
   );
-  $handler->display->display_options['fields']['field_image']['delta_limit'] = '5';
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Field: User: First Name */
   $handler->display->display_options['fields']['field_first_name']['id'] = 'field_first_name';
@@ -2473,7 +2488,7 @@ function pw_editorial_views_default_views() {
   $handler->display->display_options['fields']['contact']['element_wrapper_class'] = '.contact-button';
   $handler->display->display_options['fields']['contact']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['contact']['text'] = 'Contact';
-  /* Field: Field: Phone */
+  /* Field: Field: Phone Number */
   $handler->display->display_options['fields']['field_phone']['id'] = 'field_phone';
   $handler->display->display_options['fields']['field_phone']['table'] = 'field_data_field_phone';
   $handler->display->display_options['fields']['field_phone']['field'] = 'field_phone';

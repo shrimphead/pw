@@ -276,7 +276,11 @@ function pw_cl_views_default_views() {
   $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
-  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'time';
+  $handler->display->display_options['cache']['results_lifespan'] = '300';
+  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['output_lifespan'] = '-1';
+  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -547,6 +551,21 @@ function pw_cl_views_default_views() {
   /* Display: Section Page */
   $handler = $view->new_display('page', 'Section Page', 'page');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: PHP */
+  $handler->display->display_options['empty']['php']['id'] = 'php';
+  $handler->display->display_options['empty']['php']['table'] = 'views';
+  $handler->display->display_options['empty']['php']['field'] = 'php';
+  $handler->display->display_options['empty']['php']['empty'] = TRUE;
+  $handler->display->display_options['empty']['php']['php_output'] = '<?php
+global $base_root;
+global $base_path;
+$term_id =  $view->args[0];
+$term = taxonomy_term_load($term_id);
+$term_name = $term->name;
+?>
+<h4>There are no classified ads in <em><?php print $term_name; ?></em> at this time.</h4>
+<a href=\'<?php print $base_root . $base_path; ?>ad/submit\'>Would you like to submit one?</a>';
   $handler->display->display_options['path'] = 'taxonomy/term/%';
 
   /* Display: Feed */

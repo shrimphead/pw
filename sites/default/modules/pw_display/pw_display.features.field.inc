@@ -1280,9 +1280,7 @@ with <strong>Page 30</strong>.<br>
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(
-          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        ),
+        'settings' => array(),
         'type' => 'options_select',
         'weight' => '5',
       ),

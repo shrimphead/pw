@@ -2306,7 +2306,7 @@ function pw_admin_views_default_views() {
   $handler->display->display_options['fields']['name_1']['label'] = '';
   $handler->display->display_options['fields']['name_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name_1']['element_label_colon'] = FALSE;
-  /* Field: Field: Phone */
+  /* Field: Field: Phone Number */
   $handler->display->display_options['fields']['field_phone']['id'] = 'field_phone';
   $handler->display->display_options['fields']['field_phone']['table'] = 'field_data_field_phone';
   $handler->display->display_options['fields']['field_phone']['field'] = 'field_phone';
@@ -4196,7 +4196,7 @@ function pw_admin_views_default_views() {
   $handler->display->display_options['fields']['name_1']['label'] = '';
   $handler->display->display_options['fields']['name_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name_1']['element_label_colon'] = FALSE;
-  /* Field: Field: Phone */
+  /* Field: Field: Phone Number */
   $handler->display->display_options['fields']['field_phone']['id'] = 'field_phone';
   $handler->display->display_options['fields']['field_phone']['table'] = 'field_data_field_phone';
   $handler->display->display_options['fields']['field_phone']['field'] = 'field_phone';
@@ -6739,7 +6739,7 @@ function pw_admin_views_default_views() {
   $handler->display->display_options['fields']['field_area_taxonomy']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_area_taxonomy']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_area_taxonomy']['delta_offset'] = '0';
-  /* Field: Field: Email */
+  /* Field: Content: Email */
   $handler->display->display_options['fields']['field_email']['id'] = 'field_email';
   $handler->display->display_options['fields']['field_email']['table'] = 'field_data_field_email';
   $handler->display->display_options['fields']['field_email']['field'] = 'field_email';
@@ -7071,6 +7071,24 @@ function pw_admin_views_default_views() {
   $handler->display->display_options['path'] = 'admin/pennywise/editorial/all';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Editorial';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'menu-pw-admin';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['tab_options']['type'] = 'tab';
+  $handler->display->display_options['tab_options']['title'] = 'Display Ads';
+  $handler->display->display_options['tab_options']['description'] = 'Show All Display Ads';
+  $handler->display->display_options['tab_options']['weight'] = '0';
+  $handler->display->display_options['tab_options']['name'] = 'management';
+
+  /* Display: Submissions */
+  $handler = $view->new_display('page', 'Submissions', 'page_1');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  $handler->display->display_options['path'] = 'admin/pennywise/editorial/submissions';
+  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['title'] = 'Submissions';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'menu-pw-admin';
   $handler->display->display_options['menu']['context'] = 0;
@@ -7623,7 +7641,9 @@ function pw_admin_views_default_views() {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'time';
   $handler->display->display_options['cache']['results_lifespan'] = '518400';
+  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
   $handler->display->display_options['cache']['output_lifespan'] = '518400';
+  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -7684,8 +7704,8 @@ function pw_admin_views_default_views() {
   $handler->display->display_options['filters']['field_classified_id_value']['operator'] = 'empty';
   $handler->display->display_options['filters']['field_classified_id_value']['group'] = '0';
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'classified_page');
+  /* Display: Front Page */
+  $handler = $view->new_display('page', 'Front Page', 'classified_page');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'front';
 
@@ -7699,6 +7719,7 @@ function pw_admin_views_default_views() {
   $handler->display->display_options['footer']['php']['table'] = 'views';
   $handler->display->display_options['footer']['php']['field'] = 'php';
   $handler->display->display_options['footer']['php']['php_output'] = '<?php GLOBAL $base_path; GLOBAL $base_root; $link =  $base_root . $base_path . "classifieds"; ?><a href=\'<?php echo $link;?>\' class=\' classified-block-footer-link\'>All Classifieds</a>';
+  $handler->display->display_options['block_caching'] = '8';
 
   /* Display: Sub List Block */
   $handler = $view->new_display('block', 'Sub List Block', 'tax_sub_list');
@@ -7778,6 +7799,7 @@ echo "
   $handler->display->display_options['filters']['field_classified_id_value']['operator'] = 'not empty';
   $handler->display->display_options['filters']['field_classified_id_value']['group'] = 1;
   $handler->display->display_options['block_description'] = 'Taxonomy Sub Section Block';
+  $handler->display->display_options['block_caching'] = '4';
 
   /* Display: Header Jump */
   $handler = $view->new_display('block', 'Header Jump', 'jump_list_block');
@@ -7844,6 +7866,7 @@ echo "
   $handler->display->display_options['filters']['field_classified_id_value']['operator'] = 'not empty';
   $handler->display->display_options['filters']['field_classified_id_value']['group'] = 1;
   $handler->display->display_options['block_description'] = 'Headers JUMP List';
+  $handler->display->display_options['block_caching'] = '8';
 
   /* Display: ALL Jump */
   $handler = $view->new_display('block', 'ALL Jump', 'all_classified_listing_jump_list');
@@ -7912,7 +7935,11 @@ echo "
   $handler->display->display_options['display_description'] = 'List ';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['cache'] = FALSE;
-  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'time';
+  $handler->display->display_options['cache']['results_lifespan'] = '21600';
+  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['output_lifespan'] = '518400';
+  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['style_options']['row_class'] = 'pw-classified-nav-row';

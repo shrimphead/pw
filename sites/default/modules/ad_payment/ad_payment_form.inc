@@ -23,7 +23,7 @@ Please don\'t post services, free estimates, buy 3 get 1 free, or free rides to 
         <p class="free-for-free-yes-list ">
          Please use 15 - 25 words to describe your one personal item per Free for Free ad.
           <ul>
-            <li>Puppies FREE to good home</li>
+            <li>Bunkbeds FREE to good home</li>
             <li>FREE pink floral couch</li>
             <li>FREE 2 wheel bike will fit 8 year old</li>
           </ul>

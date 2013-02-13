@@ -357,6 +357,7 @@ function pw_display_views_default_views() {
   );
   $handler->display->display_options['filters']['field_display_ad_type_value']['group'] = 1;
   $handler->display->display_options['block_description'] = 'Banner Block w/TID';
+  $handler->display->display_options['block_caching'] = '8';
 
   /* Display: Splash Block */
   $handler = $view->new_display('block', 'Splash Block', 'splash_block');
@@ -463,6 +464,7 @@ function pw_display_views_default_views() {
   );
   $handler->display->display_options['filters']['field_display_ad_type_value']['group'] = 1;
   $handler->display->display_options['block_description'] = 'Splash Block';
+  $handler->display->display_options['block_caching'] = '8';
 
   /* Display: Print Block */
   $handler = $view->new_display('block', 'Print Block', 'print_block');
@@ -604,6 +606,7 @@ rel="lightbox[field_display_ad_1]%5B<p><a href=\'[field_display_ad_1]\'Download 
   );
   $handler->display->display_options['filters']['field_display_ad_type_value']['group'] = 1;
   $handler->display->display_options['block_description'] = 'Print Block';
+  $handler->display->display_options['block_caching'] = '4';
 
   /* Display: Poster Filler */
   $handler = $view->new_display('block', 'Poster Filler', 'poster_filler');
@@ -876,6 +879,7 @@ rel="lightbox[field_display_ad_1]%5B<p><a href=\'[field_display_ad_1]\'Download 
   );
   $handler->display->display_options['filters']['field_display_ad_type_value']['group'] = 1;
   $handler->display->display_options['block_description'] = 'Splash Overflow Block';
+  $handler->display->display_options['block_caching'] = '8';
 
   /* Display: Target Block */
   $handler = $view->new_display('block', 'Target Block', 'target_block');
@@ -924,6 +928,7 @@ rel="lightbox[field_display_ad_1]%5B<p><a href=\'[field_display_ad_1]\'Download 
   );
   $handler->display->display_options['filters']['field_display_ad_type_value']['group'] = 1;
   $handler->display->display_options['block_description'] = 'Target Block ';
+  $handler->display->display_options['block_caching'] = '4';
 
   /* Display: Front Poster Block (2) */
   $handler = $view->new_display('block', 'Front Poster Block (2)', 'front_mulitiple_poster_block');

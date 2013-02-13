@@ -58,14 +58,6 @@ define ('ADP_LOGIN', FALSE);
  */
 define ('CC_VALIDATION_MODE', FALSE);
 
-/* Send message to users */
-// function _pw_send_message_to_user($message, $level){
-//   $alert_message = t('Internet Explorer 8 is currently experiencing problems with this page.
-//     <br>Please use <a href="http://getfirefox.com">Firefox</a> to submit classified ads at this time.');
-//
-// }
-
-
 /**
 * Implementation of HOOK_menu
 */
